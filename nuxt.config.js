@@ -27,7 +27,8 @@ export default {
   plugins: [
     // '~/plugins/api.js',
     '~/plugins/clickOutside.client.js',
-    // '~/plugins/vueAwesomeSwiper.js',
+    '~/plugins/vueAwesomeSwiper.js',
+    '~/plugins/other-libraries.js',
     // '~/plugins/v-viewer.client.js',
   ],
 

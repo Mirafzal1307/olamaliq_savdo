@@ -42,5 +42,20 @@
         </div>
       </div>
     </div>
+    <div class="my-8 space-y-4 max-w-6xl mx-auto">
+      <div class="font-semibold text-gray-700 text-2xl">
+        <span class="text-green-800">Experts</span> consultancy
+      </div>
+      <div class="">
+        <experts-swiper />
+      </div>
+    </div>
   </div>
 </template>
+
+<script>
+import expertsSwiper from '~/components/swipers/experts-swiper.vue'
+export default {
+  components: { expertsSwiper },
+}
+</script>
