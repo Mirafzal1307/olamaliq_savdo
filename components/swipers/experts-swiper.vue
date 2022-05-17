@@ -1,30 +1,41 @@
 <template>
-  <div class="consultation">
+  <div class="consultation relative">
     <swiper ref="swiper" class="swiper" :options="expertOption">
       <swiper-slide
         v-for="(expert, index) in experts"
         :key="index"
-        class="flex bg-white border rounded-md space-x-3 transition duration-500"
+        class="flex bg-white rounded-md space-x-3 z-0 pb-14 transition duration-500"
       >
-        <div class="group w-full hover:shadow-md shadow-sm">
-          <div class="flex justify-center px-2 pt-2 w-full">
+        <div class="group w-full hover:shadow-md shadow-sm relative">
+          <div class="flex justify-center w-full">
             <img :src="expert.img" class="w-full md:h-52 h-20 rounded-md object-cover" />
+          </div>
+          <div
+            class="
+              bg-white
+              rounded-md
+              inset-x-2
+              p-4
+              flex
+              justify-center
+              shadow-md
+              absolute
+              -bottom-7
+              z-20
+            "
+          >
+            <div class="block">
+              <div class="font-semibold text-gray-700 text-sm">{{ expert.name }}</div>
+              <div class="text-gray-500 text-xs text-center">{{ expert.category }}</div>
+            </div>
           </div>
         </div>
       </swiper-slide>
     </swiper>
-    <!-- <div class="absolute group top-1/2 lg:flex hidden justify-between inset-x-0">
-      <div
-        slot="button-prev"
-        class="swiper-button-prev btn shadow-md opacity-0 -left-9"
-        @click="prev()"
-      />
-      <div
-        slot="button-next"
-        class="swiper-button-next btn shadow-md opacity-0 -right-9"
-        @click="next()"
-      />
-    </div> -->
+    <div class="absolute group -top-10 flex justify-end right-14">
+      <div slot="button-prev" class="swiper-button-prev btn shadow-md rotate-90" @click="prev()" />
+      <div slot="button-next" class="swiper-button-next btn shadow-md rotate-45" @click="next()" />
+    </div>
   </div>
 </template>
 
@@ -38,11 +49,11 @@ export default {
         slideToClickedSlide: false,
         breakpoints: {
           1280: {
-            slidesPerView: 3,
+            slidesPerView: 4,
             spaceBetween: 16,
           },
           1024: {
-            slidesPerView: 3,
+            slidesPerView: 4,
             spaceBetween: 10,
           },
           768: {
@@ -92,6 +103,11 @@ export default {
           category: 'Finance expert',
           img: 'https://silkozari.com/web/images/miscellaneous/avatar.jpg',
         },
+        {
+          name: 'Shukhrat Sobirov',
+          category: 'Finance expert',
+          img: 'https://silkozari.com/web/images/miscellaneous/avatar.jpg',
+        },
       ],
     }
   },
@@ -110,19 +126,17 @@ export default {
 <style scoped>
 .swiper-button-prev,
 .swiper-button-next {
-  --swiper-theme-color: #059669;
+  --swiper-theme-color: #165340;
   background-color: white;
   padding: 22px;
-  color: #059669 !important;
-  fill: #059669 !important;
-  stroke: #059669 !important;
-  border-radius: 100%;
+  font-weight: 600;
+  color: #165340 !important;
+  fill: #165340 !important;
+  stroke: #165340 !important;
+  border-radius: 5px;
 }
 .swiper-button-next:after,
 .swiper-button-prev:after {
   font-size: 13px;
-}
-.consultation:hover .btn {
-  opacity: 1;
 }
 </style>
