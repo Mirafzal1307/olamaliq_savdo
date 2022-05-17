@@ -1,5 +1,5 @@
 <template>
-  <nav class="fixed w-full">
+  <nav class="static w-full">
     <div class="sm:px-6 lg:px-8 bg-green-900 p-3">
       <div class="max-w-6xl mx-auto px-4 sm:px-0">
         <div class="flex items-center justify-between text-white">
@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <div class="sm:px-6 lg:px-8 bg-white p-3 shadow-sm">
+    <div class="sm:px-6 lg:px-8 bg-white p-3 shadow-md">
       <div class="max-w-6xl mx-auto px-4 sm:px-0">
         <div class="flex items-center justify-between text-white">
           <svg
