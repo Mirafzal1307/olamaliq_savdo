@@ -6,7 +6,7 @@
         :key="index"
         class="flex bg-white rounded-md space-x-3 z-0 pb-14 transition duration-500"
       >
-        <div class="group w-full hover:shadow-md shadow-sm relative">
+        <div class="group w-full hover:shadow-md rounded-md shadow-sm relative">
           <div class="flex justify-center w-full">
             <img :src="expert.img" class="w-full md:h-52 h-20 rounded-md object-cover" />
           </div>
