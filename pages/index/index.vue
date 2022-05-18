@@ -94,6 +94,14 @@
           </div>
         </div>
       </div>
+      <div class="mt-12 space-y-4">
+        <div class="font-semibold text-gray-700 text-2xl">
+          Agri-finance <span class="text-green-800">News</span>
+        </div>
+        <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
+          <news-swiper class="col-span-3" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -101,9 +109,10 @@
 <script>
 import VideoCard from '~/components/main/videoCard.vue'
 import expertsSwiper from '~/components/swipers/experts-swiper.vue'
+import NewsSwiper from '~/components/swipers/news-swiper.vue'
 import PriceSwiper from '~/components/swipers/price-swiper.vue'
 export default {
-  components: { expertsSwiper, PriceSwiper, VideoCard },
+  components: { expertsSwiper, PriceSwiper, VideoCard, NewsSwiper },
   data() {
     return {
       items: [
