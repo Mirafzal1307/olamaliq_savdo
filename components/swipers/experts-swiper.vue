@@ -4,7 +4,7 @@
       <swiper-slide
         v-for="(expert, index) in experts"
         :key="index"
-        class="flex bg-white rounded-md space-x-3 z-0 pb-14 transition duration-500"
+        class="flex bg-white rounded-md space-x-3 z-0 pb-12 transition duration-500"
       >
         <div class="group w-full hover:shadow-md rounded-md shadow-sm relative">
           <div class="flex justify-center w-full">

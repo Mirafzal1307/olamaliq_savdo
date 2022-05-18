@@ -10,7 +10,7 @@
       <swiper-slide
         v-for="(price, index) in prices"
         :key="index"
-        class="flex bg-white rounded-md space-x-3 z-0 pb-14 transition duration-500"
+        class="flex bg-white rounded-md space-x-3 z-0 pb-2 transition duration-500"
         data-swiper-autoplay="2000"
       >
         <div

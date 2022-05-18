@@ -56,13 +56,22 @@
         <price-swiper />
       </div>
     </div>
+    <div class="mt-12 space-y-4 max-w-6xl mx-auto">
+      <div class="font-semibold text-gray-700 text-2xl">
+        <span class="text-green-800">Video</span> tutorials
+      </div>
+      <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
+        <video-card class="col-span-3" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import VideoCard from '~/components/main/videoCard.vue'
 import expertsSwiper from '~/components/swipers/experts-swiper.vue'
 import PriceSwiper from '~/components/swipers/price-swiper.vue'
 export default {
-  components: { expertsSwiper, PriceSwiper },
+  components: { expertsSwiper, PriceSwiper, VideoCard },
 }
 </script>
