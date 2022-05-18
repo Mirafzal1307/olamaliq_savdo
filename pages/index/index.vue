@@ -42,26 +42,57 @@
         </div>
       </div>
     </div>
-    <div class="mt-12 space-y-4 max-w-6xl mx-auto">
-      <div class="font-semibold text-gray-700 text-2xl">
-        <span class="text-green-800">Experts</span> consultancy
+    <div class="max-w-6xl mx-auto">
+      <div class="mt-12 space-y-4">
+        <div class="font-semibold text-gray-700 text-2xl">
+          <span class="text-green-800">Experts</span> consultancy
+        </div>
+        <div class="">
+          <experts-swiper />
+        </div>
       </div>
-      <div class="">
-        <experts-swiper />
+      <div class="mt-12 space-y-4">
+        <div class="font-semibold text-green-800 text-2xl">Price</div>
+        <div class="">
+          <price-swiper />
+        </div>
       </div>
-    </div>
-    <div class="mt-12 space-y-4 max-w-6xl mx-auto">
-      <div class="font-semibold text-green-800 text-2xl">Price</div>
-      <div class="">
-        <price-swiper />
+      <div class="mt-12 space-y-4">
+        <div class="font-semibold text-gray-700 text-2xl">
+          <span class="text-green-800">Video</span> tutorials
+        </div>
+        <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
+          <video-card class="col-span-3" />
+        </div>
       </div>
-    </div>
-    <div class="mt-12 space-y-4 max-w-6xl mx-auto">
-      <div class="font-semibold text-gray-700 text-2xl">
-        <span class="text-green-800">Video</span> tutorials
-      </div>
-      <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
-        <video-card class="col-span-3" />
+      <div class="grid grid-cols-2 mt-12 space-x-10">
+        <img src="~/assets/images/map.png" alt="" />
+        <div class="relative">
+          <div class="text-xl text-gray-800 font-semibold">
+            <span class="text-green-800">Karakalpakstan</span> - didactive map
+          </div>
+          <div class="text-gray-500 text-sm leading-6 mt-7">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+            has been the industry's standard dummy text ever since the 1500s, when an unknown
+            printer took a galley of type and scrambled it make a type specimen book.
+          </div>
+          <div class="grid grid-cols-2 mt-10 gap-10">
+            <div v-for="(item, index) in items" :key="index">
+              <div class="flex items-center">
+                <img
+                  :src="require(`~/assets/images/${item.image}.png`)"
+                  class="w-6 object-contain"
+                />
+                <p class="text-base font-semibold text-gray-800 ml-4">{{ item.title }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="absolute bottom-0">
+            <button class="text-white py-3 px-7 font-medium bg-green-700 rounded-md text-sm">
+              Discover more
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -73,5 +104,35 @@ import expertsSwiper from '~/components/swipers/experts-swiper.vue'
 import PriceSwiper from '~/components/swipers/price-swiper.vue'
 export default {
   components: { expertsSwiper, PriceSwiper, VideoCard },
+  data() {
+    return {
+      items: [
+        {
+          image: 'district',
+          title: 'District Hokimiyat',
+        },
+        {
+          image: 'bank',
+          title: 'Banks',
+        },
+        {
+          image: 'terminal',
+          title: 'Terminal stations',
+        },
+        {
+          image: 'railway',
+          title: 'Railway stations',
+        },
+        {
+          image: 'farmers',
+          title: 'Farmers unions',
+        },
+        {
+          image: 'supply',
+          title: 'Supply points',
+        },
+      ],
+    }
+  },
 }
 </script>
