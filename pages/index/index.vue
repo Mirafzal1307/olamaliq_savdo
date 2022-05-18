@@ -102,6 +102,42 @@
           <news-swiper class="col-span-3" />
         </div>
       </div>
+      <div class="mt-12 space-y-4">
+        <div class="font-semibold text-gray-700 text-2xl">
+          Frequently <span class="text-green-800">Asked Questions</span>
+        </div>
+        <div class="grid grid-cols-2 gap-6">
+          <div>
+            <div class="text-gray-500 leading-7 text-sm">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+              has been the industry's standard dummy text ever since the 1500s, when an unknown of
+              type and scrambled it to make a type specimen book.
+            </div>
+            <button
+              :class="answerOpened ? 'bg-green-700 text-white' : 'bg-yellow-50'"
+              class="
+                w-full
+                focus:outline-none
+                rounded-md
+                py-3
+                px-5
+                flex
+                items-center
+                justify-between
+                mt-6
+              "
+              @click="openAnswer()"
+            >
+              <div>1. Which Plan Is Right For Me?</div>
+              <i :class="answerOpened ? 'bx-x' : 'bx-plus'" class="bx text-xl"></i>
+            </button>
+            <div v-show="answerOpened" class="bg-white p-5 text-gray-500 text-xs">
+              Lorem ipsum dolor sit.
+            </div>
+          </div>
+          <img src="~/assets/images/home.png" class="rounded-md" alt="home" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -141,7 +177,13 @@ export default {
           title: 'Supply points',
         },
       ],
+      answerOpened: false,
     }
+  },
+  methods: {
+    openAnswer() {
+      this.answerOpened = !this.answerOpened
+    },
   },
 }
 </script>
