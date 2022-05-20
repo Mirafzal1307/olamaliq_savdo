@@ -61,8 +61,8 @@
         <div class="font-semibold text-gray-700 text-2xl">
           <span class="text-green-800">Video</span> tutorials
         </div>
-        <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
-          <video-card class="col-span-3" />
+        <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1">
+          <video-card class="col-span-4" />
         </div>
       </div>
       <div class="grid grid-cols-2 mt-12 space-x-10">
@@ -131,11 +131,30 @@
               <div>1. Which Plan Is Right For Me?</div>
               <i :class="answerOpened ? 'bx-x' : 'bx-plus'" class="bx text-xl"></i>
             </button>
-            <div v-show="answerOpened" class="bg-white p-5 text-gray-500 text-xs">
-              Lorem ipsum dolor sit.
-            </div>
+            <transition
+              enter-active-class="ease-out duration-300"
+              enter-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              enter-to-class="opacity-100 translate-y-0 sm:scale-100"
+              leave-active-class="ease-in duration-200"
+              leave-class="opacity-100 translate-y-0 sm:scale-100"
+              leave-to-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            >
+              <div v-show="answerOpened" class="bg-white p-5 text-gray-500 text-xs">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat
+                eget risus sollicitudin pellentes queet non erat. Maecenas nibh dolor, malesuada et
+                bibendum a, sagittis accumsan ipsum. Pellentesque ultrices ultrices sapien, nec
+                tincidunt nunc posuere ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Name ultrices scelerisque tristique dolor vitae tincidunt. Aenean quis massa uada mi
+                elementum elementum. Nec sapien convallis vulputate rhoncus vel dui.
+              </div>
+            </transition>
           </div>
           <img src="~/assets/images/home.png" class="rounded-md" alt="home" />
+        </div>
+      </div>
+      <div class="mt-12 space-y-4">
+        <div class="">
+          <partners-swiper />
         </div>
       </div>
     </div>
@@ -147,8 +166,9 @@ import VideoCard from '~/components/main/videoCard.vue'
 import expertsSwiper from '~/components/swipers/experts-swiper.vue'
 import NewsSwiper from '~/components/swipers/news-swiper.vue'
 import PriceSwiper from '~/components/swipers/price-swiper.vue'
+import PartnersSwiper from '~/components/swipers/partners-swiper.vue'
 export default {
-  components: { expertsSwiper, PriceSwiper, VideoCard, NewsSwiper },
+  components: { expertsSwiper, PriceSwiper, VideoCard, NewsSwiper, PartnersSwiper },
   data() {
     return {
       items: [

@@ -3,7 +3,7 @@
     <div class="flex space-x-4">
       <div v-for="(video, index) in videos" :key="index">
         <div class="border rounded-md border-gray-200 shadow-sm hover:shadow-md">
-          <img src="~/assets/images/video.png" class="h-64 object-cover rounded-md" />
+          <img src="~/assets/images/video.png" class="h-60 object-cover rounded-md" />
           <div class="p-4">
             <div class="flex items-center justify-between">
               <div
@@ -46,6 +46,12 @@ export default {
   data() {
     return {
       videos: [
+        {
+          img: '~/assets/images/video.png',
+          date: 'Sep 6 - 2021',
+          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
+          subtitle: 'Lorem ipsum',
+        },
         {
           img: '~/assets/images/video.png',
           date: 'Sep 6 - 2021',

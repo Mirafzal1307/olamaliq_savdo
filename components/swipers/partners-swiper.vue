@@ -1,0 +1,121 @@
+<template>
+  <div class="relative">
+    <swiper
+      ref="swiper"
+      class="swiper"
+      :options="partnerOption"
+      :autoplay="{ delay: 2000, disableOnIteraction: false }"
+      :pagination="{ clickable: true }"
+    >
+      <swiper-slide
+        v-for="(partner, index) in partners"
+        :key="index"
+        class="flex space-x-3 z-0 pb-2"
+        data-swiper-autoplay="2000"
+      >
+        <div class="group w-full">
+          <div class="flex items-center w-full bg-white rounded-md p-2 gap-2">
+            <img :src="require(`~/assets/images/${partner.img}.png`)" />
+          </div>
+        </div>
+      </swiper-slide>
+    </swiper>
+    <!-- <div class="absolute group -top-10 flex justify-end right-14">
+      <div slot="button-prev" class="swiper-button-prev btn shadow-md rotate-90" @click="prev()" />
+      <div slot="button-next" class="swiper-button-next btn shadow-md rotate-45" @click="next()" />
+    </div> -->
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'PartnersSwiper',
+  data() {
+    return {
+      partnerOption: {
+        direction: 'horizontal',
+        slideToClickedSlide: false,
+        loop: true,
+        autoplay: {
+          delay: 2000,
+        },
+        pagination: {
+          clickable: true,
+        },
+        breakpoints: {
+          1280: {
+            slidesPerView: 5,
+            spaceBetween: 16,
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+          },
+          640: {
+            slidesPerView: 2.5,
+            spaceBetween: 6,
+          },
+          410: {
+            slidesPerView: 2.5,
+            spaceBetween: 10,
+          },
+          350: {
+            slidesPerView: 2.5,
+            spaceBetween: 10,
+          },
+          320: {
+            slidesPerView: 2.3,
+            spaceBetween: 10,
+          },
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      },
+      partners: [
+        {
+          img: 'morris',
+        },
+        {
+          img: 'forris',
+        },
+        {
+          img: 'acme',
+        },
+      ],
+    }
+  },
+
+  methods: {
+    prev() {
+      this.$refs.swiper.$swiper.slidePrev()
+    },
+    next() {
+      this.$refs.swiper.$swiper.slideNext()
+    },
+  },
+}
+</script>
+
+<style scoped>
+.swiper-button-prev,
+.swiper-button-next {
+  --swiper-theme-color: #165340;
+  background-color: white;
+  padding: 22px;
+  font-weight: 600;
+  color: #165340 !important;
+  fill: #165340 !important;
+  stroke: #165340 !important;
+  border-radius: 5px;
+}
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 13px;
+}
+</style>
