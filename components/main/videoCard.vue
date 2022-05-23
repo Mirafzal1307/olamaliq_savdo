@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex space-x-4">
+    <div class="space-x-4 grid grid-cols-3">
       <div v-for="(video, index) in videos" :key="index">
         <div class="border rounded-md border-gray-200 shadow-sm hover:shadow-md">
           <img src="~/assets/images/video.png" class="h-60 object-cover rounded-md" />
@@ -64,12 +64,12 @@ export default {
           title: 'Ask The Agronomists: Lawncare Tips From The Experts',
           subtitle: 'Lorem ipsum',
         },
-        {
-          img: '~/assets/images/video.png',
-          date: 'Sep 6 - 2021',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-        },
+        // {
+        //   img: '~/assets/images/video.png',
+        //   date: 'Sep 6 - 2021',
+        //   title: 'Ask The Agronomists: Lawncare Tips From The Experts',
+        //   subtitle: 'Lorem ipsum',
+        // },
       ],
     }
   },

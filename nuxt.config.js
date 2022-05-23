@@ -1,3 +1,5 @@
+import i18n from './config/i18n'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -37,6 +39,39 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    [
+      'nuxt-i18n',
+      {
+        vueI18nLoader: true,
+        defaultLocale: 'en',
+        detectBrowserLanguage: false,
+        seo: true,
+        strategy: 'prefix',
+        locales: [
+          {
+            code: 'en',
+            name: 'English',
+            iso: 'en',
+          },
+          {
+            code: 'ru',
+            name: 'Русский',
+            iso: 'ru',
+          },
+          {
+            code: 'uz',
+            name: 'Ўзбекча',
+            iso: 'uz',
+          },
+          {
+            code: 'kl',
+            name: 'Qoraqalpoq',
+            iso: 'kl',
+          },
+        ],
+        vueI18n: i18n,
+      },
+    ],
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     '@nuxtjs/tailwindcss',
