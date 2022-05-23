@@ -1,5 +1,5 @@
 <template>
-  <div class="relative">
+  <div class="price relative">
     <swiper
       ref="swiper"
       class="swiper"
@@ -14,7 +14,7 @@
         data-swiper-autoplay="2000"
       >
         <div
-          class="group w-full hover:shadow-md shadow-sm border border-gray-50 rounded-md relative"
+          class="group w-full hover:shadow-md shadow-sm border border-gray-100 rounded-md relative"
         >
           <div class="flex items-center w-full bg-white rounded-md p-2 gap-2">
             <img :src="price.img" class="w-14 rounded-md" />
@@ -30,10 +30,18 @@
         </div>
       </swiper-slide>
     </swiper>
-    <!-- <div class="absolute group -top-10 flex justify-end right-14">
-      <div slot="button-prev" class="swiper-button-prev btn shadow-md rotate-90" @click="prev()" />
-      <div slot="button-next" class="swiper-button-next btn shadow-md rotate-45" @click="next()" />
-    </div> -->
+    <div class="absolute group top-1/2 lg:flex hidden justify-between -inset-x-9">
+      <div
+        slot="button-prev"
+        class="swiper-button-prev btn shadow-md opacity-0 left-9"
+        @click="prev()"
+      />
+      <div
+        slot="button-next"
+        class="swiper-button-next btn shadow-md opacity-0 -right-9"
+        @click="next()"
+      />
+    </div>
   </div>
 </template>
 
@@ -54,11 +62,11 @@ export default {
         },
         breakpoints: {
           1280: {
-            slidesPerView: 4,
+            slidesPerView: 3.8,
             spaceBetween: 16,
           },
           1024: {
-            slidesPerView: 4,
+            slidesPerView: 4.3,
             spaceBetween: 10,
           },
           768: {
@@ -148,17 +156,19 @@ export default {
 <style scoped>
 .swiper-button-prev,
 .swiper-button-next {
-  --swiper-theme-color: #165340;
+  --swiper-theme-color: #059669;
   background-color: white;
   padding: 22px;
-  font-weight: 600;
-  color: #165340 !important;
-  fill: #165340 !important;
-  stroke: #165340 !important;
-  border-radius: 5px;
+  color: #059669 !important;
+  fill: #059669 !important;
+  stroke: #059669 !important;
+  border-radius: 100%;
 }
 .swiper-button-next:after,
 .swiper-button-prev:after {
   font-size: 13px;
+}
+.price:hover .btn {
+  opacity: 1;
 }
 </style>

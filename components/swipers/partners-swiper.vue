@@ -1,5 +1,5 @@
 <template>
-  <div class="relative">
+  <div class="partners relative">
     <swiper
       ref="swiper"
       class="swiper"
@@ -20,10 +20,18 @@
         </div>
       </swiper-slide>
     </swiper>
-    <!-- <div class="absolute group -top-10 flex justify-end right-14">
-      <div slot="button-prev" class="swiper-button-prev btn shadow-md rotate-90" @click="prev()" />
-      <div slot="button-next" class="swiper-button-next btn shadow-md rotate-45" @click="next()" />
-    </div> -->
+    <div class="absolute group top-1/2 lg:flex hidden justify-between -inset-x-9">
+      <div
+        slot="button-prev"
+        class="swiper-button-prev btn shadow-md opacity-0 left-9"
+        @click="prev()"
+      />
+      <div
+        slot="button-next"
+        class="swiper-button-next btn shadow-md opacity-0 -right-9"
+        @click="next()"
+      />
+    </div>
   </div>
 </template>
 
@@ -105,17 +113,19 @@ export default {
 <style scoped>
 .swiper-button-prev,
 .swiper-button-next {
-  --swiper-theme-color: #165340;
+  --swiper-theme-color: #059669;
   background-color: white;
   padding: 22px;
-  font-weight: 600;
-  color: #165340 !important;
-  fill: #165340 !important;
-  stroke: #165340 !important;
-  border-radius: 5px;
+  color: #059669 !important;
+  fill: #059669 !important;
+  stroke: #059669 !important;
+  border-radius: 100%;
 }
 .swiper-button-next:after,
 .swiper-button-prev:after {
   font-size: 13px;
+}
+.partners:hover .btn {
+  opacity: 1;
 }
 </style>

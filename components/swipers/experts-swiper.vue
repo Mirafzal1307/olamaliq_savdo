@@ -1,5 +1,5 @@
 <template>
-  <div class="consultation relative">
+  <div class="experts relative">
     <swiper ref="swiper" class="swiper" :options="expertOption">
       <swiper-slide
         v-for="(expert, index) in experts"
@@ -8,7 +8,10 @@
       >
         <div class="group w-full hover:shadow-md rounded-md shadow-sm relative">
           <div class="flex justify-center w-full">
-            <img :src="expert.img" class="w-full md:h-52 h-20 rounded-md object-cover" />
+            <img
+              :src="expert.img"
+              class="w-full md:h-52 h-20 rounded-md object-cover group-hover:opacity-60"
+            />
           </div>
           <div
             class="
@@ -27,14 +30,39 @@
             <div class="block">
               <div class="font-semibold text-gray-700 text-sm">{{ expert.name }}</div>
               <div class="text-gray-500 text-xs text-center">{{ expert.category }}</div>
+              <button
+                class="
+                  bg-green-700
+                  rounded-md
+                  text-white text-xs
+                  py-2
+                  px-5
+                  mt-3
+                  hidden
+                  group-hover:flex
+                  transition
+                  delay-75
+                  duration-500
+                "
+              >
+                Get consultation
+              </button>
             </div>
           </div>
         </div>
       </swiper-slide>
     </swiper>
-    <div class="absolute group -top-10 flex justify-end right-14">
-      <div slot="button-prev" class="swiper-button-prev btn shadow-md rotate-90" @click="prev()" />
-      <div slot="button-next" class="swiper-button-next btn shadow-md rotate-45" @click="next()" />
+    <div class="absolute group top-1/2 lg:flex hidden justify-between -inset-x-9">
+      <div
+        slot="button-prev"
+        class="swiper-button-prev btn shadow-md opacity-0 left-9"
+        @click="prev()"
+      />
+      <div
+        slot="button-next"
+        class="swiper-button-next btn shadow-md opacity-0 -right-9"
+        @click="next()"
+      />
     </div>
   </div>
 </template>
@@ -49,11 +77,11 @@ export default {
         slideToClickedSlide: false,
         breakpoints: {
           1280: {
-            slidesPerView: 4,
+            slidesPerView: 4.5,
             spaceBetween: 16,
           },
           1024: {
-            slidesPerView: 4,
+            slidesPerView: 4.5,
             spaceBetween: 10,
           },
           768: {
@@ -126,17 +154,19 @@ export default {
 <style scoped>
 .swiper-button-prev,
 .swiper-button-next {
-  --swiper-theme-color: #165340;
+  --swiper-theme-color: #059669;
   background-color: white;
   padding: 22px;
-  font-weight: 600;
-  color: #165340 !important;
-  fill: #165340 !important;
-  stroke: #165340 !important;
-  border-radius: 5px;
+  color: #059669 !important;
+  fill: #059669 !important;
+  stroke: #059669 !important;
+  border-radius: 100%;
 }
 .swiper-button-next:after,
 .swiper-button-prev:after {
   font-size: 13px;
+}
+.experts:hover .btn {
+  opacity: 1;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="relative">
+  <div class="news relative">
     <swiper
       ref="swiper"
       class="swiper"
@@ -36,16 +36,24 @@
               <div class="absolute left-5 text-sm bottom-5 text-white">
                 {{ info.date }}
               </div>
-              <div class="absolute right-5 text-sm bottom-5 text-white underline">Read</div>
+              <div class="absolute right-5 text-sm bottom-5 text-white">Read</div>
             </nuxt-link>
           </div>
         </div>
       </swiper-slide>
     </swiper>
-    <!-- <div class="absolute group -top-10 flex justify-end right-14">
-      <div slot="button-prev" class="swiper-button-prev btn shadow-md rotate-90" @click="prev()" />
-      <div slot="button-next" class="swiper-button-next btn shadow-md rotate-45" @click="next()" />
-    </div> -->
+    <div class="absolute group top-1/2 lg:flex hidden justify-between -inset-x-9">
+      <div
+        slot="button-prev"
+        class="swiper-button-prev btn shadow-md opacity-0 left-9"
+        @click="prev()"
+      />
+      <div
+        slot="button-next"
+        class="swiper-button-next btn shadow-md opacity-0 -right-9"
+        @click="next()"
+      />
+    </div>
   </div>
 </template>
 
@@ -138,3 +146,23 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.swiper-button-prev,
+.swiper-button-next {
+  --swiper-theme-color: #059669;
+  background-color: white;
+  padding: 22px;
+  color: #059669 !important;
+  fill: #059669 !important;
+  stroke: #059669 !important;
+  border-radius: 100%;
+}
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 13px;
+}
+.news:hover .btn {
+  opacity: 1;
+}
+</style>

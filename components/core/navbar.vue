@@ -26,7 +26,7 @@
     <div class="sm:px-6 lg:px-8 bg-white p-3 shadow-md">
       <div class="max-w-6xl mx-auto px-4 sm:px-0">
         <div class="flex items-center justify-between text-white">
-          <router-link to="/">
+          <router-link :to="{ path: localePath('/') }">
             <svg
               width="110"
               height="30"
@@ -49,13 +49,20 @@
               v-for="(menu, index) in navbar"
               :key="index"
               class="flex items-center text-gray-800"
+              :class="
+                $route.path.search(menu.route) > 0
+                  ? 'text-base text-green-700 border-b-2 font-medium border-green-700'
+                  : 'text-gray-800 hover:text-green-700 font-medium hover:border-b-2 hover:border-green-700 text-base '
+              "
             >
-              <router-link :to="menu.route">
+              <router-link :to="{ path: localePath(menu.route) }">
                 {{ menu.name }}
               </router-link>
             </div>
           </div>
-          <button class="text-white text-sm rounded-md bg-green-700 p-3">Login / Register</button>
+          <button class="text-white focus:outline-none text-sm rounded-md bg-green-700 p-3">
+            Login / Register
+          </button>
         </div>
       </div>
     </div>

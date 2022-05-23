@@ -33,7 +33,11 @@
               insightful ideas.
             </div>
             <div class="my-5">
-              <button class="text-white text-sm bg-green-700 rounded-md py-3 px-5">Register</button>
+              <button
+                class="text-white text-sm bg-green-700 focus:outline-none rounded-md py-3 px-5"
+              >
+                Register
+              </button>
             </div>
           </div>
           <div class="pt-11">
@@ -88,7 +92,18 @@
             </div>
           </div>
           <div class="absolute bottom-0">
-            <button class="text-white py-3 px-7 font-medium bg-green-700 rounded-md text-sm">
+            <button
+              class="
+                text-white
+                focus:outline-none
+                py-3
+                px-7
+                font-medium
+                bg-green-700
+                rounded-md
+                text-sm
+              "
+            >
               Discover more
             </button>
           </div>
@@ -187,6 +202,14 @@ export default {
         {
           image: 'railway',
           title: 'Railway stations',
+        },
+        {
+          image: 'refrigerator',
+          title: 'Refrigerators',
+        },
+        {
+          image: 'government',
+          title: 'Government branches',
         },
         {
           image: 'farmers',

@@ -25,7 +25,7 @@
         <div class="font-semibold text-base pb-5">Useful Links</div>
         <div class="grid grid-cols-2 text-xs gap-3">
           <div v-for="(item, index) in footer" :key="index">
-            <router-link to="/" class="flex items-center">
+            <router-link :to="{ path: localePath('/') }" class="flex items-center">
               <i class="bx bx-chevron-right text-white text-lg"></i>
               <p>{{ item.title }}</p>
             </router-link>
@@ -37,7 +37,7 @@
           <div class="font-semibold text-base pb-6">Services</div>
           <div class="space-y-3 text-xs">
             <div v-for="(service, index) in services" :key="index">
-              <router-link to="/" class="flex items-center gap-3">
+              <router-link :to="{ path: localePath('/') }" class="flex items-center gap-3">
                 <p>{{ service.title }}</p>
               </router-link>
             </div>
@@ -57,7 +57,7 @@
           <div class="text-gray-700 text-lg font-semibold mr-4">
             We are hiring experienced experts
           </div>
-          <button class="text-white text-sm rounded-md bg-green-700 py-2 px-7">
+          <button class="text-white focus:outline-none text-sm rounded-md bg-green-700 py-2 px-7">
             Fill up the request form
           </button>
         </div>

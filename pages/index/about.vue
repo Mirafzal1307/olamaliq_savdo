@@ -90,7 +90,9 @@
               </div>
             </div>
             <div class="mt-5">
-              <button class="text-white text-sm bg-green-500 rounded-md py-3 px-5">
+              <button
+                class="text-white focus:outline-none text-sm bg-green-500 rounded-md py-3 px-5"
+              >
                 Discover more
               </button>
             </div>
@@ -276,7 +278,9 @@
               </div>
             </div>
             <div class="flex col-start-2 justify-end w-auto">
-              <button class="text-white bg-green-700 rounded-md py-2 px-5">Submit now</button>
+              <button class="text-white focus:outline-none bg-green-700 rounded-md py-2 px-5">
+                Submit now
+              </button>
             </div>
           </div>
           <div class="bg-yellow-50 rounded-md p-5">
