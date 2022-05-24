@@ -80,7 +80,7 @@ export default {
     return {
       navbar: [
         { name: 'About', route: '/about' },
-        { name: 'E-learning', route: '/' },
+        { name: 'E-learning', route: '/e-learning' },
         { name: 'Agri-business', route: '/' },
         { name: 'Agri-finance', route: '/' },
         { name: 'Agri-market', route: '/' },

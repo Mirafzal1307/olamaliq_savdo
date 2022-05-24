@@ -309,12 +309,19 @@
           </div>
         </div>
       </div>
+      <div class="mt-12 space-y-4">
+        <partners-swiper />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import PartnersSwiper from '~/components/swipers/partners-swiper.vue'
 export default {
   name: 'About',
+  components: {
+    PartnersSwiper,
+  },
 }
 </script>

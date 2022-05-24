@@ -43,10 +43,10 @@ export default {
       partnerOption: {
         direction: 'horizontal',
         slideToClickedSlide: false,
-        loop: true,
-        autoplay: {
-          delay: 2000,
-        },
+        // loop: true,
+        // autoplay: {
+        //   delay: 2000,
+        // },
         pagination: {
           clickable: true,
         },
@@ -91,6 +91,18 @@ export default {
         },
         {
           img: 'forris',
+        },
+        {
+          img: 'acme',
+        },
+        {
+          img: 'acme',
+        },
+        {
+          img: 'acme',
+        },
+        {
+          img: 'acme',
         },
         {
           img: 'acme',

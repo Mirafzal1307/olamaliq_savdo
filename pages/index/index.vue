@@ -65,8 +65,16 @@
         <div class="font-semibold text-gray-700 text-2xl">
           <span class="text-green-800">Video</span> tutorials
         </div>
-        <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1">
-          <video-card class="col-span-4" />
+        <div class="grid md:grid-cols-3 gap-6 sm:grid-cols-2 grid-cols-1">
+          <div v-for="(video, index) in videos" :key="index" class="mt-6">
+            <video-card :data="video" />
+          </div>
+        </div>
+        <div class="flex items-center justify-center my-4">
+          <button class="text-green-800 focus:outline-none text-sm flex items-center">
+            See all
+            <i class="bx bx-right-arrow-alt text-green-800 text-xl ml-1"></i>
+          </button>
         </div>
       </div>
       <div class="grid grid-cols-2 mt-12 space-x-10">
@@ -177,13 +185,12 @@
 </template>
 
 <script>
-import VideoCard from '~/components/main/videoCard.vue'
 import expertsSwiper from '~/components/swipers/experts-swiper.vue'
 import NewsSwiper from '~/components/swipers/news-swiper.vue'
 import PriceSwiper from '~/components/swipers/price-swiper.vue'
 import PartnersSwiper from '~/components/swipers/partners-swiper.vue'
 export default {
-  components: { expertsSwiper, PriceSwiper, VideoCard, NewsSwiper, PartnersSwiper },
+  components: { expertsSwiper, PriceSwiper, NewsSwiper, PartnersSwiper },
   data() {
     return {
       items: [
@@ -219,6 +226,35 @@ export default {
           image: 'supply',
           title: 'Supply points',
         },
+      ],
+      videos: [
+        {
+          id: '1',
+          img: '~/assets/images/video.png',
+          date: 'Sep 6 - 2021',
+          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
+          subtitle: 'Lorem ipsum',
+        },
+        {
+          id: '2',
+          img: '~/assets/images/video.png',
+          date: 'Sep 6 - 2021',
+          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
+          subtitle: 'Lorem ipsum',
+        },
+        {
+          id: '3',
+          img: '~/assets/images/video.png',
+          date: 'Sep 6 - 2021',
+          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
+          subtitle: 'Lorem ipsum',
+        },
+        // {
+        //   img: '~/assets/images/video.png',
+        //   date: 'Sep 6 - 2021',
+        //   title: 'Ask The Agronomists: Lawncare Tips From The Experts',
+        //   subtitle: 'Lorem ipsum',
+        // },
       ],
       answerOpened: false,
     }
