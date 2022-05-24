@@ -69,8 +69,90 @@
             <div class="rounded-md bg-yellow-100 text-gray-600 py-1 px-2">Projects</div>
           </div>
         </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3 my-4">
+            <img
+              src="~/assets/images/about.png"
+              class="rounded-md w-28 h-20 object-cover"
+              alt="about"
+            />
+            <div class="grid content-between text-gray-600 text-sm h-14">
+              <p class="">16 Garden design ideas to do</p>
+              <p>Sep 12, 2021</p>
+            </div>
+          </div>
+          <button
+            class="
+              flex
+              items-center
+              border
+              rounded-md
+              border-green-700
+              py-2
+              px-3
+              text-green-700 text-sm
+            "
+          >
+            Newer post
+            <i class="bx bx-chevrons-right text-xl text-green-700 ml-1"></i>
+          </button>
+        </div>
       </div>
-      <div>Lorem</div>
+      <div class="space-y-5">
+        <div class="bg-white rounded-md border border-gray-100 shadow-md p-5">
+          <div class="text-gray-700 font-semibold text-xl">Useful materials</div>
+          <div class="flex items-center justify-between rounded-md bg-green-700 p-3 my-4">
+            <div class="flex items-center space-x-3">
+              <i class="bx bx-file text-white text-xl"></i>
+              <p class="text-base text-white">Guidelenes</p>
+            </div>
+            <div><i class="bx bx-download text-white text-xl"></i></div>
+          </div>
+          <div class="flex items-center justify-between rounded-md bg-yellow-100 p-3">
+            <div class="flex items-center space-x-3">
+              <i class="bx bxs-file-pdf text-gray-700 text-2xl"></i>
+              <p class="text-base text-gray-700">Analitical documents</p>
+            </div>
+            <div><i class="bx bx-download text-gray-700 text-xl"></i></div>
+          </div>
+        </div>
+        <div class="bg-white rounded-md border border-gray-100 shadow-md p-5">
+          <div class="text-gray-700 font-semibold text-xl">Releted videos</div>
+          <div class="flex items-center space-x-3 my-4">
+            <img
+              src="~/assets/images/about.png"
+              class="rounded-md w-28 h-20 object-cover"
+              alt="about"
+            />
+            <div class="grid content-between text-gray-600 text-sm h-14">
+              <p class="">16 Garden design ideas to do</p>
+              <p>Sep 12, 2021</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-3 my-4">
+            <img
+              src="~/assets/images/about.png"
+              class="rounded-md w-28 h-20 object-cover"
+              alt="about"
+            />
+            <div class="grid content-between text-gray-600 text-sm h-14">
+              <p class="">Spring Lawn Care Tips</p>
+              <p>Sep 12, 2021</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-3 my-4">
+            <img
+              src="~/assets/images/about.png"
+              class="rounded-md w-28 h-20 object-cover"
+              alt="about"
+            />
+            <div class="grid content-between text-gray-600 text-sm h-14">
+              <p class="">How to Make Fresh Flowers</p>
+              <p>Sep 12, 2021</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
