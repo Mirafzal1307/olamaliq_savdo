@@ -48,7 +48,7 @@
             <div
               v-for="(menu, index) in navbar"
               :key="index"
-              class="flex items-center text-gray-800"
+              class="flex items-center"
               :class="
                 $route.path.search(menu.route) > 0
                   ? 'text-base text-green-700 border-b-2 font-medium border-green-700'
@@ -84,7 +84,7 @@ export default {
         { name: 'Agri-business', route: '/' },
         { name: 'Agri-finance', route: '/' },
         { name: 'Agri-market', route: '/' },
-        { name: 'Advisory', route: '/' },
+        { name: 'Advisory', route: '/advisory' },
       ],
     }
   },

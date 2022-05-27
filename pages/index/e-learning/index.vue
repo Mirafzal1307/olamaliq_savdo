@@ -22,11 +22,11 @@
             type="search"
             name="search"
             class="
-              focus:ring-indigo-500 focus:border-indigo-500
               block
               w-full
               p-2
               ml-0.5
+              focus:outline-none
               sm:text-sm
               border-gray-300 border
               rounded-md
@@ -55,15 +55,31 @@
       </div>
     </div>
     <div class="flex items-center justify-center gap-7 my-6">
-      <button class="rounded-md border border-green-700 text-green-700 py-1.5 px-4">
+      <button
+        class="rounded-md border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
+      >
         View all
       </button>
-      <button class="rounded-md border border-green-700 text-green-700 py-1.5 px-4">Credits</button>
-      <button class="rounded-md border border-green-700 text-green-700 py-1.5 px-4">
+      <button
+        class="rounded-md border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
+      >
+        Credits
+      </button>
+      <button
+        class="rounded-md border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
+      >
         Agriculture
       </button>
-      <button class="rounded-md border border-green-700 text-green-700 py-1.5 px-4">Law</button>
-      <button class="rounded-md border border-green-700 text-green-700 py-1.5 px-4">Others</button>
+      <button
+        class="rounded-md border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
+      >
+        Law
+      </button>
+      <button
+        class="rounded-md border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
+      >
+        Others
+      </button>
     </div>
     <div class="grid md:grid-cols-3 gap-6 sm:grid-cols-2 grid-cols-1">
       <div v-for="(video, index) in videos" :key="index">

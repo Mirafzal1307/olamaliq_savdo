@@ -97,6 +97,73 @@
             <i class="bx bx-chevrons-right text-xl text-green-700 ml-1"></i>
           </button>
         </div>
+        <div class="text-gray-700 font-semibold text-2xl my-6">Leave a comment</div>
+        <div class="grid grid-cols-2 gap-5">
+          <div>
+            <label for="name" class="sr-only">Name</label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              class="
+                shadow-sm
+                focus:ring-indigo-500 focus:border-indigo-500
+                block
+                w-full
+                sm:text-sm
+                border border-gray-300
+                rounded-md
+                p-3
+              "
+              placeholder="Name"
+            />
+          </div>
+          <div>
+            <label for="email" class="sr-only">Email</label>
+            <input
+              id="email"
+              type="text"
+              name="email"
+              class="
+                shadow-sm
+                focus:ring-indigo-500 focus:border-indigo-500
+                block
+                w-full
+                sm:text-sm
+                border border-gray-300
+                rounded-md
+                p-3
+              "
+              placeholder="Email"
+            />
+          </div>
+          <div class="col-span-2">
+            <label for="comment" class="sr-only">Message</label>
+            <div class="mt-1">
+              <textarea
+                id="message"
+                rows="6"
+                name="message"
+                placeholder="Write message"
+                class="
+                  shadow-sm
+                  focus:ring-indigo-500 focus:border-indigo-500
+                  p-3
+                  block
+                  w-full
+                  sm:text-sm
+                  border border-gray-300
+                  rounded-md
+                "
+              />
+            </div>
+          </div>
+          <div class="flex justify-start w-auto mt-4">
+            <button class="text-white focus:outline-none bg-green-700 rounded-md py-2 px-5">
+              Post comment
+            </button>
+          </div>
+        </div>
       </div>
       <div class="space-y-5">
         <div class="bg-white rounded-md border border-gray-100 shadow-md p-5">
@@ -117,7 +184,7 @@
           </div>
         </div>
         <div class="bg-white rounded-md border border-gray-100 shadow-md p-5">
-          <div class="text-gray-700 font-semibold text-xl">Releted videos</div>
+          <div class="text-gray-700 font-semibold text-xl">Related videos</div>
           <div class="flex items-center space-x-3 my-4">
             <img
               src="~/assets/images/about.png"
