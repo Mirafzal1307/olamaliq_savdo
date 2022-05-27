@@ -305,6 +305,13 @@
                   Autonom Republic of Karakalpakstan, Uzbekistan,
                 </p>
               </div>
+              <div class="flex items-center justify-center space-x-4">
+                <img src="~/assets/images/socials/facebook.png" class="w-8" />
+                <img src="~/assets/images/socials/twitter.png" class="w-8" />
+                <img src="~/assets/images/socials/google.png" class="w-8" />
+                <img src="~/assets/images/socials/pinterest.png" class="w-8" />
+                <img src="~/assets/images/socials/linkedin.png" class="w-8" />
+              </div>
             </div>
           </div>
         </div>

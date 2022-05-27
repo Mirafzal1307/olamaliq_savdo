@@ -31,6 +31,7 @@ export default {
     '~/plugins/clickOutside.client.js',
     '~/plugins/vueAwesomeSwiper.js',
     '~/plugins/other-libraries.js',
+    '~/plugins/vue-js-modal.js',
     // '~/plugins/v-viewer.client.js',
   ],
 

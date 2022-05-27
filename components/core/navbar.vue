@@ -60,7 +60,10 @@
               </router-link>
             </div>
           </div>
-          <button class="text-white focus:outline-none text-sm rounded-md bg-green-700 p-3">
+          <button
+            class="text-white focus:outline-none text-sm rounded-md bg-green-700 p-3"
+            @click="signIn()"
+          >
             Login / Register
           </button>
         </div>
@@ -71,6 +74,7 @@
 
 <script>
 import LangSwitcher from '../core/lang-switcher.vue'
+import signInModal from '../main/signin.vue'
 export default {
   name: 'Navbar',
   components: {
@@ -87,6 +91,23 @@ export default {
         { name: 'Advisory', route: '/advisory' },
       ],
     }
+  },
+  methods: {
+    signIn() {
+      this.$modal.show(
+        signInModal,
+        { status: 'sign-in' },
+        {
+          height: 'auto',
+          maxWidth: 400,
+          width: window.innerWidth <= 350 ? window.innerWidth - 10 : 350,
+          acrollable: true,
+        }
+      )
+      // this.$root.$once('user-change-modal', (item) => {
+      //   console.log(item)
+      // })
+    },
   },
 }
 </script>

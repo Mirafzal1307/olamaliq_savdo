@@ -16,7 +16,7 @@
         <div class="group w-full hover:shadow-md shadow-sm border rounded-md relative">
           <div class="flex items-center w-full rounded-md">
             <nuxt-link
-              to="/"
+              :to="{ path: localePath('/') }"
               style="
                 background-image: url(https://caep.org/blog/wp-content/uploads/2020/04/TractorFarm_Lead.jpg);
               "
