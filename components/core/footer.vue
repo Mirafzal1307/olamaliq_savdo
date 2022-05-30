@@ -62,16 +62,16 @@ export default {
       footer: [
         { title: 'Home', route: '/' },
         { title: 'Agri-business', route: '/' },
-        { title: 'About', route: '/' },
+        { title: 'About', route: '/about' },
         { title: 'Agri-finance', route: '/' },
         { title: 'Tutorials', route: '/' },
         { title: 'Agri-market', route: '/' },
-        { title: 'Advisory', route: '/' },
+        { title: 'Advisory', route: '/advisory' },
       ],
       services: [
         { title: 'Consultation', route: '/' },
         { title: 'Market price', route: '/' },
-        { title: 'Video tutorial', route: '/' },
+        { title: 'E-learning', route: '/' },
         { title: 'How to open business', route: '/' },
       ],
     }

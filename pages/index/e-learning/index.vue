@@ -2,7 +2,7 @@
   <div class="max-w-6xl mx-auto mt-12">
     <div class="flex items-center justify-between">
       <div class="font-semibold text-gray-700 text-2xl">
-        <span class="text-green-800">Video</span> tutorials
+        <span class="text-green-800">E-learning</span>
       </div>
       <div class="mt-1 flex rounded-md shadow-sm">
         <div

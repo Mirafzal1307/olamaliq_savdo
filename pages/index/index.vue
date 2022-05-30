@@ -63,7 +63,7 @@
       </div>
       <div class="mt-12 space-y-4">
         <div class="font-semibold text-gray-700 text-2xl">
-          <span class="text-green-800">Video</span> tutorials
+          <span class="text-green-800">E-learning</span>
         </div>
         <div class="grid md:grid-cols-3 gap-6 sm:grid-cols-2 grid-cols-1">
           <div v-for="(video, index) in videos" :key="index" class="mt-6">
