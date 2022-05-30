@@ -1,6 +1,6 @@
 <template>
   <div class="bg-green-900 mt-20 relative">
-    <div class="max-w-6xl mx-auto grid grid-cols-4 gap-10 text-white pt-20 pb-10">
+    <div class="max-w-6xl mx-auto grid grid-cols-4 gap-10 text-white pt-10 pb-10">
       <div class="block">
         <div class="font-semibold text-base pb-6">Business Development Platform</div>
         <div class="text-xs leading-5">
@@ -50,18 +50,6 @@
       <div>Privacy Policy</div>
       <div>Sitemap</div>
       <div>Terms of Use</div>
-    </div>
-    <div class="absolute -top-10 left-1/2 transform -translate-x-1/2">
-      <div class="bg-green-50 flex justify-center rounded-md p-5">
-        <div class="flex items-center justify-center">
-          <div class="text-gray-700 text-lg font-semibold mr-4">
-            We are hiring experienced experts
-          </div>
-          <button class="text-white focus:outline-none text-sm rounded-md bg-green-700 py-2 px-7">
-            Fill up the request form
-          </button>
-        </div>
-      </div>
     </div>
   </div>
 </template>

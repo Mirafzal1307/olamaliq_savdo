@@ -36,7 +36,7 @@ export default {
         slideToClickedSlide: false,
         breakpoints: {
           1280: {
-            slidesPerView: 4.5,
+            slidesPerView: 3.5,
             spaceBetween: 16,
           },
           1024: {

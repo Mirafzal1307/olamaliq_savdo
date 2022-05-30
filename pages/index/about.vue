@@ -111,7 +111,7 @@
         <div class="grid grid-cols-4 gap-4">
           <div class="rounded-md shadow-md bg-white p-8">
             <div class="flex items-center justify-between">
-              <img src="~/assets/images/recommendation.png" class="rounded-md" alt="about" />
+              <img src="~/assets/images/consultation.png" class="rounded-md" alt="about" />
               <p class="text-gray-200 text-5xl font-extrabold">1</p>
             </div>
             <div class="text-gray-700 font-semibold text-lg mb-4 mt-8">Consultation</div>
