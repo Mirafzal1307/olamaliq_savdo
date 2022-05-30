@@ -37,6 +37,104 @@
           </div>
         </div>
       </div>
+      <div class="space-y-3">
+        <div class="mt-1">
+          <input
+            name="text"
+            type="text"
+            autocomplete="text"
+            placeholder="Name"
+            required
+            class="
+              focus:outline-none
+              appearance-none
+              block
+              w-full
+              px-3
+              py-2
+              border border-gray-300
+              rounded-md
+              shadow-sm
+              placeholder-gray-400
+              sm:text-sm
+            "
+          />
+        </div>
+        <div class="mt-1">
+          <input
+            name="text"
+            type="text"
+            autocomplete="text"
+            placeholder="Surname"
+            required
+            class="
+              focus:outline-none
+              appearance-none
+              block
+              w-full
+              px-3
+              py-2
+              border border-gray-300
+              rounded-md
+              shadow-sm
+              placeholder-gray-400
+              sm:text-sm
+            "
+          />
+        </div>
+        <div class="mt-1">
+          <input
+            name="text"
+            type="text"
+            autocomplete="text"
+            placeholder="E-mail or phone"
+            required
+            class="
+              focus:outline-none
+              appearance-none
+              block
+              w-full
+              px-3
+              py-2
+              border border-gray-300
+              rounded-md
+              shadow-sm
+              placeholder-gray-400
+              sm:text-sm
+            "
+          />
+        </div>
+        <div>
+          <button
+            type="submit"
+            class="
+              w-full
+              py-2
+              px-4
+              border border-transparent
+              rounded-md
+              shadow-sm
+              text-sm
+              font-medium
+              text-white
+              bg-green-600
+              hover:bg-green-700
+              focus:outline-none
+            "
+          >
+            Register
+          </button>
+        </div>
+      </div>
+      <div class="flex items-center justify-center mt-2">
+        <p class="text-gray-600 text-sm font-medium">Do you have an account?</p>
+        <button
+          class="ml-2 text-yellow-600 text-sm font-medium focus:outline-none"
+          @click="openSignIn()"
+        >
+          Sign in
+        </button>
+      </div>
     </div>
   </div>
 </template>

@@ -132,6 +132,29 @@
         {{ $t('text.signIn') }}
         <vue-loaders v-if="loading" name="ball-beat" color="white" scale="0.5" />
       </button> -->
+      <button
+        type="submit"
+        class="
+          mt-3
+          w-full
+          flex
+          justify-center
+          px-4
+          py-2
+          border border-transparent
+          rounded-md
+          shadow-sm
+          text-sm
+          font-medium
+          text-white
+          bg-green-600
+          hover:bg-green-700
+          focus:outline-none
+        "
+      >
+        Sign in
+        <!-- <vue-loaders v-if="loading" name="ball-beat" color="white" scale="0.5" /> -->
+      </button>
       <!-- </form>
       </ValidationObserver> -->
       <div class="flex items-center justify-center mt-2">
