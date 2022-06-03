@@ -73,7 +73,7 @@
             <p class="text-sm border-b border-green-700 pb-2">Lorem ipsum dolor sit amet</p>
           </div>
         </div>
-        <div class="flex items-center space-x-3 my-4">
+        <div class="flex items-center py space-x-3 my-4">
           <img
             src="~/assets/images/about.png"
             class="rounded-md w-28 h-20 object-cover"

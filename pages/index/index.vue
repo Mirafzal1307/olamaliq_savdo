@@ -70,12 +70,12 @@
             <video-card :data="video" />
           </div>
         </div>
-        <div class="flex items-center justify-center my-4">
+        <router-link :to="localePath('/e-learning')" class="flex items-center justify-center my-4">
           <button class="text-green-800 focus:outline-none text-sm flex items-center">
             See all
             <i class="bx bx-right-arrow-alt text-green-800 text-xl ml-1"></i>
           </button>
-        </div>
+        </router-link>
       </div>
       <div class="grid grid-cols-2 mt-12 space-x-10">
         <img src="~/assets/images/map.png" alt="" />
