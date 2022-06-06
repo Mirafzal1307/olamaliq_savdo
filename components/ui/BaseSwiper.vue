@@ -2,25 +2,13 @@
   <div v-swiper="sliderOptions" :loadtheme="false" class="swiper">
     <div class="swiper-wrapper">
       <slot name="pre-slide"></slot>
-      <div
-        v-for="(item, index) in items"
-        :key="`slide-${index}`"
-        class="swiper-slide"
-      >
+      <div v-for="(item, index) in items" :key="`slide-${index}`" class="swiper-slide">
         <slot :item="item" />
       </div>
       <slot name="post-slide"></slot>
     </div>
-    <div
-      v-if="showNavigation"
-      slot="button-prev"
-      class="swiper-button-prev"
-    ></div>
-    <div
-      v-if="showNavigation"
-      slot="button-next"
-      class="swiper-button-next"
-    ></div>
+    <div v-if="showNavigation" slot="button-prev" class="swiper-button-prev"></div>
+    <div v-if="showNavigation" slot="button-next" class="swiper-button-next"></div>
   </div>
 </template>
 

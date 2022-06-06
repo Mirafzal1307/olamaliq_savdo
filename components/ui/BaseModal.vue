@@ -11,8 +11,7 @@
           px-4
           pb-20
           text-center
-          sm:block
-          sm:p-0
+          sm:block sm:p-0
         "
       >
         <transition
@@ -23,18 +22,12 @@
           leave-class="opacity-100"
           leave-to-class="opacity-0"
         >
-          <div
-            v-show="value"
-            class="fixed inset-0 transition-opacity"
-            aria-hidden="true"
-          >
+          <div v-show="value" class="fixed inset-0 transition-opacity" aria-hidden="true">
             <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
           </div>
         </transition>
 
-        <span
-          class="hidden sm:inline-block sm:align-middle sm:h-screen"
-          aria-hidden="true"
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true"
           >&#8203;</span
         >
 
@@ -62,11 +55,7 @@
               shadow-xl
               transform
               transition-all
-              sm:my-8
-              sm:align-middle
-              sm:max-w-lg
-              sm:w-full
-              sm:p-6
+              sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6
             "
             style="transform: translateY(-6.5rem)"
             role="dialog"
@@ -81,8 +70,7 @@
                   rounded-md
                   text-gray-400
                   hover:text-gray-500
-                  focus:outline-none
-                  focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
+                  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
                 "
                 @click="close"
               >

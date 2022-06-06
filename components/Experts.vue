@@ -35,6 +35,7 @@
             group-hover:flex
             transition
             delay-75
+            focus:outline-none
             duration-500
           "
         >

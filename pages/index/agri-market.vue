@@ -8,7 +8,16 @@
         <div class="text-green-700 text-sm">Nukus</div>
         <div class="text-green-700 text-sm">All products</div>
         <div class="text-green-700 text-sm">Last week</div>
-        <button class="text-green-700 text-sm border border-green-700 rounded-md px-3 py-1.5">
+        <button
+          class="
+            text-green-700 text-sm
+            border border-green-700
+            rounded-md
+            px-3
+            py-1.5
+            focus:outline-none
+          "
+        >
           Compare
         </button>
       </div>

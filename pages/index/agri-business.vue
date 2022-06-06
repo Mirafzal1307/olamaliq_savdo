@@ -48,6 +48,7 @@
             text-sm
             font-medium
             rounded-r-md
+            focus:outline-none
           "
         >
           <i class="bx bx-search text-lg text-white"></i>

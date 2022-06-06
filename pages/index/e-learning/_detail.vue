@@ -91,6 +91,7 @@
               py-2
               px-3
               text-green-700 text-sm
+              focus:outline-none
             "
           >
             Newer post
