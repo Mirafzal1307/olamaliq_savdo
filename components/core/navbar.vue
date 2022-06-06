@@ -87,7 +87,7 @@ export default {
         { name: 'E-learning', route: '/e-learning' },
         { name: 'Agri-business', route: '/agri-business' },
         { name: 'Agri-finance', route: '/agri-finance' },
-        { name: 'Agri-market', route: '/' },
+        { name: 'Agri-market', route: '/agri-market' },
         { name: 'Advisory', route: '/advisory' },
       ],
     }

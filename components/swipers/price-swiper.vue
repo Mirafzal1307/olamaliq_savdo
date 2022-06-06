@@ -13,21 +13,7 @@
         class="flex bg-white rounded-md space-x-3 z-0 pb-2 transition duration-500"
         data-swiper-autoplay="2000"
       >
-        <div
-          class="group w-full hover:shadow-md shadow-sm border border-gray-100 rounded-md relative"
-        >
-          <div class="flex items-center w-full bg-white rounded-md p-2 gap-2">
-            <img :src="price.img" class="w-14 rounded-md" />
-            <div class="grid content-between space-y-2">
-              <div class="text-gray-700 text-sm font-semibold">{{ price.name }}</div>
-              <div class="text-green-700 font-medium text-xs">{{ price.district }}</div>
-              <div class="flex items-center text-gray-700 font-semibold text-sm space-x-3">
-                <div>Min: {{ price.min }}</div>
-                <div>Max: {{ price.max }}</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <prices :data="price" />
       </swiper-slide>
     </swiper>
     <div class="absolute group top-1/2 lg:flex hidden justify-between -inset-x-9">
@@ -46,8 +32,10 @@
 </template>
 
 <script>
+import Prices from '../Prices.vue'
 export default {
   name: 'ConsultantsSwiper',
+  components: { Prices },
   data() {
     return {
       priceOption: {
