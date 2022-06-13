@@ -82,7 +82,7 @@
         Others
       </button>
     </div>
-    <div class="grid md:grid-cols-4 gap-6 sm:grid-cols-2 grid-cols-1">
+    <div class="grid md:grid-cols-3 gap-6 sm:grid-cols-2 grid-cols-1">
       <div v-for="(info, index) in news" :key="index">
         <news :data="info" />
       </div>

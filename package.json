@@ -19,7 +19,8 @@
     "nuxt-i18n": "^6.28.1",
     "swiper": "^6.5.0",
     "vue-awesome-swiper": "^4.1.1",
-    "vue-js-modal": "^2.0.1"
+    "vue-js-modal": "^2.0.1",
+    "vue2-slideout-panel": "^2.14.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^6.0.0",

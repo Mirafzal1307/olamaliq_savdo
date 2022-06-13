@@ -32,6 +32,7 @@ export default {
     '~/plugins/vueAwesomeSwiper.js',
     '~/plugins/other-libraries.js',
     '~/plugins/vue-js-modal.js',
+    { src: '~/plugins/client-libraries', mode: 'client' },
     // '~/plugins/v-viewer.client.js',
   ],
 

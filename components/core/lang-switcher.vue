@@ -2,7 +2,7 @@
   <div class="lang-switcher">
     <select
       v-model="locale"
-      class="text-sm p-2 text-white bg-transparent rounded-md focus:outline-none"
+      class="text-sm p-2 bg-transparent rounded-md focus:outline-none"
       @change="onChange(locale)"
     >
       <option
