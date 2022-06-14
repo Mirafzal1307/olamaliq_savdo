@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="">
     <div class="bg-gradient-to-r from-green-100 to-white">
-      <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-2">
+      <div class="max-w-6xl mx-auto lg:px-0 px-4">
+        <div class="grid lg:grid-cols-2 grid-cols-1 px-0">
           <div class="grid content-center">
-            <div class="flex items-center mb-2">
+            <div class="flex items-center my-5">
               <svg
                 width="20"
                 height="18"
@@ -22,9 +22,9 @@
                 Business Development Platform
               </div>
             </div>
-            <div class="text-5xl font-semibold">
+            <div class="lg:text-5xl text-2xl font-semibold">
               Agriculture business<br />
-              <div class="text-green-800 my-4">in Karakalpakstan.</div>
+              <div class="text-green-800 lg:my-4 my-0">in Karakalpakstan.</div>
             </div>
             <div class="text-gray-500 mr-4">
               The platform aims to provide the needed information for conducting business in the
@@ -46,7 +46,7 @@
         </div>
       </div>
     </div>
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-6xl mx-auto lg:px-0 px-4">
       <div class="mt-12 space-y-4">
         <div class="font-semibold text-gray-700 text-2xl">
           <span class="text-green-800">Experts</span> consultancy
@@ -77,7 +77,7 @@
           </button>
         </router-link>
       </div>
-      <div class="grid grid-cols-2 mt-12 space-x-10">
+      <div class="grid lg:grid-cols-2 grid-cols-1 mt-12 lg:space-x-10">
         <img src="~/assets/images/map.png" alt="" />
         <div class="relative">
           <div class="text-xl text-gray-800 font-semibold">
@@ -88,7 +88,7 @@
             has been the industry's standard dummy text ever since the 1500s, when an unknown
             printer took a galley of type and scrambled it make a type specimen book.
           </div>
-          <div class="grid grid-cols-2 mt-10 gap-10">
+          <div class="grid lg:grid-cols-2 grid-cols-1 mt-10 gap-10">
             <div v-for="(item, index) in items" :key="index">
               <div class="flex items-center">
                 <img
@@ -99,7 +99,7 @@
               </div>
             </div>
           </div>
-          <div class="absolute bottom-0">
+          <div class="lg:absolute bottom-0 flex justify-center lg:mt-0 mt-6">
             <button
               class="
                 text-white
@@ -129,7 +129,7 @@
         <div class="font-semibold text-gray-700 text-2xl">
           Frequently <span class="text-green-800">Asked Questions</span>
         </div>
-        <div class="grid grid-cols-2 gap-6">
+        <div class="grid lg:grid-cols-2 grid-cols-1 gap-6">
           <div>
             <div class="text-gray-500 leading-7 text-sm">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum

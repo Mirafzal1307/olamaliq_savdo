@@ -66,15 +66,15 @@ export default {
             spaceBetween: 6,
           },
           410: {
-            slidesPerView: 2.5,
+            slidesPerView: 1.2,
             spaceBetween: 10,
           },
           350: {
-            slidesPerView: 2.5,
+            slidesPerView: 1.2,
             spaceBetween: 10,
           },
           320: {
-            slidesPerView: 2.3,
+            slidesPerView: 1.2,
             spaceBetween: 10,
           },
         },

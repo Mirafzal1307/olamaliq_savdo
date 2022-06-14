@@ -41,7 +41,7 @@ export default {
       priceOption: {
         direction: 'horizontal',
         slideToClickedSlide: false,
-        loop: true,
+        loop: false,
         autoplay: {
           delay: 2000,
         },
@@ -62,19 +62,19 @@ export default {
             spaceBetween: 10,
           },
           640: {
-            slidesPerView: 2.5,
+            slidesPerView: 1.3,
             spaceBetween: 6,
           },
           410: {
-            slidesPerView: 2.5,
+            slidesPerView: 1.3,
             spaceBetween: 10,
           },
           350: {
-            slidesPerView: 2.5,
+            slidesPerView: 1.3,
             spaceBetween: 10,
           },
           320: {
-            slidesPerView: 2.3,
+            slidesPerView: 1.3,
             spaceBetween: 10,
           },
         },

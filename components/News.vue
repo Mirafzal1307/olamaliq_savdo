@@ -6,7 +6,7 @@
         style="
           background-image: url(https://caep.org/blog/wp-content/uploads/2020/04/TractorFarm_Lead.jpg);
         "
-        class="relative group cursor-pointer h-96 w-full rounded-md bg-cover"
+        class="relative group cursor-pointer lg:h-96 h-72 w-full rounded-md bg-cover"
       >
         <div class="absolute inset-0 z-10 group-hover:opacity-100 opacity-0">
           <img src="~/assets/images/news.jpg" alt="" class="h-96 w-full" />
