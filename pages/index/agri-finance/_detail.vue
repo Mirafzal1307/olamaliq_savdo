@@ -1,6 +1,6 @@
 <template>
-  <div class="max-w-6xl mx-auto mt-12">
-    <div class="grid grid-cols-3 gap-6">
+  <div class="max-w-6xl mx-auto lg:mt-12 mt-4 sm:px-6 lg:px-8 xl:px-0 px-4">
+    <div class="grid lg:grid-cols-3 grid-cols-1 lg:gap-6 gap-0">
       <div class="col-span-2">
         <div class="">
           <div class="my-6 text-gray-700 font-semibold text-4xl">
@@ -126,8 +126,8 @@
       tincidunt. Aenean quis massa uada mi elementum elementum. Nec sapien convallis vulputate
       rhoncus vel dui.
     </p>
-    <div class="grid grid-cols-4 gap-4 my-6">
-      <div class="rounded-md shadow-md bg-white p-8">
+    <div class="grid lg:grid-cols-4 grid-cols-1 gap-4 my-6">
+      <div class="rounded-md border border-gray-200 shadow-md bg-white p-8">
         <div class="flex items-center justify-between">
           <img src="~/assets/images/consultation.png" class="rounded-md" alt="about" />
           <p class="text-gray-200 text-5xl font-extrabold">1</p>
@@ -138,7 +138,7 @@
           been the industry's standard.
         </div>
       </div>
-      <div class="rounded-md shadow-md bg-white p-8">
+      <div class="rounded-md border border-gray-200 shadow-md bg-white p-8">
         <div class="flex items-center justify-between">
           <img src="~/assets/images/recommendation.png" class="rounded-md" alt="about" />
           <p class="text-gray-200 text-5xl font-extrabold">2</p>
@@ -149,7 +149,7 @@
           been the industry's standard.
         </div>
       </div>
-      <div class="rounded-md shadow-md bg-white p-8">
+      <div class="rounded-md border border-gray-200 shadow-md bg-white p-8">
         <div class="flex items-center justify-between">
           <img src="~/assets/images/financial.png" class="rounded-md" alt="about" />
           <p class="text-gray-200 text-5xl font-extrabold">3</p>
@@ -160,7 +160,7 @@
           been the industry's standard.
         </div>
       </div>
-      <div class="rounded-md shadow-md bg-white p-8">
+      <div class="rounded-md border border-gray-200 shadow-md bg-white p-8">
         <div class="flex items-center justify-between">
           <img src="~/assets/images/management.png" class="rounded-md" alt="about" />
           <p class="text-gray-200 text-5xl font-extrabold">4</p>
