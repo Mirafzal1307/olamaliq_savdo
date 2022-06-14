@@ -171,7 +171,7 @@
 </template>
 
 <script>
-import registeModal from '../main/register.vue'
+import registeModal from '../modals/register.vue'
 export default {
   name: 'Signin',
   props: {

@@ -110,7 +110,7 @@
 
 <script>
 import LangSwitcher from '../core/lang-switcher.vue'
-import signInModal from '../main/signin.vue'
+import signInModal from '../modals/signin.vue'
 import mobileMenu from '../core/mobile-menu.vue'
 export default {
   name: 'Navbar',

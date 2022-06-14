@@ -140,7 +140,7 @@
 </template>
 
 <script>
-import signInModal from '../main/signin.vue'
+import signInModal from '../modals/signin.vue'
 export default {
   name: 'Register',
   props: {
