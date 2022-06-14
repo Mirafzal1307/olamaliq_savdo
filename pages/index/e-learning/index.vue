@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 xl:px-0 px-4 mt-12">
+  <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 xl:px-0 px-4 lg:mt-12 mt-4">
     <div class="lg:flex block items-center justify-between">
       <div class="font-semibold text-gray-700 text-2xl">
         <span class="text-green-800">E-learning</span>

@@ -1,6 +1,6 @@
 <template>
-  <div class="max-w-6xl mx-auto mt-12">
-    <div class="flex items-center justify-between">
+  <div class="max-w-6xl sm:px-6 lg:px-8 xl:px-0 px-4 mx-auto lg:mt-12 mt-4">
+    <div class="lg:flex block items-center justify-between">
       <div class="font-semibold text-gray-700 text-2xl">
         <span class="text-green-800">Agri-business</span>
       </div>
@@ -15,6 +15,8 @@
             items-stretch
             flex-grow
             focus-within:z-10
+            lg:my-0
+            mt-4
           "
         >
           <input
@@ -44,6 +46,8 @@
             space-x-2
             px-4
             py-2
+            lg:my-0
+            mt-4
             bg-green-700
             text-sm
             font-medium
@@ -55,7 +59,7 @@
         </button>
       </div>
     </div>
-    <div class="grid grid-cols-3 gap-5">
+    <div class="grid lg:grid-cols-3 grid-cols-1 lg:gap-5 gap-0 lg:mt-0 mt-5">
       <div class="rounded-md shadow-md p-5">
         <div class="flex items-center justify-between">
           <div class="text-gray-700 text-xl font-semibold">Locations</div>
