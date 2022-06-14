@@ -1,6 +1,6 @@
 <template>
-  <div class="max-w-6xl mx-auto mt-12">
-    <div class="grid grid-cols-3 gap-6">
+  <div class="max-w-6xl sm:px-6 lg:px-8 xl:px-0 px-4 mx-auto lg:mt-12 mt-4">
+    <div class="grid lg:grid-cols-3 grid-cols-1 gap-6">
       <div class="col-span-2">
         <div class="h-auto cursor-pointer w-full">
           <iframe
@@ -54,7 +54,7 @@
             sapien convallis vulputate rhoncus vel dui.
           </p>
         </div>
-        <div class="my-6 flex items-center justify-between">
+        <div class="my-6 lg:flex block items-center justify-between">
           <div class="flex items-center space-x-4">
             <p class="text-gray-600 text-sm">Share:</p>
             <img src="~/assets/images/socials/facebook.png" class="w-8" />
@@ -63,13 +63,13 @@
             <img src="~/assets/images/socials/pinterest.png" class="w-8" />
             <img src="~/assets/images/socials/linkedin.png" class="w-8" />
           </div>
-          <div class="flex items-center text-xs space-x-4">
+          <div class="flex items-center lg:mt-0 mt-6 text-xs space-x-4">
             <div class="rounded-md bg-yellow-100 text-gray-600 py-1 px-2">Landscaping</div>
             <div class="rounded-md bg-yellow-100 text-gray-600 py-1 px-2">Garden</div>
             <div class="rounded-md bg-yellow-100 text-gray-600 py-1 px-2">Projects</div>
           </div>
         </div>
-        <div class="flex items-center justify-between">
+        <div class="lg:flex block items-center justify-between">
           <div class="flex items-center space-x-3 my-4">
             <img
               src="~/assets/images/about.png"
@@ -84,6 +84,8 @@
           <button
             class="
               flex
+              lg:justify-start
+              justify-end
               items-center
               border
               rounded-md

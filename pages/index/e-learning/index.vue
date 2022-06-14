@@ -1,6 +1,6 @@
 <template>
-  <div class="max-w-6xl mx-auto mt-12">
-    <div class="flex items-center justify-between">
+  <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 xl:px-0 px-4 mt-12">
+    <div class="lg:flex block items-center justify-between">
       <div class="font-semibold text-gray-700 text-2xl">
         <span class="text-green-800">E-learning</span>
       </div>
@@ -15,6 +15,8 @@
             items-stretch
             flex-grow
             focus-within:z-10
+            lg:my-0
+            mt-4
           "
         >
           <input
@@ -44,6 +46,8 @@
             space-x-2
             px-4
             py-2
+            lg:my-0
+            mt-4
             bg-green-700
             text-sm
             font-medium
@@ -55,7 +59,7 @@
         </button>
       </div>
     </div>
-    <div class="flex items-center justify-center gap-7 my-6">
+    <div class="lg:flex grid grid-cols-3 items-center justify-center lg:gap-7 gap-4 my-6">
       <button
         class="rounded-md border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
       >

@@ -24,7 +24,7 @@
             </div>
             <div class="lg:text-5xl text-2xl font-semibold">
               Agriculture business<br />
-              <div class="text-green-800 lg:my-4 my-0">in Karakalpakstan.</div>
+              <div class="text-green-800 lg:my-4 my-0">in Karakalpakstan</div>
             </div>
             <div class="text-gray-500 mr-4">
               The platform aims to provide the needed information for conducting business in the
