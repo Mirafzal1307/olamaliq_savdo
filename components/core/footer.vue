@@ -7,7 +7,9 @@
         grid
         lg:grid-cols-4
         grid-cols-1
-        lg:px-0
+        sm:px-6
+        lg:px-8
+        xl:px-0
         px-4
         gap-10
         text-white
@@ -23,7 +25,7 @@
         </div>
       </div>
       <div class="block">
-        <div class="grid justify-end">
+        <div class="grid lg:justify-end justify-start">
           <div class="font-semibold text-base pb-6">Contacts</div>
           <div class="text-xs space-y-3">
             <div class="leading-5">

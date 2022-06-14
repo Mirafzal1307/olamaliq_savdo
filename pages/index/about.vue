@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 xl:px-0 px-4">
       <div class="text-3xl text-gray-700 font-semibold my-10">Mission</div>
       <div class="space-y-6">
         <p class="text-gray-500 leading-8">
@@ -60,10 +60,10 @@
       </div>
     </div>
     <div class="bg-green-900 my-10 py-10">
-      <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-2">
+      <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 xl:px-0 px-4">
+        <div class="grid lg:grid-cols-2 grid-cols-1">
           <div class="grid content-center">
-            <div class="text-4xl font-semibold text-white">
+            <div class="lg:text-4xl text-2xl font-semibold text-white">
               We are ready to corporate with service provider
             </div>
             <div class="text-white my-6 mr-6">
@@ -89,7 +89,7 @@
                 <div class="ml-2">Marketing</div>
               </div>
             </div>
-            <div class="mt-5">
+            <div class="lg:mt-5 my-5">
               <button
                 class="text-white focus:outline-none text-sm bg-green-500 rounded-md py-3 px-5"
               >
@@ -103,13 +103,13 @@
         </div>
       </div>
     </div>
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 xl:px-0 px-4">
       <div class="mt-12 space-y-4">
         <div class="font-semibold text-gray-700 text-2xl">
           Working <span class="text-green-800">Process</span>
         </div>
-        <div class="grid grid-cols-4 gap-4">
-          <div class="rounded-md shadow-md bg-white p-8">
+        <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
+          <div class="rounded-md border border-gray-200 shadow-md bg-white p-8">
             <div class="flex items-center justify-between">
               <img src="~/assets/images/consultation.png" class="rounded-md" alt="about" />
               <p class="text-gray-200 text-5xl font-extrabold">1</p>
@@ -120,7 +120,7 @@
               has been the industry's standard.
             </div>
           </div>
-          <div class="rounded-md shadow-md bg-white p-8">
+          <div class="rounded-md border border-gray-200 shadow-md bg-white p-8">
             <div class="flex items-center justify-between">
               <img src="~/assets/images/recommendation.png" class="rounded-md" alt="about" />
               <p class="text-gray-200 text-5xl font-extrabold">2</p>
@@ -131,7 +131,7 @@
               has been the industry's standard.
             </div>
           </div>
-          <div class="rounded-md shadow-md bg-white p-8">
+          <div class="rounded-md border border-gray-200 shadow-md bg-white p-8">
             <div class="flex items-center justify-between">
               <img src="~/assets/images/financial.png" class="rounded-md" alt="about" />
               <p class="text-gray-200 text-5xl font-extrabold">3</p>
@@ -142,7 +142,7 @@
               has been the industry's standard.
             </div>
           </div>
-          <div class="rounded-md shadow-md bg-white p-8">
+          <div class="rounded-md border border-gray-200 shadow-md bg-white p-8">
             <div class="flex items-center justify-between">
               <img src="~/assets/images/management.png" class="rounded-md" alt="about" />
               <p class="text-gray-200 text-5xl font-extrabold">4</p>
@@ -156,7 +156,7 @@
         </div>
       </div>
       <div class="mt-12 space-y-4">
-        <div class="grid grid-cols-3 gap-4">
+        <div class="grid lg:grid-cols-3 grid-cols-1 gap-4">
           <div class="grid grid-cols-2 col-span-2 gap-4">
             <div class="font-semibold text-gray-700 text-2xl col-span-2">
               <span class="text-green-800">Contact</span> us

@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div class="bg-gradient-to-r from-green-100 to-white">
-      <div class="max-w-6xl mx-auto lg:px-0 px-4">
+      <div class="max-w-6xl mx-auto px-4 lg:px-8 xl:px-0">
         <div class="grid lg:grid-cols-2 grid-cols-1 px-0">
           <div class="grid content-center">
             <div class="flex items-center my-5">
@@ -46,7 +46,7 @@
         </div>
       </div>
     </div>
-    <div class="max-w-6xl mx-auto lg:px-0 px-4">
+    <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 xl:px-0 px-4">
       <div class="mt-12 space-y-4">
         <div class="font-semibold text-gray-700 text-2xl">
           <span class="text-green-800">Experts</span> consultancy
