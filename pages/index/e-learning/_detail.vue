@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-6xl sm:px-6 lg:px-8 xl:px-0 px-4 mx-auto lg:mt-12 mt-4">
-    <div class="grid lg:grid-cols-3 grid-cols-1 gap-6">
+    <div class="grid lg:grid-cols-3 grid-cols-1 lg:gap-6 gap-0">
       <div class="col-span-2">
         <div class="h-auto cursor-pointer w-full">
           <iframe
@@ -169,7 +169,7 @@
         </div>
       </div>
       <div class="space-y-5">
-        <div class="bg-white rounded-md border border-gray-100 shadow-md p-5">
+        <div class="bg-white rounded-md border border-gray-100 shadow-md p-5 lg:mt-0 mt-6">
           <div class="text-gray-700 font-semibold text-xl">Useful materials</div>
           <div class="flex items-center justify-between rounded-md bg-green-700 p-3 my-4">
             <div class="flex items-center space-x-3">

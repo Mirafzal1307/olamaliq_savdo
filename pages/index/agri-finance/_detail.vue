@@ -3,7 +3,7 @@
     <div class="grid lg:grid-cols-3 grid-cols-1 lg:gap-6 gap-0">
       <div class="col-span-2">
         <div class="">
-          <div class="my-6 text-gray-700 font-semibold text-4xl">
+          <div class="lg:my-6 mb-6 text-gray-700 font-semibold text-4xl">
             QQB offers 14% Annual credit for Greenhouse business
           </div>
           <p class="text-sm text-gray-500 leading-8">

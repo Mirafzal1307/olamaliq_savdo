@@ -15,7 +15,7 @@
       class="block my-5"
       :class="
         $route.path.search(menu.route) > 0
-          ? 'text-base text-green-700 font-medium b'
+          ? 'text-base text-green-700 font-semibold'
           : 'text-gray-800 hover:text-green-700 font-medium text-base '
       "
       @click="closePanel()"

@@ -3,7 +3,7 @@
     <div class="flex justify-center w-full">
       <img
         :src="data.img"
-        class="w-full md:h-72 h-36 rounded-md object-cover group-hover:opacity-60"
+        class="w-full md:h-72 h-48 rounded-md object-cover group-hover:opacity-60"
       />
     </div>
     <div
