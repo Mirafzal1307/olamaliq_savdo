@@ -59,7 +59,7 @@
         </button>
       </div>
     </div>
-    <div class="grid lg:grid-cols-3 grid-cols-1 lg:gap-5 gap-0 lg:mt-0 mt-5">
+    <div class="grid lg:grid-cols-3 grid-cols-1 lg:gap-5 gap-0 mt-5">
       <div class="rounded-md shadow-md p-5">
         <div class="flex items-center justify-between">
           <div class="text-gray-700 text-xl font-semibold">Locations</div>
@@ -67,7 +67,7 @@
             Banks
           </div>
         </div>
-        <div class="flex items-center space-x-3 my-4">
+        <div class="flex items-center space-x-3 my-4 cursor-pointer" @click="openInfo()">
           <img
             src="~/assets/images/about.png"
             class="rounded-md w-28 h-20 object-cover"
@@ -113,14 +113,43 @@
         </div>
       </div>
       <div class="col-span-2">
-        <img src="~/assets/images/map.png" class="h-full w-full object-cover" />
+        <transition
+          enter-active-class="transition sm:duration-400"
+          enter-class="translate-x-full"
+          enter-to-class="translate-x-0 translate-y-0"
+          leave-active-class="transition sm:duration-400"
+          leave-class="translate-x-0"
+          leave-to-class="translate-x-0"
+          @after-leave="close"
+        >
+          <div v-show="infoOpened" class="border rounded-md p-5 bg-white h-full rotate-180">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque autem ex quae vel,
+            ratione omnis perferendis at laborum esse sint vero quod, possimus, deserunt maxime aut
+            qui voluptatem consectetur. Velit.
+          </div>
+        </transition>
+        <yandex-map v-show="!infoOpened" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import YandexMap from '~/components/core/yandex-map.vue'
 export default {
   name: 'AgriBusiness',
+  components: {
+    YandexMap,
+  },
+  data() {
+    return {
+      infoOpened: false,
+    }
+  },
+  methods: {
+    openInfo() {
+      this.infoOpened = !this.infoOpened
+    },
+  },
 }
 </script>
