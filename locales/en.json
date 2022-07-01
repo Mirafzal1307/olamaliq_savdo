@@ -1,10 +1,115 @@
 {
-    "locale": "English",
-    "word": {
-        
-    },
-
-    "text": {
-
-    }
+    "a": "A",
+    "action": "Action",
+    "address": "Address",
+    "add-new": "Add new",
+  
+    "b": "B",
+    "bad-request": "Bad Request",
+    "branches": "Branches",
+  
+    "c": "C",
+    "cancel": "Cancel",
+    "chats": "Chats",
+    "clear": "Clear",
+    "consultation": "Consultation",
+    "created-date": "Created Date",
+    "create-a-new-branch": "Create a new branch",
+    "create-a-new-district": "Create a new district",
+    "create-a-new-region": "Create a new region",
+    
+    "d": "D",
+    "data-list": "Data List",
+    "description": "Description",
+    "directions": "Directions",
+    "display-options": "Display Options",
+    "district": "Disctrict",
+    "districts": "Disctricts",
+    
+    "e": "E",
+    "email": "E-mail",
+    
+    "f": "F",
+    "forgot-password-question":"Forget password?",
+    
+    "g": "G",
+    "give-a-description-in-the-following-languages": "Give a description in the following languages",
+    
+    "h": "H",
+    "hippocrates": "Hippocrates",
+    "home": "Home",
+  
+    "i": "I",
+    "image-cropper": "Image cropper",
+    
+    "j": "J",
+    
+    "k": "K",
+    
+    "l": "L",
+    "loading": "Loading",
+    "login": "Login",
+    "logo": "Logo",
+    
+    "m": "M",
+    "medicineQuotes": "The life so short, the craft so long to learn.",
+    
+    "n": "N",
+    "name": "Name",
+    "news": "News",
+    
+    "o": "O",
+    "order-by": "Order By",
+    
+    "p": "P",
+    "password": "Password",
+    "patients": "Patients",
+    "people": "People",
+    "please-enter-a-name": "Please enter a name",
+    "please-enter-an-address": "Please enter an address",
+    "please-enter-a-valid-email-address": "Please enter a valid email address",
+    "please-enter-your-email-address": "Please enter your email address",
+    "please-enter-your-password": "Please enter your password",
+    "please-select-a-district": "Please select a district",
+    "please-select-a-region": "Please select a region",
+    "please-select-directions": "Please select directions",
+    
+    "q": "Q",
+    
+    "r": "R",
+    "region": "Region",
+    "regions": "Regions",
+    
+    "s": "S",
+    "save": "Save",
+    "search": "Search",
+    "service-category": "Service category",
+    "settings": "Settings",
+    "sign-out": "Sign out",
+    "staff": "Staff",
+    "status": "Status",
+    
+    "t": "T",
+    "trading": "Trading",
+    
+    "u": "U",
+    "update": "Update",
+    "update-branch": "Update branch",
+    "update-district": "Update district",
+    "update-region": "Update region",
+    "upload-image": "Upload image",
+    "useful-informations": "Useful informations",
+    "users": "Users",
+    
+    "v": "V",
+    
+    "w": "W",
+    
+    "x": "X",
+    
+    "y": "Y",
+    "your-password-must-be-between-4-and-16-characters": "Your password must be between 4 and 16 characters",
+    "your-email-must-be-4-characters": "Your email must be minimum 4 characters",
+  
+    "z": "Z"
 }

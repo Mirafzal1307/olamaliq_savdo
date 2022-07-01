@@ -32,6 +32,7 @@ export default {
     '~/plugins/vueAwesomeSwiper.js',
     '~/plugins/other-libraries.js',
     '~/plugins/vue-js-modal.js',
+    '~/plugins/axios.js',
     { src: '~/plugins/client-libraries', mode: 'client' },
     // '~/plugins/v-viewer.client.js',
   ],
@@ -41,6 +42,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/dotenv',
     [
       'nuxt-i18n',
       {

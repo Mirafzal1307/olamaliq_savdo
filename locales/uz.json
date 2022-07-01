@@ -1,10 +1,110 @@
 {
-    "locale": "O'zbekcha",
-    "word": {
-
-    },
-
-    "text": {
-
-    }
-}
+    "a": "A",
+    "action": "Действие",
+    "address": "Адрес",
+    "add-new": "Добавить новое",
+  
+    "b": "B",
+    "bad-request": "Bad Request",
+    "branches": "Филлиалы",
+  
+    "c": "C",
+    "cancel": "Отменить",
+    "clear": "Очистить",
+    "created-date": "Дата создания",
+    "create-a-new-branch": "Создать новую филлиал",
+    "create-a-new-district": "Создать новую район",
+    "create-a-new-region": "Создать новую область",
+  
+    "d": "D",
+    "data-list": "Список данных",
+    "description": "Описание",
+    "display-options": "Дисплей параметри",
+    "district": "Район",
+    "districts": "Райони",
+    "directions": "Направления",
+  
+    "e": "E",
+    "email": "Эл. почта",
+  
+    "f": "F",
+    "forgot-password-question": "Забыли пароль?",
+  
+    "g": "G",
+    "give-a-description-in-the-following-languages": "Дайте описание на следующих языках",
+  
+    "h": "H",
+    "hippocrates": "Гиппократ",
+    "home": "Главный",
+  
+    "i": "I",
+    "image-cropper": "Обрезка изображения",
+  
+    "j": "J",
+  
+    "k": "K",
+  
+    "l": "L",
+    "loading": "Загрузка",
+    "login": "Логин",
+    "logo": "Лого",
+  
+    "m": "M",
+    "medicineQuotes": "Область науки безгранична, а жизнь коротка; искусство долговечно, жизнь коротка",
+  
+    "n": "N",
+    "name": "Наименования",
+  
+    "o": "O",
+    "order-by": "Сортировать по",
+  
+    "p": "P",
+    "password": "Пароль",
+    "patients": "Пациенты",
+    "please-enter-a-name": "Пожалуйста, введите наименования",
+    "please-enter-an-address": "Пожалуйста, введите адрес",
+    "please-enter-a-valid-email-address": "Пожалуйста, введите действительный адрес электронной почты",
+    "please-enter-your-email-address": "Пожалуйста, введите свой адрес электронной почты",
+    "please-enter-your-password": "Пожалуйста введите ваш пароль",
+    "please-select-a-district": "Пожалуйста, выберите район",
+    "please-select-a-region": "Пожалуйста, выберите область",
+    "please-select-directions": "Пожалуйста, выберите направления",
+  
+    "q": "Q",
+  
+    "r": "R",
+    "region": "Область",
+    "regions": "Области",
+  
+    "s": "S",
+    "save": "Сохранить",
+    "search": "Поиск",
+    "service-category": "Категория услуги",
+    "settings": "Настройки",
+    "sign-out": "Выход",
+    "staff": "Сотрудники",
+    "status": "Статус",
+  
+    "t": "T",
+  
+    "u": "U",
+    "update": "Обновить",
+    "update-branch": "Обновить филлиал",
+    "update-district": "Обновить район",
+    "update-region": "Обновить область",
+    "upload-image": "Загрузить изобрежению",
+    "users": "Пользователи",
+  
+    "v": "V",
+  
+    "w": "W",
+  
+    "x": "X",
+  
+    "y": "Y",
+    "your-password-must-be-between-4-and-16-characters": "Ваш пароль должен быть от 4 до 16 символов",
+    "Your email must be minimum 4 characters": "Ваш адрес электронной почты должен быть не менее 4 символов",
+  
+    "z": "Z"
+  }
+  

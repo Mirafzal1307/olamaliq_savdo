@@ -186,11 +186,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import expertsSwiper from '~/components/swipers/experts-swiper.vue'
 import NewsSwiper from '~/components/swipers/news-swiper.vue'
 import PriceSwiper from '~/components/swipers/price-swiper.vue'
 import PartnersSwiper from '~/components/swipers/partners-swiper.vue'
 import YandexMap from '~/components/core/yandex-map.vue'
+import { actions, getters } from '~/utils/store_schema'
+const _page = 'products'
+const { get } = actions(_page)
 export default {
   components: { expertsSwiper, PriceSwiper, NewsSwiper, PartnersSwiper, YandexMap },
   data() {
@@ -267,7 +271,24 @@ export default {
       answerOpened: false,
     }
   },
+  computed: {
+    ...mapGetters(getters(_page)),
+  },
+  mounted() {
+    this.fetchDirectories()
+  },
   methods: {
+    async fetchDirectories() {
+      await this.$store
+        .dispatch(get, {
+          populate: '*',
+          locale: this.$i18n.locale,
+        })
+        .then(() => {
+          console.log('Data: ', this.data)
+          console.log('Pagination: ', this.pagination)
+        })
+    },
     openAnswer() {
       this.answerOpened = !this.answerOpened
     },
