@@ -3,7 +3,17 @@
     <div class="space-x-4">
       <div class="border rounded-md border-gray-200 shadow-sm hover:shadow-md group">
         <img
+          v-if="!data.attributes.image && !data.attributes.thumbnail"
           src="~/assets/images/video.png"
+          class="h-60 object-cover group-hover:opacity-70 rounded-md"
+        />
+        <img
+          v-else
+          :src="
+            $tools.getFileUrl(
+              data.attributes.thumbnail ? data.attributes.thumbnail : data.attributes.image
+            )
+          "
           class="h-60 object-cover group-hover:opacity-70 rounded-md"
         />
         <div class="p-4">
@@ -22,13 +32,15 @@
             >
               Planting
             </div>
-            <div class="text-green-700 text-sm font-semibold">{{ data.date }}</div>
+            <div class="text-green-700 text-sm font-semibold">
+              {{ $tools.getDate(data.attributes.createdAt) }}
+            </div>
           </div>
           <div class="my-4 text-gray-700 group-hover:text-green-700 font-semibold text-lg">
-            {{ data.title }}
+            {{ data.attributes.title }}
           </div>
           <div class="text-gray-600 text-sm">
-            {{ data.subtitle }}
+            {{ data.attributes.description }}
           </div>
         </div>
       </div>

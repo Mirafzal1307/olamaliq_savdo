@@ -65,11 +65,11 @@
         <div class="font-semibold text-gray-700 text-2xl">
           <span class="text-green-800">E-learning</span>
         </div>
-        <div class="grid md:grid-cols-3 gap-6 sm:grid-cols-2 grid-cols-1">
+        <!-- <div class="grid md:grid-cols-3 gap-6 sm:grid-cols-2 grid-cols-1">
           <div v-for="(video, index) in videos" :key="index" class="mt-6">
             <video-card :data="video" />
           </div>
-        </div>
+        </div> -->
         <router-link :to="localePath('/e-learning')" class="flex items-center justify-center my-4">
           <button class="text-green-800 focus:outline-none text-sm flex items-center">
             See all
@@ -284,10 +284,7 @@ export default {
           populate: '*',
           locale: this.$i18n.locale,
         })
-        .then(() => {
-          console.log('Data: ', this.data)
-          console.log('Pagination: ', this.pagination)
-        })
+        .then(() => {})
     },
     openAnswer() {
       this.answerOpened = !this.answerOpened

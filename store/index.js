@@ -10,6 +10,7 @@ const createStore = () => {
       regions: crud('regions'),
       districts: crud('districts'),
       servicecategories: crud('servicecategories'),
+      courses: crud('courses'),
     },
   })
 }

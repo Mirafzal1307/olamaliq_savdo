@@ -36,6 +36,13 @@ const tools = {
     const minutes = this.getNol(date.getMinutes().toString())
     return `${day}.${month}.${year} ${hours}:${minutes}`
   },
+  getDate(stringdate) {
+    const date = new Date(stringdate)
+    const year = date.getFullYear()
+    const month = this.getNol((1 + date.getMonth()).toString())
+    const day = this.getNol(date.getDate().toString())
+    return `${day}.${month}.${year}`
+  },
   getNol(e) {
     return e.length > 1 ? e : '0' + e
   },
