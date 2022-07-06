@@ -39,7 +39,7 @@
           <div class="my-4 text-gray-700 group-hover:text-green-700 font-semibold text-lg">
             {{ data.attributes.title }}
           </div>
-          <div class="text-gray-600 text-sm">
+          <div class="text-gray-600 text-sm line-clamp-2">
             {{ data.attributes.description }}
           </div>
         </div>
@@ -60,3 +60,5 @@ export default {
   },
 }
 </script>
+
+<style scoped></style>
