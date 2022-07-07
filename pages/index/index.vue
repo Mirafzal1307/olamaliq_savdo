@@ -66,7 +66,7 @@
           <span class="text-green-800">E-learning</span>
         </div>
         <div class="grid md:grid-cols-3 gap-6 sm:grid-cols-2 grid-cols-1">
-          <div v-for="(video, index) in videos" :key="index" class="mt-6">
+          <div v-for="(video, index) in dataCourses" :key="index" class="mt-6">
             <video-card :data="video" />
           </div>
         </div>
@@ -239,40 +239,12 @@ export default {
           title: 'Supply points',
         },
       ],
-      videos: [
-        {
-          id: '1',
-          img: '~/assets/images/video.png',
-          date: 'Sep 6 - 2021',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-        },
-        {
-          id: '2',
-          img: '~/assets/images/video.png',
-          date: 'Sep 6 - 2021',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-        },
-        {
-          id: '3',
-          img: '~/assets/images/video.png',
-          date: 'Sep 6 - 2021',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-        },
-        // {
-        //   img: '~/assets/images/video.png',
-        //   date: 'Sep 6 - 2021',
-        //   title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-        //   subtitle: 'Lorem ipsum',
-        // },
-      ],
       answerOpened: false,
     }
   },
   computed: {
     ...mapGetters(getters(_page)),
+    ...mapGetters(['dataCourses']),
   },
   mounted() {
     this.fetchDirectories()
@@ -284,10 +256,8 @@ export default {
           populate: '*',
           locale: this.$i18n.locale,
         })
-        .then(() => {
-          console.log('Data: ', this.data)
-          console.log('Pagination: ', this.pagination)
-        })
+        .then(() => {})
+      await this.$store.dispatch('getCourses')
     },
     openAnswer() {
       this.answerOpened = !this.answerOpened

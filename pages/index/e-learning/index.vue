@@ -87,7 +87,7 @@
       </button>
     </div>
     <div class="grid md:grid-cols-3 gap-6 sm:grid-cols-2 grid-cols-1">
-      <div v-for="(video, index) in videos" :key="index">
+      <div v-for="(video, index) in data" :key="index">
         <video-card :data="video" />
       </div>
     </div>
@@ -95,6 +95,10 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import { actions, getters } from '~/utils/store_schema'
+const _page = 'courses'
+const { get } = actions(_page)
 export default {
   name: 'ELearning',
   data() {
@@ -144,6 +148,22 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapGetters(getters(_page)),
+  },
+  mounted() {
+    this.fetchData()
+  },
+  methods: {
+    async fetchData() {
+      await this.$store
+        .dispatch(get, {
+          populate: '*',
+          locale: this.$i18n.locale,
+        })
+        .then(() => {})
+    },
   },
 }
 </script>
