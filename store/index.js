@@ -12,6 +12,7 @@ const createStore = () => {
       servicecategories: crud('servicecategories'),
       courses: crud('courses'),
       about: crud('about'),
+      serviceposts: crud('serviceposts'),
     },
   })
 }
