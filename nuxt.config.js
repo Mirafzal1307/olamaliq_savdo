@@ -1,4 +1,4 @@
-import i18n from './config/i18n'
+import i18n from './utils/i18n'
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -52,6 +52,7 @@ export default {
         detectBrowserLanguage: false,
         seo: true,
         strategy: 'prefix',
+        rootRedirect: 'en',
         locales: [
           {
             code: 'en',
@@ -120,14 +121,11 @@ export default {
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    // baseURL: 'https://apistaging.europharm.uz/api',
-    // credentials: true,
-    // debug: process.env.NODE_ENV !== 'production',
-  },
+  axios: {},
 
   router: {
-    // prefetchLinks: false,
+    middleware: ['auth'],
+    prefetchLinks: false
   },
 
   googleFonts: {
@@ -136,13 +134,6 @@ export default {
     },
     display: 'swap',
   },
-
-  // currencyFilter: {
-  //   thousandsSeparator: ',',
-  //   fractionCount: 0,
-  //   fractionSeparator: '.',
-  //   symbolSpacing: true,
-  // },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

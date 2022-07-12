@@ -120,8 +120,8 @@
           leave-active-class="transition sm:duration-400"
           leave-class="translate-x-0"
           leave-to-class="translate-x-0"
-          @after-leave="close"
         >
+          <!-- @after-leave="close" -->
           <div v-show="infoOpened" class="border rounded-md p-5 bg-white h-full rotate-180">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque autem ex quae vel,
             ratione omnis perferendis at laborum esse sint vero quod, possimus, deserunt maxime aut

@@ -26,11 +26,13 @@
     "display-options": "Display Options",
     "district": "Disctrict",
     "districts": "Disctricts",
+    "do-not-have-an-account": "Do not have an account?",
     "do-you-have-an-account": "Do you have an account?",
     
     "e": "E",
     "email": "E-mail",
     "email-or-phone": "E-mail or Phone",
+    "exit": "Exit",
     
     "f": "F",
     "firstname": "Firstname",
@@ -93,6 +95,7 @@
     "search": "Search",
     "service-category": "Service category",
     "settings": "Settings",
+    "sign-in": "Sign in",
     "sign-out": "Sign out",
     "staff": "Staff",
     "status": "Status",

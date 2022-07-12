@@ -27,7 +27,8 @@
       <div class="sm:px-6 lg:px-8 bg-white p-3 shadow-md">
         <div class="max-w-6xl mx-auto px-4 sm:px-0">
           <div class="flex items-center justify-between text-white">
-            <router-link :to="{ path: localePath('/') }">
+            <router-link to="/">
+            <!-- <router-link :to="{ path: localePath('/') }"> -->
               <svg
                 width="110"
                 height="30"

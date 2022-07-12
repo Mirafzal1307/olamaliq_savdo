@@ -18,7 +18,7 @@
               ]"
               class="text-xl font-medium text-gray-500 focus:outline-none"
             >
-              Login
+              {{ $t('login') }}
             </button>
           </div>
 
@@ -32,138 +32,115 @@
               class="text-xl font-medium text-gray-500 ml-6 focus:outline-none"
               @click="openRegister()"
             >
-              Registration
+              {{ $t('registration') }}
             </button>
           </div>
         </div>
       </div>
-      <!-- <ValidationObserver ref="observer" v-slot="{ passes, invalid }">
-        <form class="" @submit.prevent="passes(tryToLogIn)"> -->
-      <!-- <ValidationProvider v-slot="{ valid, errors }" rules="required|phoneOrEmail" name="Username"> -->
-      <div class="mt-1">
-        <input
-          name="text"
-          type="text"
-          autocomplete="text"
-          placeholder="Phone number"
-          required
-          class="
-            focus:outline-none
-            appearance-none
-            block
-            w-full
-            px-3
-            py-2
-            border border-gray-300
-            rounded-md
-            shadow-sm
-            placeholder-gray-400
-            sm:text-sm
-          "
-        />
-      </div>
-      <!-- </ValidationProvider> -->
-
-      <!-- <ValidationProvider
-        v-if="isEmail"
-        v-slot="{ valid, errors }"
-        rules="required|min:6"
-        name="Password"
-        vid="password"
-      > -->
-      <!-- <div class="mt-3">
-        <input
-          name="password"
-          type="password"
-          autocomplete="current-password"
-          :placeholder="$t('word.password')"
-          required
-          class="
-            appearance-none
-            block
-            w-full
-            px-3
-            py-2
-            border border-gray-300
-            rounded-md
-            shadow-sm
-            placeholder-gray-400
-            sm:text-sm
-          "
-        />
-      </div> -->
-      <!-- </ValidationProvider> -->
-      <!-- <div class="flex items-center justify-between mb-3">
-        <div v-if="authError.length > 0" class="text-red-600 text-sm">
-          {{ authError }}
-        </div>
-        <div v-if="isEmail" class="flex items-center mt-2">
-          <input
-            id="remember_me"
-            name="remember_me"
-            type="checkbox"
-            class="h-4 w-4 text-green-600 focus:ring-green-600 border-gray-300 rounded"
-          />
-          <label for="remember_me" class="ml-2 block text-gray-600 text-sm">
-            {{ $t('word.remember') }}
-          </label>
-        </div>
-      </div>
-      <button
-        type="submit"
-        :disabled="invalid"
-        class="
-          w-full
-          flex
-          justify-center
-          px-4
-          py-2
-          border border-transparent
-          rounded-md
-          shadow-sm
-          text-sm
-          font-medium
-          text-white
-          bg-green-600
-          hover:bg-green-700
-          focus:outline-none
-        "
-      >
-        {{ $t('text.signIn') }}
-        <vue-loaders v-if="loading" name="ball-beat" color="white" scale="0.5" />
-      </button> -->
-      <button
-        type="submit"
-        class="
-          mt-3
-          w-full
-          flex
-          justify-center
-          px-4
-          py-2
-          border border-transparent
-          rounded-md
-          shadow-sm
-          text-sm
-          font-medium
-          text-white
-          bg-green-600
-          hover:bg-green-700
-          focus:outline-none
-        "
-      >
-        Sign in
-        <!-- <vue-loaders v-if="loading" name="ball-beat" color="white" scale="0.5" /> -->
-      </button>
-      <!-- </form>
-      </ValidationObserver> -->
+      <ValidationObserver ref="observer" v-slot="{ passes, invalid }">
+        <form @submit.prevent="passes(tryToLogIn)">
+          <div class="mt-1">
+            <ValidationProvider
+              v-slot="{ valid, errors }"
+              rules="required|phoneOrEmail"
+              name="Username"
+            >
+              <input
+                name="text"
+                type="text"
+                autocomplete="text"
+                v-model="auth.identifier"
+                placeholder="Phone number"
+                :state="errors[0] ? false : valid ? true : null"
+                required
+                class="
+                  focus:outline-none
+                  appearance-none
+                  block
+                  w-full
+                  px-3
+                  py-2
+                  border border-gray-300
+                  rounded-md
+                  shadow-sm
+                  placeholder-gray-400
+                  sm:text-sm
+                "
+                :class="
+                  valid || authError.length === 0
+                    ? 'border-green-600 focus:ring-green-600 focus:border-green-600'
+                    : 'border-red-600 focus:ring-red-600 focus:border-red-600'
+                "
+              />
+            </ValidationProvider>
+          </div>
+          <div class="mt-1" v-if="isEmail">
+            <ValidationProvider
+              v-slot="{ valid, errors }"
+              rules="required|min:6"
+              name="password"
+            >
+              <input
+                name="password"
+                type="password"
+                v-model="auth.password"
+                :placeholder="$t('password')"
+                :state="errors[0] ? false : valid ? true : null"
+                required
+                class="
+                  focus:outline-none
+                  appearance-none
+                  block
+                  w-full
+                  px-3
+                  py-2
+                  border border-gray-300
+                  rounded-md
+                  shadow-sm
+                  placeholder-gray-400
+                  sm:text-sm
+                "
+                :class="
+                  valid || authError.length === 0
+                    ? 'border-green-600 focus:ring-green-600 focus:border-green-600'
+                    : 'border-red-600 focus:ring-red-600 focus:border-red-600'
+                "
+              />
+            </ValidationProvider>
+          </div>
+          <button
+            :disabled="invalid"
+            type="submit"
+            class="
+              mt-3
+              w-full
+              flex
+              justify-center
+              px-4
+              py-2
+              border border-transparent
+              rounded-md
+              shadow-sm
+              text-sm
+              font-medium
+              text-white
+              bg-green-600
+              hover:bg-green-700
+              focus:outline-none
+            "
+          >
+            {{ $t('sign-in') }}
+            <vue-loaders v-if="loading" name="ball-beat" color="white" scale="0.5" />
+          </button>
+        </form>
+      </ValidationObserver>
       <div class="flex items-center justify-center mt-2">
-        <p class="text-gray-600 text-sm font-medium">Don't have an account?</p>
+        <p class="text-gray-600 text-sm font-medium">{{ $t('do-not-have-an-account') }}</p>
         <button
           class="ml-2 text-yellow-600 text-sm font-medium focus:outline-none"
           @click="openRegister"
         >
-          Register
+          {{ $t('register') }}
         </button>
       </div>
     </div>
@@ -179,9 +156,68 @@ export default {
     status: String,
   },
   data() {
-    return {}
+    return {
+      auth: {
+        identifier: '',
+        password: ''
+      },
+      authError: '',
+      tryingToLogIn: false,
+      isAuthError: false,
+      loading: false,
+      isEmail: false
+    }
+  },
+  watch: {
+    'auth.identifier' () {
+      const EMAILREG = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      if (EMAILREG.test(this.auth.identifier)) {
+        this.isEmail = true
+      } else {
+        this.isEmail = false
+      }
+    }
   },
   methods: {
+    async tryToLogIn () {
+      if (this.auth.identifier.includes('+') > 0) {
+        this.auth.identifier = this.auth.identifier.substring(1)
+      }
+      this.authError = ''
+      this.loading = true
+      if (this.isEmail) {
+        this.$snotify.info('Logging in...')
+        await this.$auth.loginWith('local', {
+          data: this.auth
+        }).then(async (res) => {
+          localStorage.setItem('local', 'Bearer ' + res.data.jwt)
+          await this.$auth.setToken('local', 'Bearer ' + res.data.jwt)
+          // await this.$auth.setRefreshToken('local', res.data.refresh)
+          await this.$axios.setHeader('Authorization', 'Bearer ' + res.data.jwt)
+          await this.$auth.ctx.app.$axios.setHeader('Authorization', 'Bearer ' + res.data.jwt)
+          localStorage.setItem('user_info', JSON.stringify(res.data.user))
+          await this.$auth.setUser(res.data.user)
+          await this.$snotify.success('Successfully Logged In')
+          this.loading = false
+          this.onClose()
+        }).catch((e) => {
+          this.authError = e.response.data.data[0].messages[0].message
+          this.loading = false
+        })
+      } else {
+        this.$axios
+          .post('/users-permissions/login-verify-otp', { phone: this.auth.identifier })
+          .then((res) => {
+            this.loading = false
+            this.confirmCode({ username: this.auth.identifier, isLogin: true, isOtpSuccess: null })
+          })
+          .catch((e) => {
+            this.openSignUp()
+            this.authError = e.response.data.data[0].messages[0].message
+            this.loading = false
+          })
+      }
+    },
     openRegister() {
       this.$emit('close')
       this.$modal.show(

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import { ValidationProvider, ValidationObserver, extend } from 'vee-validate'
 import { required, length, min } from 'vee-validate/dist/rules'
 import * as rules from 'vee-validate/dist/rules'
-import i18n from '~/config/i18n'
+import i18n from '~/utils/i18n'
 Vue.component('ValidationProvider', ValidationProvider)
 Vue.component('ValidationObserver', ValidationObserver)
 Object.keys(rules).forEach((rule) => {

@@ -59,8 +59,8 @@
             leave-active-class="transform transition ease-in-out duration-300 sm:duration-400"
             leave-class="translate-x-0"
             leave-to-class="translate-x-full"
-            @after-leave="close"
           >
+            <!-- @after-leave="close" -->
             <div v-show="showContent" class="w-screen max-w-xl">
               <div
                 class="
