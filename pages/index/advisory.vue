@@ -16,6 +16,7 @@
 import Experts from '~/components/Experts.vue'
 export default {
   name: 'Advisory',
+  auth: false,
   components: { Experts },
   data() {
     return {

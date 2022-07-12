@@ -196,6 +196,7 @@ import { actions, getters } from '~/utils/store_schema'
 const _page = 'products'
 const { get } = actions(_page)
 export default {
+  auth: false,
   components: { expertsSwiper, PriceSwiper, NewsSwiper, PartnersSwiper },
   data() {
     return {

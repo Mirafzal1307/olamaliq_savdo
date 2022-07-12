@@ -230,6 +230,7 @@
 <script>
 export default {
   name: 'ELearningDetails',
+  auth: false,
 }
 </script>
 

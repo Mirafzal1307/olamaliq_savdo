@@ -138,6 +138,7 @@
 import YandexMap from '~/components/core/yandex-map.vue'
 export default {
   name: 'AgriBusiness',
+  auth: false,
   components: {
     YandexMap,
   },

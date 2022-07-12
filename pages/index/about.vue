@@ -332,6 +332,7 @@ const _page = 'about'
 const { get } = actions(_page)
 export default {
   name: 'About',
+  auth: false,
   components: {
     PartnersSwiper,
   },

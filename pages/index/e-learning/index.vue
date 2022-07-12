@@ -101,6 +101,7 @@ const _page = 'courses'
 const { get } = actions(_page)
 export default {
   name: 'ELearning',
+  auth: false,
   data() {
     return {
       videos: [

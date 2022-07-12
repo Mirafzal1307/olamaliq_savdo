@@ -178,6 +178,7 @@
 <script>
 export default {
   name: 'AgriFinanceDetails',
+  auth: false
 }
 </script>
 

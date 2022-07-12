@@ -102,6 +102,7 @@ const _page = 'serviceposts'
 const { get } = actions(_page)
 export default {
   name: 'AgriFinance',
+  auth: false,
   components: { News },
   data() {
     return {

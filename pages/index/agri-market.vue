@@ -34,6 +34,7 @@
 import Prices from '~/components/Prices.vue'
 export default {
   name: 'AgriMarket',
+  auth: false,
   components: { Prices },
   data() {
     return {
