@@ -11,6 +11,8 @@ const createStore = () => {
       districts: crud('districts'),
       servicecategories: crud('servicecategories'),
       courses: crud('courses'),
+      about: crud('about'),
+      serviceposts: crud('serviceposts'),
     },
   })
 }

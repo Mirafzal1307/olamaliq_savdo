@@ -17,17 +17,17 @@
             {{ data.category }}
           </div>
           <div class="text-white group-hover:text-green-700 font-medium text-lg my-6 z-20">
-            {{ data.title }}
+            {{ data.attributes.title }}
           </div>
-          <div class="text-white group-hover:text-gray-500 text-sm my-6 z-20">
-            {{ data.subtitle }}
+          <div class="text-white group-hover:text-gray-500 text-sm my-6 z-20 line-clamp-4">
+            {{ data.attributes.description }}
           </div>
         </div>
         <div
           class="border border-white group-hover:border-gray-100 absolute inset-x-0 bottom-16 z-20"
         ></div>
         <div class="absolute left-5 text-sm bottom-5 group-hover:text-gray-500 text-white z-20">
-          {{ data.date }}
+          {{ $tools.getDate(data.attributes.createdAt) }}
         </div>
         <div class="absolute right-5 text-sm bottom-5 group-hover:text-gray-500 text-white z-20">
           Read

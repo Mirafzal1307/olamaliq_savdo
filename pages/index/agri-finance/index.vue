@@ -87,7 +87,7 @@
       </button>
     </div>
     <div class="grid md:grid-cols-3 gap-6 sm:grid-cols-2 grid-cols-1">
-      <div v-for="(info, index) in news" :key="index">
+      <div v-for="(info, index) in data" :key="index">
         <news :data="info" />
       </div>
     </div>
@@ -95,7 +95,11 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import News from '~/components/News.vue'
+import { actions, getters } from '~/utils/store_schema'
+const _page = 'serviceposts'
+const { get } = actions(_page)
 export default {
   name: 'AgriFinance',
   components: { News },
@@ -160,6 +164,22 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapGetters(getters(_page)),
+  },
+  mounted() {
+    this.fetchData()
+  },
+  methods: {
+    async fetchData() {
+      await this.$store
+        .dispatch(get, {
+          populate: '*',
+          locale: this.$i18n.locale,
+        })
+        .then(() => {})
+    },
   },
 }
 </script>

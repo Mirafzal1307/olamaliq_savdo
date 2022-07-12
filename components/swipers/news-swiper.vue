@@ -8,7 +8,7 @@
       :pagination="{ clickable: true, dynamicBullets: true }"
     >
       <swiper-slide
-        v-for="(info, index) in news"
+        v-for="(info, index) in data"
         :key="index"
         class="flex bg-white rounded-md space-x-3 z-0 pb-2 transition duration-500"
         data-swiper-autoplay="2000"
@@ -32,7 +32,11 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import News from '../News.vue'
+import { actions, getters } from '~/utils/store_schema'
+const _page = 'serviceposts'
+const { get } = actions(_page)
 export default {
   name: 'NewsSwiper',
   components: { News },
@@ -41,7 +45,7 @@ export default {
       newsOption: {
         direction: 'horizontal',
         slideToClickedSlide: false,
-        loop: true,
+        loop: false,
         autoplay: {
           delay: 2000,
         },
@@ -83,36 +87,23 @@ export default {
           prevEl: '.swiper-button-prev',
         },
       },
-      news: [
-        {
-          category: 'Law',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-          date: 'Sep 6 - 2021',
-        },
-        {
-          category: 'Law',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-          date: 'Sep 6 - 2021',
-        },
-        {
-          category: 'Law',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-          date: 'Sep 6 - 2021',
-        },
-        {
-          category: 'Law',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-          date: 'Sep 6 - 2021',
-        },
-      ],
     }
   },
-
+  computed: {
+    ...mapGetters(getters(_page)),
+  },
+  mounted() {
+    this.fetchData()
+  },
   methods: {
+    async fetchData() {
+      await this.$store
+        .dispatch(get, {
+          populate: '*',
+          locale: this.$i18n.locale,
+        })
+        .then(() => {})
+    },
     prev() {
       this.$refs.swiper.$swiper.slidePrev()
     },

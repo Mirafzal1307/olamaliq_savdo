@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 xl:px-0 px-4">
-      <div class="text-3xl text-gray-700 font-semibold my-10">Mission</div>
+      <!-- {{ data.attributes.content }} -->
+      <!-- <div class="text-3xl text-gray-700 font-semibold my-10">Mission</div>
       <div class="space-y-6">
         <p class="text-gray-500 leading-8">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget
@@ -57,7 +58,7 @@
           dolor vitae tincidunt. Aenean quis massa uada mi elementum elementum. Nec sapien convallis
           vulputate rhoncus vel dui.
         </p>
-      </div>
+      </div> -->
     </div>
     <div class="bg-green-900 my-10 py-10">
       <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 xl:px-0 px-4">
@@ -324,11 +325,31 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import PartnersSwiper from '~/components/swipers/partners-swiper.vue'
+import { actions, getters } from '~/utils/store_schema'
+const _page = 'about'
+const { get } = actions(_page)
 export default {
   name: 'About',
   components: {
     PartnersSwiper,
+  },
+  computed: {
+    ...mapGetters(getters(_page)),
+  },
+  mounted() {
+    this.fetchData()
+  },
+  methods: {
+    async fetchData() {
+      await this.$store
+        .dispatch(get, {
+          populate: '*',
+          locale: this.$i18n.locale,
+        })
+        .then(() => {})
+    },
   },
 }
 </script>
