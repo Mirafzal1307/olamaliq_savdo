@@ -78,7 +78,7 @@ export default function (param) {
         commit(_mutations.load, true)
         return new Promise((resolve, reject) => {
           this.$axios
-            .get(`${param}`, params)
+            .get(`${param}`, { params })
             .then((res) => {
               commit(_mutations.pagination, {
                 page: (params && parseInt(params._start)) || state.pagination.page,
