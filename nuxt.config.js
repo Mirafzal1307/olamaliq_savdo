@@ -33,6 +33,7 @@ export default {
     '~/plugins/other-libraries.js',
     '~/plugins/vue-js-modal.js',
     '~/plugins/axios.js',
+    '~/plugins/vee-validate.js',
     { src: '~/plugins/client-libraries', mode: 'client' },
     // '~/plugins/v-viewer.client.js',
   ],
@@ -86,8 +87,37 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
     // 'vue-currency-filter/nuxt',
   ],
+  auth: {
+    localStorage: false,
+    cookie: {
+      expires: 7
+    },
+    strategies: {
+      local: {
+        token: {
+          property: 'token',
+          maxAge: 30 * 24 * 60 * 60,
+          global: true,
+          type: 'Bearer'
+        },
+        endpoints: {
+          login: { url: '/auth/local', method: 'post' },
+          // refresh: { url: '/auth/token/refresh', method: 'post' },
+          user: false,
+          logout: false
+        },
+        redirect: {
+          login: '/',
+          logout: '/',
+          user: '/profile',
+          callback: '/'
+        }
+      }
+    }
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
@@ -116,6 +146,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: ['vee-validate/dist/rules'],
     extend(config, ctx) {
       if (ctx.isDev) {
         config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'

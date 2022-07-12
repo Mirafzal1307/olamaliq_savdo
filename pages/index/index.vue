@@ -186,7 +186,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import expertsSwiper from '~/components/swipers/experts-swiper.vue'
 import NewsSwiper from '~/components/swipers/news-swiper.vue'
 import PriceSwiper from '~/components/swipers/price-swiper.vue'
@@ -243,6 +243,12 @@ export default {
     }
   },
   computed: {
+    ...mapState({
+      isLoggedIn: (state) => state.auth.loggedIn,
+      currentUser: (state) => state.auth.user,
+      userConnection: (state) => state.socket.userConnection,
+      userConnectionStatus: (state) => state.socket.userConnectionStatus,
+    }),
     ...mapGetters(getters(_page)),
     ...mapGetters(['dataCourses']),
   },

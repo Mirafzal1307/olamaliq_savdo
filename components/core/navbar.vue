@@ -61,7 +61,82 @@
                 </router-link>
               </div>
             </div>
+            <div v-if="isLoggedIn" class="ml-3 relative">
+              <div class="flex items-center justify-end">
+                <button
+                  id="user-menu-button"
+                  type="button"
+                  class="justify-end inline-flex items-center py-2 text-sm font-medium focus:outline-none border border-transparent bg-light-gray text-gray-600 lg:rounded-md lg:hover:bg-gray-50"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  @click="openProfile"
+                >
+                  <img
+                    class="w-10 flex justify-end rounded-full"
+                    alt="Avatar"
+                    :src="
+                      currentUser.avatar
+                        ? $tools.getFileUrl(currentUser.avatar)
+                        : require('/assets/images/person/avatar.jpg')
+                    "
+                    @error="
+                      currentUser.avatar = require('/assets/images/person/avatar.jpg')
+                    "
+                  />
+                </button>
+              </div>
+              <div
+                v-show="isProfileOpened"
+                class="z-20 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="user-menu-button"
+                tabindex="-1"
+              >
+                <div
+                  class="block font-medium hover:bg-gray-100 px-4 py-2 text-sm text-gray-600 cursor-pointer"
+                  @click="toUserWork({ path: localePath('/my-profile') })"
+                >
+                  {{
+                    `${currentUser.name ? currentUser.name : ""} ${
+                      currentUser.surname ? currentUser.surname : ""
+                    }`
+                  }}
+                  <br />
+                  <span class="text-xs text-gray-500"
+                    >ID: {{ currentUser.id }}</span
+                  >
+                </div>
+                <div
+                  class="block font-medium px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer"
+                >
+                  something
+                </div>
+                <div
+                  class="block font-medium px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer"
+                >
+                  something
+                </div>
+                <div
+                  class="block font-medium px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer"
+                >
+                  something
+                </div>
+                <div
+                  class="block font-medium px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer"
+                >
+                  something
+                </div>
+                <div
+                  class="block font-medium px-4 py-2 text-sm text-red-600 hover:bg-red-100 cursor-pointer"
+                  @click="logOut()"
+                >
+                  {{ $t("exit") }}
+                </div>
+              </div>
+            </div>
             <button
+              v-else
               class="text-white focus:outline-none text-sm rounded-md bg-green-700 p-3"
               @click="signIn()"
             >
@@ -112,6 +187,7 @@
 import LangSwitcher from '../core/lang-switcher.vue'
 import signInModal from '../modals/signin.vue'
 import mobileMenu from '../core/mobile-menu.vue'
+import { mapState } from 'vuex'
 export default {
   name: 'Navbar',
   components: {
@@ -119,6 +195,7 @@ export default {
   },
   data() {
     return {
+      isProfileOpened: false,
       navbar: [
         { name: 'About', route: '/about' },
         { name: 'E-learning', route: '/e-learning' },
@@ -129,7 +206,22 @@ export default {
       ],
     }
   },
+  computed: {
+    ...mapState({
+      isLoggedIn: (state) => state.auth.loggedIn,
+      currentUser: (state) => state.auth.user,
+    }),
+  },
   methods: {
+    async logOut() {
+      this.isProfileOpened = !this.isProfileOpened;
+      await localStorage.removeItem("local");
+      await localStorage.removeItem("user_info");
+      await this.$auth.logout();
+    },
+    openProfile() {
+      this.isProfileOpened = !this.isProfileOpened;
+    },
     openMobileMenu() {
       this.$showPanel({
         component: mobileMenu,

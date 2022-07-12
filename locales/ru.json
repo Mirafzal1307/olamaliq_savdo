@@ -11,6 +11,8 @@
     "c": "C",
     "cancel": "Отменить",
     "clear": "Очистить",
+    "confirm-password": "Подтвердите пароль",
+    "consultants": "Консультанты",
     "created-date": "Дата создания",
     "create-a-new-branch": "Создать новую филлиал",
     "create-a-new-district": "Создать новую район",
@@ -23,11 +25,14 @@
     "district": "Район",
     "districts": "Райони",
     "directions": "Направления",
+    "do-you-have-an-account": "У вас есть аккаунт?",
   
     "e": "E",
     "email": "Эл. почта",
+    "email-or-phone": "Эл. почта или телефон",
   
     "f": "F",
+    "firstname": "Имя",
     "forgot-password-question": "Забыли пароль?",
   
     "g": "G",
@@ -45,6 +50,7 @@
     "k": "K",
   
     "l": "L",
+    "lastname": "Фамилия",
     "loading": "Загрузка",
     "login": "Логин",
     "logo": "Лого",
@@ -75,6 +81,9 @@
     "r": "R",
     "region": "Область",
     "regions": "Области",
+    "register": "Регистрация",
+    "registration": "Регистрация",
+    "required": "Обязательно",
   
     "s": "S",
     "save": "Сохранить",

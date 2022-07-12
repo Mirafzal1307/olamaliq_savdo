@@ -12,6 +12,7 @@
     "cancel": "Cancel",
     "chats": "Chats",
     "clear": "Clear",
+    "confirm-password": "Confirm Password",
     "consultation": "Consultation",
     "created-date": "Created Date",
     "create-a-new-branch": "Create a new branch",
@@ -25,11 +26,14 @@
     "display-options": "Display Options",
     "district": "Disctrict",
     "districts": "Disctricts",
+    "do-you-have-an-account": "Do you have an account?",
     
     "e": "E",
     "email": "E-mail",
+    "email-or-phone": "E-mail or Phone",
     
     "f": "F",
+    "firstname": "Firstname",
     "forgot-password-question":"Forget password?",
     
     "g": "G",
@@ -47,6 +51,7 @@
     "k": "K",
     
     "l": "L",
+    "lastname": "Lastname",
     "loading": "Loading",
     "login": "Login",
     "logo": "Logo",
@@ -79,6 +84,9 @@
     "r": "R",
     "region": "Region",
     "regions": "Regions",
+    "register": "Register",
+    "registration": "Registration",
+    "required": "Required",
     
     "s": "S",
     "save": "Save",

@@ -1,110 +1,126 @@
 {
-    "a": "A",
-    "action": "Действие",
-    "address": "Адрес",
-    "add-new": "Добавить новое",
-  
-    "b": "B",
-    "bad-request": "Bad Request",
-    "branches": "Филлиалы",
-  
-    "c": "C",
-    "cancel": "Отменить",
-    "clear": "Очистить",
-    "created-date": "Дата создания",
-    "create-a-new-branch": "Создать новую филлиал",
-    "create-a-new-district": "Создать новую район",
-    "create-a-new-region": "Создать новую область",
-  
-    "d": "D",
-    "data-list": "Список данных",
-    "description": "Описание",
-    "display-options": "Дисплей параметри",
-    "district": "Район",
-    "districts": "Райони",
-    "directions": "Направления",
-  
-    "e": "E",
-    "email": "Эл. почта",
-  
-    "f": "F",
-    "forgot-password-question": "Забыли пароль?",
-  
-    "g": "G",
-    "give-a-description-in-the-following-languages": "Дайте описание на следующих языках",
-  
-    "h": "H",
-    "hippocrates": "Гиппократ",
-    "home": "Главный",
-  
-    "i": "I",
-    "image-cropper": "Обрезка изображения",
-  
-    "j": "J",
-  
-    "k": "K",
-  
-    "l": "L",
-    "loading": "Загрузка",
-    "login": "Логин",
-    "logo": "Лого",
-  
-    "m": "M",
-    "medicineQuotes": "Область науки безгранична, а жизнь коротка; искусство долговечно, жизнь коротка",
-  
-    "n": "N",
-    "name": "Наименования",
-  
-    "o": "O",
-    "order-by": "Сортировать по",
-  
-    "p": "P",
-    "password": "Пароль",
-    "patients": "Пациенты",
-    "please-enter-a-name": "Пожалуйста, введите наименования",
-    "please-enter-an-address": "Пожалуйста, введите адрес",
-    "please-enter-a-valid-email-address": "Пожалуйста, введите действительный адрес электронной почты",
-    "please-enter-your-email-address": "Пожалуйста, введите свой адрес электронной почты",
-    "please-enter-your-password": "Пожалуйста введите ваш пароль",
-    "please-select-a-district": "Пожалуйста, выберите район",
-    "please-select-a-region": "Пожалуйста, выберите область",
-    "please-select-directions": "Пожалуйста, выберите направления",
-  
-    "q": "Q",
-  
-    "r": "R",
-    "region": "Область",
-    "regions": "Области",
-  
-    "s": "S",
-    "save": "Сохранить",
-    "search": "Поиск",
-    "service-category": "Категория услуги",
-    "settings": "Настройки",
-    "sign-out": "Выход",
-    "staff": "Сотрудники",
-    "status": "Статус",
-  
-    "t": "T",
-  
-    "u": "U",
-    "update": "Обновить",
-    "update-branch": "Обновить филлиал",
-    "update-district": "Обновить район",
-    "update-region": "Обновить область",
-    "upload-image": "Загрузить изобрежению",
-    "users": "Пользователи",
-  
-    "v": "V",
-  
-    "w": "W",
-  
-    "x": "X",
-  
-    "y": "Y",
-    "your-password-must-be-between-4-and-16-characters": "Ваш пароль должен быть от 4 до 16 символов",
-    "Your email must be minimum 4 characters": "Ваш адрес электронной почты должен быть не менее 4 символов",
-  
-    "z": "Z"
-  }
-  
+  "a": "A",
+  "action": "Holat",
+  "address": "Manzil",
+  "add-new": "Yangisini qo'shish",
+  "agri-finance": "Agri-finans",
+  "agri-business": "Agri-biznes",
+
+  "b": "B",
+  "bad-request": "Bad Request",
+  "branches": "Filiallar",
+
+  "c": "C",
+  "cancel": "Bekor qilish",
+  "chat": "Chat",
+  "chats": "Chatlar",
+  "clear": "Tozalash",
+  "confirm-password": "Parolni tasdiqlash",
+  "consultants": "Konsultantlar",
+  "created-date": "Yaratilgan sana",
+  "create-a-new-branch": "Yangi fillial yaratish",
+  "create-a-new-district": "Yangi tuman yaratish",
+  "create-a-new-region": "Yangi viloyat yaratish",
+
+  "d": "D",
+  "data-list": "Ma'lumotlar ro'yhati",
+  "description": "Tavsif",
+  "display-options": "Displey parametrlari",
+  "district": "Tuman",
+  "districts": "Tumanlar",
+  "directions": "Yo'nalishlar",
+  "do-you-have-an-account": "Sizni akkountingiz bormi?",
+
+  "e": "E",
+  "e-learning": "E-ta'lim",
+  "email": "Email",
+  "email-or-phone": "Email yoki telefon",
+
+  "f": "F",
+  "firstname": "Ism",
+  "forgot-password-question": "Parolni esdan chiqardingizmi?",
+
+  "g": "G",
+  "give-a-description-in-the-following-languages": "Quyidagi tillarda tavsif bering",
+
+  "h": "H",
+  "hippocrates": "Gippokrat",
+  "home": "Asosiy sahifa",
+
+  "i": "I",
+  "image-cropper": "Rasmni kesish",
+
+  "j": "J",
+
+  "k": "K",
+
+  "l": "L",
+  "lastname": "Familiya",
+  "loading": "Yuklanmoqda",
+  "login": "Kirish",
+  "logo": "Logo",
+
+  "m": "M",
+  "medicineQuotes": "Hayot qisqa, san'at yo'li uzoq, imkoniyat tez, tajriba aldamchi, hukm qilish qiyin",
+  "multi-lessons": "Darslar guruhi",
+
+  "n": "N",
+  "name": "Nomlanishi",
+
+  "o": "O",
+  "order-by": "Saralash turi",
+
+  "p": "P",
+  "password": "Parol",
+  "patients": "Bemorlar",
+  "please-enter-a-name": "Iltimos, nomini kiriting",
+  "please-enter-an-address": "Iltimos, manzilini kiriting",
+  "please-enter-a-valid-email-address": "Iltimos, to'g'ri e-pochta manzilini kiriting",
+  "please-enter-your-email-address": "Iltimos, elektron pochta manzilingizni kiriting",
+  "please-enter-your-password": "Iltimos, parolingizni kiriting",
+  "please-select-a-district": "Iltimos, tumanni tanlang",
+  "please-select-a-region": "Iltimos, viloyatni tanlang",
+  "please-select-directions": "Iltimos, yo'nalishni tanlang",
+  "price-list": "Narxlar ro'yhati",
+
+  "q": "Q",
+
+  "r": "R",
+  "region": "Viloyat",
+  "regions": "Viloyatlar",
+  "register": "Ro'yxatdan o'tish",
+  "registration": "Registratsiya",
+  "required": "Majburiy",
+
+  "s": "S",
+  "save": "Saqlash",
+  "search": "Qidirish",
+  "service-category": "Uslugalar kategoriyasi",
+  "settings": "Sozlamalar",
+  "sign-out": "Chiqish",
+  "single-lessons": "Yakka darslar",
+  "staff": "Xodimlar",
+  "status": "Status",
+
+  "t": "T",
+
+  "u": "U",
+  "update": "Yangilash",
+  "update-branch": "Fillialni yangilash",
+  "update-district": "Tumanni yangilash",
+  "update-region": "Viloyatni yangilash",
+  "upload-image": "Rasmni yuklash",
+  "users": "Foydalanuvchilar",
+
+  "v": "V",
+
+  "w": "W",
+
+  "x": "X",
+
+  "y": "Y",
+  "your-password-must-be-between-4-and-16-characters": "Sizning parolingiz 4 dan 16 tagacha belgidan iborat bo'lishi kerak",
+  "your-email-must-be-4-characters": "Sizning elektron pochtangiz kamida 4 ta belgidan iborat bo'lishi kerak",
+
+  "z": "Z"
+}
