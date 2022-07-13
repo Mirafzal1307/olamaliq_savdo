@@ -51,9 +51,9 @@
         <div class="font-semibold text-gray-700 text-2xl">
           <span class="text-green-800">Experts</span> consultancy
         </div>
-        <div class="">
+        <!-- <div class="">
           <experts-swiper />
-        </div>
+        </div> -->
       </div>
       <div class="mt-12 space-y-4">
         <div class="font-semibold text-green-800 text-2xl">Price</div>

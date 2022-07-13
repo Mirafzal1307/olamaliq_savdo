@@ -66,25 +66,12 @@
         View all
       </button>
       <button
-        class="rounded-md border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
+        v-for="(category, index) in data" :key="index"
+        class="rounded-md flex items-center border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
       >
-        Credits
+        {{category.attributes.coursecategory.data.attributes.name}}
       </button>
-      <button
-        class="rounded-md border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
-      >
-        Agriculture
-      </button>
-      <button
-        class="rounded-md border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
-      >
-        Law
-      </button>
-      <button
-        class="rounded-md border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
-      >
-        Others
-      </button>
+     
     </div>
     <div class="grid md:grid-cols-3 gap-6 sm:grid-cols-2 grid-cols-1">
       <div v-for="(video, index) in data" :key="index">
@@ -104,50 +91,7 @@ export default {
   auth: false,
   data() {
     return {
-      videos: [
-        {
-          id: 1,
-          img: '~/assets/images/video.png',
-          date: 'Sep 6 - 2021',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-        },
-        {
-          id: 2,
-          img: '~/assets/images/video.png',
-          date: 'Sep 6 - 2021',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-        },
-        {
-          id: 3,
-          img: '~/assets/images/video.png',
-          date: 'Sep 6 - 2021',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-        },
-        {
-          id: 4,
-          img: '~/assets/images/video.png',
-          date: 'Sep 6 - 2021',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-        },
-        {
-          id: 5,
-          img: '~/assets/images/video.png',
-          date: 'Sep 6 - 2021',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-        },
-        {
-          id: 6,
-          img: '~/assets/images/video.png',
-          date: 'Sep 6 - 2021',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-        },
-      ],
+    
     }
   },
   computed: {

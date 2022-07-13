@@ -3,54 +3,14 @@
     <div class="grid lg:grid-cols-3 grid-cols-1 lg:gap-6 gap-0">
       <div class="col-span-2">
         <div class="">
-          <div class="lg:my-6 mb-6 text-gray-700 font-semibold text-4xl">
-            QQB offers 14% Annual credit for Greenhouse business
+          <div class="mb-6 text-gray-700 font-semibold text-4xl">
+            {{serviceDetails.attributes.title}}
           </div>
           <p class="text-sm text-gray-500 leading-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget
-            risus sollicitudin pellentesque et non erat. Maecenas nibh dolor, malesuada et bibendum
-            a, sagittis accumsan ipsum. Pellentesque ultrices ultrices sapien, nec tincidunt nunc
-            posuere ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque
-            tristique dolor vitae tincidunt. Aenean quis massa uada mi elementum elementum. Nec
-            sapien convallis vulputate rhoncus vel dui.
+           {{serviceDetails.attributes.content}}
           </p>
-          <br />
-          <p class="text-sm text-gray-500 leading-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget
-            risus sollicitudin pellentesque et non erat. Maecenas nibh dolor, malesuada et bibendum
-            a, sagittis accumsan ipsum. Pellentesque ultrices ultrices sapien, nec tincidunt nunc
-            posuere ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque
-            tristique dolor vitae tincidunt. Aenean quis massa uada mi elementum elementum. Nec
-            sapien convallis vulputate rhoncus vel dui.
-          </p>
-          <br />
-          <p class="text-sm text-gray-500 leading-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget
-            risus sollicitudin pellentesque et non erat. Maecenas nibh dolor, malesuada et bibendum
-            a, sagittis accumsan ipsum. Pellentesque ultrices ultrices sapien, nec tincidunt nunc
-            posuere ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque
-            tristique dolor vitae tincidunt. Aenean quis massa uada mi elementum elementum. Nec
-            sapien convallis vulputate rhoncus vel dui.
-          </p>
+          
         </div>
-        <div class="text-gray-700 font-semibold text-2xl my-6">Advantages of tree planting</div>
-        <p class="text-sm text-gray-500 leading-8">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget
-          risus sollicitudin pellentesque et non erat. Maecenas nibh dolor, malesuada et bibendum a,
-          sagittis accumsan ipsum. Pellentesque ultrices ultrices sapien, nec tincidunt nunc posuere
-          ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque tristique
-          dolor vitae tincidunt. Aenean quis massa uada mi elementum elementum. Nec sapien convallis
-          vulputate rhoncus vel dui.
-        </p>
-        <br />
-        <p class="text-sm text-gray-500 leading-8">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget
-          risus sollicitudin pellentesque et non erat. Maecenas nibh dolor, malesuada et bibendum a,
-          sagittis accumsan ipsum. Pellentesque ultrices ultrices sapien, nec tincidunt nunc posuere
-          ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque tristique
-          dolor vitae tincidunt. Aenean quis massa uada mi elementum elementum. Nec sapien convallis
-          vulputate rhoncus vel dui.
-        </p>
         <div class="grid grid-cols-2 gap-4 my-4">
           <img src="~/assets/images/about.png" />
           <img src="~/assets/images/about.png" />
@@ -176,20 +136,38 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import { actions, getters } from '~/utils/store_schema'
+const _page = 'serviceposts'
+const { getById } = actions(_page)
 export default {
   name: 'AgriFinanceDetails',
-  auth: false
+  auth: false,
+  data() {
+    return {
+      serviceDetails: {
+        attributes: {} 
+       }
+    }
+  },
+  computed: {
+    ...mapGetters(getters(_page)),
+  },
+  mounted() {
+    this.fetchData()
+  },
+  methods: {
+    async fetchData() {
+      await this.$store
+        .dispatch(getById, this.$route.query, {
+          populate: '*',
+          locale: this.$i18n.locale,
+        })
+        .then((res) => {
+          this.serviceDetails = { ...res.data.data}
+        })
+    },
+  },
+  
 }
 </script>
-
-<style scoped>
-/* .responsive-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-} */
-</style>

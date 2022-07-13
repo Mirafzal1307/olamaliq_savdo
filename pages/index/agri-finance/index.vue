@@ -65,25 +65,11 @@
       >
         View all
       </button>
-      <button
-        class="rounded-md border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
+       <button
+        v-for="(category, index) in data" :key="index"
+        class="rounded-md flex items-center border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
       >
-        Funds
-      </button>
-      <button
-        class="rounded-md border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
-      >
-        Credits
-      </button>
-      <button
-        class="rounded-md border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
-      >
-        Incentive
-      </button>
-      <button
-        class="rounded-md border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
-      >
-        Others
+        {{category.attributes.servicecategory.data ? category.attributes.servicecategory.data.attributes.name : ''}}
       </button>
     </div>
     <div class="grid md:grid-cols-3 gap-6 sm:grid-cols-2 grid-cols-1">
@@ -106,64 +92,6 @@ export default {
   components: { News },
   data() {
     return {
-      news: [
-        {
-          id: 1,
-          category: 'Law',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-          date: 'Sep 6 - 2021',
-        },
-        {
-          id: 2,
-          category: 'Law',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-          date: 'Sep 6 - 2021',
-        },
-        {
-          id: 3,
-          category: 'Law',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-          date: 'Sep 6 - 2021',
-        },
-        {
-          id: 4,
-          category: 'Law',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-          date: 'Sep 6 - 2021',
-        },
-        {
-          id: 5,
-          category: 'Law',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-          date: 'Sep 6 - 2021',
-        },
-        {
-          id: 6,
-          category: 'Law',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-          date: 'Sep 6 - 2021',
-        },
-        {
-          id: 7,
-          category: 'Law',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-          date: 'Sep 6 - 2021',
-        },
-        {
-          id: 8,
-          category: 'Law',
-          title: 'Ask The Agronomists: Lawncare Tips From The Experts',
-          subtitle: 'Lorem ipsum',
-          date: 'Sep 6 - 2021',
-        },
-      ],
     }
   },
   computed: {

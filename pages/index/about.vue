@@ -59,6 +59,7 @@
           vulputate rhoncus vel dui.
         </p>
       </div> -->
+      <!-- {{data.title}} -->
     </div>
     <div class="bg-green-900 my-10 py-10">
       <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 xl:px-0 px-4">
@@ -333,6 +334,11 @@ const { get } = actions(_page)
 export default {
   name: 'About',
   auth: false,
+  data() {
+    return {
+      about: []
+    }
+  },
   components: {
     PartnersSwiper,
   },
@@ -341,6 +347,7 @@ export default {
   },
   mounted() {
     this.fetchData()
+    console.log("About: ", this.about);
   },
   methods: {
     async fetchData() {
@@ -349,7 +356,9 @@ export default {
           populate: '*',
           locale: this.$i18n.locale,
         })
-        .then(() => {})
+        .then((res) => {
+          this.about = {...res.data}
+        })
     },
   },
 }

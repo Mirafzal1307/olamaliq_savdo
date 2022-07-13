@@ -25,33 +25,10 @@
         </div>
         <div class="border-b border-gray-300 pb-6">
           <div class="my-6 text-gray-700 font-semibold text-4xl">
-            Ask The Agronomists: Lawncare Tips From The Experts
+            {{courseDetails.attributes.title}}
           </div>
           <p class="text-sm text-gray-500 leading-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget
-            risus sollicitudin pellentesque et non erat. Maecenas nibh dolor, malesuada et bibendum
-            a, sagittis accumsan ipsum. Pellentesque ultrices ultrices sapien, nec tincidunt nunc
-            posuere ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque
-            tristique dolor vitae tincidunt. Aenean quis massa uada mi elementum elementum. Nec
-            sapien convallis vulputate rhoncus vel dui.
-          </p>
-          <br />
-          <p class="text-sm text-gray-500 leading-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget
-            risus sollicitudin pellentesque et non erat. Maecenas nibh dolor, malesuada et bibendum
-            a, sagittis accumsan ipsum. Pellentesque ultrices ultrices sapien, nec tincidunt nunc
-            posuere ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque
-            tristique dolor vitae tincidunt. Aenean quis massa uada mi elementum elementum. Nec
-            sapien convallis vulputate rhoncus vel dui.
-          </p>
-          <br />
-          <p class="text-sm text-gray-500 leading-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget
-            risus sollicitudin pellentesque et non erat. Maecenas nibh dolor, malesuada et bibendum
-            a, sagittis accumsan ipsum. Pellentesque ultrices ultrices sapien, nec tincidunt nunc
-            posuere ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque
-            tristique dolor vitae tincidunt. Aenean quis massa uada mi elementum elementum. Nec
-            sapien convallis vulputate rhoncus vel dui.
+           {{courseDetails.attributes.content}}
           </p>
         </div>
         <div class="my-6 lg:flex block items-center justify-between">
@@ -228,20 +205,37 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import { actions, getters } from '~/utils/store_schema'
+const _page = 'courses'
+const { getById } = actions(_page)
 export default {
   name: 'ELearningDetails',
   auth: false,
+  data() {
+    return {
+      courseDetails: {
+        attributes: {}
+              }
+    }
+  },
+  computed: {
+    ...mapGetters(getters(_page)),
+  },
+  mounted() {
+    this.fetchData()
+  },
+  methods: {
+    async fetchData() {
+      await this.$store
+        .dispatch(getById, this.$route.query, {
+          populate: '*',
+          locale: this.$i18n.locale,
+        })
+        .then((res) => {
+          this.courseDetails = { ...res.data.data}
+        })
+    },
+  },
 }
 </script>
-
-<style scoped>
-/* .responsive-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-} */
-</style>
