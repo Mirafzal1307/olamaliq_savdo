@@ -7,6 +7,7 @@
   "agri-business": "Agri-biznes",
 
   "b": "B",
+  "back": "Orqaga",
   "bad-request": "Bad Request",
   "branches": "Filiallar",
 
@@ -24,6 +25,7 @@
 
   "d": "D",
   "data-list": "Ma'lumotlar ro'yhati",
+  "delete": "O'chirish",
   "description": "Tavsif",
   "display-options": "Displey parametrlari",
   "district": "Tuman",
@@ -32,6 +34,7 @@
   "do-you-have-an-account": "Sizni akkountingiz bormi?",
 
   "e": "E",
+  "edit": "Tahrirlash",
   "e-learning": "E-ta'lim",
   "email": "Email",
   "email-or-phone": "Email yoki telefon",
@@ -63,6 +66,7 @@
   "m": "M",
   "medicineQuotes": "Hayot qisqa, san'at yo'li uzoq, imkoniyat tez, tajriba aldamchi, hukm qilish qiyin",
   "multi-lessons": "Darslar guruhi",
+  "my-chats": "Chatlarim",
 
   "n": "N",
   "name": "Nomlanishi",
@@ -115,12 +119,14 @@
   "v": "V",
 
   "w": "W",
+  "write-a-message": "Xabar yozish...",
 
   "x": "X",
 
   "y": "Y",
-  "your-password-must-be-between-4-and-16-characters": "Sizning parolingiz 4 dan 16 tagacha belgidan iborat bo'lishi kerak",
   "your-email-must-be-4-characters": "Sizning elektron pochtangiz kamida 4 ta belgidan iborat bo'lishi kerak",
+  "your-password-must-be-between-4-and-16-characters": "Sizning parolingiz 4 dan 16 tagacha belgidan iborat bo'lishi kerak",
+  "you-do-not-have-chats": "Chatlar yo'q",
 
   "z": "Z"
 }

@@ -5,6 +5,7 @@
     "add-new": "Добавить новое",
   
     "b": "B",
+    "back": "Назад",
     "bad-request": "Bad Request",
     "branches": "Филлиалы",
   
@@ -20,6 +21,7 @@
   
     "d": "D",
     "data-list": "Список данных",
+    "delete": "Удалить",
     "description": "Описание",
     "display-options": "Дисплей параметри",
     "district": "Район",
@@ -28,6 +30,7 @@
     "do-you-have-an-account": "У вас есть аккаунт?",
   
     "e": "E",
+    "edit": "Редактировать",
     "email": "Эл. почта",
     "email-or-phone": "Эл. почта или телефон",
   
@@ -57,6 +60,7 @@
   
     "m": "M",
     "medicineQuotes": "Область науки безгранична, а жизнь коротка; искусство долговечно, жизнь коротка",
+    "my-chats": "Мои чаты",
   
     "n": "N",
     "name": "Наименования",
@@ -107,12 +111,14 @@
     "v": "V",
   
     "w": "W",
+    "write-a-message": "Напишите сообщение...",
   
     "x": "X",
   
     "y": "Y",
+    "your-email-must-be-minimum-4-characters": "Ваш адрес электронной почты должен быть не менее 4 символов",
     "your-password-must-be-between-4-and-16-characters": "Ваш пароль должен быть от 4 до 16 символов",
-    "Your email must be minimum 4 characters": "Ваш адрес электронной почты должен быть не менее 4 символов",
+    "you-do-not-have-chats": "У вас нет чатов",
   
     "z": "Z"
   }

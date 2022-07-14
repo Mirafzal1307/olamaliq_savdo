@@ -108,11 +108,12 @@
                     >ID: {{ currentUser.id }}</span
                   >
                 </div>
-                <div
+                <router-link
+                  :to="{ path: localePath('/chats') }"
                   class="block font-medium px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer"
                 >
-                  something
-                </div>
+                  {{ $t('my-chats')}}
+                </router-link>
                 <div
                   class="block font-medium px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer"
                 >
