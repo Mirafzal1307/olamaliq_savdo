@@ -3,8 +3,11 @@
     "action": "Action",
     "address": "Address",
     "add-new": "Add new",
+    "advisory": "Advisory",
+    "all-categories": "All categories",
   
     "b": "B",
+    "back": "Back",
     "bad-request": "Bad Request",
     "branches": "Branches",
   
@@ -21,6 +24,7 @@
     
     "d": "D",
     "data-list": "Data List",
+    "delete": "Delete",
     "description": "Description",
     "directions": "Directions",
     "display-options": "Display Options",
@@ -30,6 +34,7 @@
     "do-you-have-an-account": "Do you have an account?",
     
     "e": "E",
+    "edit": "Edit",
     "email": "E-mail",
     "email-or-phone": "E-mail or Phone",
     "exit": "Exit",
@@ -39,6 +44,7 @@
     "forgot-password-question":"Forget password?",
     
     "g": "G",
+    "get-consultation": "Get Consultation",
     "give-a-description-in-the-following-languages": "Give a description in the following languages",
     
     "h": "H",
@@ -60,6 +66,7 @@
     
     "m": "M",
     "medicineQuotes": "The life so short, the craft so long to learn.",
+    "my-chats": "My Chats",
     
     "n": "N",
     "name": "Name",
@@ -115,12 +122,14 @@
     "v": "V",
     
     "w": "W",
+    "write-a-message": "Write a message...",
     
     "x": "X",
     
     "y": "Y",
-    "your-password-must-be-between-4-and-16-characters": "Your password must be between 4 and 16 characters",
     "your-email-must-be-4-characters": "Your email must be minimum 4 characters",
+    "your-password-must-be-between-4-and-16-characters": "Your password must be between 4 and 16 characters",
+    "you-do-not-have-chats": "You do not have chats",
   
     "z": "Z"
 }

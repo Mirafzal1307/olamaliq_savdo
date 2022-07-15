@@ -27,7 +27,6 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    // '~/plugins/api.js',
     '~/plugins/clickOutside.client.js',
     '~/plugins/vueAwesomeSwiper.js',
     '~/plugins/other-libraries.js',
@@ -35,6 +34,7 @@ export default {
     '~/plugins/axios.js',
     '~/plugins/vee-validate.js',
     { src: '~/plugins/client-libraries', mode: 'client' },
+    '~/utils/bridge.js',
     // '~/plugins/v-viewer.client.js',
   ],
 
