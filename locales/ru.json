@@ -3,6 +3,8 @@
     "action": "Действие",
     "address": "Адрес",
     "add-new": "Добавить новое",
+    "advisory": "Адвокат",
+    "all-categories": "Все категории",
   
     "b": "B",
     "back": "Назад",
@@ -39,6 +41,7 @@
     "forgot-password-question": "Забыли пароль?",
   
     "g": "G",
+    "get-consultation": "Получить консультацию",
     "give-a-description-in-the-following-languages": "Дайте описание на следующих языках",
   
     "h": "H",

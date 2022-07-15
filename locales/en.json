@@ -3,6 +3,8 @@
     "action": "Action",
     "address": "Address",
     "add-new": "Add new",
+    "advisory": "Advisory",
+    "all-categories": "All categories",
   
     "b": "B",
     "back": "Back",
@@ -42,6 +44,7 @@
     "forgot-password-question":"Forget password?",
     
     "g": "G",
+    "get-consultation": "Get Consultation",
     "give-a-description-in-the-following-languages": "Give a description in the following languages",
     
     "h": "H",

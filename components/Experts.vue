@@ -2,7 +2,11 @@
   <div class="group w-full hover:shadow-md rounded-md shadow-sm relative">
     <div class="flex justify-center w-full">
       <img
-        :src="data.img"
+        :src="
+          data && data.avatar
+            ? $tools.getFileUrl(data.avatar)
+            : require('/assets/images/person/avatar.jpg')
+        "
         class="w-full md:h-72 h-48 rounded-md object-cover group-hover:opacity-60"
       />
     </div>
@@ -21,9 +25,12 @@
       "
     >
       <div class="block">
-        <div class="font-semibold text-gray-700 text-sm">{{ data.name }}</div>
-        <div class="text-gray-500 text-xs text-center">{{ data.category }}</div>
+        <div class="font-semibold text-gray-700 text-sm">{{ data.middlename }}</div>
+        <div v-if="data.consultantcategory" class="text-gray-500 text-xs text-center">
+          {{ data.consultantcategory.name }}
+        </div>
         <button
+          @click="toGetConsultaion()"
           class="
             bg-green-700
             rounded-md
@@ -39,7 +46,7 @@
             duration-500
           "
         >
-          Get consultation
+          {{ $t('get-consultation') }}
         </button>
       </div>
     </div>
@@ -47,11 +54,59 @@
 </template>
 
 <script>
+import { mapGetters, mapState } from 'vuex'
 export default {
   name: 'Experts',
   props: {
-    // eslint-disable-next-line vue/require-default-prop
-    data: Object,
+    data: {
+      type: Object,
+      default: () => ({}),
+    },
+  },
+  data() {
+    return {}
+  },
+  mounted() {},
+  computed: {
+    ...mapState({
+      currentUser: (state) => state.auth.user,
+      isLoggedIn: (state) => state.auth.loggedIn,
+    }),
+  },
+  methods: {
+    toGetConsultaion() {
+      if (this.isLoggedIn) {
+        this.$store
+          .dispatch('getChatrooms', {
+            populate: '*',
+            "filters[$and][0][consultant][id]": this.data.id,
+            "filters[$and][0][user][id]": this.currentUser.id,
+            "filters[$and][0][isCompleted]": false,
+          })
+          .then((res) => {
+            if (res.length > 0) {
+              this.$bridge.$emit('selected_room', { room_id: res[0].id })
+              this.$router.push({
+                path: this.localePath('/chats'),
+                query: { room_id: res.data[0].id, consultant_id: this.data.id },
+              })
+            } else {
+              this.$router.push({
+                path: this.localePath('/chats'),
+                query: { room_id: 'new', consultant_id: this.data.id },
+              })
+            }
+          })
+      } else {
+        this.$router.push({
+          path: this.localePath('/login'),
+          query: {
+            consultantID: this.data.id,
+            from: 'consultant',
+          },
+        })
+      }
+    },
   },
 }
 </script>

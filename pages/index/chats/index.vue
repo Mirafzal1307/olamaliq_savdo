@@ -162,7 +162,7 @@
                 <div class="relative flex items-center space-x-4">
                   <div class="relative">
                     <img
-                      :src="('/assets/images/person/avatar.jpg') "
+                      :src="'/assets/images/person/avatar.jpg'"
                       @error="consultant.avatar = require('/assets/images/person/avatar.jpg')"
                       alt=""
                       class="w-8 sm:w-12 h-8 sm:h-12 rounded-full"
@@ -200,13 +200,7 @@
               >
                 <div v-for="(msg, index) in messages" :key="index" class="chat-message">
                   <div
-                    v-if="
-                      msg.sender
-                        ? msg.sender.id == 1
-                          ? true
-                          : false
-                        : false
-                    "
+                    v-if="msg.sender ? (msg.sender.id == 1 ? true : false) : false"
                     class="flex items-end justify-end"
                   >
                     <div
@@ -246,7 +240,19 @@
                     />
                   </div>
                   <div v-else class="flex items-end">
-                    <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start bg-gray-300 rounded-t-lg rounded-r-lg">
+                    <div
+                      class="
+                        flex flex-col
+                        space-y-2
+                        text-xs
+                        max-w-xs
+                        mx-2
+                        order-2
+                        items-start
+                        bg-gray-300
+                        rounded-t-lg rounded-r-lg
+                      "
+                    >
                       <div
                         class="
                           px-4
@@ -528,14 +534,15 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from 'vuex'
 import deleteModal from '~/components/modals/delete.vue'
-import sendMedia from "~/components/modals/send-media.vue";
-import VueSimpleContextMenu from "vue-simple-context-menu";
-import "vue-simple-context-menu/dist/vue-simple-context-menu.css";
+import sendMedia from '~/components/modals/send-media.vue'
+import VueSimpleContextMenu from 'vue-simple-context-menu'
+import 'vue-simple-context-menu/dist/vue-simple-context-menu.css'
 export default {
   name: 'Lands',
   components: {
-    VueSimpleContextMenu
+    VueSimpleContextMenu,
   },
   data() {
     return {
@@ -547,94 +554,95 @@ export default {
       selectedChat: {},
       iframeLoading: false,
       currentRoom: {},
-      messages: [
-        {
-          id: 1,
-          text: 'salom',
-          receiver: {
-            id: 1,
-            name: '',
-            avatar: '',
-          },
-          sender: {
-            id: 2,
-            name: '',
-            avatar: '',
-          },
-        },
-        {
-          id: 2,
-          text: 'Alik',
-          receiver: {
-            id: 2,
-            name: '',
-            avatar: '',
-          },
-          sender: {
-            id: 1,
-            name: '',
-            avatar: '',
-          },
-        },
-        {
-          id: 3,
-          text: 'Qaleysan',
-          receiver: {
-            id: 1,
-            name: '',
-            avatar: '',
-          },
-          sender: {
-            id: 2,
-            name: '',
-            avatar: '',
-          },
-        },
-        {
-          id: 4,
-          text: 'Yaxshi, o`zinchi',
-          receiver: {
-            id: 2,
-            name: '',
-            avatar: '',
-          },
-          sender: {
-            id: 1,
-            name: '',
-            avatar: '',
-          },
-        },
-        {
-          id: 5,
-          text: 'zor',
-          receiver: {
-            id: 1,
-            name: '',
-            avatar: '',
-          },
-          sender: {
-            id: 2,
-            name: '',
-            avatar: '',
-          },
-        },
-      ],
+      consultant: {},
+      // messages: [
+      //   {
+      //     id: 1,
+      //     text: 'salom',
+      //     receiver: {
+      //       id: 1,
+      //       name: '',
+      //       avatar: '',
+      //     },
+      //     sender: {
+      //       id: 2,
+      //       name: '',
+      //       avatar: '',
+      //     },
+      //   },
+      //   {
+      //     id: 2,
+      //     text: 'Alik',
+      //     receiver: {
+      //       id: 2,
+      //       name: '',
+      //       avatar: '',
+      //     },
+      //     sender: {
+      //       id: 1,
+      //       name: '',
+      //       avatar: '',
+      //     },
+      //   },
+      //   {
+      //     id: 3,
+      //     text: 'Qaleysan',
+      //     receiver: {
+      //       id: 1,
+      //       name: '',
+      //       avatar: '',
+      //     },
+      //     sender: {
+      //       id: 2,
+      //       name: '',
+      //       avatar: '',
+      //     },
+      //   },
+      //   {
+      //     id: 4,
+      //     text: 'Yaxshi, o`zinchi',
+      //     receiver: {
+      //       id: 2,
+      //       name: '',
+      //       avatar: '',
+      //     },
+      //     sender: {
+      //       id: 1,
+      //       name: '',
+      //       avatar: '',
+      //     },
+      //   },
+      //   {
+      //     id: 5,
+      //     text: 'zor',
+      //     receiver: {
+      //       id: 1,
+      //       name: '',
+      //       avatar: '',
+      //     },
+      //     sender: {
+      //       id: 2,
+      //       name: '',
+      //       avatar: '',
+      //     },
+      //   },
+      // ],
       message: {
         chatroom: null,
         sender: null,
         receiver: null,
-        text: "",
+        text: '',
         filePath: null,
         seen: false,
       },
       options: [
         {
           name: this.$t('edit'),
-          slug: "edit",
+          slug: 'edit',
         },
         {
           name: `<em>${this.$t('delete')}</em>`,
-          slug: "delete",
+          slug: 'delete',
         },
       ],
     }
@@ -646,14 +654,119 @@ export default {
   },
   mounted() {
     this.fetchChats()
+    this.fetchData().then(() => {
+      this.fetchCurrentRoom().then(() => {
+        this.message = {
+          chatroom: this.currentRoom.id,
+          sender: this.currentUser.id,
+          receiver: this.state === 'consultant' ? this.consultant.id : this.product.userid.id,
+          text: '',
+          filePath: null,
+          seen: false,
+        }
+      })
+    })
+  },
+  computed: {
+    ...mapState({
+      finishedChatId: (state) => state.socket.finishedChatId,
+    }),
+    ...mapGetters({
+      messages: 'getMessages',
+    }),
   },
   methods: {
+    sendMessage() {
+      if (this.message.text === 0 || this.message.text.trim().length === 0) {
+        return
+      }
+      if (this.$route.query.room_id === 'new') {
+        this.$store
+          .dispatch('postChatrooms', {
+            data: {
+              consultant: this.consultant.id,
+              user: this.currentUser.id,
+              isCompleted: false,
+            },
+          })
+          .then(async (res) => {
+            this.currentRoom = res
+            this.message.roomID = res.id
+            await this.$store.dispatch('createRoom', res)
+            await this.$bridge.$emit('selected_room', { room_id: res.id })
+            await this.sendMessageToSocket({ ...this.message })
+            await this.$router.push({
+              path: this.localePath('/chats'),
+              query: { room_id: res.id, consultant_id: this.consultant.id },
+            })
+          })
+      } else {
+        this.sendMessageToSocket({ ...this.message })
+      }
+    },
+    sendMessageToSocket(message) {
+      if (message.id) {
+        const _id = message.id
+        const data = { ...message }
+        delete data.id
+        const _message = {
+          id: _id,
+          data,
+        }
+        socket.emit('editMessage', _message, ({ res, rej }) => {
+          this.setMessage()
+        })
+      } else {
+        socket.emit('sendMessage', message, ({ res, rej }) => {
+          this.setMessage()
+        })
+      }
+    },
+    setMessage() {
+      if (this.currentRoom.unread_message && this.currentRoom.unread_message !== 0) {
+        // this.$store
+        //   .dispatch("crud/static/get", {
+        //     url: "/seen_messages",
+        //     query: {
+        //       "_where[0][roomID.id]": this.$route.query.room_id,
+        //       "_where[0][receiverID.id]": this.currentUser.id,
+        //     },
+        //   })
+        //   .then(() => {
+        //     this.$store.dispatch("seenMessage", this.message);
+        //   });
+        this.fetchCurrentRoom()
+      }
+      this.message = {
+        roomID: this.currentRoom.id,
+        senderID: this.currentUser.id,
+        receiverID: this.state === 'consultant' ? this.consultant.id : this.product.userid.id,
+        text: '',
+        filePath: null,
+        activityID: null,
+        seen: false,
+      }
+    },
+    async fetchCurrentRoom() {
+      if (this.$route.query.room_id !== 'new') {
+        await this.$store
+          .dispatch('getChatroomsById', {
+            id: this.$route.query.room_id,
+            query: {
+              populate: '*',
+            },
+          })
+          .then((res) => {
+            this.currentRoom = res
+          })
+      }
+    },
     handleClick(event, item) {
-      this.$refs.vueSimpleContextMenu.showMenu(event, item);
+      this.$refs.vueSimpleContextMenu.showMenu(event, item)
     },
     optionClicked(event) {
-      if (event.option.slug === "edit") {
-        const _message = event.item;
+      if (event.option.slug === 'edit') {
+        const _message = event.item
         this.message = {
           chatroom: _message.chatroom.id,
           sender: _message.sender.id,
@@ -662,57 +775,55 @@ export default {
           filePath: _message.filePath,
           seen: _message.seen,
           id: _message.id,
-        };
-      } else if (event.option.slug === "delete") {
+        }
+      } else if (event.option.slug === 'delete') {
         this.$modal.show(
           deleteModal,
-          { name: "DeleteMessage" },
+          { name: 'DeleteMessage' },
           {
-            height: "auto",
+            height: 'auto',
             maxWidth: 400,
             width: window.innerWidth <= 400 ? window.innerWidth - 30 : 400,
             scrollable: true,
             clickToClose: false,
           }
-        );
-        this.$root.$once("delete-modal", (item) => {
-          if (item !== "canceled") {
+        )
+        this.$root.$once('delete-modal', (item) => {
+          if (item !== 'canceled') {
             socket.emit(
-              "deleteMessage",
+              'deleteMessage',
               { id: event.item.id, roomID: event.item.chatroom.id },
               ({ res, rej }) => {}
-            );
+            )
           }
-        });
+        })
       }
     },
     mediaChange({ target }) {
-      const formData = new FormData();
-      formData.append("files", target.files[0]);
-      this.$store.dispatch("upload/uploadFile", formData).then((res) => {
+      const formData = new FormData()
+      formData.append('files', target.files[0])
+      this.$store.dispatch('upload/uploadFile', formData).then((res) => {
         this.$modal.show(
           sendMedia,
           {
-            image: res.data[0].url
-              ? this.$tools.cropUrl(res.data[0].url)
-              : null,
+            image: res.data[0].url ? this.$tools.cropUrl(res.data[0].url) : null,
           },
           {
-            height: "auto",
+            height: 'auto',
             maxWidth: 600,
             width: window.innerWidth <= 600 ? window.innerWidth - 30 : 600,
             scrollable: true,
             clickToClose: false,
           }
-        );
-        this.$root.$once("send-media-modal", (item) => {
-          if (item !== "canceled") {
-            this.message.filePath = item.image;
-            this.message.text = item.text;
-            this.sendMessage();
+        )
+        this.$root.$once('send-media-modal', (item) => {
+          if (item !== 'canceled') {
+            this.message.filePath = item.image
+            this.message.text = item.text
+            this.sendMessage()
           }
-        });
-      });
+        })
+      })
     },
     getMessages() {},
     toChatsList() {
@@ -751,6 +862,18 @@ export default {
         this.chats = res
         this.currentRoom = res[0]
       })
+    },
+    async fetchData() {
+      // await this.$store
+      //   .dispatch('getByIdUsers', {
+      //     id: this.$route.query.consultant_id,
+      //     query: {
+      //       populate: '*',
+      //     },
+      //   })
+      //   .then((res) => {
+      //     this.consultant = res
+      //   })
     },
   },
 }
