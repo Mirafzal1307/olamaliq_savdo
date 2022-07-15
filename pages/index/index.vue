@@ -51,9 +51,9 @@
         <div class="font-semibold text-gray-700 text-2xl">
           <span class="text-green-800">Experts</span> consultancy
         </div>
-        <!-- <div class="">
+        <div class="">
           <experts-swiper />
-        </div> -->
+        </div>
       </div>
       <div class="mt-12 space-y-4">
         <div class="font-semibold text-green-800 text-2xl">Price</div>
@@ -79,7 +79,7 @@
       </div>
       <div class="grid lg:grid-cols-2 grid-cols-1 mt-12 lg:space-x-10">
         <!-- <img src="~/assets/images/map.png" alt="" /> -->
-        <!-- <yandex-map /> -->
+        <yandex-map />
         <div class="relative">
           <div class="text-xl text-gray-800 font-semibold">
             <span class="text-green-800">Karakalpakstan</span> - didactive map
@@ -191,13 +191,13 @@ import expertsSwiper from '~/components/swipers/experts-swiper.vue'
 import NewsSwiper from '~/components/swipers/news-swiper.vue'
 import PriceSwiper from '~/components/swipers/price-swiper.vue'
 import PartnersSwiper from '~/components/swipers/partners-swiper.vue'
-// import YandexMap from '~/components/core/yandex-map.vue'
+import YandexMap from '~/components/core/yandex-map.vue'
 import { actions, getters } from '~/utils/store_schema'
 const _page = 'products'
 const { get } = actions(_page)
 export default {
   auth: false,
-  components: { expertsSwiper, PriceSwiper, NewsSwiper, PartnersSwiper },
+  components: { YandexMap, expertsSwiper, PriceSwiper, NewsSwiper, PartnersSwiper },
   data() {
     return {
       settings: {

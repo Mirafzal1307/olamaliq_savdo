@@ -1,65 +1,7 @@
 <template>
   <div>
     <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 xl:px-0 px-4">
-      <!-- {{ data.attributes.content }} -->
-      <!-- <div class="text-3xl text-gray-700 font-semibold my-10">Mission</div>
-      <div class="space-y-6">
-        <p class="text-gray-500 leading-8">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget
-          risus sollicitudin pellentesque et non erat. Maecenas nibh dolor, malesuada et bibendum a,
-          sagittis accumsan ipsum. Pellentesque ultrices ultrices sapien, nec tincidunt nunc posuere
-          ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque tristique
-          dolor vitae tincidunt. Aenean quis massa uada mi elementum elementum. Nec sapien convallis
-          vulputate rhoncus vel dui.
-        </p>
-        <p class="text-gray-500 leading-8">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget
-          risus sollicitudin pellentesque et non erat. Maecenas nibh dolor, malesuada et bibendum a,
-          sagittis accumsan ipsum. Pellentesque ultrices ultrices sapien, nec tincidunt nunc posuere
-          ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque tristique
-          dolor vitae tincidunt. Aenean quis massa uada mi elementum elementum. Nec sapien convallis
-          vulputate rhoncus vel dui.
-        </p>
-      </div>
-      <div class="text-3xl text-gray-700 font-semibold my-10">Vision</div>
-      <div class="space-y-6">
-        <p class="text-gray-500 leading-8">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget
-          risus sollicitudin pellentesque et non erat. Maecenas nibh dolor, malesuada et bibendum a,
-          sagittis accumsan ipsum. Pellentesque ultrices ultrices sapien, nec tincidunt nunc posuere
-          ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque tristique
-          dolor vitae tincidunt. Aenean quis massa uada mi elementum elementum. Nec sapien convallis
-          vulputate rhoncus vel dui.
-        </p>
-        <p class="text-gray-500 leading-8">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget
-          risus sollicitudin pellentesque et non erat. Maecenas nibh dolor, malesuada et bibendum a,
-          sagittis accumsan ipsum. Pellentesque ultrices ultrices sapien, nec tincidunt nunc posuere
-          ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque tristique
-          dolor vitae tincidunt. Aenean quis massa uada mi elementum elementum. Nec sapien convallis
-          vulputate rhoncus vel dui.
-        </p>
-      </div>
-      <div class="text-3xl text-gray-700 font-semibold my-10">Goal</div>
-      <div class="space-y-6">
-        <p class="text-gray-500 leading-8">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget
-          risus sollicitudin pellentesque et non erat. Maecenas nibh dolor, malesuada et bibendum a,
-          sagittis accumsan ipsum. Pellentesque ultrices ultrices sapien, nec tincidunt nunc posuere
-          ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque tristique
-          dolor vitae tincidunt. Aenean quis massa uada mi elementum elementum. Nec sapien convallis
-          vulputate rhoncus vel dui.
-        </p>
-        <p class="text-gray-500 leading-8">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget
-          risus sollicitudin pellentesque et non erat. Maecenas nibh dolor, malesuada et bibendum a,
-          sagittis accumsan ipsum. Pellentesque ultrices ultrices sapien, nec tincidunt nunc posuere
-          ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque tristique
-          dolor vitae tincidunt. Aenean quis massa uada mi elementum elementum. Nec sapien convallis
-          vulputate rhoncus vel dui.
-        </p>
-      </div> -->
-      <!-- {{data.title}} -->
+      {{ about.title }}
     </div>
     <div class="bg-green-900 my-10 py-10">
       <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 xl:px-0 px-4">
@@ -336,7 +278,9 @@ export default {
   auth: false,
   data() {
     return {
-      about: []
+      about: {
+        title: ''
+      }
     }
   },
   components: {
@@ -347,7 +291,7 @@ export default {
   },
   mounted() {
     this.fetchData()
-    console.log("About: ", this.about);
+    console.log('About: ', this.about);
   },
   methods: {
     async fetchData() {
@@ -357,7 +301,7 @@ export default {
           locale: this.$i18n.locale,
         })
         .then((res) => {
-          this.about = {...res.data}
+          this.about.title = res.data.attributes.title
         })
     },
   },

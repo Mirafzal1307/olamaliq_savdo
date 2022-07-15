@@ -12,9 +12,9 @@
           <img src="~/assets/images/news.jpg" alt="" class="h-96 w-full" />
         </div>
         <div class="absolute inset-0 bg-gray-700 opacity-70 w-full rounded-md h-full"></div>
-        <div class="absolute top-10 left-5 z-20">
-          <div class="text-xs rounded-md text-green-800 w-20 bg-green-50 py-1.5 px-7 font-medium">
-            {{ data.category }}
+        <div class="absolute top-5 left-5 right-5 z-20">
+          <div class="text-xs rounded-md text-green-800 w-20 flex justify-center bg-green-50 py-1.5 px-7 font-medium">
+            {{ data.attributes.servicecategory.data ? data.attributes.servicecategory.data.attributes.name: '' }}
           </div>
           <div class="text-white group-hover:text-green-700 font-medium text-lg my-6 z-20">
             {{ data.attributes.title }}
