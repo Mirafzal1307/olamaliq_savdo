@@ -30,7 +30,7 @@
                 px-3
               "
             >
-              Planting
+              {{ data.attributes.coursecategory.data ? data.attributes.coursecategory.data.attributes.name: '' }}
             </div>
             <div class="text-green-700 text-sm font-semibold">
               {{ $tools.getDate(data.attributes.createdAt) }}

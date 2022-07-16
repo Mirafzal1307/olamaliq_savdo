@@ -216,7 +216,7 @@ export default {
     return {
       courseDetails: {
         attributes: {}
-              }
+      }
     }
   },
   computed: {

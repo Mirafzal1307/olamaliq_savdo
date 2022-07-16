@@ -66,10 +66,10 @@
         View all
       </button>
        <button
-        v-for="(category, index) in data" :key="index"
+        v-for="(category, index) in dataServicecategories" :key="index"
         class="rounded-md flex items-center border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
       >
-        {{category.attributes.servicecategory.data ? category.attributes.servicecategory.data.attributes.name : ''}}
+        {{category.attributes ? category.attributes.name : ''}}
       </button>
     </div>
     <div class="grid md:grid-cols-3 gap-6 sm:grid-cols-2 grid-cols-1">
@@ -96,19 +96,26 @@ export default {
   },
   computed: {
     ...mapGetters(getters(_page)),
+    ...mapGetters(['dataServicecategories']),
   },
   mounted() {
-    this.fetchData()
+    this.fetchData().then(() => {
+      this.fetchDirectories()
+    })
   },
   methods: {
     async fetchData() {
       await this.$store
         .dispatch(get, {
+          _sort: 'createdAt:DESC',
           populate: '*',
           locale: this.$i18n.locale,
         })
         .then(() => {})
     },
+     async fetchDirectories() {
+       await this.$store.dispatch('getServicecategories')
+    }
   },
 }
 </script>

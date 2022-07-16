@@ -16,6 +16,8 @@ const createStore = () => {
       courses: crud('courses'),
       about: crud('about'),
       serviceposts: crud('serviceposts'),
+      servicecategories: crud('servicecategories'),
+      coursecategories: crud('coursecategories'),
       chatrooms: crud('chatrooms'),
       chatmessages: crud('chatmessages'),
       users: dynamic('users'),
