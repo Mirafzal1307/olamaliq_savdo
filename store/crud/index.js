@@ -105,10 +105,12 @@ export default function (param) {
 
       // get id   getByIdSomething
       [tools.camelize(`get by id ${_param}`)]({ commit }, payload) {
+        const _query = payload.query
         commit(_mutations.oneLoad, true)
+        console.log('get by id', payload)
         return new Promise((resolve, reject) => {
           this.$axios
-          .get(`${param}/${payload.id}`, payload.query)
+          .get(`${param}/${payload.id}`, payload.query )
           .then((res) => {
             resolve(res)
             })

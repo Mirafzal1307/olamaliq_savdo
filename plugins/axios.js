@@ -8,7 +8,8 @@ export default function ({ $axios, redirect, $auth, app }) {
   $axios.setBaseURL(process.env.VUE_APP_BASE_URL)
   $axios.onError((error) => {
     if (error.response && error.response.status === 400) {
-      Vue.prototype.$snotify.error(error.response.data.data[0].messages[0].message)
+      console.log(error.response)
+      Vue.prototype.$snotify.error(error.response.data.error.message)
       return
     }
     if (error.response && error.response.status === 401) {

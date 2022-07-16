@@ -81,7 +81,7 @@
                   v-for="(room, index) in chats"
                   :key="index"
                   class="hover:bg-gray-100 cursor-pointer"
-                  :class="$route.query.chat_id === `${room.id}` ? 'bg-green-50' : 'bg-white'"
+                  :class="$route.query.room_id === `${room.id}` ? 'bg-green-50' : 'bg-white'"
                   @click="toChatting(room)"
                 >
                   <div class="p-4 flex items-center">
@@ -154,28 +154,36 @@
           </div>
         </div>
         <div class="md:col-span-8 md:block">
-          <div id="map-wrap" class="relative">
+          <div v-if="$route.query.room_id" id="map-wrap" class="relative">
             <div style="height: calc(72vh - 0px)" class="flex-1 p-2 justify-between flex flex-col">
               <div
                 class="flex sm:items-center justify-between pb-3 pt-0 border-b-2 border-gray-200"
               >
                 <div class="relative flex items-center space-x-4">
-                  <div class="relative">
+                  <div class="relative" v-if="currentRoom.attributes">
                     <img
-                      :src="'/assets/images/person/avatar.jpg'"
-                      @error="consultant.avatar = require('/assets/images/person/avatar.jpg')"
+                      :src="
+                        currentRoom.attributes.consultant.data.attributes.avatar
+                          ? currentRoom.attributes.consultant.data.attributes.avatar
+                          : require('/assets/images/person/avatar.jpg')
+                      "
                       alt=""
                       class="w-8 sm:w-12 h-8 sm:h-12 rounded-full"
                     />
                   </div>
                   <div class="flex flex-col leading-tight">
                     <div class="text-lg mt-1 flex items-center">
-                      <!-- <span class="text-gray-700 mr-3">{{
-                        `${consultant.name ? consultant.name : ''} ${
-                          consultant.surname ? consultant.surname : ''
+                      <span v-if="currentRoom.attributes" class="text-gray-700 mr-3">{{
+                        `${
+                          currentRoom.attributes.consultant.data.attributes.name
+                            ? currentRoom.attributes.consultant.data.attributes.name
+                            : ''
+                        } ${
+                          currentRoom.attributes.consultant.data.attributes.surname
+                            ? currentRoom.attributes.consultant.data.attributes.surname
+                            : ''
                         }`
-                      }}</span> -->
-                      <span class="text-gray-700 mr-3">Hidirova Charos</span>
+                      }}</span>
                     </div>
                     <!-- <span v-if="consultant.consultantcategory" class="text-sm text-gray-600">{{
                       consultant.consultantcategory.title[$i18n.locale]
@@ -286,88 +294,6 @@
                     />
                   </div>
                 </div>
-                <!-- <div v-for="(message, index) in messages" :key="index" class="chat-message">
-                  <div
-                    v-if="
-                      message.senderID
-                        ? message.senderID.id == currentUser.id
-                          ? true
-                          : false
-                        : false
-                    "
-                    class="flex items-end justify-end"
-                  >
-                    <div
-                      class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end"
-                      @click.prevent.stop="handleClick($event, message)"
-                    >
-                      <div
-                        class="
-                          px-4
-                          py-2
-                          rounded-lg
-                          inline-block
-                          rounded-br-none
-                          text-gray-600 text-sm
-                          bg-green-100
-                        "
-                      >
-                        <div class="bg-indigo-300 mb-1">
-                          <img
-                            v-if="message.filePath"
-                            class="object-cover h-48 w-96"
-                            :src="`${$tools.getFileUrl(message.filePath)}`"
-                          />
-                        </div>
-                        <span class="">{{ message.text }}</span>
-                      </div>
-                    </div>
-                    <img
-                      :src="
-                        message.senderID && message.senderID.avatar
-                          ? $tools.getFileUrl(message.senderID.avatar)
-                          : require('/assets/images/person/avatar.jpg')
-                      "
-                      @error="require('/assets/images/person/avatar.jpg')"
-                      alt="My profile"
-                      class="w-6 h-6 rounded-full order-2"
-                    />
-                  </div>
-                  <div v-else class="flex items-end">
-                    <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
-                      <div
-                        class="
-                          px-4
-                          py-2
-                          rounded-lg
-                          inline-block
-                          rounded-bl-none
-                          text-gray-600
-                          bg-orange-50
-                        "
-                      >
-                        <div class="bg-indigo-300 mb-1">
-                          <img
-                            v-if="message.filePath"
-                            class="object-cover h-48 w-96"
-                            :src="`${$tools.getFileUrl(message.filePath)}`"
-                          />
-                        </div>
-                        <span>{{ message.text }}</span>
-                      </div>
-                    </div>
-                    <img
-                      :src="
-                        message.senderID && message.senderID.avatar
-                          ? $tools.getFileUrl(message.senderID.avatar)
-                          : require('/assets/images/person/avatar.jpg')
-                      "
-                      @error="require('/assets/images/person/avatar.jpg')"
-                      alt="My profile"
-                      class="w-6 h-6 rounded-full order-1"
-                    />
-                  </div>
-                </div> -->
                 <div class="chat-message"></div>
               </div>
               <div
@@ -527,6 +453,13 @@
               @option-clicked="optionClicked"
             />
           </div>
+          <div v-else>
+            <div class="align-middle text-center">
+              <span class="rounded-md py-1 px-2 bg-green-200 text-gray-600">
+                {{ $t('select-chat-to-messaging') }}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -538,6 +471,7 @@ import { mapState, mapGetters } from 'vuex'
 import deleteModal from '~/components/modals/delete.vue'
 import sendMedia from '~/components/modals/send-media.vue'
 import VueSimpleContextMenu from 'vue-simple-context-menu'
+import { socket } from "~/plugins/socket.client.js";
 import 'vue-simple-context-menu/dist/vue-simple-context-menu.css'
 export default {
   name: 'Lands',
@@ -648,28 +582,34 @@ export default {
     }
   },
   watch: {
-    '$route.query.chat_id'() {
-      if (this.$route.query && this.$route.query.chat_id) this.getMessages()
+    '$route.query.room_id'() {
+      // if (this.$route.query && this.$route.query.room_id) this.getMessages()
     },
   },
   mounted() {
     this.fetchChats()
     this.fetchData().then(() => {
-      this.fetchCurrentRoom().then(() => {
-        this.message = {
-          chatroom: this.currentRoom.id,
-          sender: this.currentUser.id,
-          receiver: this.state === 'consultant' ? this.consultant.id : this.product.userid.id,
-          text: '',
-          filePath: null,
-          seen: false,
-        }
-      })
+      if (this.$route.query.room_id) {
+        this.connectSocket()
+      }
+      if (this.$route.query && this.$route.query.room_id) {
+        this.fetchCurrentRoom().then(() => {
+          this.message = {
+            chatroom: this.currentRoom.id,
+            sender: this.currentUser.id,
+            receiver: this.state === 'consultant' ? this.consultant.id : this.product.userid.id,
+            text: '',
+            filePath: null,
+            seen: false,
+          }
+        })
+      }
     })
   },
   computed: {
     ...mapState({
       finishedChatId: (state) => state.socket.finishedChatId,
+      currentUser: (state) => state.auth.user
     }),
     ...mapGetters({
       messages: 'getMessages',
@@ -738,26 +678,23 @@ export default {
         this.fetchCurrentRoom()
       }
       this.message = {
-        roomID: this.currentRoom.id,
-        senderID: this.currentUser.id,
-        receiverID: this.state === 'consultant' ? this.consultant.id : this.product.userid.id,
+        room: this.currentRoom.id,
+        sender: this.currentUser.id,
+        receiver: this.currentRoom.attributes.consultant.data.id,
         text: '',
         filePath: null,
-        activityID: null,
         seen: false,
       }
     },
     async fetchCurrentRoom() {
       if (this.$route.query.room_id !== 'new') {
         await this.$store
-          .dispatch('getChatroomsById', {
-            id: this.$route.query.room_id,
-            query: {
-              populate: '*',
-            },
+          .dispatch('getChatrooms', {
+            populate: '*',
+            'filters[$and][0][id]': this.$route.query.room_id,
           })
           .then((res) => {
-            this.currentRoom = res
+            this.currentRoom = res[0]
           })
       }
     },
@@ -825,7 +762,6 @@ export default {
         })
       })
     },
-    getMessages() {},
     toChatsList() {
       this.$router.push({
         query: {},
@@ -838,24 +774,10 @@ export default {
       })
     },
     toChatting(data) {
-      this.$router.push({
-        query: { chat_id: data.id },
-      })
-    },
-    async getPolygon() {
-      if (this.$route.query.chat_id !== 'new' || this.$route.query.chat_id !== '') {
-        await this.$store
-          .dispatch('crud/field/getFieldsById', {
-            id: this.$route.query.chat_id,
-          })
-          .then((res) => {
-            this.selectedChat = res
-            this.iframeLoading = false
-          })
+      if (data.id !== parseInt(this.$route.query.room_id)) {
+        this.$bridge.$emit('selected_room', { room_id: data.id })
+        this.$router.push({ query: { room_id: data.id } })
       }
-    },
-    toNewLand() {
-      this.$router.push({ path: this.localePath('/my-profile/lands/new') })
     },
     async fetchChats() {
       await this.$store.dispatch('getChatrooms', { populate: '*' }).then((res) => {
@@ -875,66 +797,16 @@ export default {
       //     this.consultant = res
       //   })
     },
+    connectSocket() {
+      this.$bridge.$emit('selected_room', { room_id: this.$route.query.room_id })
+    },
   },
 }
 </script>
 <style>
-.map-options {
-  position: absolute;
-  min-width: 180px;
-  bottom: 0%;
-  right: 0%;
-  min-height: 32px;
-  background: #ffffff;
-  border-radius: 12px;
-  transition: 0.3s;
-  list-style: none;
-  max-height: 360px;
-  border-radius: 0;
-}
 .overflow-y {
   max-height: 315px;
   overflow-y: hidden;
-}
-.map-options__list {
-  max-height: 320px;
-  overflow: scroll;
-  padding: 10px;
-  min-width: 250px;
-}
-.map-options__list::-webkit-scrollbar {
-  width: 6px;
-}
-
-.map-options__list::-webkit-scrollbar-thumb {
-  background: grey;
-  border-radius: 10px;
-}
-
-.map-options__list::-webkit-scrollbar-thumb:hover {
-  background: #b30000;
-}
-.map-options__list > div {
-  margin-left: 15px;
-  position: relative;
-}
-.map-options__list > div .number-value {
-  margin-left: 5px;
-}
-.map-options__list > div .text-value {
-  margin-left: 20px;
-}
-.map-options__list > div .field-value {
-  margin-left: 40px;
-}
-.map-options__list > div:after {
-  content: '';
-  width: 14px;
-  height: 14px;
-  background: #02ff49;
-  position: absolute;
-  left: -25px;
-  transform: translate(0, 3px);
 }
 svg path {
   fill: #7c7c7c !important;

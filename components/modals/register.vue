@@ -51,7 +51,7 @@
                   name="firstname"
                   autocomplete="text"
                   :placeholder="$t('firstname')"
-                  v-model="account.firstname"
+                  v-model="account.name"
                   required
                   class="
                     focus:outline-none
@@ -81,7 +81,7 @@
                   name="lastname"
                   autocomplete="text"
                   :placeholder="$t('lastname')"
-                  v-model="account.lastname"
+                  v-model="account.surname"
                   required
                   class="
                     focus:outline-none
@@ -231,6 +231,7 @@
 </template>
 
 <script>
+import signInModal from './signin.vue'
 export default {
   name: 'Register',
   props: {
@@ -242,8 +243,8 @@ export default {
       phoneOrEmail: '',
       isEmail: false,
       account: {
-        firstname: '',
-        lastname: '',
+        name: '',
+        surname: '',
         email: '',
         phone: ''
       },

@@ -201,7 +201,7 @@ export default {
           this.loading = false
           this.onClose()
         }).catch((e) => {
-          this.authError = e.response.data.data[0].messages[0].message
+          this.authError = e.response.data.error.message
           this.loading = false
         })
       } else {
@@ -213,7 +213,7 @@ export default {
           })
           .catch((e) => {
             this.openSignUp()
-            this.authError = e.response.data.data[0].messages[0].message
+            this.authError = e.response.data.error.message
             this.loading = false
           })
       }

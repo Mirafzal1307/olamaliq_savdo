@@ -60,10 +60,10 @@ export default {
             if (this.$route.query.room_id !== "new") {
               this.$store
                 .dispatch("getChatmessages", {
-                  "filters[$and][0][consultant][id]": this.data.id,
                   "filters[$and][0][chatroom][id]": this.$route.query.room_id,
                 })
                 .then((res) => {
+                  console.log("Chat messages: ", res);
                   this.$store.dispatch("setMessage", res);
                 });
             }
