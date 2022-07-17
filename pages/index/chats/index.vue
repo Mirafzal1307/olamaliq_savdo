@@ -187,7 +187,6 @@ export default {
       return
     }
     this.currentUser = JSON.parse(localStorage.getItem('user_info'))
-    console.log('Created', this.currentUser)
   },
   mounted() {
     this.fetchChats()
@@ -241,9 +240,15 @@ export default {
       }
     },
     async fetchChats() {
-      await this.$store.dispatch('getChatrooms', { populate: '*' }).then((res) => {
-        this.chats = res
-      })
+      await this.$store
+        .dispatch('getChatrooms', {
+          populate: '*',
+          'filters[$or][0][user][id]': this.currentUser.id,
+          'filters[$or][1][consultant][id]': this.currentUser.id,
+        })
+        .then((res) => {
+          this.chats = res
+        })
     },
   },
 }

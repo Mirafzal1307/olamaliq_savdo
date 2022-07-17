@@ -25,7 +25,7 @@
       "
     >
       <div class="block">
-        <div class="font-semibold text-gray-700 text-sm">{{ data.middlename }}</div>
+        <div class="font-semibold text-gray-700 text-sm">{{ data.middlename ? data.middlename : `${data.name} ${data.surname}` }}</div>
         <div v-if="data.consultantcategory" class="text-gray-500 text-xs text-center">
           {{ data.consultantcategory.name }}
         </div>
@@ -75,7 +75,7 @@ export default {
   },
   methods: {
     toGetConsultaion() {
-      if (this.isLoggedIn) {
+      if (!this.isLoggedIn) {
         this.$store
           .dispatch('getChatrooms', {
             populate: '*',
@@ -98,13 +98,23 @@ export default {
             }
           })
       } else {
-        this.$router.push({
-          path: this.localePath('/login'),
-          query: {
-            consultantID: this.data.id,
-            from: 'consultant',
-          },
-        })
+        this.$store
+          .dispatch('postChatrooms', {
+            data: {
+              consultant: this.data.id,
+              user: this.currentUser.id,
+              isCompleted: false,
+            },
+          }).then(res => {
+            console.log('Chat room created: ', res)
+          })
+        // this.$router.push({
+        //   path: this.localePath('/login'),
+        //   query: {
+        //     consultantID: this.data.id,
+        //     from: 'consultant',
+        //   },
+        // })
       }
     },
   },

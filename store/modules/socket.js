@@ -19,7 +19,7 @@ export default {
         ADD_MESSAGE(payload) { },
         SET_MESSAGE(state, payload) {
             payload.forEach((el) => {
-                el.isContextMenu = false
+                // el.isContextMenu = false
             })
             state.messages = payload
         },
@@ -27,7 +27,7 @@ export default {
             state.messages = []
         },
         SEND_MESSAGE(state, payload) {
-            payload.message.isContextMenu = false
+            // payload.message.isContextMenu = false
             if (payload.status === 'edited') {
                 const index = state.messages.findIndex((mes) => {
                     return mes.id === payload.message.id
@@ -43,7 +43,7 @@ export default {
                     state.messages.splice(index, 1)
                 }
             } else {
-                state.messages.push(payload.message)
+                state.messages.push(payload.data)
             }
         },
         REMOVE_SOCKET(state) {

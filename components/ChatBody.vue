@@ -49,7 +49,7 @@
         >
           <div v-for="(msg, index) in messages" :key="index" class="chat-message">
             <div
-              v-if="msg.sender ? (msg.sender.id == 1 ? true : false) : false"
+              v-if="msg.attributes.sender ? (msg.attributes.sender.data.id == currentUser.id ? true : false) : false"
               class="flex items-end justify-end"
             >
               <div
@@ -69,18 +69,18 @@
                 >
                   <div class="bg-indigo-300 mb-1">
                     <img
-                      v-if="msg.filePath"
+                      v-if="msg.attributes.filePath"
                       class="object-cover h-48 w-96"
-                      :src="`${$tools.getFileUrl(msg.filePath)}`"
+                      :src="`${$tools.getFileUrl(msg.attributes.filePath)}`"
                     />
                   </div>
-                  <span class="">{{ msg.text }}</span>
+                  <span class="">{{ msg.attributes.text }}</span>
                 </div>
               </div>
               <img
                 :src="
-                  msg.sender && msg.sender.avatar
-                    ? $tools.getFileUrl(msg.sender.avatar)
+                  msg.attributes.sender && msg.attributes.sender.avatar
+                    ? $tools.getFileUrl(msg.attributes.sender.avatar)
                     : require('/assets/images/person/avatar.jpg')
                 "
                 @error="require('/assets/images/person/avatar.jpg')"
@@ -115,18 +115,18 @@
                 >
                   <div class="bg-indigo-300 mb-1">
                     <img
-                      v-if="msg.filePath"
+                      v-if="msg.attributes.filePath"
                       class="object-cover h-48 w-96"
-                      :src="`${$tools.getFileUrl(msg.filePath)}`"
+                      :src="`${$tools.getFileUrl(msg.attributes.filePath)}`"
                     />
                   </div>
-                  <span>{{ msg.text }}</span>
+                  <span>{{ msg.attributes.text }}</span>
                 </div>
               </div>
               <img
                 :src="
-                  msg.sender && msg.sender.avatar
-                    ? $tools.getFileUrl(msg.sender.avatar)
+                  msg.attributes.sender && msg.attributes.sender.avatar
+                    ? $tools.getFileUrl(msg.attributes.sender.avatar)
                     : require('/assets/images/person/avatar.jpg')
                 "
                 @error="require('/assets/images/person/avatar.jpg')"
@@ -307,21 +307,21 @@
 import deleteModal from '~/components/modals/delete.vue'
 import sendMedia from '~/components/modals/send-media.vue'
 import { mapState, mapGetters } from 'vuex'
-import { socket } from "~/plugins/socket.client.js";
+import { socket } from '~/plugins/socket.client.js'
 import VueSimpleContextMenu from 'vue-simple-context-menu'
 import 'vue-simple-context-menu/dist/vue-simple-context-menu.css'
 export default {
   props: {
     currentUser: {
       type: Object,
-      required: true
+      required: true,
     },
   },
   data() {
     return {
       message: {
         chatroom: null,
-        sender: null,
+        sender: this.currentUser.id,
         receiver: null,
         text: '',
         filePath: null,
@@ -378,6 +378,7 @@ export default {
       }
     },
     sendMessageToSocket(message) {
+        console.log('Sended message: ', message)
       if (message.id) {
         const _id = message.id
         const data = { ...message }
@@ -484,7 +485,7 @@ export default {
       })
     },
     async fetchCurrentRoom() {
-      if (this.$route.query.room_id !== "new") {
+      if (this.$route.query.room_id !== 'new') {
         await this.$store
           .dispatch('getChatrooms', {
             populate: '*',
@@ -496,23 +497,73 @@ export default {
           })
       }
     },
-    socketDisconnector() {
-      socket.emit("leaveRoom", {
+    async socketDisconnector() {
+      await socket.emit('leaveRoom', {
         username: this.currentUser.username,
-        room: this.currentRoom.id
-      });
+        room: this.currentRoom.id,
+      })
     },
   },
   mounted() {
-    this.fetchCurrentRoom().then(() => {
-      this.$bridge.$emit('join_room', { username: this.currentUser.username, room: this.currentRoom.id })
-    })
+    if (this.$route.query.room_id) {
+      this.fetchCurrentRoom().then(() => {
+        this.message = {
+          chatroom: this.currentRoom.id,
+          sender: this.currentUser.id,
+          receiver: this.currentRoom.attributes.consultant.data.id,
+          text: '',
+          filePath: null,
+          seen: false,
+        }
+        this.$bridge.$emit('join_room', {
+          username: this.currentUser.username,
+          room: this.currentRoom.id,
+        })
+        console.log('Message: ', this.message)
+      })
+    }
   },
   created() {},
   beforeDestroy() {
-    this.socketDisconnector();
+    this.socketDisconnector()
   },
-  watch: {},
+  watch: {
+    '$route.query.room_id'(val) {
+      this.socketDisconnector().then(() => {
+        if (this.$route.query.room_id) {
+          this.fetchCurrentRoom().then(() => {
+            this.$bridge.$emit('join_room', {
+              username: this.currentUser.username,
+              room: this.currentRoom.id,
+            })
+          })
+        }
+        // this.fetchData().then(() => {
+        //   this.fetchCurrentRoom().then(() => {
+        //     // if (
+        //     //   this.currentRoom.isCompleted === true &&
+        //     //   this.currentRoom.rate0to5 === null
+        //     // ) {
+        //     //   this.showRatingModal();
+        //     // }
+        //     this.loading = false;
+        //     this.message = {
+        //       roomID: this.currentRoom.id,
+        //       senderID: this.currentUser.id,
+        //       receiverID:
+        //         this.state === "consultant"
+        //           ? this.consultant.id
+        //           : this.product.userid.id,
+        //       text: "",
+        //       filePath: null,
+        //       activityID: null,
+        //       seen: false,
+        //     };
+        //   });
+        // });
+      })
+    },
+  },
   components: {
     VueSimpleContextMenu,
   },

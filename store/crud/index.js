@@ -131,9 +131,6 @@ export default function (param) {
           this.$axios
             .post(`${param}`, { data: payload.data })
             .then((res) => {
-              dispatch('success_alert', {
-                title: `${_param.slice(0, 1).toUpperCase() + _param.slice(1)} created successfully`,
-              })
               resolve(res)
             })
             .catch((error) => {
@@ -153,9 +150,6 @@ export default function (param) {
           this.$axios
             .put(`${param}/${payload.id}`, { data: payload.data })
             .then((res) => {
-              dispatch('success_alert', {
-                title: `${_param.slice(0, 1).toUpperCase() + _param.slice(1)} updated successfully`,
-              })
               resolve(res)
             })
             .catch((error) => {
@@ -174,9 +168,6 @@ export default function (param) {
           this.$axios
             .remove(`${param}/${payload}`)
             .then((res) => {
-              dispatch('success_alert', {
-                title: `${_param.slice(0, 1).toUpperCase() + _param.slice(1)} deleted successfully`,
-              })
               resolve(res)
             })
             .catch((error) => {
