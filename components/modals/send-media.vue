@@ -50,7 +50,7 @@
           :rows="1"
           v-model="text"
           :placeholder="$t('write-a-message')"
-          class="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 bg-gray-200 rounded-md py-3"
+          class="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 bg-gray-200 rounded-md p-3"
           @keyup.enter="send()"
         />
       </div>

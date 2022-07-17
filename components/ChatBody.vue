@@ -69,9 +69,9 @@
                 >
                   <div class="bg-indigo-300 mb-1">
                     <img
-                      v-if="msg.attributes.filePath"
+                      v-if="msg.attributes.filepath"
                       class="object-cover h-48 w-96"
-                      :src="`${$tools.getFileUrl(msg.attributes.filePath)}`"
+                      :src="`${$tools.getFileUrl(msg.attributes.filepath)}`"
                     />
                   </div>
                   <span class="">{{ msg.attributes.text }}</span>
@@ -115,9 +115,9 @@
                 >
                   <div class="bg-indigo-300 mb-1">
                     <img
-                      v-if="msg.attributes.filePath"
+                      v-if="msg.attributes.filepath"
                       class="object-cover h-48 w-96"
-                      :src="`${$tools.getFileUrl(msg.attributes.filePath)}`"
+                      :src="`${$tools.getFileUrl(msg.attributes.filepath)}`"
                     />
                   </div>
                   <span>{{ msg.attributes.text }}</span>
@@ -324,7 +324,7 @@ export default {
         sender: this.currentUser.id,
         receiver: null,
         text: '',
-        filePath: null,
+        filepath: null,
         seen: false,
       },
       consultant: {},
@@ -422,7 +422,7 @@ export default {
         sender: this.currentUser.id,
         receiver: this.consultant.id,
         text: '',
-        filePath: null,
+        filepath: null,
         seen: false,
       }
     },
@@ -437,7 +437,7 @@ export default {
           sender: _message.sender.id,
           receiver: _message.receiver.id,
           text: _message.text,
-          filePath: _message.filePath,
+          filepath: _message.filepath,
           seen: _message.seen,
           id: _message.id,
         }
@@ -467,11 +467,12 @@ export default {
     mediaChange({ target }) {
       const formData = new FormData()
       formData.append('files', target.files[0])
-      this.$store.dispatch('upload/uploadFile', formData).then((res) => {
+      this.$store.dispatch('uploadFile', formData).then((res) => {
+        console.log('Image uploaded: ', res)
         this.$modal.show(
           sendMedia,
           {
-            image: res.data[0].url ? this.$tools.cropUrl(res.data[0].url) : null,
+            image: res.data[0].url,
           },
           {
             height: 'auto',
@@ -483,7 +484,7 @@ export default {
         )
         this.$root.$once('send-media-modal', (item) => {
           if (item !== 'canceled') {
-            this.message.filePath = item.image
+            this.message.filepath = item.image
             this.message.text = item.text
             this.sendMessage()
           }
@@ -530,7 +531,7 @@ export default {
           sender: this.currentUser.id,
           receiver: this.consultant.id,
           text: '',
-          filePath: null,
+          filepath: null,
           seen: false,
         }
         this.$bridge.$emit('join_room', {
@@ -554,7 +555,7 @@ export default {
               sender: this.currentUser.id,
               receiver: this.consultant.id,
               text: '',
-              filePath: null,
+              filepath: null,
               seen: false,
             }
             this.$bridge.$emit('join_room', {

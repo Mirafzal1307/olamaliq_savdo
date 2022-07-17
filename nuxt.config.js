@@ -35,6 +35,7 @@ export default {
     '~/plugins/vee-validate.js',
     { src: '~/plugins/client-libraries', mode: 'client' },
     '~/utils/bridge.js',
+    '~/utils/tools.js',
     // '~/plugins/v-viewer.client.js',
   ],
 

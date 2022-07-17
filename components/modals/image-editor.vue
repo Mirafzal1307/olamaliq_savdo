@@ -227,7 +227,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      uploading: 'upload/uploading'
+      uploading: 'uploading'
     })
   },
   mounted () {
@@ -291,7 +291,7 @@ export default {
     },
     hide () {
       this.$store
-        .dispatch('upload/uploadingAction', {
+        .dispatch('uploadingAction', {
           show: false,
           percent: 0
         })
@@ -301,17 +301,17 @@ export default {
         })
     },
     uploaderType (data) {
-      this.$store.dispatch('upload/uploadFile', data).then((res) => {
-        this.$store.dispatch('upload/uploadingAction', {
+      this.$store.dispatch('uploadFile', data).then((res) => {
+        this.$store.dispatch('uploadingAction', {
           show: false,
           percent: 0
         })
         this.onClose({
-          large: res.data[0].formats && res.data[0].formats.large ? this.$tools.cropUrl(res[0].formats.large.url) : null,
-          medium: res.data[0].formats && res.data[0].formats.medium ? this.$tools.cropUrl(res[0].formats.medium.url) : null,
-          small: res.data[0].formats && res.data[0].formats.small ? this.$tools.cropUrl(res[0].formats.small.url) : null,
-          thumbnail: res.data[0].formats && res.data[0].formats.thumbnail ? this.$tools.cropUrl(res[0].formats.thumbnail.url) : null,
-          url: res.data[0].url ? this.$tools.cropUrl(res.data[0].url) : null
+          large: res.data[0].formats && res.data[0].formats.large ? res[0].formats.large.url : null,
+          medium: res.data[0].formats && res.data[0].formats.medium ? res[0].formats.medium.url : null,
+          small: res.data[0].formats && res.data[0].formats.small ? res[0].formats.small.url : null,
+          thumbnail: res.data[0].formats && res.data[0].formats.thumbnail ? res[0].formats.thumbnail.url : null,
+          url: res.data[0].url ? res.data[0].url : null
         })
       })
     },

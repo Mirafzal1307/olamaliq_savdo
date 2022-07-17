@@ -21,7 +21,7 @@ const tools = {
       if (name.includes('https://')) {
         return name
       } else if (name.includes('/uploads')) {
-        return `${process.env.VUE_APP_BASE_URL}${name}`
+        return `${process.env.VUE_APP_BASE_IMAGE_URL}${name}`
       } else {
         return `${process.env.VUE_APP_BASE_IMAGE_URL}${name}`
       }

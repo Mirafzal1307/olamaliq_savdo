@@ -3,12 +3,14 @@ import Vuex from 'vuex'
 import crud from './crud'
 import dynamic from './crud/dynamic'
 import socket from './modules/socket'
+import upload from './modules/upload'
 Vue.use(Vuex)
 
 const createStore = () => {
   return new Vuex.Store({
     modules: {
       socket,
+      upload,
       products: crud('products'),
       regions: crud('regions'),
       districts: crud('districts'),
