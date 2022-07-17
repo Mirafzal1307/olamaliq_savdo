@@ -200,6 +200,7 @@ export default {
   components: { YandexMap, expertsSwiper, PriceSwiper, NewsSwiper, PartnersSwiper },
   data() {
     return {
+      video: {},
       settings: {
         apiKey: 'b8d77dd9-8477-4216-ad67-5074082c24a6',
         lang: 'ru_RU',
@@ -264,7 +265,9 @@ export default {
           locale: this.$i18n.locale,
         })
         .then(() => {})
-      await this.$store.dispatch('getCourses')
+      await this.$store.dispatch('getCourses', {
+        populate: '*',
+      })
     },
     openAnswer() {
       this.answerOpened = !this.answerOpened
