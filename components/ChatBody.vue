@@ -49,7 +49,13 @@
         >
           <div v-for="(msg, index) in messages" :key="index" class="chat-message">
             <div
-              v-if="msg.attributes.sender ? (msg.attributes.sender.data.id == currentUser.id ? true : false) : false"
+              v-if="
+                msg.attributes.sender
+                  ? msg.attributes.sender.data.id == currentUser.id
+                    ? true
+                    : false
+                  : false
+              "
               class="flex items-end justify-end"
             >
               <div
@@ -378,7 +384,7 @@ export default {
       }
     },
     sendMessageToSocket(message) {
-        console.log('Sended message: ', message)
+      console.log('Sended message: ', message)
       if (message.id) {
         const _id = message.id
         const data = { ...message }
@@ -519,7 +525,6 @@ export default {
           username: this.currentUser.username,
           room: this.currentRoom.id,
         })
-        console.log('Message: ', this.message)
       })
     }
   },
@@ -532,6 +537,14 @@ export default {
       this.socketDisconnector().then(() => {
         if (this.$route.query.room_id) {
           this.fetchCurrentRoom().then(() => {
+            this.message = {
+              chatroom: this.currentRoom.id,
+              sender: this.currentUser.id,
+              receiver: this.currentRoom.attributes.consultant.data.id,
+              text: '',
+              filePath: null,
+              seen: false,
+            }
             this.$bridge.$emit('join_room', {
               username: this.currentUser.username,
               room: this.currentRoom.id,

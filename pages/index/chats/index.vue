@@ -190,10 +190,6 @@ export default {
   },
   mounted() {
     this.fetchChats()
-    this.$bridge.$emit('join_chat', {
-      username: this.currentUser.username,
-      user_id: this.currentUser.id,
-    })
     // if (this.$route.query.room_id) {
     //   this.connectSocket()
     // }
@@ -235,7 +231,7 @@ export default {
     },
     toChatting(data) {
       if (data.id !== parseInt(this.$route.query.room_id)) {
-        this.$bridge.$emit('selected_room', { room_id: data.id })
+        this.$bridge.$emit('join_room', { username: this.currentUser.id, room: data.id })
         this.$router.push({ query: { room_id: data.id } })
       }
     },

@@ -18,6 +18,17 @@ export default {
     Navbar,
     Footer,
   },
+  data() {
+    return {
+      currentUser: {},
+    }
+  },
+  created() {
+    if (!process.client) {
+      return
+    }
+    this.currentUser = JSON.parse(localStorage.getItem('user_info'))
+  },
   mounted() {
     socket.on('joined', (res) => {
       console.log('Joined to chat: ', res)
@@ -48,11 +59,16 @@ export default {
       console.log('Join chat: ', message)
       this.joinToChat(message)
     })
+    if (this.currentUser)
+      this.$bridge.$emit('join_chat', {
+        username: this.currentUser.username,
+        user_id: this.currentUser.id,
+      })
   },
   computed: {
     ...mapState({
       isLoggedIn: (state) => state.auth.loggedIn,
-      currentUser: (state) => state.auth.user,
+      // currentUser: (state) => state.auth.user,
     }),
   },
   methods: {

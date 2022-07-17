@@ -75,11 +75,7 @@
             </ValidationProvider>
           </div>
           <div class="mt-1" v-if="isEmail">
-            <ValidationProvider
-              v-slot="{ valid, errors }"
-              rules="required|min:6"
-              name="password"
-            >
+            <ValidationProvider v-slot="{ valid, errors }" rules="required|min:6" name="password">
               <input
                 name="password"
                 type="password"
@@ -159,27 +155,28 @@ export default {
     return {
       auth: {
         identifier: '',
-        password: ''
+        password: '',
       },
       authError: '',
       tryingToLogIn: false,
       isAuthError: false,
       loading: false,
-      isEmail: false
+      isEmail: false,
     }
   },
   watch: {
-    'auth.identifier' () {
-      const EMAILREG = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    'auth.identifier'() {
+      const EMAILREG =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       if (EMAILREG.test(this.auth.identifier)) {
         this.isEmail = true
       } else {
         this.isEmail = false
       }
-    }
+    },
   },
   methods: {
-    async tryToLogIn () {
+    async tryToLogIn() {
       if (this.auth.identifier.includes('+') > 0) {
         this.auth.identifier = this.auth.identifier.substring(1)
       }
@@ -187,23 +184,30 @@ export default {
       this.loading = true
       if (this.isEmail) {
         this.$snotify.info('Logging in...')
-        await this.$auth.loginWith('local', {
-          data: this.auth
-        }).then(async (res) => {
-          localStorage.setItem('local', 'Bearer ' + res.data.jwt)
-          await this.$auth.setToken('local', 'Bearer ' + res.data.jwt)
-          // await this.$auth.setRefreshToken('local', res.data.refresh)
-          await this.$axios.setHeader('Authorization', 'Bearer ' + res.data.jwt)
-          await this.$auth.ctx.app.$axios.setHeader('Authorization', 'Bearer ' + res.data.jwt)
-          localStorage.setItem('user_info', JSON.stringify(res.data.user))
-          await this.$auth.setUser(res.data.user)
-          await this.$snotify.success('Successfully Logged In')
-          this.loading = false
-          this.onClose()
-        }).catch((e) => {
-          this.authError = e.response.data.error.message
-          this.loading = false
-        })
+        await this.$auth
+          .loginWith('local', {
+            data: this.auth,
+          })
+          .then(async (res) => {
+            localStorage.setItem('local', 'Bearer ' + res.data.jwt)
+            await this.$auth.setToken('local', 'Bearer ' + res.data.jwt)
+            // await this.$auth.setRefreshToken('local', res.data.refresh)
+            await this.$axios.setHeader('Authorization', 'Bearer ' + res.data.jwt)
+            await this.$auth.ctx.app.$axios.setHeader('Authorization', 'Bearer ' + res.data.jwt)
+            localStorage.setItem('user_info', JSON.stringify(res.data.user))
+            await this.$auth.setUser(res.data.user)
+            await this.$snotify.success('Successfully Logged In')
+            this.loading = false
+            this.$bridge.$emit('join_chat', {
+              username: res.data.user.username,
+              user_id: res.data.user.id,
+            })
+            this.onClose()
+          })
+          .catch((e) => {
+            this.authError = e.response.data.error.message
+            this.loading = false
+          })
       } else {
         this.$axios
           .post('/users-permissions/login-verify-otp', { phone: this.auth.identifier })
