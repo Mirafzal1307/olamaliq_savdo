@@ -215,7 +215,7 @@ export default {
     }),
   },
   beforeDestroy() {
-    this.socketDisconnector()
+    // this.socketDisconnector()
   },
   methods: {
     socketDisconnector() {
@@ -232,7 +232,7 @@ export default {
     toChatting(data) {
       if (data.id !== parseInt(this.$route.query.room_id)) {
         this.$bridge.$emit('join_room', { username: this.currentUser.id, room: data.id })
-        this.$router.push({ query: { room_id: data.id } })
+        this.$router.push({ query: { room_id: data.id, consultant_id: data.attributes.consultant.data.id } })
       }
     },
     async fetchChats() {

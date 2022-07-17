@@ -7,8 +7,8 @@
             <div class="relative" v-if="currentRoom.attributes">
               <img
                 :src="
-                  currentRoom.attributes.consultant.data.attributes.avatar
-                    ? currentRoom.attributes.consultant.data.attributes.avatar
+                  consultant.avatar
+                    ? consultant.avatar
                     : require('/assets/images/person/avatar.jpg')
                 "
                 alt=""
@@ -17,15 +17,9 @@
             </div>
             <div class="flex flex-col leading-tight">
               <div class="text-lg mt-1 flex items-center">
-                <span v-if="currentRoom.attributes" class="text-gray-700 mr-3">{{
-                  `${
-                    currentRoom.attributes.consultant.data.attributes.name
-                      ? currentRoom.attributes.consultant.data.attributes.name
-                      : ''
-                  } ${
-                    currentRoom.attributes.consultant.data.attributes.surname
-                      ? currentRoom.attributes.consultant.data.attributes.surname
-                      : ''
+                <span v-if="consultant.username" class="text-gray-700 mr-3">{{
+                  `${consultant.name ? consultant.name : ''} ${
+                    consultant.surname ? consultant.surname : ''
                   }`
                 }}</span>
               </div>
@@ -333,6 +327,7 @@ export default {
         filePath: null,
         seen: false,
       },
+      consultant: {},
       currentRoom: {},
       options: [
         {
@@ -360,6 +355,7 @@ export default {
         return
       }
       if (this.$route.query.room_id === 'new') {
+
         this.$store
           .dispatch('postChatrooms', {
             data: {
@@ -369,14 +365,18 @@ export default {
             },
           })
           .then(async (res) => {
-            this.currentRoom = res
-            this.message.roomID = res.id
-            await this.$store.dispatch('createRoom', res)
-            await this.$bridge.$emit('selected_room', { room_id: res.id })
+            console.log(res)
+            this.currentRoom = res.data.data
+            this.message.chatroom = res.data.data.id
+            await this.$store.dispatch('createRoom', res.data.data)
+            await this.$bridge.$emit('join_room', {
+              username: this.currentUser.username,
+              room: this.currentRoom.id,
+            })
             await this.sendMessageToSocket({ ...this.message })
             await this.$router.push({
               path: this.localePath('/chats'),
-              query: { room_id: res.id, consultant_id: this.consultant.id },
+              query: { room_id: this.currentRoom.id, consultant_id: this.consultant.id },
             })
           })
       } else {
@@ -418,9 +418,9 @@ export default {
         this.fetchCurrentRoom()
       }
       this.message = {
-        room: this.currentRoom.id,
+        chatroom: this.currentRoom.id,
         sender: this.currentUser.id,
-        receiver: this.currentRoom.attributes.consultant.data.id,
+        receiver: this.consultant.id,
         text: '',
         filePath: null,
         seen: false,
@@ -509,14 +509,26 @@ export default {
         room: this.currentRoom.id,
       })
     },
+    fetchConsultant() {
+      this.$store
+        .dispatch('getByIdUsers', {
+          id: this.$route.query.consultant_id,
+        })
+        .then((res) => {
+          this.consultant = res.data
+        })
+    },
   },
   mounted() {
     if (this.$route.query.room_id) {
+      this.fetchConsultant()
+    }
+    if (this.$route.query.room_id && this.$route.query.room_id !== 'new') {
       this.fetchCurrentRoom().then(() => {
         this.message = {
           chatroom: this.currentRoom.id,
           sender: this.currentUser.id,
-          receiver: this.currentRoom.attributes.consultant.data.id,
+          receiver: this.consultant.id,
           text: '',
           filePath: null,
           seen: false,
@@ -540,7 +552,7 @@ export default {
             this.message = {
               chatroom: this.currentRoom.id,
               sender: this.currentUser.id,
-              receiver: this.currentRoom.attributes.consultant.data.id,
+              receiver: this.consultant.id,
               text: '',
               filePath: null,
               seen: false,
@@ -551,29 +563,6 @@ export default {
             })
           })
         }
-        // this.fetchData().then(() => {
-        //   this.fetchCurrentRoom().then(() => {
-        //     // if (
-        //     //   this.currentRoom.isCompleted === true &&
-        //     //   this.currentRoom.rate0to5 === null
-        //     // ) {
-        //     //   this.showRatingModal();
-        //     // }
-        //     this.loading = false;
-        //     this.message = {
-        //       roomID: this.currentRoom.id,
-        //       senderID: this.currentUser.id,
-        //       receiverID:
-        //         this.state === "consultant"
-        //           ? this.consultant.id
-        //           : this.product.userid.id,
-        //       text: "",
-        //       filePath: null,
-        //       activityID: null,
-        //       seen: false,
-        //     };
-        //   });
-        // });
       })
     },
   },

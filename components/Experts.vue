@@ -75,20 +75,19 @@ export default {
   },
   methods: {
     toGetConsultaion() {
-      if (!this.isLoggedIn) {
+      if (this.isLoggedIn) {
         this.$store
           .dispatch('getChatrooms', {
             populate: '*',
             "filters[$and][0][consultant][id]": this.data.id,
-            "filters[$and][0][user][id]": this.currentUser.id,
-            "filters[$and][0][isCompleted]": false,
+            "filters[$and][1][user][id]": this.currentUser.id,
+            "filters[$and][2][isCompleted]": false,
           })
           .then((res) => {
             if (res.length > 0) {
-              this.$bridge.$emit('selected_room', { room_id: res[0].id })
               this.$router.push({
                 path: this.localePath('/chats'),
-                query: { room_id: res.data[0].id, consultant_id: this.data.id },
+                query: { room_id: res[0].id, consultant_id: this.data.id },
               })
             } else {
               this.$router.push({
@@ -98,16 +97,16 @@ export default {
             }
           })
       } else {
-        this.$store
-          .dispatch('postChatrooms', {
-            data: {
-              consultant: this.data.id,
-              user: this.currentUser.id,
-              isCompleted: false,
-            },
-          }).then(res => {
-            console.log('Chat room created: ', res)
-          })
+        // this.$store
+        //   .dispatch('postChatrooms', {
+        //     data: {
+        //       consultant: this.data.id,
+        //       user: this.currentUser.id,
+        //       isCompleted: false,
+        //     },
+        //   }).then(res => {
+        //     console.log('Chat room created: ', res)
+        //   })
         // this.$router.push({
         //   path: this.localePath('/login'),
         //   query: {

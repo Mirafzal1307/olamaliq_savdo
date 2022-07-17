@@ -110,7 +110,7 @@ export default function (param) {
         commit(_mutations.oneLoad, true)
         return new Promise((resolve, reject) => {
           this.$axios
-            .get(`${param}/${payload}`)
+            .get(`${param}/${payload.id}`)
             .then((res) => {
               resolve(res)
             })
