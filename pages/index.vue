@@ -2,7 +2,7 @@
   <div>
     <navbar />
     <main>
-      <router-view />
+      <nuxt-child />
     </main>
     <footer />
   </div>
