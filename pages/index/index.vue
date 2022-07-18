@@ -192,9 +192,6 @@ import NewsSwiper from '~/components/swipers/news-swiper.vue'
 import PriceSwiper from '~/components/swipers/price-swiper.vue'
 import PartnersSwiper from '~/components/swipers/partners-swiper.vue'
 import YandexMap from '~/components/core/yandex-map.vue'
-import { actions, getters } from '~/utils/store_schema'
-const _page = 'products'
-const { get } = actions(_page)
 export default {
   auth: false,
   components: { YandexMap, expertsSwiper, PriceSwiper, NewsSwiper, PartnersSwiper },
@@ -251,22 +248,20 @@ export default {
       userConnection: (state) => state.socket.userConnection,
       userConnectionStatus: (state) => state.socket.userConnectionStatus,
     }),
-    ...mapGetters(getters(_page)),
-    ...mapGetters(['dataCourses']),
+    ...mapGetters(['dataCourses', 'dataUsers']),
   },
   mounted() {
     this.fetchDirectories()
   },
   methods: {
     async fetchDirectories() {
-      await this.$store
-        .dispatch(get, {
-          populate: '*',
-          locale: this.$i18n.locale,
-        })
-        .then(() => {})
       await this.$store.dispatch('getCourses', {
-        populate: '*',
+            populate: '*',
+            locale: this.$i18n.locale,
+      })
+      await this.$store.dispatch('getUsers', {
+            populate: '*',
+            locale: this.$i18n.locale,
       })
     },
     openAnswer() {

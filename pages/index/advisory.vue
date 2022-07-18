@@ -14,7 +14,7 @@
 
 <script>
 import Experts from '~/components/Experts.vue'
-import { mapGetters, mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 import { actions, getters } from '~/utils/store_schema'
 const _page = 'users'
 const { get } = actions(_page)
@@ -24,33 +24,6 @@ export default {
   components: { Experts },
   data() {
     return {
-      experts: [
-        {
-          name: 'Shukhrat Sobirov',
-          category: 'Finance expert',
-          img: 'https://silkozari.com/web/images/miscellaneous/avatar.jpg',
-        },
-        {
-          name: 'Shukhrat Sobirov',
-          category: 'Finance expert',
-          img: 'https://silkozari.com/web/images/miscellaneous/avatar.jpg',
-        },
-        {
-          name: 'Shukhrat Sobirov',
-          category: 'Finance expert',
-          img: 'https://silkozari.com/web/images/miscellaneous/avatar.jpg',
-        },
-        {
-          name: 'Shukhrat Sobirov',
-          category: 'Finance expert',
-          img: 'https://silkozari.com/web/images/miscellaneous/avatar.jpg',
-        },
-        {
-          name: 'Shukhrat Sobirov',
-          category: 'Finance expert',
-          img: 'https://silkozari.com/web/images/miscellaneous/avatar.jpg',
-        },
-      ],
       consultants: []
     }
   },

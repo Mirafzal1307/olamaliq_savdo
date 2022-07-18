@@ -25,12 +25,12 @@
       "
     >
       <div class="block">
-        <div class="font-semibold text-gray-700 text-sm">{{ data.middlename ? data.middlename : `${data.name} ${data.surname}` }}</div>
+        <div class="font-semibold text-gray-700 text-sm flex justify-center">{{ data.middlename ? data.middlename : `${data.name} ${data.surname}` }}</div>
         <div v-if="data.consultantcategory" class="text-gray-500 text-xs text-center">
           {{ data.consultantcategory.name }}
         </div>
         <button
-          @click="toGetConsultaion()"
+          @click="toGetConsultation()"
           class="
             bg-green-700
             rounded-md
@@ -74,7 +74,7 @@ export default {
     }),
   },
   methods: {
-    toGetConsultaion() {
+    toGetConsultation() {
       if (this.isLoggedIn) {
         this.$store
           .dispatch('getChatrooms', {
