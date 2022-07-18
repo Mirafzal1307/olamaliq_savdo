@@ -88,6 +88,18 @@
                     <div class="flex-shrink-0">
                       <span class="inline-block relative">
                         <img
+                          v-if="currentUser.role.id === 4"
+                          class="h-10 w-10 rounded-full"
+                          :src="
+                            room.attributes.user &&
+                            room.attributes.user.data.attributes.avatar
+                              ? $tools.getFileUrl(room.attributes.user.avatar)
+                              : require('/assets/images/person/avatar.jpg')
+                          "
+                          alt=""
+                        />
+                        <img
+                          v-else
                           class="h-10 w-10 rounded-full"
                           :src="
                             room.attributes.consultant &&
@@ -109,7 +121,31 @@
                       "
                     >
                       <div class="grid grid-cols-3 ml-3">
-                        <div class="col-span-2 block mb-1">
+                        <div v-if="currentUser.role.id === 4" class="col-span-2 block mb-1">
+                          <p
+                            v-if="
+                              room.attributes.user !== null ||
+                              room.attributes.user.data !== null
+                            "
+                            class="text-sm text-gray-600"
+                          >
+                            {{
+                              `${
+                                room.attributes.user.data.attributes.name
+                                  ? room.attributes.user.data.attributes.name
+                                  : ''
+                              } ${
+                                room.attributes.user.data.attributes.surname
+                                  ? room.attributes.user.data.attributes.surname
+                                  : ''
+                              }`
+                            }}
+                          </p>
+                          <div class="flex pt-2 space-x-1 w-full text-xs text-gray-500">
+                            {{ room.attributes.title }}
+                          </div>
+                        </div>
+                        <div v-else class="col-span-2 block mb-1">
                           <p
                             v-if="
                               room.attributes.consultant !== null ||
@@ -232,19 +268,33 @@ export default {
     toChatting(data) {
       if (data.id !== parseInt(this.$route.query.room_id)) {
         this.$bridge.$emit('join_room', { username: this.currentUser.id, room: data.id })
-        this.$router.push({ query: { room_id: data.id, consultant_id: data.attributes.consultant.data.id } })
+        if (this.currentUser.role.id === 4) {
+          this.$router.push({ query: { room_id: data.id, consultant_id: data.attributes.user.data.id } })
+        } else {
+          this.$router.push({ query: { room_id: data.id, consultant_id: data.attributes.consultant.data.id } })
+        }
       }
     },
     async fetchChats() {
-      await this.$store
-        .dispatch('getChatrooms', {
-          populate: '*',
-          'filters[$or][0][user][id]': this.currentUser.id,
-          'filters[$or][1][consultant][id]': this.currentUser.id,
-        })
-        .then((res) => {
-          this.chats = res
-        })
+      if (this.currentUser.role.id === 4) {
+        await this.$store
+          .dispatch('getChatrooms', {
+            populate: '*',
+            'filters[$or][0][consultant][id]': this.currentUser.id,
+          })
+          .then((res) => {
+            this.chats = res
+          })
+      } else {
+        await this.$store
+          .dispatch('getChatrooms', {
+            populate: '*',
+            'filters[$or][0][user][id]': this.currentUser.id,
+          })
+          .then((res) => {
+            this.chats = res
+          })
+      }
     },
   },
 }

@@ -25,11 +25,14 @@
       "
     >
       <div class="block">
-        <div class="font-semibold text-gray-700 text-sm flex justify-center">{{ data.middlename ? data.middlename : `${data.name} ${data.surname}` }}</div>
+        <div class="font-semibold text-gray-700 text-sm flex justify-center">
+          {{ data.middlename ? data.middlename : `${data.name} ${data.surname}` }}
+        </div>
         <div v-if="data.consultantcategory" class="text-gray-500 text-xs text-center">
           {{ data.consultantcategory.name }}
         </div>
         <button
+          v-if="!isConsultant"
           @click="toGetConsultation()"
           class="
             bg-green-700
@@ -48,6 +51,26 @@
         >
           {{ $t('get-consultation') }}
         </button>
+        <!-- <button
+          v-else
+          @click="toGetConsultation()"
+          class="
+            bg-green-700
+            rounded-md
+            text-white text-xs
+            py-2
+            px-5
+            mt-3
+            hidden
+            group-hover:flex
+            transition
+            delay-75
+            focus:outline-none
+            duration-500
+          "
+        >
+          {{ $t('get-consultation') }}
+        </button> -->
       </div>
     </div>
   </div>
@@ -64,14 +87,41 @@ export default {
     },
   },
   data() {
-    return {}
+    return {
+      isConsultant: false,
+    }
   },
-  mounted() {},
+  created() {
+    if (!process.client) {
+      return
+    }
+  },
+  mounted() {
+    if (
+      this.currentUser &&
+      this.currentUser.role.id === 4
+    ) {
+      this.isConsultant = true
+    }
+  },
   computed: {
     ...mapState({
       currentUser: (state) => state.auth.user,
       isLoggedIn: (state) => state.auth.loggedIn,
     }),
+  },
+  watch: {
+    currentUser() {
+      let currentUser = JSON.parse(localStorage.getItem('user_info'))
+      if (
+        currentUser &&
+        currentUser.role.id === 4
+      ) {
+        this.isConsultant = true
+      } else {
+        this.isConsultant = false
+      }
+    },
   },
   methods: {
     toGetConsultation() {
@@ -79,9 +129,9 @@ export default {
         this.$store
           .dispatch('getChatrooms', {
             populate: '*',
-            "filters[$and][0][consultant][id]": this.data.id,
-            "filters[$and][1][user][id]": this.currentUser.id,
-            "filters[$and][2][isCompleted]": false,
+            'filters[$and][0][consultant][id]': this.data.id,
+            'filters[$and][1][user][id]': this.currentUser.id,
+            'filters[$and][2][isCompleted]': false,
           })
           .then((res) => {
             if (res.length > 0) {

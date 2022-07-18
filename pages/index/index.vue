@@ -256,12 +256,12 @@ export default {
   methods: {
     async fetchDirectories() {
       await this.$store.dispatch('getCourses', {
-            populate: '*',
-            locale: this.$i18n.locale,
+        populate: '*',
+        locale: this.$i18n.locale,
       })
       await this.$store.dispatch('getUsers', {
-            populate: '*',
-            locale: this.$i18n.locale,
+        populate: '*',
+        locale: this.$i18n.locale,
       })
     },
     openAnswer() {

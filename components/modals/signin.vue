@@ -194,8 +194,15 @@ export default {
             // await this.$auth.setRefreshToken('local', res.data.refresh)
             await this.$axios.setHeader('Authorization', 'Bearer ' + res.data.jwt)
             await this.$auth.ctx.app.$axios.setHeader('Authorization', 'Bearer ' + res.data.jwt)
-            localStorage.setItem('user_info', JSON.stringify(res.data.user))
-            await this.$auth.setUser(res.data.user)
+            await this.$store.dispatch('getUsers', {
+              link: '/users/me',
+              query: {
+                populate: '*'
+              }
+            }).then(response => {
+              this.$auth.setUser(response.data)
+              localStorage.setItem('user_info', JSON.stringify(response.data))
+            })
             await this.$snotify.success('Successfully Logged In')
             this.loading = false
             this.$bridge.$emit('join_chat', {
