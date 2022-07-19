@@ -16,6 +16,7 @@
     "clear": "Очистить",
     "confirm-password": "Подтвердите пароль",
     "consultants": "Консультанты",
+    "confirmation": "Подтверждение",
     "created-date": "Дата создания",
     "create-a-new-branch": "Создать новую филлиал",
     "create-a-new-district": "Создать новую район",
@@ -37,6 +38,9 @@
     "email-or-phone": "Эл. почта или телефон",
   
     "f": "F",
+    "finish": "Завершить",
+    "finish-chat": "Завершить чат",
+    "finish-this": "Завершить это",
     "firstname": "Имя",
     "forgot-password-question": "Забыли пароль?",
   

@@ -216,10 +216,15 @@ export default {
   },
   methods: {
     async logOut() {
+      await socket.emit('leave', {
+        username: this.currentUser.username,
+        user_id: this.currentUser.id,
+      })
       this.isProfileOpened = !this.isProfileOpened;
       await localStorage.removeItem("local");
       await localStorage.removeItem("user_info");
       await this.$auth.logout();
+
     },
     openProfile() {
       this.isProfileOpened = !this.isProfileOpened;

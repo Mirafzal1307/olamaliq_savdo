@@ -16,6 +16,7 @@
     "chats": "Chats",
     "clear": "Clear",
     "confirm-password": "Confirm Password",
+    "confirmation": "Confirmation",
     "consultation": "Consultation",
     "created-date": "Created Date",
     "create-a-new-branch": "Create a new branch",
@@ -40,6 +41,9 @@
     "exit": "Exit",
     
     "f": "F",
+    "finish": "Finish",
+    "finish-chat": "Finish Chat",
+    "finish-this": "Finish this",
     "firstname": "Firstname",
     "forgot-password-question":"Forget password?",
     

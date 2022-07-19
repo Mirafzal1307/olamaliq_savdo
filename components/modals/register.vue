@@ -297,6 +297,10 @@ export default {
             await this.$auth.ctx.app.$axios.setHeader('Authorization', 'Bearer ' + res.data.jwt)
             localStorage.setItem('user_info', JSON.stringify(res.data.user))
             await this.$auth.setUser(res.data.user)
+            this.$bridge.$emit('join_chat', {
+              username: res.data.user.username,
+              user_id: res.data.user.id,
+            })
             await this.$snotify.success('Successfully Logged In')
             this.loading = false
             this.onClose()

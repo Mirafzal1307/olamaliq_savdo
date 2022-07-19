@@ -19,6 +19,7 @@
   "chats": "Chatlar",
   "clear": "Tozalash",
   "confirm-password": "Parolni tasdiqlash",
+  "confirmation": "Tasdiqlash",
   "consultants": "Konsultantlar",
   "created-date": "Yaratilgan sana",
   "create-a-new-branch": "Yangi fillial yaratish",
@@ -42,6 +43,9 @@
   "email-or-phone": "Email yoki telefon",
 
   "f": "F",
+  "finish": "Tugatish",
+  "finish-chat": "Chatni tugatish",
+  "finish-this": "Tugatish",
   "firstname": "Ism",
   "forgot-password-question": "Parolni esdan chiqardingizmi?",
 

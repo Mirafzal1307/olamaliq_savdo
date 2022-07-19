@@ -162,6 +162,62 @@
             />
             <div class="absolute right-0 items-center inset-y-0 flex">
               <button
+                v-if="currentUser.role && currentUser.role.id === 4"
+                type="button"
+                class="
+                  inline-flex
+                  items-center
+                  justify-center
+                  rounded-full
+                  h-10
+                  w-10
+                  transition
+                  duration-500
+                  ease-in-out
+                  text-gray-500
+                  hover:bg-gray-300
+                  focus:outline-none
+                "
+                @click="closeChatRoom()"
+              >
+                <svg
+                  version="1.1"
+                  id="Uploaded to svgrepo.com"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  width="32px"
+                  height="32px"
+                  viewBox="0 0 32 32"
+                  style="enable-background: new 0 0 32 32"
+                  xml:space="preserve"
+                >
+                  <g>
+                    <path
+                      class="duotone_een"
+                      d="M24.232,8.626l-9.192,9.192c-0.194,0.194-0.513,0.194-0.707,0l-2.828-2.828
+		c-0.194-0.194-0.513-0.194-0.707,0l-0.707,0.707c-0.194,0.194-0.194,0.513,0,0.707l4.243,4.243c0.194,0.194,0.513,0.194,0.707,0
+		L25.646,10.04c0.194-0.194,0.194-0.513,0-0.707l-0.707-0.707C24.745,8.431,24.427,8.431,24.232,8.626z"
+                    />
+                    <path
+                      class="duotone_twee"
+                      d="M15.747,21.354c-0.586,0.586-1.536,0.585-2.121,0c-0.038-0.038-0.192-0.192-4.243-4.243
+		c-0.586-0.585-0.586-1.536,0-2.121l0.707-0.707c0.585-0.585,1.536-0.585,2.121,0l2.475,2.475L22,9.444V8.5
+		C22,8.225,21.775,8,21.5,8h-15C6.225,8,6,8.225,6,8.5v15C6,23.775,6.225,24,6.5,24h15c0.275,0,0.5-0.225,0.5-0.5v-8.399
+		L15.747,21.354z"
+                    />
+                  </g>
+                </svg>
+                <input
+                  ref="file"
+                  type="file"
+                  class="hidden"
+                  accept="image/*"
+                  @change="mediaChange"
+                />
+              </button>
+              <button
                 type="button"
                 class="
                   inline-flex
@@ -306,6 +362,7 @@
 <script>
 import deleteModal from '~/components/modals/delete.vue'
 import sendMedia from '~/components/modals/send-media.vue'
+import finishChatModal from '~/components/modals/finish-chat.vue'
 import { mapState, mapGetters } from 'vuex'
 import { socket } from '~/plugins/socket.client.js'
 import VueSimpleContextMenu from 'vue-simple-context-menu'
@@ -350,12 +407,43 @@ export default {
     }),
   },
   methods: {
+    closeChatRoom() {
+      console.log('Current room: ', this.currentRoom)
+      const _currentRoom = {
+        id: this.currentRoom.id,
+        data: {
+          consultant: this.currentRoom.attributes.consultant.data.id,
+          isCompleted: true,
+          user: this.currentRoom.attributes.user.data.id,
+        }
+      }
+      this.$modal.show(
+        finishChatModal,
+        {
+          link: 'putChatrooms',
+          data: _currentRoom,
+        },
+        {
+          height: 'auto',
+          maxWidth: 600,
+          width: window.innerWidth <= 600 ? window.innerWidth - 30 : 600,
+          scrollable: true,
+          clickToClose: false,
+        }
+      )
+      this.$root.$once('finish-chat-modal', (item) => {
+        if (item !== 'canceled') {
+          socket.emit('finishChat', this.currentRoom.id, (res, rej) => {
+            console.log('Finished chat: ', res)
+          })
+        }
+      })
+    },
     sendMessage() {
       if (this.message.text === 0 || this.message.text.trim().length === 0) {
         return
       }
       if (this.$route.query.room_id === 'new') {
-
         this.$store
           .dispatch('postChatrooms', {
             data: {
@@ -365,7 +453,6 @@ export default {
             },
           })
           .then(async (res) => {
-            console.log(res)
             this.currentRoom = res.data.data
             this.message.chatroom = res.data.data.id
             await this.$store.dispatch('createRoom', res.data.data)
@@ -384,7 +471,6 @@ export default {
       }
     },
     sendMessageToSocket(message) {
-      console.log('Sended message: ', message)
       if (message.id) {
         const _id = message.id
         const data = { ...message }
