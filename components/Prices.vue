@@ -1,13 +1,13 @@
 <template>
   <div class="group w-full hover:shadow-md shadow-sm border border-gray-100 rounded-md relative">
     <div class="flex items-center w-full bg-white rounded-md p-2 gap-2">
-      <img :src="data.img" class="w-14 rounded-md" />
+      <img :src="$tools.getFileUrl(data.attributes.product.data.attributes.image)" class="w-14 rounded-md" />
       <div class="grid content-between space-y-2">
-        <div class="text-gray-700 text-sm font-semibold">{{ data.name }}</div>
-        <div class="text-green-700 font-medium text-xs">{{ data.district }}</div>
+        <div class="text-gray-700 text-sm font-semibold">{{ data.attributes.product.data.attributes.name }}</div>
+        <div class="text-green-700 font-medium text-xs">{{ data.attributes.district.data.attributes.name }}</div>
         <div class="flex items-center text-gray-700 font-semibold text-sm space-x-3">
-          <div>Min: {{ data.min }}</div>
-          <div>Max: {{ data.max }}</div>
+          <div>Min: {{ data.attributes.min }}</div>
+          <div>Max: {{ data.attributes.max }}</div>
         </div>
       </div>
     </div>
@@ -21,5 +21,8 @@ export default {
     // eslint-disable-next-line vue/require-default-prop
     data: Object,
   },
+  mounted() {
+    console.log('Prices', this.data)
+  }
 }
 </script>

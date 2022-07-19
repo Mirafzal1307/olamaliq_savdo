@@ -3,6 +3,15 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 const { isNavigationFailure, NavigationFailureType } = VueRouter
 const tools = {
+  getFileUrl(name) {
+    if (name) {
+      if (name.includes("https://")) {
+        return name;
+      } else {
+        return `${process.env.VUE_APP_IMG_URL}${name}`;
+      }
+    }
+  },
   fixDoubleRouting(err) {
     if (isNavigationFailure(err, NavigationFailureType.redirected)) {
       err.to.path

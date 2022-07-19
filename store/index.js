@@ -12,6 +12,8 @@ const createStore = () => {
       socket,
       upload,
       products: crud('products'),
+      productcategories: crud('productcategories'),
+      pricelists: crud('pricelists'),
       regions: crud('regions'),
       districts: crud('districts'),
       servicecategories: crud('servicecategories'),
