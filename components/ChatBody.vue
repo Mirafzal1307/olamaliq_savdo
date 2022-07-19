@@ -138,7 +138,7 @@
           <div class="chat-message"></div>
         </div>
         <div
-          v-if="!currentRoom.isCompleted || $route.query.room_id === 'new'"
+          v-if="currentRoom.isCompleted === false || $route.query.room_id === 'new'"
           class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0"
         >
           <div class="relative flex">
@@ -291,13 +291,13 @@
           </div>
         </div>
         <div
-          v-else-if="currentRoom.rate0to5 === null"
+          v-else-if="currentRoom.rate0to5 === null && currentUser.role.id !== 4"
           class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0"
         >
           <div class="flex items-center justify-between">
             <div>{{ $t('evaluate-the-advice') }}</div>
             <div class="flex ml-4 items-center">
-              <!-- <star-rating v-model="advice.rating" /> -->
+              <star-rating v-model="advice.rating" />
             </div>
             <div class="items-center flex">
               <button
@@ -328,20 +328,12 @@
         </div>
         <div v-else class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0">
           <div class="align-middle text-center">
-            <span
-              v-if="state === 'consultant'"
-              class="rounded-md py-1 px-2 bg-green-200 text-gray-600"
-            >
-              {{ $t('chat-room-closed') }}
-            </span>
-            <span
-              v-if="state === 'trading'"
-              class="rounded-md py-1 px-2 bg-green-200 text-gray-600"
-            >
+            <span class="rounded-md py-1 px-2 bg-green-200 text-gray-600">
               {{ $t('chat-room-closed') }}
             </span>
           </div>
         </div>
+        {{ currentRoom.isCompleted }}
       </div>
       <vue-simple-context-menu
         ref="vueSimpleContextMenu"
@@ -384,6 +376,10 @@ export default {
         filepath: null,
         seen: false,
       },
+      advice: {
+        rating: 0,
+        comment: '',
+      },
       consultant: {},
       currentRoom: {},
       options: [
@@ -407,15 +403,28 @@ export default {
     }),
   },
   methods: {
+    toRating() {
+      const _currentRoom = {
+        id: this.currentRoom.id,
+        data: {
+          consultant: this.currentRoom.attributes.consultant.data.id,
+          isCompleted: this.currentRoom.attributes.isCompleted,
+          user: this.currentRoom.attributes.user.data.id,
+          rate: this.advice.rating,
+        },
+      }
+      this.$store.dispatch('putChatrooms', { id: _currentRoom.id, data: _currentRoom.data }).then(() => {
+        this.fetchCurrentRoom()
+      })
+    },
     closeChatRoom() {
-      console.log('Current room: ', this.currentRoom)
       const _currentRoom = {
         id: this.currentRoom.id,
         data: {
           consultant: this.currentRoom.attributes.consultant.data.id,
           isCompleted: true,
           user: this.currentRoom.attributes.user.data.id,
-        }
+        },
       }
       this.$modal.show(
         finishChatModal,
@@ -585,7 +594,6 @@ export default {
             'filters[$and][0][id]': this.$route.query.room_id,
           })
           .then((res) => {
-            console.log('fetched room', res)
             this.currentRoom = res[0]
           })
       }

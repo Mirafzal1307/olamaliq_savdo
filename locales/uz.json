@@ -17,6 +17,7 @@
   "c": "C",
   "cancel": "Bekor qilish",
   "chat": "Chat",
+  "chat-room-closed": "Chat yopilgan",
   "chats": "Chatlar",
   "clear": "Tozalash",
   "confirm-password": "Parolni tasdiqlash",
@@ -42,6 +43,7 @@
   "e-learning": "E-ta'lim",
   "email": "Email",
   "email-or-phone": "Email yoki telefon",
+  "evaluate-the-advice": "Konsultatsiyangizni baholang",
 
   "f": "F",
   "finish": "Tugatish",
@@ -99,6 +101,7 @@
   "q": "Q",
 
   "r": "R",
+  "rayting": "Baholash",
   "region": "Viloyat",
   "regions": "Viloyatlar",
   "register": "Ro'yxatdan o'tish",
