@@ -259,10 +259,7 @@ export default {
         populate: '*',
         locale: this.$i18n.locale,
       })
-      await this.$store.dispatch('getUsers', {
-        populate: '*',
-        locale: this.$i18n.locale,
-      })
+      await this.$store.dispatch('getUsers')
     },
     openAnswer() {
       this.answerOpened = !this.answerOpened

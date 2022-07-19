@@ -190,6 +190,7 @@ import LangSwitcher from '../core/lang-switcher.vue'
 import signInModal from '../modals/signin.vue'
 import mobileMenu from '../core/mobile-menu.vue'
 import { mapState } from 'vuex'
+import { socket } from '~/plugins/socket.client.js'
 export default {
   name: 'Navbar',
   components: {
