@@ -1,6 +1,7 @@
 {
   "a": "A",
   "action": "Holat",
+  "active": "Faol",
   "address": "Manzil",
   "add-new": "Yangisini qo'shish",
   "agri-finance": "Agri-finans",
@@ -46,6 +47,7 @@
   "finish": "Tugatish",
   "finish-chat": "Chatni tugatish",
   "finish-this": "Tugatish",
+  "finished": "Tugallangan",
   "firstname": "Ism",
   "forgot-password-question": "Parolni esdan chiqardingizmi?",
 
@@ -137,6 +139,8 @@
   "your-email-must-be-4-characters": "Sizning elektron pochtangiz kamida 4 ta belgidan iborat bo'lishi kerak",
   "your-password-must-be-between-4-and-16-characters": "Sizning parolingiz 4 dan 16 tagacha belgidan iborat bo'lishi kerak",
   "you-do-not-have-chats": "Chatlar yo'q",
+  "you-do-not-have-active-chats": "Aktiv chatlar yo'q",
+  "you-do-not-have-closed-chats": "Yopilgan chatlar yo'q",
 
   "z": "Z"
 }

@@ -1,6 +1,7 @@
 {
     "a": "A",
     "action": "Действие",
+    "active": "Активный",
     "address": "Адрес",
     "add-new": "Добавить новое",
     "advisory": "Адвокат",
@@ -41,6 +42,7 @@
     "finish": "Завершить",
     "finish-chat": "Завершить чат",
     "finish-this": "Завершить это",
+    "finished": "Завершено",
     "firstname": "Имя",
     "forgot-password-question": "Забыли пароль?",
   
@@ -129,6 +131,8 @@
     "your-email-must-be-minimum-4-characters": "Ваш адрес электронной почты должен быть не менее 4 символов",
     "your-password-must-be-between-4-and-16-characters": "Ваш пароль должен быть от 4 до 16 символов",
     "you-do-not-have-chats": "У вас нет чатов",
+    "you-do-not-have-active-chats": "У вас нет активных чатов",
+    "you-do-not-have-closed-chats": "У вас нет закрытых чатов",
   
     "z": "Z"
   }

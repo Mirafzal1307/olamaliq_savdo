@@ -59,6 +59,12 @@ export default {
       console.log('Join chat: ', message)
       this.joinToChat(message)
     })
+    this.$bridge.$on('set_active_rooms', () => {
+      this.fetchActiveRooms()
+    })
+    this.$bridge.$on('set_closed_rooms', () => {
+      this.fetchClosedRooms()
+    })
     if (this.currentUser)
       this.$bridge.$emit('join_chat', {
         username: this.currentUser.username,
@@ -67,8 +73,7 @@ export default {
   },
   computed: {
     ...mapState({
-      isLoggedIn: (state) => state.auth.loggedIn,
-      // currentUser: (state) => state.auth.user,
+      isLoggedIn: (state) => state.auth.loggedIn
     }),
   },
   methods: {
@@ -126,6 +131,52 @@ export default {
           console.log('Chat messages: ', res)
           this.$store.dispatch('setMessage', res)
         })
+    },
+    async fetchActiveRooms() {
+      if (this.currentUser.role.id === 4) {
+        await this.$store
+          .dispatch('getChatrooms', {
+            populate: '*',
+            'filters[$or][0][consultant][id]': this.currentUser.id,
+            'filters[$and][0][isCompleted]': false,
+          })
+          .then((res) => {
+            this.$store.dispatch('setActiveRooms', res)
+          })
+      } else {
+        await this.$store
+          .dispatch('getChatrooms', {
+            populate: '*',
+            'filters[$or][0][user][id]': this.currentUser.id,
+            'filters[$and][0][isCompleted]': false,
+          })
+          .then((res) => {
+            this.$store.dispatch('setActiveRooms', res)
+          })
+      }
+    },
+    async fetchClosedRooms() {
+      if (this.currentUser.role.id === 4) {
+        await this.$store
+          .dispatch('getChatrooms', {
+            populate: '*',
+            'filters[$or][0][consultant][id]': this.currentUser.id,
+            'filters[$and][0][isCompleted]': true,
+          })
+          .then((res) => {
+            this.$store.dispatch('setClosedRooms', res)
+          })
+      } else {
+        await this.$store
+          .dispatch('getChatrooms', {
+            populate: '*',
+            'filters[$or][0][user][id]': this.currentUser.id,
+            'filters[$and][0][isCompleted]': true,
+          })
+          .then((res) => {
+            this.$store.dispatch('setClosedRooms', res)
+          })
+      }
     },
   },
 }

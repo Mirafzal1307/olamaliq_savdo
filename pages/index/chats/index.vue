@@ -75,114 +75,249 @@
                 :placeholder="$t('search')"
               />
             </div>
-            <div>
-              <div v-if="chats.length > 0 && $route.query.chat_id !== 'new'">
-                <div
-                  v-for="(room, index) in chats"
-                  :key="index"
-                  class="hover:bg-gray-100 cursor-pointer"
-                  :class="$route.query.room_id === `${room.id}` ? 'bg-green-50' : 'bg-white'"
-                  @click="toChatting(room)"
+            <div class="flex items-center m-3">
+              <div>
+                <button
+                  :class="[
+                    activetab === 'active'
+                      ? 'border-b border-green-600 text-green-600'
+                      : 'hover:text-green-600 text-gray-600',
+                  ]"
+                  class="text-base font-medium text-gray-500 focus:outline-none"
+                  @click="changeTab('active')"
                 >
-                  <div class="p-4 flex items-center">
-                    <div class="flex-shrink-0">
-                      <span class="inline-block relative">
-                        <img
-                          v-if="currentUser.role.id === 4"
-                          class="h-10 w-10 rounded-full"
-                          :src="
-                            room.attributes.user &&
-                            room.attributes.user.data.attributes.avatar
-                              ? $tools.getFileUrl(room.attributes.user.avatar)
-                              : require('/assets/images/person/avatar.jpg')
-                          "
-                          alt=""
-                        />
-                        <img
-                          v-else
-                          class="h-10 w-10 rounded-full"
-                          :src="
-                            room.attributes.consultant &&
-                            room.attributes.consultant.data.attributes.avatar
-                              ? $tools.getFileUrl(room.attributes.consultant.avatar)
-                              : require('/assets/images/person/avatar.jpg')
-                          "
-                          alt=""
-                        />
-                      </span>
-                    </div>
-                    <div
-                      class="
-                        flex
-                        items-center
-                        overflow-y-auto
-                        scrollbar-track-blue-lighter scrollbar-thumb-blue scrollbar-w-2
-                        scrolling-touch
-                      "
-                    >
-                      <div class="grid grid-cols-3 ml-3">
-                        <div v-if="currentUser.role.id === 4" class="col-span-2 block mb-1">
-                          <p
-                            v-if="
-                              room.attributes.user !== null ||
-                              room.attributes.user.data !== null
+                  {{ $t('active') }}
+                </button>
+              </div>
+
+              <div>
+                <button
+                  :class="[
+                    activetab === 'closed'
+                      ? 'border-b border-green-600 text-green-600'
+                      : 'hover:text-green-600  text-gray-600',
+                  ]"
+                  class="text-base font-medium text-gray-500 ml-6 focus:outline-none"
+                  @click="changeTab('closed')"
+                >
+                  {{ $t('finished') }}
+                </button>
+              </div>
+            </div>
+            <div>
+              <div v-if="activetab === 'active'">
+                <div v-if="activeRooms.length > 0">
+                  <div
+                    v-for="(room, index) in activeRooms"
+                    :key="index"
+                    class="hover:bg-gray-100 cursor-pointer"
+                    :class="$route.query.room_id === `${room.id}` ? 'bg-green-50' : 'bg-white'"
+                    @click="toChatting(room)"
+                  >
+                    <div class="p-4 flex items-center">
+                      <div class="flex-shrink-0">
+                        <span class="inline-block relative">
+                          <img
+                            v-if="currentUser.role.id === 4"
+                            class="h-10 w-10 rounded-full"
+                            :src="
+                              room.attributes.user && room.attributes.user.data.attributes.avatar
+                                ? $tools.getFileUrl(room.attributes.user.avatar)
+                                : require('/assets/images/person/avatar.jpg')
                             "
-                            class="text-sm text-gray-600"
-                          >
-                            {{
-                              `${
-                                room.attributes.user.data.attributes.name
-                                  ? room.attributes.user.data.attributes.name
-                                  : ''
-                              } ${
-                                room.attributes.user.data.attributes.surname
-                                  ? room.attributes.user.data.attributes.surname
-                                  : ''
-                              }`
-                            }}
-                          </p>
-                          <div class="flex pt-2 space-x-1 w-full text-xs text-gray-500">
-                            {{ room.attributes.title }}
-                          </div>
-                        </div>
-                        <div v-else class="col-span-2 block mb-1">
-                          <p
-                            v-if="
-                              room.attributes.consultant !== null ||
-                              room.attributes.consultant.data !== null
+                            alt=""
+                          />
+                          <img
+                            v-else
+                            class="h-10 w-10 rounded-full"
+                            :src="
+                              room.attributes.consultant &&
+                              room.attributes.consultant.data.attributes.avatar
+                                ? $tools.getFileUrl(room.attributes.consultant.avatar)
+                                : require('/assets/images/person/avatar.jpg')
                             "
-                            class="text-sm text-gray-600"
-                          >
-                            {{
-                              `${
-                                room.attributes.consultant.data.attributes.name
-                                  ? room.attributes.consultant.data.attributes.name
-                                  : ''
-                              } ${
-                                room.attributes.consultant.data.attributes.surname
-                                  ? room.attributes.consultant.data.attributes.surname
-                                  : ''
-                              }`
-                            }}
-                          </p>
-                          <div class="flex pt-2 space-x-1 w-full text-xs text-gray-500">
-                            {{ room.attributes.title }}
+                            alt=""
+                          />
+                        </span>
+                      </div>
+                      <div
+                        class="
+                          flex
+                          items-center
+                          overflow-y-auto
+                          scrollbar-track-blue-lighter scrollbar-thumb-blue scrollbar-w-2
+                          scrolling-touch
+                        "
+                      >
+                        <div class="grid grid-cols-3 ml-3">
+                          <div v-if="currentUser.role.id === 4" class="col-span-2 block mb-1">
+                            <p
+                              v-if="
+                                room.attributes.user !== null || room.attributes.user.data !== null
+                              "
+                              class="text-sm text-gray-600"
+                            >
+                              {{
+                                `${
+                                  room.attributes.user.data.attributes.name
+                                    ? room.attributes.user.data.attributes.name
+                                    : ''
+                                } ${
+                                  room.attributes.user.data.attributes.surname
+                                    ? room.attributes.user.data.attributes.surname
+                                    : ''
+                                }`
+                              }}
+                            </p>
+                            <div class="flex pt-2 space-x-1 w-full text-xs text-gray-500">
+                              {{ room.attributes.title }}
+                            </div>
                           </div>
-                        </div>
-                        <div class="flex justify-end">
-                          <p class="text-xs text-gray-400">
-                            {{ $tools.getDateTime(room.attributes.updatedAt) }}
-                          </p>
+                          <div v-else class="col-span-2 block mb-1">
+                            <p
+                              v-if="
+                                room.attributes.consultant !== null ||
+                                room.attributes.consultant.data !== null
+                              "
+                              class="text-sm text-gray-600"
+                            >
+                              {{
+                                `${
+                                  room.attributes.consultant.data.attributes.name
+                                    ? room.attributes.consultant.data.attributes.name
+                                    : ''
+                                } ${
+                                  room.attributes.consultant.data.attributes.surname
+                                    ? room.attributes.consultant.data.attributes.surname
+                                    : ''
+                                }`
+                              }}
+                            </p>
+                            <div class="flex pt-2 space-x-1 w-full text-xs text-gray-500">
+                              {{ room.attributes.title }}
+                            </div>
+                          </div>
+                          <div class="flex justify-end">
+                            <p class="text-xs text-gray-400">
+                              {{ $tools.getDateTime(room.attributes.updatedAt) }}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div v-else>
-                <div class="align-middle text-center">
+                <div v-else class="align-middle text-center">
                   <span class="rounded-md py-1 px-2 bg-green-200 text-gray-600">
-                    {{ $t('you-do-not-have-chats') }}
+                    {{ $t('you-do-not-have-active-chats') }}
+                  </span>
+                </div>
+              </div>
+              <div v-if="activetab === 'closed'">
+                <div v-if="closedRooms.length > 0">
+                  <div
+                    v-for="(room, index) in activeRooms"
+                    :key="index"
+                    class="hover:bg-gray-100 cursor-pointer"
+                    :class="$route.query.room_id === `${room.id}` ? 'bg-green-50' : 'bg-white'"
+                    @click="toChatting(room)"
+                  >
+                    <div class="p-4 flex items-center">
+                      <div class="flex-shrink-0">
+                        <span class="inline-block relative">
+                          <img
+                            v-if="currentUser.role.id === 4"
+                            class="h-10 w-10 rounded-full"
+                            :src="
+                              room.attributes.user && room.attributes.user.data.attributes.avatar
+                                ? $tools.getFileUrl(room.attributes.user.avatar)
+                                : require('/assets/images/person/avatar.jpg')
+                            "
+                            alt=""
+                          />
+                          <img
+                            v-else
+                            class="h-10 w-10 rounded-full"
+                            :src="
+                              room.attributes.consultant &&
+                              room.attributes.consultant.data.attributes.avatar
+                                ? $tools.getFileUrl(room.attributes.consultant.avatar)
+                                : require('/assets/images/person/avatar.jpg')
+                            "
+                            alt=""
+                          />
+                        </span>
+                      </div>
+                      <div
+                        class="
+                          flex
+                          items-center
+                          overflow-y-auto
+                          scrollbar-track-blue-lighter scrollbar-thumb-blue scrollbar-w-2
+                          scrolling-touch
+                        "
+                      >
+                        <div class="grid grid-cols-3 ml-3">
+                          <div v-if="currentUser.role.id === 4" class="col-span-2 block mb-1">
+                            <p
+                              v-if="
+                                room.attributes.user !== null || room.attributes.user.data !== null
+                              "
+                              class="text-sm text-gray-600"
+                            >
+                              {{
+                                `${
+                                  room.attributes.user.data.attributes.name
+                                    ? room.attributes.user.data.attributes.name
+                                    : ''
+                                } ${
+                                  room.attributes.user.data.attributes.surname
+                                    ? room.attributes.user.data.attributes.surname
+                                    : ''
+                                }`
+                              }}
+                            </p>
+                            <div class="flex pt-2 space-x-1 w-full text-xs text-gray-500">
+                              {{ room.attributes.title }}
+                            </div>
+                          </div>
+                          <div v-else class="col-span-2 block mb-1">
+                            <p
+                              v-if="
+                                room.attributes.consultant !== null ||
+                                room.attributes.consultant.data !== null
+                              "
+                              class="text-sm text-gray-600"
+                            >
+                              {{
+                                `${
+                                  room.attributes.consultant.data.attributes.name
+                                    ? room.attributes.consultant.data.attributes.name
+                                    : ''
+                                } ${
+                                  room.attributes.consultant.data.attributes.surname
+                                    ? room.attributes.consultant.data.attributes.surname
+                                    : ''
+                                }`
+                              }}
+                            </p>
+                            <div class="flex pt-2 space-x-1 w-full text-xs text-gray-500">
+                              {{ room.attributes.title }}
+                            </div>
+                          </div>
+                          <div class="flex justify-end">
+                            <p class="text-xs text-gray-400">
+                              {{ $tools.getDateTime(room.attributes.updatedAt) }}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div v-else class="align-middle text-center">
+                  <span class="rounded-md py-1 px-2 bg-green-200 text-gray-600">
+                    {{ $t('you-do-not-have-closed-chats') }}
                   </span>
                 </div>
               </div>
@@ -209,8 +344,8 @@ export default {
   },
   data() {
     return {
-      chats: [],
       currentUser: {},
+      activetab: 'active',
     }
   },
   watch: {
@@ -225,7 +360,7 @@ export default {
     this.currentUser = JSON.parse(localStorage.getItem('user_info'))
   },
   mounted() {
-    this.fetchChats()
+    this.fetchActiveRooms()
     // if (this.$route.query.room_id) {
     //   this.connectSocket()
     // }
@@ -248,17 +383,19 @@ export default {
     }),
     ...mapGetters({
       messages: 'getMessages',
+      activeRooms: 'getActiveRooms',
+      closedRooms: 'getClosedRooms',
     }),
   },
-  beforeDestroy() {
-    // this.socketDisconnector()
-  },
+  beforeDestroy() {},
   methods: {
-    socketDisconnector() {
-      socket.emit('leave', {
-        username: this.currentUser.username,
-        user_id: this.currentUser.id,
-      })
+    changeTab(status) {
+      this.activetab = status
+      if (status === 'active') {
+        this.fetchActiveRooms()
+        return
+      }
+      this.fetchClosedRooms()
     },
     toChatsList() {
       this.$router.push({
@@ -269,32 +406,21 @@ export default {
       if (data.id !== parseInt(this.$route.query.room_id)) {
         this.$bridge.$emit('join_room', { username: this.currentUser.id, room: data.id })
         if (this.currentUser.role.id === 4) {
-          this.$router.push({ query: { room_id: data.id, consultant_id: data.attributes.user.data.id } })
+          this.$router.push({
+            query: { room_id: data.id, consultant_id: data.attributes.user.data.id },
+          })
         } else {
-          this.$router.push({ query: { room_id: data.id, consultant_id: data.attributes.consultant.data.id } })
+          this.$router.push({
+            query: { room_id: data.id, consultant_id: data.attributes.consultant.data.id },
+          })
         }
       }
     },
-    async fetchChats() {
-      if (this.currentUser.role.id === 4) {
-        await this.$store
-          .dispatch('getChatrooms', {
-            populate: '*',
-            'filters[$or][0][consultant][id]': this.currentUser.id,
-          })
-          .then((res) => {
-            this.chats = res
-          })
-      } else {
-        await this.$store
-          .dispatch('getChatrooms', {
-            populate: '*',
-            'filters[$or][0][user][id]': this.currentUser.id,
-          })
-          .then((res) => {
-            this.chats = res
-          })
-      }
+    async fetchActiveRooms() {
+      this.$bridge.$emit('set_active_rooms')
+    },
+    async fetchClosedRooms() {
+      this.$bridge.$emit('set_closed_rooms')
     },
   },
 }

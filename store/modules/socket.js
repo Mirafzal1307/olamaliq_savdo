@@ -3,6 +3,8 @@
 export default {
     state: {
         messages: [],
+        activeRooms: [],
+        closedRooms: [],
         socket: null,
         message: {},
         userConnection: {},
@@ -12,7 +14,9 @@ export default {
         seenMessage: null
     },
     getters: {
-        getMessages(state) { return state.messages }
+        getMessages(state) { return state.messages },
+        getActiveRooms(state) { return state.activeRooms },
+        getClosedRooms(state) { return state.closedRooms },
     },
     mutations: {
         SET_SOCKET(state, payload) { },
@@ -22,6 +26,12 @@ export default {
                 // el.isContextMenu = false
             })
             state.messages = payload
+        },
+        SET_ACTIVE_ROOMS(state, payload) {
+            state.activeRooms = payload
+        },
+        SET_CLOSED_ROOMS(state, payload) {
+            state.closedRooms = payload
         },
         CLEAR_MESSAGES(state) {
             state.messages = []
@@ -90,6 +100,12 @@ export default {
         },
         setMessage({ commit }, data) {
             commit('SET_MESSAGE', data)
+        },
+        setActiveRooms({ commit }, data) {
+            commit('SET_ACTIVE_ROOMS', data)
+        },
+        setClosedRooms({ commit }, data) {
+            commit('SET_CLOSED_ROOMS', data)
         },
         clearMessages({ commit }) {
             commit('CLEAR_MESSAGES')

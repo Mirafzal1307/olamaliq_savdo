@@ -425,7 +425,7 @@ export default {
         },
         {
           height: 'auto',
-          maxWidth: 600,
+          maxWidth: 400,
           width: window.innerWidth <= 600 ? window.innerWidth - 30 : 600,
           scrollable: true,
           clickToClose: false,

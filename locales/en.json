@@ -1,6 +1,7 @@
 {
     "a": "A",
     "action": "Action",
+    "active": "Active",
     "address": "Address",
     "add-new": "Add new",
     "advisory": "Advisory",
@@ -44,6 +45,7 @@
     "finish": "Finish",
     "finish-chat": "Finish Chat",
     "finish-this": "Finish this",
+    "finished": "Finished",
     "firstname": "Firstname",
     "forgot-password-question":"Forget password?",
     
@@ -137,6 +139,8 @@
     "your-email-must-be-4-characters": "Your email must be minimum 4 characters",
     "your-password-must-be-between-4-and-16-characters": "Your password must be between 4 and 16 characters",
     "you-do-not-have-chats": "You do not have chats",
+    "you-do-not-have-active-chats": "You do not have active chats",
+    "you-do-not-have-closed-chats": "You do not have closed chats",
   
     "z": "Z"
 }

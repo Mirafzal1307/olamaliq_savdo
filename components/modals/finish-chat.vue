@@ -76,7 +76,7 @@
         @click="toFinish('canceled')"
       >
         {{ $t('finish') }}
-        <i class="bx bx-trash text-green-600" />
+        <!-- <i class="bx bx-trash text-green-600" /> -->
       </button>
       <button
         type="button"
