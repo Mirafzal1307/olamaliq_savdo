@@ -26,17 +26,15 @@
 
 <script>
 import Experts from '../Experts.vue'
-import { mapGetters } from 'vuex'
-import { actions, getters } from '~/utils/store_schema'
-const _page = 'users'
-const { get } = actions(_page)
 export default {
   name: 'ConsultantsSwiper',
   auth: false,
+  props: {
+    experts: Array
+  },
   components: { Experts },
   data() {
     return {
-      experts: [],
       expertOption: {
         direction: 'horizontal',
         slideToClickedSlide: false,
@@ -77,28 +75,7 @@ export default {
       },
     }
   },
-mounted() {
-    this.fetchData()
-  },
-  computed: {
-    ...mapGetters({
-      ...getters(_page),
-    }),
-  },
   methods: {
-    fetchData() {
-      this.$store
-        .dispatch(get, {
-          link: '/users',
-          locale: this.$i18n.locale,
-          query: {
-            populate: '*',
-            _limit: 5,
-          }
-        }).then((res) => {
-          this.experts = res.data
-        })
-    },
     prev() {
       this.$refs.swiper.$swiper.slidePrev()
     },

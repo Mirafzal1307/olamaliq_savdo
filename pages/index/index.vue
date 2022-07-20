@@ -52,7 +52,7 @@
           <span class="text-green-800">Experts</span> consultancy
         </div>
         <div class="">
-          <experts-swiper />
+          <experts-swiper :experts="experts"/>
         </div>
       </div>
       <div class="mt-12 space-y-4">
@@ -196,11 +196,11 @@ export default {
   auth: false,
   components: { YandexMap, expertsSwiper, PriceSwiper, NewsSwiper, PartnersSwiper },
   props: {
-    prices: Array
   },
   data() {
     return {
       video: {},
+      experts: [],
       settings: {
         apiKey: 'b8d77dd9-8477-4216-ad67-5074082c24a6',
         lang: 'ru_RU',
@@ -262,7 +262,11 @@ export default {
         populate: '*',
         locale: this.$i18n.locale,
       })
-      await this.$store.dispatch('getUsers')
+      await this.$store.dispatch('getUsers', {
+        link: '/users'
+      }).then((res) => {
+          this.experts = res.data
+        })
       await this.$store.dispatch('getPricelists', {
         populate: '*',
         locale: this.$i18n.locale,
