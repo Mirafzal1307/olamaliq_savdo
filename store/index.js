@@ -20,12 +20,14 @@ const createStore = () => {
       courses: crud('courses'),
       about: crud('about'),
       serviceposts: crud('serviceposts'),
-      servicecategories: crud('servicecategories'),
       coursecategories: crud('coursecategories'),
       chatrooms: crud('chatrooms'),
       chatmessages: crud('chatmessages'),
       users: dynamic('users'),
-      partners: crud('partners')
+      partners: crud('partners'),
+      companies: crud('companies'),
+      companycategories: crud('companycategories'),
+      faqs: crud('faqs')
     },
   })
 }

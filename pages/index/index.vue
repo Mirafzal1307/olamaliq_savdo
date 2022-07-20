@@ -137,41 +137,9 @@
               has been the industry's standard dummy text ever since the 1500s, when an unknown of
               type and scrambled it to make a type specimen book.
             </div>
-            <button
-              :class="answerOpened ? 'bg-green-700 text-white' : 'bg-yellow-50'"
-              class="
-                w-full
-                focus:outline-none
-                rounded-md
-                py-3
-                px-5
-                flex
-                items-center
-                justify-between
-                mt-6
-              "
-              @click="openAnswer()"
-            >
-              <div>1. Which Plan Is Right For Me?</div>
-              <i :class="answerOpened ? 'bx-x' : 'bx-plus'" class="bx text-xl"></i>
-            </button>
-            <transition
-              enter-active-class="ease-out duration-300"
-              enter-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              enter-to-class="opacity-100 translate-y-0 sm:scale-100"
-              leave-active-class="ease-in duration-200"
-              leave-class="opacity-100 translate-y-0 sm:scale-100"
-              leave-to-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-            >
-              <div v-show="answerOpened" class="bg-white p-5 text-gray-500 text-xs">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat
-                eget risus sollicitudin pellentes queet non erat. Maecenas nibh dolor, malesuada et
-                bibendum a, sagittis accumsan ipsum. Pellentesque ultrices ultrices sapien, nec
-                tincidunt nunc posuere ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Name ultrices scelerisque tristique dolor vitae tincidunt. Aenean quis massa uada mi
-                elementum elementum. Nec sapien convallis vulputate rhoncus vel dui.
-              </div>
-            </transition>
+            <div v-for="(faq, index) in dataFaqs" :key="index">
+              <faq :data="faq"/>
+           </div>
           </div>
           <img src="~/assets/images/home.png" class="rounded-md" alt="home" />
         </div>
@@ -192,9 +160,10 @@ import NewsSwiper from '~/components/swipers/news-swiper.vue'
 import PriceSwiper from '~/components/swipers/price-swiper.vue'
 import PartnersSwiper from '~/components/swipers/partners-swiper.vue'
 import YandexMap from '~/components/core/yandex-map.vue'
+import Faq from '~/components/Faq.vue'
 export default {
   auth: false,
-  components: { YandexMap, expertsSwiper, PriceSwiper, NewsSwiper, PartnersSwiper },
+  components: { YandexMap, expertsSwiper, PriceSwiper, NewsSwiper, PartnersSwiper, Faq },
   props: {
   },
   data() {
@@ -241,7 +210,6 @@ export default {
           title: 'Supply points',
         },
       ],
-      answerOpened: false,
     }
   },
   computed: {
@@ -251,7 +219,7 @@ export default {
       userConnection: (state) => state.socket.userConnection,
       userConnectionStatus: (state) => state.socket.userConnectionStatus,
     }),
-    ...mapGetters(['dataCourses', 'dataUsers', 'dataPricelists']),
+    ...mapGetters(['dataCourses', 'dataUsers', 'dataPricelists', 'dataFaqs']),
   },
   mounted() {
     this.fetchDirectories()
@@ -271,9 +239,10 @@ export default {
         populate: '*',
         locale: this.$i18n.locale,
       })
-    },
-    openAnswer() {
-      this.answerOpened = !this.answerOpened
+      await this.$store.dispatch('getFaqs', {
+        populate: '*',
+        locale: this.$i18n.locale,
+      })
     },
   },
 }

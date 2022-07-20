@@ -60,72 +60,39 @@
       </div>
     </div>
     <div class="grid lg:grid-cols-3 grid-cols-1 lg:gap-5 gap-0 mt-5">
-      <div class="rounded-md shadow-md p-5">
-        <div class="flex items-center justify-between">
-          <div class="text-gray-700 text-xl font-semibold">Locations</div>
-          <div class="border rounded-md border-green-700 text-green-700 font-semibold py-1.5 px-4">
-            Banks
+        <div class="rounded-md shadow-md p-5">
+          <div class="flex items-center justify-between">
+            <div class="text-gray-700 text-xl font-semibold">Locations</div>
+            <div class="border rounded-md border-green-700 text-green-700 font-semibold py-1.5 px-4">
+              Banks
+            </div>
           </div>
-        </div>
-        <div class="flex items-center space-x-3 my-4 cursor-pointer" @click="openInfo()">
-          <img
-            src="~/assets/images/about.png"
-            class="rounded-md w-28 h-20 object-cover"
-            alt="about"
-          />
-          <div class="grid content-between text-gray-500 text-base h-14">
-            <p class="text-green-700 font-medium">Aloqabank</p>
-            <p class="text-sm border-b border-green-700 pb-2">Lorem ipsum dolor sit amet</p>
-          </div>
-        </div>
-        <div class="flex items-center py space-x-3 my-4">
-          <img
-            src="~/assets/images/about.png"
-            class="rounded-md w-28 h-20 object-cover"
-            alt="about"
-          />
-          <div class="grid content-between text-gray-500 text-base h-14">
-            <p class="text-green-700 font-medium">Aloqabank</p>
-            <p class="text-sm border-b border-green-700 pb-2">Lorem ipsum dolor sit amet</p>
-          </div>
-        </div>
-        <div class="flex items-center space-x-3 my-4">
-          <img
-            src="~/assets/images/about.png"
-            class="rounded-md w-28 h-20 object-cover"
-            alt="about"
-          />
-          <div class="grid content-between text-gray-500 text-base h-14">
-            <p class="text-green-700 font-medium">Aloqabank</p>
-            <p class="text-sm border-b border-green-700 pb-2">Lorem ipsum dolor sit amet</p>
-          </div>
-        </div>
-        <div class="flex items-center space-x-3 my-4">
-          <img
-            src="~/assets/images/about.png"
-            class="rounded-md w-28 h-20 object-cover"
-            alt="about"
-          />
-          <div class="grid content-between text-gray-500 text-base h-14">
-            <p class="text-green-700 font-medium">Aloqabank</p>
-            <p class="text-sm border-b border-green-700 pb-2">Lorem ipsum dolor sit amet</p>
-          </div>
+         <div v-for="(company, index) in data" :key="index">
+            <div class="flex items-center space-x-3 my-4 cursor-pointer" @click="openInfo()">
+              <img
+                src="~/assets/images/about.png"
+                class="rounded-md w-28 h-20 object-cover"
+                alt="about"
+              />
+              <div class="grid content-between text-gray-500 text-base h-14">
+                <p class="text-green-700 font-medium">{{company.attributes.name}}</p>
+                <p class="text-sm border-b border-green-700 pb-2">{{company.attributes.shortinfo}}</p>
+              </div>
+            </div>
         </div>
       </div>
       <div class="col-span-2">
         <transition
           enter-active-class="transition sm:duration-400"
-          enter-class="translate-x-full"
+          enter-class="translate-x-0"
           enter-to-class="translate-x-0 translate-y-0"
           leave-active-class="transition sm:duration-400"
           leave-class="translate-x-0"
           leave-to-class="translate-x-0"
         >
           <!-- @after-leave="close" -->
-          <div v-show="infoOpened" class="border rounded-md p-5 bg-white h-full rotate-180">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque autem ex quae vel,
-            ratione omnis perferendis at laborum esse sint vero quod, possimus, deserunt maxime aut
-            qui voluptatem consectetur. Velit.
+          <div v-show="infoOpened" class="border rounded-md p-5 bg-white h-full">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus, nam? Unde voluptatum dignissimos saepe similique dolore cum porro consequatur repudiandae obcaecati dolorem nisi est sapiente, veritatis perspiciatis, sed expedita aspernatur.
           </div>
         </transition>
         <yandex-map v-show="!infoOpened" />
@@ -136,6 +103,10 @@
 
 <script>
 import YandexMap from '~/components/core/yandex-map.vue'
+import { mapGetters } from 'vuex'
+import { actions, getters } from '~/utils/store_schema'
+const _page = 'companies'
+const { get } = actions(_page)
 export default {
   name: 'AgriBusiness',
   auth: false,
@@ -147,7 +118,26 @@ export default {
       infoOpened: false,
     }
   },
+   mounted() {
+    this.fetchData()
+  },
+  computed: {
+    ...mapGetters({
+      ...getters(_page),
+    }),
+    ...mapGetters(['dataCompanycategories']),
+  },
   methods: {
+    async fetchData() {
+      await this.$store.dispatch(get, {
+        populate: '*',
+        locale: this.$i18n.locale,
+      }).then( {
+      })
+    },
+    async fetchDirectories() {
+       await this.$store.dispatch('getCompanycategories')
+    },
     openInfo() {
       this.infoOpened = !this.infoOpened
     },
