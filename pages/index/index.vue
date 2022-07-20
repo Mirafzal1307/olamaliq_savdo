@@ -58,7 +58,7 @@
       <div class="mt-12 space-y-4">
         <div class="font-semibold text-green-800 text-2xl">Price</div>
         <div class="">
-          <price-swiper />
+          <price-swiper :prices="dataPricelists"/>
         </div>
       </div>
       <div class="mt-12 space-y-4">
@@ -195,6 +195,9 @@ import YandexMap from '~/components/core/yandex-map.vue'
 export default {
   auth: false,
   components: { YandexMap, expertsSwiper, PriceSwiper, NewsSwiper, PartnersSwiper },
+  props: {
+    prices: Array
+  },
   data() {
     return {
       video: {},
@@ -248,7 +251,7 @@ export default {
       userConnection: (state) => state.socket.userConnection,
       userConnectionStatus: (state) => state.socket.userConnectionStatus,
     }),
-    ...mapGetters(['dataCourses', 'dataUsers']),
+    ...mapGetters(['dataCourses', 'dataUsers', 'dataPricelists']),
   },
   mounted() {
     this.fetchDirectories()
@@ -260,6 +263,10 @@ export default {
         locale: this.$i18n.locale,
       })
       await this.$store.dispatch('getUsers')
+      await this.$store.dispatch('getPricelists', {
+        populate: '*',
+        locale: this.$i18n.locale,
+      })
     },
     openAnswer() {
       this.answerOpened = !this.answerOpened

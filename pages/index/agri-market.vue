@@ -5,9 +5,27 @@
         <span class="text-green-800">Agri-market - </span> weekly prices
       </div>
       <div class="lg:mt-1 mt-4 flex space-x-6 items-center">
-        <div class="text-green-700 text-sm">Nukus</div>
-        <div class="text-green-700 text-sm">All products</div>
-        <div class="text-green-700 text-sm">Last week</div>
+        <div class="text-green-700 text-sm">
+          <select>
+            <option>
+             Nukus
+            </option>
+           </select>
+         </div>
+        <div class="text-green-700 text-sm">
+          <select>
+            <option>
+             All products
+            </option>
+           </select>
+        </div>
+        <div class="text-green-700 text-sm">
+          <select>
+            <option>
+             Last week
+            </option>
+           </select>
+        </div>
         <button
           class="
             text-green-700 text-sm
@@ -42,92 +60,6 @@ export default {
   components: { Prices },
   data() {
     return {
-      prices: [
-        {
-          name: 'Apple',
-          district: 'Nukus',
-          min: '15 000',
-          max: '25 000',
-          img: 'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
-        },
-        {
-          name: 'Apple',
-          district: 'Nukus',
-          min: '15 000',
-          max: '25 000',
-          img: 'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
-        },
-        {
-          name: 'Apple',
-          district: 'Nukus',
-          min: '15 000',
-          max: '25 000',
-          img: 'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
-        },
-        {
-          name: 'Apple',
-          district: 'Nukus',
-          min: '15 000',
-          max: '25 000',
-          img: 'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
-        },
-        {
-          name: 'Apple',
-          district: 'Nukus',
-          min: '15 000',
-          max: '25 000',
-          img: 'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
-        },
-        {
-          name: 'Apple',
-          district: 'Nukus',
-          min: '15 000',
-          max: '25 000',
-          img: 'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
-        },
-        {
-          name: 'Apple',
-          district: 'Nukus',
-          min: '15 000',
-          max: '25 000',
-          img: 'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
-        },
-        {
-          name: 'Apple',
-          district: 'Nukus',
-          min: '15 000',
-          max: '25 000',
-          img: 'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
-        },
-        {
-          name: 'Apple',
-          district: 'Nukus',
-          min: '15 000',
-          max: '25 000',
-          img: 'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
-        },
-        {
-          name: 'Apple',
-          district: 'Nukus',
-          min: '15 000',
-          max: '25 000',
-          img: 'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
-        },
-        {
-          name: 'Apple',
-          district: 'Nukus',
-          min: '15 000',
-          max: '25 000',
-          img: 'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
-        },
-        {
-          name: 'Apple',
-          district: 'Nukus',
-          min: '15 000',
-          max: '25 000',
-          img: 'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
-        },
-      ],
     }
   },
   mounted() {
@@ -143,8 +75,7 @@ export default {
       this.$store.dispatch(get, {
         populate: '*',
         locale: this.$i18n.locale,
-      }).then(res => {
-        console.log('fetchProducts', this.data)
+      }).then( {
       })
     },
   },

@@ -36,6 +36,9 @@ import Prices from '../Prices.vue'
 export default {
   name: 'ConsultantsSwiper',
   components: { Prices },
+  props: {
+    prices: Array
+  },
   data() {
     return {
       priceOption: {
@@ -83,50 +86,6 @@ export default {
           prevEl: '.swiper-button-prev',
         },
       },
-      prices: [
-        {
-          name: 'Apple',
-          district: 'Nukus',
-          min: '15 000',
-          max: '25 000',
-          img: 'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
-        },
-        {
-          name: 'Apple',
-          district: 'Nukus',
-          min: '15 000',
-          max: '25 000',
-          img: 'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
-        },
-        {
-          name: 'Apple',
-          district: 'Nukus',
-          min: '15 000',
-          max: '25 000',
-          img: 'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
-        },
-        {
-          name: 'Apple',
-          district: 'Nukus',
-          min: '15 000',
-          max: '25 000',
-          img: 'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
-        },
-        {
-          name: 'Apple',
-          district: 'Nukus',
-          min: '15 000',
-          max: '25 000',
-          img: 'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
-        },
-        {
-          name: 'Apple',
-          district: 'Nukus',
-          min: '15 000',
-          max: '25 000',
-          img: 'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
-        },
-      ],
     }
   },
 
