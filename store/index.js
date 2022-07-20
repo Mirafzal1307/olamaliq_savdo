@@ -25,6 +25,7 @@ const createStore = () => {
       chatrooms: crud('chatrooms'),
       chatmessages: crud('chatmessages'),
       users: dynamic('users'),
+      partners: crud('partners')
     },
   })
 }
