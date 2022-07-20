@@ -15,7 +15,7 @@
       >
         <div class="group w-full">
           <div class="flex items-center w-full bg-white rounded-md p-2 gap-2">
-            <img :src="require(`~/assets/images/${partner.img}.png`)" />
+            <img :src="$tools.getFileUrl(partner.attributes.logo)" />
           </div>
         </div>
       </swiper-slide>
@@ -36,10 +36,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import { actions, getters } from '~/utils/store_schema'
+const _page = 'partners'
+const { get } = actions(_page)
 export default {
   name: 'PartnersSwiper',
+  auth: false,
   data() {
     return {
+      partners: [],
       partnerOption: {
         direction: 'horizontal',
         slideToClickedSlide: false,
@@ -85,33 +91,25 @@ export default {
           prevEl: '.swiper-button-prev',
         },
       },
-      partners: [
-        {
-          img: 'morris',
-        },
-        {
-          img: 'forris',
-        },
-        {
-          img: 'acme',
-        },
-        {
-          img: 'acme',
-        },
-        {
-          img: 'acme',
-        },
-        {
-          img: 'acme',
-        },
-        {
-          img: 'acme',
-        },
-      ],
     }
   },
-
+   computed: {
+    ...mapGetters(getters(_page)),
+  },
+  mounted() {
+    this.fetchData()
+  },
   methods: {
+    async fetchData() {
+      await this.$store
+        .dispatch(get, {
+          populate: '*',
+          locale: this.$i18n.locale,
+        })
+        .then((res) => {
+          this.partners = res.data
+        })
+    },
     prev() {
       this.$refs.swiper.$swiper.slidePrev()
     },

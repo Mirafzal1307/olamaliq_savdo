@@ -81,8 +81,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import News from '~/components/News.vue'
+import { mapGetters } from 'vuex'
 import { actions, getters } from '~/utils/store_schema'
 const _page = 'serviceposts'
 const { get } = actions(_page)
