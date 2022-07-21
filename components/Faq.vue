@@ -34,9 +34,6 @@ export default {
       isAnswerOpened: false,
     }
   },
-//   mounted() {
-//       this.isAnswerOpened = this.data.isAnswerOpened
-//   },
   methods: {
     openAnswer() {
       this.isAnswerOpened = !this.isAnswerOpened

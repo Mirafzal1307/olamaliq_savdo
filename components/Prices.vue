@@ -21,8 +21,5 @@ export default {
     // eslint-disable-next-line vue/require-default-prop
     data: Object,
   },
-  mounted() {
-    console.log('Prices', this.data)
-  }
 }
 </script>

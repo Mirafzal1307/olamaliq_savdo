@@ -146,7 +146,7 @@
       </div>
       <div class="mt-12 space-y-4">
         <div class="">
-          <partners-swiper />
+          <partners-swiper :partners="dataPartners"/>
         </div>
       </div>
     </div>
@@ -219,7 +219,7 @@ export default {
       userConnection: (state) => state.socket.userConnection,
       userConnectionStatus: (state) => state.socket.userConnectionStatus,
     }),
-    ...mapGetters(['dataCourses', 'dataUsers', 'dataPricelists', 'dataFaqs']),
+    ...mapGetters(['dataCourses', 'dataUsers', 'dataPricelists', 'dataFaqs', 'dataPartners']),
   },
   mounted() {
     this.fetchDirectories()
@@ -240,6 +240,10 @@ export default {
         locale: this.$i18n.locale,
       })
       await this.$store.dispatch('getFaqs', {
+        populate: '*',
+        locale: this.$i18n.locale,
+      })
+      await this.$store.dispatch('getPartners', {
         populate: '*',
         locale: this.$i18n.locale,
       })

@@ -261,7 +261,7 @@
         </div>
       </div>
       <div class="mt-12 space-y-4">
-        <partners-swiper />
+        <partners-swiper :partners="dataPartners"/>
       </div>
     </div>
   </div>
@@ -288,10 +288,12 @@ export default {
   },
   computed: {
     ...mapGetters(getters(_page)),
+    ...mapGetters(['dataPartners']),
   },
   mounted() {
-    this.fetchData()
-    console.log('About: ', this.about);
+    this.fetchData().then(() => {
+      this.fetchDirectories()
+    })
   },
   methods: {
     async fetchData() {
@@ -304,6 +306,12 @@ export default {
           this.about.title = res.data.attributes.title
         })
     },
+    async fetchDirectories() {
+      await this.$store.dispatch('getPartners', {
+        populate: '*',
+        locale: this.$i18n.locale,
+      })
+    }
   },
 }
 </script>
