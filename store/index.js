@@ -27,7 +27,8 @@ const createStore = () => {
       partners: crud('partners'),
       companies: crud('companies'),
       companycategories: crud('companycategories'),
-      faqs: crud('faqs')
+      faqs: crud('faqs'),
+      pricedates: crud('pricedates'),
     },
   })
 }

@@ -19,17 +19,10 @@
             </option>
            </select>
         </div>
-        <!-- <div class="text-green-700 text-sm">
-          <select v-model="filter.priceDate">
-            <option v-for="(category, index) in categories" :key="index" :value="category.id">
-             {{ category.attributes.name }}
-            </option>
-           </select>
-        </div> -->
         <div class="text-green-700 text-sm">
-          <select>
-            <option>
-             Last week
+          <select v-model="filter.priceDate">
+            <option v-for="(priceDate, index) in priceDates" :key="index" :value="priceDate.id">
+             {{ $tools.getDate(priceDate.attributes.date) }}
             </option>
            </select>
         </div>
@@ -70,16 +63,15 @@ export default {
       filter: {
         district: 2,
         category: 'all',
-        priceDate: ''
+        priceDate: null
       },
       districts: [],
-      categories: []
+      categories: [],
+      priceDates: []
     }
   },
   mounted() {
-    this.fetchDirectories().then(() => {
-      this.setQuery()
-    })
+    this.fetchDirectories()
   },
   computed: {
     ...mapGetters({
@@ -89,13 +81,9 @@ export default {
   watch: {
     filter: {
       handler() {
-        this.setQuery()
-      },
-      deep: true,
-    },
-    '$route.query': {
-      handler() {
-        this.fetchPriceLists(this.$route.query)
+        this.setQuery().then(() => {
+          this.fetchPriceLists(this.$route.query)
+        })
       },
       deep: true,
     },
@@ -112,10 +100,12 @@ export default {
       })
     },
     fetchPriceLists(query) {
+      console.log('Query', query)
       const _ = {
         populate: query.category !== 'all' ? 'priceData, district, product, product.productcategory' : '*',
         locale: this.$i18n.locale,
         "filters[$and][0][district][id]": query.district,
+        "filters[$and][0][pricedate][id]": query.priceDate,
         "filters[product][productcategory]": query.category !== 'all' ? query.category : null,
       }
       this.$store.dispatch(get, _)
@@ -138,6 +128,14 @@ export default {
             name: this.$t('all-products'),
           },
         })
+      })
+      await this.$store.dispatch('getPricedates', {
+        populate: '*',
+        locale: this.$i18n.locale,
+        sort: 'createdAt:DESC'
+      }).then(res => {
+        this.priceDates = res
+        this.filter.priceDate = this.priceDates[0].id
       })
     }
   },

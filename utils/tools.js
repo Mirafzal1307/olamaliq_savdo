@@ -3,15 +3,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 const { isNavigationFailure, NavigationFailureType } = VueRouter
 const tools = {
-  getFileUrl(name) {
-    if (name) {
-      if (name.includes("https://")) {
-        return name;
-      } else {
-        return `${process.env.VUE_APP_IMG_URL}${name}`;
-      }
-    }
-  },
   fixDoubleRouting(err) {
     if (isNavigationFailure(err, NavigationFailureType.redirected)) {
       err.to.path
@@ -29,11 +20,11 @@ const tools = {
     if (name) {
       if (name.includes('https://')) {
         return name
-      } else if (name.includes('/uploads')) {
-        return `${process.env.VUE_APP_BASE_IMAGE_URL}${name}`
-      } else {
-        return `${process.env.VUE_APP_BASE_IMAGE_URL}${name}`
       }
+      if (name.includes('/uploads')) {
+        return `${process.env.VUE_APP_IMG_URL}${name}`
+      }
+      return `${process.env.VUE_APP_IMG_URL}/uploads${name}`
     }
   },
   getDateTime(stringdate) {
