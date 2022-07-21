@@ -63,9 +63,11 @@
         <div class="rounded-md shadow-md p-5">
           <div class="flex items-center justify-between">
             <div class="text-gray-700 text-xl font-semibold">Locations</div>
-            <div class="border rounded-md border-green-700 text-green-700 font-semibold py-1.5 px-4">
-              Banks
-            </div>
+            <select class="border rounded-md border-green-700 text-green-700 font-semibold my-3 py-1.5 px-4 w-20">
+              <option v-for="(category, index) in dataCompanycategories" :key="index">
+                {{category.attributes.name}}
+              </option>
+            </select>
           </div>
          <div v-for="(company, index) in data" :key="index">
             <div class="flex items-center space-x-3 my-4 cursor-pointer" @click="openInfo()">
@@ -119,7 +121,9 @@ export default {
     }
   },
    mounted() {
-    this.fetchData()
+    this.fetchData().then(() => {
+      this.fetchDirectories()
+    })
   },
   computed: {
     ...mapGetters({
@@ -136,7 +140,10 @@ export default {
       })
     },
     async fetchDirectories() {
-       await this.$store.dispatch('getCompanycategories')
+       await this.$store.dispatch('getCompanycategories', {
+         populate: '*',
+        locale: this.$i18n.locale,
+       })
     },
     openInfo() {
       this.infoOpened = !this.infoOpened
