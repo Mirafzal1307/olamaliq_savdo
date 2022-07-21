@@ -51,6 +51,7 @@
   "evaluate-the-advice": "Konsultatsiyangizni baholang",
 
   "f": "F",
+  "filter": "Filtr",
   "finish": "Tugatish",
   "finish-chat": "Chatni tugatish",
   "finish-this": "Tugatish",
@@ -103,6 +104,8 @@
   "please-select-a-district": "Iltimos, tumanni tanlang",
   "please-select-a-region": "Iltimos, viloyatni tanlang",
   "please-select-directions": "Iltimos, yo'nalishni tanlang",
+  "price": "Narx",
+  "price-comparision": "Narx taqqoslash",
   "price-list": "Narxlar ro'yhati",
   "price-parameters": "Narx parametrlari",
   "product": "Mahsulot",

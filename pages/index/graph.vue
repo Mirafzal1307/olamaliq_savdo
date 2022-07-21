@@ -1,7 +1,12 @@
 <template>
   <div class="max-w-7xl mx-auto py-6 px-4 lg:px-8">
-    <div class="pb-6 flex justify-end">
+    <div class="pb-6 flex justify-between">
       <!-- <breadcrumbs :items="items" /> -->
+      <div class="font-semibold text-gray-700 text-2xl pl-3">
+        <span class="text-green-800">
+          {{ $t('price-comparision')}}
+        </span>
+      </div>
       <nuxt-link
         :to="{ path: localePath('/agri-market') }"
         class="hover:bg-green-600 rounded-md hover:text-white text-green-600 border border-green-600 font-medium px-4 py-2"
@@ -13,7 +18,7 @@
       <div class="col-span-1">
         <div class="border-transparent rounded-md bg-white p-3">
           <div class="text-gray-600 text-lg font-medium">
-            {{ $t('basic-information') }}
+            {{ $t('filter') }}
           </div>
           <ValidationObserver ref="observer" v-slot="{ passes, invalid }">
             <form class="" @submit.prevent="passes(onSubmit)">
@@ -52,7 +57,7 @@
                     border
                     text-gray-900
                     py-2
-                    mt-2
+                    mt-4
                     border-gray-300
                     rounded-md
                     focus:outline-none focus:border-gray-300
@@ -76,7 +81,7 @@
                     border
                     text-gray-900
                     py-2
-                    mt-2
+                    mt-4
                     border-gray-300
                     rounded-md
                     focus:outline-none focus:border-gray-300
@@ -89,27 +94,35 @@
                   </option>
                 </select>
               </ValidationProvider>
-              <div class="text-gray-600 font-medium mb-2 mt-3">
+              <div class="text-gray-600 font-medium mt-4 mb-3">
                 {{ $t('time-interval') }}
               </div>
-              <ValidationProvider v-slot="{ valid, errors }" rules="required" name="Date Gte">
-                <date-picker
-                  v-model="query.date_gte"
-                  :state="errors[0] ? false : valid ? true : null"
-                  :disabled-date="setGteDisable"
-                  format="DD-MM-YYYY"
-                  input-class="flex items-center rounded-md border-gray-300 w-full"
-                />
-              </ValidationProvider>
-              <ValidationProvider v-slot="{ valid, errors }" rules="required" name="Date Lte">
-                <date-picker
-                  v-model="query.date_lte"
-                  :state="errors[0] ? false : valid ? true : null"
-                  :disabled-date="setLteDisable"
-                  format="DD-MM-YYYY"
-                  input-class="flex items-center rounded-md border-gray-300 w-full mt-2"
-                />
-              </ValidationProvider>
+              <div class="grid grid-cols-2">
+                <div class="col-span">
+                  <ValidationProvider v-slot="{ valid, errors }" rules="required" name="Date Gte">
+                    <date-picker
+                      v-model="query.date_gte"
+                      :state="errors[0] ? false : valid ? true : null"
+                      :disabled-date="setGteDisable"
+                      style="width: 128px"
+                      format="DD-MM-YYYY"
+                      input-class="flex items-center rounded-md border p-2 border-gray-300 w-32"
+                    />
+                  </ValidationProvider>
+                </div>
+                <div class="col-span">
+                  <ValidationProvider v-slot="{ valid, errors }" rules="required" name="Date Lte">
+                    <date-picker
+                      v-model="query.date_lte"
+                      :state="errors[0] ? false : valid ? true : null"
+                      :disabled-date="setLteDisable"
+                      style="width: 128px"
+                      format="DD-MM-YYYY"
+                      input-class="flex items-center rounded-md border p-2 border-gray-300 w-auto w-32"
+                    />
+                  </ValidationProvider>
+                </div>
+              </div>
               <button
                 type="submit"
                 :disabled="invalid"
@@ -124,7 +137,7 @@
             </form>
           </ValidationObserver>
         </div>
-        <div class="border-transparent rounded-md bg-white p-3 mt-4">
+        <div v-if="false" class="border-transparent rounded-md bg-white p-3 mt-4">
           <div class="text-gray-600 text-lg font-medium">
             {{ $t('comparision') }}
           </div>

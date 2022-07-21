@@ -47,6 +47,7 @@
     "evaluate-the-advice": "Оцените совет",
   
     "f": "F",
+    "filter": "Фильтр",
     "finish": "Завершить",
     "finish-chat": "Завершить чат",
     "finish-this": "Завершить это",
@@ -98,6 +99,8 @@
     "please-select-a-district": "Пожалуйста, выберите район",
     "please-select-a-region": "Пожалуйста, выберите область",
     "please-select-directions": "Пожалуйста, выберите направления",
+    "price": "Цена",
+    "price-comparision": "Сравнение цен",
     "price-list": "Прайс-лист",
     "price-parameters": "Параметры цены",
     "product": "Продукт",

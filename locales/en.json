@@ -49,6 +49,7 @@
     "exit": "Exit",
     
     "f": "F",
+    "filter": "Filter",
     "finish": "Finish",
     "finish-chat": "Finish Chat",
     "finish-this": "Finish this",
@@ -102,6 +103,8 @@
     "please-select-a-district": "Please select a district",
     "please-select-a-region": "Please select a region",
     "please-select-directions": "Please select directions",
+    "price": "Price",
+    "price-comparision": "Price Comparision",
     "price-list": "Price List",
     "price-parameters": "Price Parameters",
     "product": "Product",
