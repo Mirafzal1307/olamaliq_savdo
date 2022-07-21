@@ -36,16 +36,11 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import { actions, getters } from '~/utils/store_schema'
-const _page = 'partners'
-const { get } = actions(_page)
 export default {
   name: 'PartnersSwiper',
   auth: false,
   data() {
     return {
-      partners: [],
       partnerOption: {
         direction: 'horizontal',
         slideToClickedSlide: false,
@@ -93,23 +88,10 @@ export default {
       },
     }
   },
-   computed: {
-    ...mapGetters(getters(_page)),
-  },
-  mounted() {
-    this.fetchData()
+  props: {
+    partners: Array
   },
   methods: {
-    async fetchData() {
-      await this.$store
-        .dispatch(get, {
-          populate: '*',
-          locale: this.$i18n.locale,
-        })
-        .then((res) => {
-          this.partners = res.data
-        })
-    },
     prev() {
       this.$refs.swiper.$swiper.slidePrev()
     },

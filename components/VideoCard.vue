@@ -36,7 +36,7 @@
               {{ $tools.getDate(data.attributes.createdAt) }}
             </div>
           </div>
-          <div class="my-4 text-gray-700 group-hover:text-green-700 font-semibold text-lg">
+          <div class="my-4 text-gray-700 group-hover:text-green-700 font-semibold text-lg line-clamp-3">
             {{ data.attributes.title }}
           </div>
           <div class="text-gray-600 text-sm line-clamp-2">
