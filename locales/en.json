@@ -5,6 +5,7 @@
     "address": "Address",
     "add-new": "Add new",
     "advisory": "Advisory",
+    "all": "All",
     "all-categories": "All categories",
     "all-products": "All products",
     "average": "Average",
@@ -43,6 +44,7 @@
     
     "e": "E",
     "edit": "Edit",
+    "e-learning": "E-Learning",
     "email": "E-mail",
     "email-or-phone": "E-mail or Phone",
     "evaluate-the-advice": "Evaluate the advice",
@@ -151,6 +153,7 @@
     "users": "Users",
     
     "v": "V",
+    "view-all": "View all",
     
     "w": "W",
     "write-a-message": "Write a message...",

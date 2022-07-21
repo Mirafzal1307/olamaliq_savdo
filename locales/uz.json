@@ -7,6 +7,7 @@
   "agri-finance": "Agri-finans",
   "agri-business": "Agri-biznes",
   "advisory": "Konsulting",
+  "all":  "Barchasi",
   "all-categories": "Barcha kategoriyalar",
   "all-products": "Barcha mahsulotlar",
   "average": "O'rtacha",
@@ -150,6 +151,7 @@
   "users": "Foydalanuvchilar",
 
   "v": "V",
+  "view-all": "Barchasini ko'rish",
 
   "w": "W",
   "write-a-message": "Xabar yozish...",

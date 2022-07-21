@@ -24,7 +24,10 @@ const tools = {
       if (name.includes('/uploads')) {
         return `${process.env.VUE_APP_IMG_URL}${name}`
       }
-      return `${process.env.VUE_APP_IMG_URL}/uploads${name}`
+      if (name.includes('/')) {
+        return `${process.env.VUE_APP_IMG_URL}/uploads${name}`
+      }
+      return `${process.env.VUE_APP_IMG_URL}/uploads/${name}`
     }
   },
   getDateTime(stringdate) {
