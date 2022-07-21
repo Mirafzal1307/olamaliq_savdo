@@ -1,12 +1,12 @@
 <template>
   <div class="max-w-7xl mx-auto py-6 px-4 lg:px-8">
-    <div class="pb-6 flex justify-between">
+    <div class="pb-6 flex justify-end">
       <!-- <breadcrumbs :items="items" /> -->
       <nuxt-link
         :to="{ path: localePath('/agri-market') }"
-        class="bg-green-600 rounded-md text-white font-medium px-4 py-2"
+        class="hover:bg-green-600 rounded-md hover:text-white text-green-600 border border-green-600 font-medium px-4 py-2"
       >
-        {{ $t('all-products') }}
+        {{ $t('table-view') }}
       </nuxt-link>
     </div>
     <div class="grid md:grid-cols-4 grid-cols-1 md:gap-3 gap-0 md:space-y-0 space-y-3">
