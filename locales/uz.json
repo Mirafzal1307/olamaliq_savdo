@@ -9,10 +9,12 @@
   "advisory": "Konsulting",
   "all-categories": "Barcha kategoriyalar",
   "all-products": "Barcha mahsulotlar",
+  "average": "O'rtacha",
 
   "b": "B",
   "back": "Orqaga",
   "bad-request": "Bad Request",
+  "basic-information": "Asosiy ma'lumot",
   "branches": "Filiallar",
 
   "c": "C",
@@ -21,6 +23,8 @@
   "chat-room-closed": "Chat yopilgan",
   "chats": "Chatlar",
   "clear": "Tozalash",
+  "compare": "Taqqoslash",
+  "comparision": "Taqqoslash",
   "confirm-password": "Parolni tasdiqlash",
   "confirmation": "Tasdiqlash",
   "consultants": "Konsultantlar",
@@ -76,7 +80,9 @@
   "logo": "Logo",
 
   "m": "M",
+  "max": "Max",
   "medicineQuotes": "Hayot qisqa, san'at yo'li uzoq, imkoniyat tez, tajriba aldamchi, hukm qilish qiyin",
+  "min": "Min",
   "multi-lessons": "Darslar guruhi",
   "my-chats": "Chatlarim",
 
@@ -98,6 +104,9 @@
   "please-select-a-region": "Iltimos, viloyatni tanlang",
   "please-select-directions": "Iltimos, yo'nalishni tanlang",
   "price-list": "Narxlar ro'yhati",
+  "price-parameters": "Narx parametrlari",
+  "product": "Mahsulot",
+  "products": "Mahsulotlar",
 
   "q": "Q",
 
@@ -112,9 +121,12 @@
   "s": "S",
   "save": "Saqlash",
   "search": "Qidirish",
+  "see-result": "Natijani ko'rish",
+  "see-results": "Natijalarni ko'rish",
   "send": "Yuborish",
   "send-photo": "Rasm yuborish",
   "select-chat-to-messaging": "Chatni tanlang",
+  "select-district": "Tumanni tanlang",
   "service-category": "Uslugalar kategoriyasi",
   "settings": "Sozlamalar",
   "sign-out": "Chiqish",
@@ -123,6 +135,7 @@
   "status": "Status",
 
   "t": "T",
+  "time-interval": "Vaqt intervallari",
 
   "u": "U",
   "update": "Yangilash",

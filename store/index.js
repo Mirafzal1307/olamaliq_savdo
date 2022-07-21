@@ -29,6 +29,7 @@ const createStore = () => {
       companycategories: crud('companycategories'),
       faqs: crud('faqs'),
       pricedates: crud('pricedates'),
+      priceanalitics: dynamic('priceanalitics'),
     },
   })
 }

@@ -7,10 +7,12 @@
     "advisory": "Адвокат",
     "all-categories": "Все категории",
     "all-products": "Все продукты",
+    "average": "Средний",
   
     "b": "B",
     "back": "Назад",
     "bad-request": "Bad Request",
+    "basic-information": "Основная информация",
     "branches": "Филлиалы",
   
     "c": "C",
@@ -18,6 +20,8 @@
     "chat-room-closed": "Чат закрыт",
     "chats": "Чаты",
     "clear": "Очистить",
+    "compare": "Сравнить",
+    "comparision": "Сравнение",
     "confirm-password": "Подтвердите пароль",
     "consultants": "Консультанты",
     "confirmation": "Подтверждение",
@@ -72,7 +76,9 @@
     "logo": "Лого",
   
     "m": "M",
+    "max": "Максимум",
     "medicineQuotes": "Область науки безгранична, а жизнь коротка; искусство долговечно, жизнь коротка",
+    "min": "Минимум",
     "my-chats": "Мои чаты",
   
     "n": "N",
@@ -92,6 +98,10 @@
     "please-select-a-district": "Пожалуйста, выберите район",
     "please-select-a-region": "Пожалуйста, выберите область",
     "please-select-directions": "Пожалуйста, выберите направления",
+    "price-list": "Прайс-лист",
+    "price-parameters": "Параметры цены",
+    "product": "Продукт",
+    "products": "Продукты",
   
     "q": "Q",
   
@@ -106,9 +116,12 @@
     "s": "S",
     "save": "Сохранить",
     "search": "Поиск",
+    "see-result": "Смотреть результат",
+    "see-results": "Смотреть результаты",
     "send": "Отправить",
     "send-photo": "Отправить фото",
     "select-chat-to-messaging": "Выберите чат для сообщения",
+    "select-district": "Выберите район",
     "service-category": "Категория услуги",
     "settings": "Настройки",
     "sign-out": "Выход",
@@ -116,6 +129,7 @@
     "status": "Статус",
   
     "t": "T",
+    "time-interval": "Временной интервал",
   
     "u": "U",
     "update": "Обновить",

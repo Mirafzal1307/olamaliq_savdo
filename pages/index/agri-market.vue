@@ -26,7 +26,8 @@
             </option>
            </select>
         </div>
-        <button
+        <nuxt-link
+          :to="{path: localePath('/graph')}"
           class="
             text-green-700 text-sm
             border border-green-700
@@ -36,8 +37,8 @@
             focus:outline-none
           "
         >
-          Compare
-        </button>
+          {{ $t('compare') }}
+        </nuxt-link>
       </div>
     </div>
     <div class="grid md:grid-cols-4 gap-4 sm:grid-cols-2 grid-cols-1 mt-8">

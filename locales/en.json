@@ -7,10 +7,12 @@
     "advisory": "Advisory",
     "all-categories": "All categories",
     "all-products": "All products",
+    "average": "Average",
   
     "b": "B",
     "back": "Back",
     "bad-request": "Bad Request",
+    "basic-information": "Basic information",
     "branches": "Branches",
   
     "c": "C",
@@ -18,6 +20,8 @@
     "chat-room-closed": "Chat room closed",
     "chats": "Chats",
     "clear": "Clear",
+    "compare": "Compare",
+    "comparision": "Comparision",
     "confirm-password": "Confirm Password",
     "confirmation": "Confirmation",
     "consultation": "Consultation",
@@ -74,7 +78,9 @@
     "logo": "Logo",
     
     "m": "M",
+    "max": "Max",
     "medicineQuotes": "The life so short, the craft so long to learn.",
+    "min": "Min",
     "my-chats": "My Chats",
     
     "n": "N",
@@ -96,6 +102,10 @@
     "please-select-a-district": "Please select a district",
     "please-select-a-region": "Please select a region",
     "please-select-directions": "Please select directions",
+    "price-list": "Price List",
+    "price-parameters": "Price Parameters",
+    "product": "Product",
+    "products": "Products",
     
     "q": "Q",
     
@@ -110,17 +120,21 @@
     "s": "S",
     "save": "Save",
     "search": "Search",
+    "see-result": "See result",
+    "see-results": "See results",
     "send": "Send",
     "send-photo": "Send photo",
     "sign-in": "Sign in",
     "sign-out": "Sign out",
     "select-chat-to-messaging": "Select chat to messaging",
+    "select-district": "Select district",
     "service-category": "Service category",
     "settings": "Settings",
     "staff": "Staff",
     "status": "Status",
     
     "t": "T",
+    "time-interval": "Time interval",
     "trading": "Trading",
     
     "u": "U",
