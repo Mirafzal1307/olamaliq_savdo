@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="{ path: localePath(`/e-learning/${data.id}`), query: {id: data.id} }">
+  <nuxt-link :to="{ path: localePath(`/e-learning/${data.id}`) }">
     <div class="space-x-4">
       <div class="border rounded-md border-gray-200 shadow-sm hover:shadow-md group">
         <img

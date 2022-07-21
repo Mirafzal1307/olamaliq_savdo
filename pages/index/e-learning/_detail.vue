@@ -25,10 +25,10 @@
         </div>
         <div class="border-b border-gray-300 pb-6">
           <div class="my-6 text-gray-700 font-semibold text-4xl">
-            {{courseDetails.attributes.title}}
+            {{courseDetail.attributes.title}}
           </div>
           <p class="text-sm text-gray-500 leading-8">
-           {{courseDetails.attributes.content}}
+           {{courseDetail.attributes.content}}
           </p>
         </div>
         <div class="my-6 lg:flex block items-center justify-between">
@@ -214,7 +214,7 @@ export default {
   auth: false,
   data() {
     return {
-      courseDetails: {
+      courseDetail: {
         attributes: {}
       }
     }
@@ -228,12 +228,15 @@ export default {
   methods: {
     async fetchData() {
       await this.$store
-        .dispatch(getById, this.$route.query, {
-          populate: '*',
-          locale: this.$i18n.locale,
+        .dispatch(getById, {
+          id: this.$route.params.detail,
+          query: {
+            populate: '*',
+            locale: this.$i18n.locale,
+          }
         })
         .then((res) => {
-          this.courseDetails = { ...res.data.data}
+          this.courseDetail = { ...res.data.data}
         })
     },
   },
