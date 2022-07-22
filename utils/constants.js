@@ -43,6 +43,7 @@ const constants = {
     limit: 20,
     lastPage: 1,
   },
+  yandexKey: '1abe9aa1-66ec-4c7f-8b93-a4e0bc25319e',
 }
 export default constants
 Vue.prototype.$const = constants

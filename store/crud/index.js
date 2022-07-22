@@ -107,7 +107,6 @@ export default function (param) {
       [tools.camelize(`get by id ${_param}`)]({ commit }, payload) {
         const _query = payload.query
         commit(_mutations.oneLoad, true)
-        console.log('get by id', payload)
         return new Promise((resolve, reject) => {
           this.$axios
           .get(`${param}/${payload.id}`, payload.query )
