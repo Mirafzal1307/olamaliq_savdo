@@ -7,7 +7,7 @@
       :class="
         $route.query.category && parseInt($route.query.category) === category.id
           ? 'bg-green-700 text-white'
-          : 'bg-green-100 border border-green-700 text-green-700 hover:text-white hover:bg-green-700'
+          : 'border border-green-700 text-green-700 hover:text-white hover:bg-green-700'
       "
       @click="toChange(category)"
     >
