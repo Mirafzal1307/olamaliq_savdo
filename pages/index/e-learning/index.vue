@@ -112,7 +112,7 @@ export default {
     async fetchData() {
       await this.$store
         .dispatch(get, {
-          _sort: 'created_at:DESC',
+          'sort[0][createdAt]': 'DESC',
           populate: '*',
           locale: this.$i18n.locale,
           'filters[$and][0][coursecategory][id]':

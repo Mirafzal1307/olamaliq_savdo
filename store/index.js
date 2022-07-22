@@ -30,6 +30,7 @@ const createStore = () => {
       faqs: crud('faqs'),
       pricedates: crud('pricedates'),
       priceanalitics: dynamic('priceanalitics'),
+      lessons: crud('lessons')
     },
   })
 }

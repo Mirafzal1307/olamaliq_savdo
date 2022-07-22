@@ -227,6 +227,7 @@ export default {
   methods: {
     async fetchDirectories() {
       await this.$store.dispatch('getCourses', {
+        'sort[0][createdAt]': 'DESC',
         populate: '*',
         locale: this.$i18n.locale,
       })

@@ -207,8 +207,8 @@
 <script>
 import { mapGetters } from 'vuex'
 import { actions, getters } from '~/utils/store_schema'
-const _page = 'courses'
-const { getById } = actions(_page)
+const _page = 'lessons'
+const { get } = actions(_page)
 export default {
   name: 'ELearningDetails',
   auth: false,
@@ -228,12 +228,11 @@ export default {
   methods: {
     async fetchData() {
       await this.$store
-        .dispatch(getById, {
-          id: this.$route.params.detail,
-          query: {
-            populate: '*',
+        .dispatch(get, {
+            'filters[lessongroup][course]': this.$route.params.detail,
+            populate: this.$route.params.detail ? 'lessongroup.course' : '*',
             locale: this.$i18n.locale,
-          }
+          
         })
         .then((res) => {
           this.courseDetail = { ...res.data.data}

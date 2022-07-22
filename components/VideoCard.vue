@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="{ path: localePath(`/e-learning/${data.id}`) }">
+  <div @click="toDetail()" class="cursor-pointer">
     <div class="space-x-4">
       <div class="border rounded-md border-gray-200 shadow-sm hover:shadow-md group">
         <img
@@ -45,7 +45,7 @@
         </div>
       </div>
     </div>
-  </nuxt-link>
+  </div>
 </template>
 
 <script>
@@ -58,6 +58,15 @@ export default {
   data() {
     return {}
   },
+  methods: {
+    toDetail() {
+      if(this.data.attributes.coursetype.data.id === 1) {
+       this.$router.push({
+        path: this.localePath(`/e-learning/${this.data.id}`),
+      })
+    } 
+    }
+  }
 }
 </script>
 
