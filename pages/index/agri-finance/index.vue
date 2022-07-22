@@ -59,19 +59,7 @@
         </button>
       </div>
     </div>
-    <div class="lg:flex grid grid-cols-3 items-center justify-center lg:gap-7 gap-3 my-6">
-      <button
-        class="rounded-md border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
-      >
-        View all
-      </button>
-       <button
-        v-for="(category, index) in dataServicecategories" :key="index"
-        class="rounded-md flex items-center border focus:outline-none border-green-700 text-green-700 py-1.5 px-4"
-      >
-        {{category.attributes ? category.attributes.name : ''}}
-      </button>
-    </div>
+    <categories :data="categories" @onChange="onChangeCategory" />
     <div class="grid md:grid-cols-3 gap-6 sm:grid-cols-2 grid-cols-1">
       <div v-for="(info, index) in data" :key="index">
         <news :data="info" />
@@ -92,7 +80,16 @@ export default {
   components: { News },
   data() {
     return {
+      categories: []
     }
+  },
+  watch: {
+    '$route.query': {
+      handler() {
+        this.fetchData()
+      },
+      deep: true,
+    },
   },
   computed: {
     ...mapGetters(getters(_page)),
@@ -104,17 +101,37 @@ export default {
     })
   },
   methods: {
+    onChangeCategory(category) {
+      this.$router.push({
+        path: this.$route.path,
+        query: {
+          category: category.id
+        },
+      })
+    },
     async fetchData() {
       await this.$store
         .dispatch(get, {
           _sort: 'createdAt:DESC',
           populate: '*',
           locale: this.$i18n.locale,
+          'filters[$and][0][servicecategory][id]':
+            this.$route.query.category && parseInt(this.$route.query.category) === 0
+              ? null
+              : this.$route.query.category,
         })
         .then(() => {})
     },
      async fetchDirectories() {
-       await this.$store.dispatch('getServicecategories')
+       await this.$store.dispatch('getServicecategories').then((res) => {
+        this.categories = res
+        this.categories.unshift({
+          id: 0,
+          attributes: {
+            name: this.$t('all'),
+          },
+        })
+      })
     }
   },
 }
