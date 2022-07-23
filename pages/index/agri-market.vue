@@ -82,9 +82,13 @@ export default {
   watch: {
     filter: {
       handler() {
-        this.setQuery().then(() => {
-          this.fetchPriceLists(this.$route.query)
-        })
+        this.setQuery()
+      },
+      deep: true,
+    },
+    '$route.query': {
+      handler() {
+        this.fetchPriceLists(this.$route.query)
       },
       deep: true,
     },
