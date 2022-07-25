@@ -112,6 +112,7 @@ export default {
         "filters[$and][0][district][id]": query.district,
         "filters[$and][0][pricedate][id]": query.priceDate,
         "filters[product][productcategory]": query.category !== 'all' ? query.category : null,
+        'sort[0][product][name]': 'ASC',
       }
       this.$store.dispatch(get, _)
     },

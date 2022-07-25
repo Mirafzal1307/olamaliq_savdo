@@ -142,6 +142,7 @@ export default {
         .dispatch(get, {
           populate: '*',
           locale: this.$i18n.locale,
+          'sort[0][name]': 'ASC',
         })
         .then({})
     },

@@ -230,15 +230,23 @@ export default {
         'sort[0][createdAt]': 'DESC',
         populate: '*',
         locale: this.$i18n.locale,
+        'pagination[page]': 1,
+        'pagination[pageSize]': 3
       })
       await this.$store.dispatch('getUsers', {
-        link: '/users'
+        link: '/users',
+        query: {
+            populate: '*',
+            locale: this.$i18n.locale,
+            "_where[0][role.id]": 4,
+          }
       }).then((res) => {
           this.experts = res.data
         })
       await this.$store.dispatch('getPricelists', {
         populate: '*',
         locale: this.$i18n.locale,
+        'sort[0][product][name]': 'ASC',
       })
       await this.$store.dispatch('getFaqs', {
         populate: '*',
