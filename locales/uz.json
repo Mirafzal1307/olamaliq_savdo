@@ -11,8 +11,9 @@
   "all-categories": "Barcha kategoriyalar",
   "all-products": "Barcha mahsulotlar",
   "average": "O'rtacha",
-  "as-an-interprise": "As an interprise",
+  "as-an-enterprise": "As an interprise",
   "as-an-individual": "As an individual",
+  "activity-type": "Activity type",
 
   "b": "B",
   "back": "Orqaga",
@@ -38,9 +39,11 @@
   "create-a-new-district": "Yangi tuman yaratish",
   "create-a-new-region": "Yangi viloyat yaratish",
   "choose-your-type-of-activity": "Choose your type of activity",
+  "company-name": "Company name",
 
   "d": "D",
   "data-list": "Ma'lumotlar ro'yhati",
+  "date-of-birth": "Date of birth",
   "delete": "O'chirish",
   "description": "Tavsif",
   "display-options": "Displey parametrlari",
@@ -64,8 +67,9 @@
   "finished": "Tugallangan",
   "firstname": "Ism",
   "forgot-password-question": "Parolni esdan chiqardingizmi?",
+  "field-of-agriculture": "Field of agriculture",
 
-  "g": "G",
+  "gender": "Gender",
   "get-consultation": "Konsultatsiya olish",
   "give-a-description-in-the-following-languages": "Quyidagi tillarda tavsif bering",
 
@@ -74,7 +78,7 @@
   "home": "Asosiy sahifa",
   "how-will-you-use-the-platform": "How will you use the platform?",
 
-  "i": "I",
+  "i-agree-with": " I agree with",
   "image-cropper": "Rasmni kesish",
 
   "j": "J",
@@ -117,6 +121,7 @@
   "price-parameters": "Narx parametrlari",
   "product": "Mahsulot",
   "products": "Mahsulotlar",
+  "phone": "Phone",
 
   "q": "Q",
 
@@ -127,6 +132,8 @@
   "register": "Ro'yxatdan o'tish",
   "registration": "Registratsiya",
   "required": "Majburiy",
+  "registration-for-user-enterprise": "Registration for user enterprise",
+  "registration-for-user-individual": "Registration for user individual",
 
   "s": "S",
   "save": "Saqlash",
@@ -144,9 +151,10 @@
   "staff": "Xodimlar",
   "status": "Status",
 
-  "t": "T",
+  "tin": "TIN",
   "table-view": "Jadval ko'rinishi",
   "time-interval": "Vaqt intervallari",
+  "terms-of-use": "terms of use",
 
   "u": "U",
   "update": "Yangilash",

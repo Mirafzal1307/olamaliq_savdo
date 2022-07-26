@@ -9,8 +9,9 @@
     "all-categories": "Все категории",
     "all-products": "Все продукты",
     "average": "Средний",
-    "as-an-interprise": "As an interprise",
+    "as-an-enterprise": "As an interprise",
     "as-an-individual": "As an individual",
+    "activity-type": "Activity type",
   
     "b": "B",
     "back": "Назад",
@@ -35,9 +36,11 @@
     "create-a-new-district": "Создать новую район",
     "create-a-new-region": "Создать новую область",
     "choose-your-type-of-activity": "Choose your type of activity",
+    "company-name": "Company name",
   
     "d": "D",
     "data-list": "Список данных",
+    "date-of-birth": "Date of birth",
     "delete": "Удалить",
     "description": "Описание",
     "display-options": "Дисплей параметри",
@@ -61,8 +64,9 @@
     "finished": "Завершено",
     "firstname": "Имя",
     "forgot-password-question": "Забыли пароль?",
+    "field-of-agriculture": "Field of agriculture",
   
-    "g": "G",
+    "gender": "Gender",
     "get-consultation": "Получить консультацию",
     "give-a-description-in-the-following-languages": "Дайте описание на следующих языках",
   
@@ -71,7 +75,7 @@
     "home": "Главный",
     "how-will-you-use-the-platform": "How will you use the platform?",
   
-    "i": "I",
+    "i-agree-with": " I agree with",
     "image-cropper": "Обрезка изображения",
   
     "j": "J",
@@ -113,6 +117,7 @@
     "price-parameters": "Параметры цены",
     "product": "Продукт",
     "products": "Продукты",
+    "phone": "Phone",
   
     "q": "Q",
   
@@ -123,6 +128,8 @@
     "register": "Регистрация",
     "registration": "Регистрация",
     "required": "Обязательно",
+    "registration-for-user-enterprise": "Registration for user enterprise",
+    "registration-for-user-individual": "Registration for user individual",
   
     "s": "S",
     "save": "Сохранить",
@@ -139,9 +146,10 @@
     "staff": "Сотрудники",
     "status": "Статус",
   
-    "t": "T",
+    "tin": "TIN",
     "table-view": "Предс. таблицы",
     "time-interval": "Временной интервал",
+    "terms-of-use": "terms of use",
   
     "u": "U",
     "update": "Обновить",
