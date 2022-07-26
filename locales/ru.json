@@ -12,6 +12,8 @@
     "as-an-enterprise": "As an interprise",
     "as-an-individual": "As an individual",
     "activity-type": "Activity type",
+    "area-of-agriculture-and-environment": "Area of agriculture and environment",
+    "area-of-consultancy": "Area of consultancy",
   
     "b": "B",
     "back": "Назад",
@@ -37,6 +39,7 @@
     "create-a-new-region": "Создать новую область",
     "choose-your-type-of-activity": "Choose your type of activity",
     "company-name": "Company name",
+    "contact-name": "Contact name",
   
     "d": "D",
     "data-list": "Список данных",
@@ -55,6 +58,8 @@
     "email": "Эл. почта",
     "email-or-phone": "Эл. почта или телефон",
     "evaluate-the-advice": "Оцените совет",
+    "experience-in-agriculture-and-environment": "Experience in agriculture and environment",
+    "experience": "Experience (in year)",
   
     "f": "F",
     "filter": "Фильтр",
@@ -87,6 +92,7 @@
     "loading": "Загрузка",
     "login": "Логин",
     "logo": "Лого",
+    "last-received-degree": "Last received degree",
   
     "m": "M",
     "max": "Максимум",
@@ -130,6 +136,8 @@
     "required": "Обязательно",
     "registration-for-user-enterprise": "Registration for user enterprise",
     "registration-for-user-individual": "Registration for user individual",
+    "registration-for-consultant-individual": "Registration for consultant individual",
+    "registration-for-consultant-enterprise": "Registration for consultant enterprise",
   
     "s": "S",
     "save": "Сохранить",
@@ -159,11 +167,13 @@
     "upload-image": "Загрузить изобрежению",
     "users": "Пользователи",
     "user": "User",
+    "upload-resume": "Upload resume(s)",
+    "upload-diploma": "Upload diploma",
   
     "v": "V",
     "view-all": "Просмотреть все",
   
-    "w": "W",
+    "workplace": "Workplace",
     "write-a-message": "Напишите сообщение...",
   
     "x": "X",

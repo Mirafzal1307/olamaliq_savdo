@@ -14,6 +14,8 @@
   "as-an-enterprise": "As an interprise",
   "as-an-individual": "As an individual",
   "activity-type": "Activity type",
+  "area-of-agriculture-and-environment": "Area of agriculture and environment",
+  "area-of-consultancy": "Area of consultancy",
 
   "b": "B",
   "back": "Orqaga",
@@ -40,6 +42,7 @@
   "create-a-new-region": "Yangi viloyat yaratish",
   "choose-your-type-of-activity": "Choose your type of activity",
   "company-name": "Company name",
+  "contact-name": "Contact name",
 
   "d": "D",
   "data-list": "Ma'lumotlar ro'yhati",
@@ -58,6 +61,8 @@
   "email": "Email",
   "email-or-phone": "Email yoki telefon",
   "evaluate-the-advice": "Konsultatsiyangizni baholang",
+  "experience-in-agriculture-and-environment": "Experience in agriculture and environment",
+  "experience": "Experience (in year)",
 
   "f": "F",
   "filter": "Filtr",
@@ -90,6 +95,7 @@
   "loading": "Yuklanmoqda",
   "login": "Kirish",
   "logo": "Logo",
+  "last-received-degree": "Last received degree",
 
   "m": "M",
   "max": "Max",
@@ -134,6 +140,8 @@
   "required": "Majburiy",
   "registration-for-user-enterprise": "Registration for user enterprise",
   "registration-for-user-individual": "Registration for user individual",
+  "registration-for-consultant-individual": "Registration for consultant individual",
+  "registration-for-consultant-enterprise": "Registration for consultant enterprise",
 
   "s": "S",
   "save": "Saqlash",
@@ -164,11 +172,13 @@
   "upload-image": "Rasmni yuklash",
   "users": "Foydalanuvchilar",
   "user": "User",
+  "upload-resume": "Upload resume(s)",
+  "upload-diploma": "Upload diploma",
 
   "v": "V",
   "view-all": "Barchasini ko'rish",
 
-  "w": "W",
+  "workplace": "Workplace",
   "write-a-message": "Xabar yozish...",
 
   "x": "X",

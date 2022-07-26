@@ -47,7 +47,7 @@
             {{ $t('as-an-enterprise') }}
           </div>
         </div>
-        <div @click="toIndividual()" class="border rounded-md border-gray-200 p-4">
+        <div @click="toIndividual()" class="border rounded-md cursor-pointer border-gray-200 p-4">
           <img :src="require('/assets/images/individual.png')" alt="" />
           <div class="flex justify-center text-gray-600 text-sm font-semibold">
             {{ $t('as-an-individual') }}
