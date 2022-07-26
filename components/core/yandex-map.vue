@@ -22,6 +22,7 @@ export default {
       type: String,
       default: '',
     },
+    coords: Array,
     location: Object,
   },
   data() {
@@ -61,15 +62,14 @@ export default {
     await loadYmap(this.settings)
     this.ymaps = ymaps
     ymaps.ready(this.initMap)
-    console.log('Map: ', this.map)
   },
   methods: {
     showLocations() {
-      if (this.location && this.map) {
-        this.map.panTo(this.location.coords, { checkZoomRange: true })
-        for (let index = 0; index < this.location.markers.length; index++) {
+      if (this.coords && this.map) {
+        if (this.location && this.location.coords) this.map.panTo(this.location.coords, { checkZoomRange: true })
+        for (let index = 0; index < this.coords.length; index++) {
           let placemark = new ymaps.Placemark(
-            [this.location.markers[index].position.lng, this.location.markers[index].position.lat],
+            [this.coords[index].position.lng, this.coords[index].position.lat],
             {
               balloonContent: 'Small icon',
             },
@@ -86,8 +86,8 @@ export default {
       this.map = new ymaps.Map(
         'map',
         {
-          center:
-            this.location && this.location.coords ? this.location.coords : [41.311151, 69.279737],
+          center: [42.460341, 59.617996],
+            // this.location && this.location.coords ? this.location.coords : [42.460341, 59.617996],
           zoom: 13,
         },
         {

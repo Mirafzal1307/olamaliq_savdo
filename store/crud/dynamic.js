@@ -80,7 +80,6 @@ export default function (param) {
       [tools.camelize(`get ${_param}`)]({ commit, state }, data) {
         commit(_mutations.load, true)
         return new Promise((resolve, reject) => {
-          console.log('get', data)
           this.$axios
             .get(`${data.link}`, { payload: '*', district: 2, product: 1 })
             .then((res) => {

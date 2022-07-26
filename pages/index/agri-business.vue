@@ -2,7 +2,7 @@
   <div class="max-w-6xl sm:px-6 lg:px-8 xl:px-0 px-4 mx-auto lg:mt-12 mt-4">
     <div class="lg:flex block items-center justify-between">
       <div class="font-semibold text-gray-700 text-2xl">
-        <span class="text-green-800">Agri-business</span>
+        <span class="text-green-800">{{ $t('agri-business') }}</span>
       </div>
       <div class="mt-1 flex rounded-md shadow-sm">
         <div
@@ -62,7 +62,7 @@
     <div class="grid lg:grid-cols-3 grid-cols-1 lg:gap-5 gap-0 mt-5">
       <div class="rounded-md shadow-md p-5">
         <div class="flex items-center justify-between">
-          <div class="text-gray-700 text-xl font-semibold">Locations</div>
+          <div class="text-gray-700 text-xl font-semibold">{{ $t('locations') }}</div>
           <select
             class="
               border
@@ -75,8 +75,9 @@
               px-4
               w-32
             "
+            v-model="query.category"
           >
-            <option v-for="(category, index) in dataCompanycategories" :key="index">
+            <option v-for="(category, index) in categories" :key="index" :value="category.id">
               {{ category.attributes.name }}
             </option>
           </select>
@@ -123,34 +124,75 @@ export default {
   data() {
     return {
       infoOpened: false,
+      query: {
+        category: 0,
+      },
+      categories: [],
     }
   },
   mounted() {
-    this.fetchData().then(() => {
-      this.fetchDirectories()
+    this.fetchDirectories().then(() => {
+      this.fetchData()
     })
+  },
+  watch: {
+    query: {
+      handler() {
+        this.setQuery()
+      },
+      deep: true,
+    },
+    '$route.query': {
+      handler() {
+        this.fetchData()
+      },
+      deep: true,
+    },
   },
   computed: {
     ...mapGetters({
       ...getters(_page),
     }),
-    ...mapGetters(['dataCompanycategories']),
   },
   methods: {
+    async setQuery() {
+      this.$router.push({
+        path: this.$route.path,
+        query: {
+          category: this.query.category,
+        },
+      })
+    },
     async fetchData() {
       await this.$store
         .dispatch(get, {
           populate: '*',
           locale: this.$i18n.locale,
           'sort[0][name]': 'ASC',
+          'filters[$and][0][companycategory][id]':
+            this.$route.query.category && parseInt(this.$route.query.category) === 0
+              ? null
+              : this.$route.query.category,
         })
-        .then({})
+        .then((res) => {
+          this.$store.dispatch('setCompanies', res)
+        })
     },
     async fetchDirectories() {
-      await this.$store.dispatch('getCompanycategories', {
-        populate: '*',
-        locale: this.$i18n.locale,
-      })
+      await this.$store
+        .dispatch('getCompanycategories', {
+          populate: '*',
+          locale: this.$i18n.locale,
+        })
+        .then((res) => {
+          this.categories = res
+          this.categories.push({
+            id: 0,
+            attributes: {
+              name: this.$t('all'),
+            },
+          })
+        })
     },
     toCompanyDetail(data) {
       this.$router.push({

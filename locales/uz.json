@@ -5,7 +5,7 @@
   "address": "Manzil",
   "add-new": "Yangisini qo'shish",
   "agri-finance": "Agri-finans",
-  "agri-business": "Agri-biznes",
+  "agri-business": "Agrobiznes",
   "advisory": "Konsulting",
   "all":  "Barchasi",
   "all-categories": "Barcha kategoriyalar",
@@ -84,6 +84,7 @@
   "l": "L",
   "lastname": "Familiya",
   "loading": "Yuklanmoqda",
+  "locations": "Joylar",
   "login": "Kirish",
   "logo": "Logo",
 

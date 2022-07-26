@@ -1,4 +1,8 @@
 import Vue from 'vue'
+const qs = require('qs')
+function filterNonNull(obj) {
+  return Object.fromEntries(Object.entries(obj).filter(([k, v]) => v));
+}
 export default function ({ $axios, redirect, $auth, app }) {
   if ($auth) {
     // If the user is logged in we can now get the token, we get something like `Bearer yourTokenJ9F0JFODJ` but we only need the string without the word **Bearer**, So we split the string using the space as a separator and we access the second position of the array **[1]**
@@ -6,6 +10,11 @@ export default function ({ $axios, redirect, $auth, app }) {
     $axios.setToken(token, 'Bearer') // Here we specify the token and now it works!!
   }
   $axios.setBaseURL(process.env.VUE_APP_BASE_URL)
+  $axios.onRequest((config) => {
+    config.paramsSerializer = function(params) {
+      return qs.stringify(filterNonNull(params), { encodeValuesOnly: true })
+    }
+  })
   $axios.onError((error) => {
     if (error.response && error.response.status === 400) {
       console.log(error.response)

@@ -4,6 +4,7 @@ import crud from './crud'
 import dynamic from './crud/dynamic'
 import socket from './modules/socket'
 import upload from './modules/upload'
+import company from './modules/company' 
 Vue.use(Vuex)
 
 const createStore = () => {
@@ -11,6 +12,7 @@ const createStore = () => {
     modules: {
       socket,
       upload,
+      company,
       products: crud('products'),
       productcategories: crud('productcategories'),
       pricelists: crud('pricelists'),

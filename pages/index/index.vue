@@ -80,7 +80,7 @@
       </div>
       <div class="grid lg:grid-cols-2 grid-cols-1 mt-12 lg:space-x-10">
         <!-- <img src="~/assets/images/map.png" alt="" /> -->
-        <yandex-map />
+        <yandex-map :coords="getLocations"/>
         <div class="relative">
           <div class="text-xl text-gray-800 font-semibold">
             <span class="text-green-800">Karakalpakstan</span> - didactive map
@@ -221,7 +221,7 @@ export default {
       userConnection: (state) => state.socket.userConnection,
       userConnectionStatus: (state) => state.socket.userConnectionStatus,
     }),
-    ...mapGetters(['dataCourses', 'dataUsers', 'dataPricelists', 'dataFaqs', 'dataPartners']),
+    ...mapGetters(['dataCourses', 'dataUsers', 'dataPricelists', 'dataFaqs', 'dataPartners', 'getLocations']),
   },
   mounted() {
     this.fetchDirectories()
@@ -270,6 +270,12 @@ export default {
       await this.$store.dispatch('getPartners', {
         populate: '*',
         locale: this.$i18n.locale,
+      })
+      await this.$store.dispatch('getCompanies', {
+        populate: '*',
+        locale: this.$i18n.locale,
+      }).then(res => {
+        this.$store.dispatch('setCompanies', res)
       })
     },
   },
