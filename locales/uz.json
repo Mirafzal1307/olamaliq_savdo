@@ -11,6 +11,8 @@
   "all-categories": "Barcha kategoriyalar",
   "all-products": "Barcha mahsulotlar",
   "average": "O'rtacha",
+  "as-an-interprise": "As an interprise",
+  "as-an-individual": "As an individual",
 
   "b": "B",
   "back": "Orqaga",
@@ -29,10 +31,13 @@
   "confirm-password": "Parolni tasdiqlash",
   "confirmation": "Tasdiqlash",
   "consultants": "Konsultantlar",
+  "consultant": "Consultant",
+  "content-provider": "Content Provider",
   "created-date": "Yaratilgan sana",
   "create-a-new-branch": "Yangi fillial yaratish",
   "create-a-new-district": "Yangi tuman yaratish",
   "create-a-new-region": "Yangi viloyat yaratish",
+  "choose-your-type-of-activity": "Choose your type of activity",
 
   "d": "D",
   "data-list": "Ma'lumotlar ro'yhati",
@@ -67,6 +72,7 @@
   "h": "H",
   "hippocrates": "Gippokrat",
   "home": "Asosiy sahifa",
+  "how-will-you-use-the-platform": "How will you use the platform?",
 
   "i": "I",
   "image-cropper": "Rasmni kesish",
@@ -149,6 +155,7 @@
   "update-region": "Viloyatni yangilash",
   "upload-image": "Rasmni yuklash",
   "users": "Foydalanuvchilar",
+  "user": "User",
 
   "v": "V",
   "view-all": "Barchasini ko'rish",

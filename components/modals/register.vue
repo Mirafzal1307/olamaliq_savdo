@@ -37,7 +37,24 @@
           </div>
         </div>
       </div>
-      <div class="space-y-3">
+      <div class="flex justify-center my-4 text-gray-600 font-semibold">
+        {{ $t('choose-your-type-of-activity') }}
+      </div>
+      <div class="grid grid-cols-3 gap-4">
+        <div @click="toRegisterType()" class="border rounded-md border-gray-200 p-4 cursor-pointer">
+          <img :src="require('/assets/images/user.png')" alt="">
+          <div class="flex justify-center text-gray-600 text-sm font-semibold">{{ $t('user') }}</div>
+        </div>
+        <div class="border rounded-md border-gray-200 p-4">
+          <img :src="require('/assets/images/consultant.png')" alt="">
+          <div class="flex justify-center text-gray-600 text-sm font-semibold">{{ $t('consultant') }}</div>
+        </div>
+        <div class="border rounded-md border-gray-200 p-4">
+          <img :src="require('/assets/images/content.png')" alt="">
+          <div class="flex justify-center text-gray-600 text-sm font-semibold">{{ $t('content-provider') }}</div>
+        </div>
+      </div>
+      <!-- <div class="space-y-3">
         <ValidationObserver v-slot="{ handleSubmit, invalid }" slim>
           <form class="" novalidate @submit.prevent="handleSubmit(onSubmit)">
             <div class="mt-1">
@@ -216,8 +233,8 @@
             </div>
           </form>
         </ValidationObserver>
-      </div>
-      <div class="flex items-center justify-center mt-2">
+      </div> -->
+      <!-- <div class="flex items-center justify-center mt-2">
         <p class="text-gray-600 text-sm font-medium">Do you have an account?</p>
         <button
           class="ml-2 text-yellow-600 text-sm font-medium focus:outline-none"
@@ -225,13 +242,14 @@
         >
           Sign in
         </button>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
 
 <script>
 import signInModal from './signin.vue'
+import registerType from './register-type.vue'
 export default {
   name: 'Register',
   props: {
@@ -267,6 +285,19 @@ export default {
     }
   },
   methods: {
+    toRegisterType() {
+      this.$emit('close')
+      this.$modal.show(
+        registerType,
+        { status: 'register' },
+        {
+          height: 'auto',
+          maxWidth: 500,
+          width: window.innerWidth <= 450 ? window.innerWidth - 10 : 450,
+          acrollable: true,
+        }
+      )
+    },
     onSubmit() {
       const _user = { ...this.account }
       if (this.phoneOrEmail.includes('@') > 0) {

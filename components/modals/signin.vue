@@ -218,7 +218,7 @@ export default {
       } else {
         this.$axios
           .post('/users-permissions/login-verify-otp', { phone: this.auth.identifier })
-          .then((res) => {
+          .then(() => {
             this.loading = false
             this.confirmCode({ username: this.auth.identifier, isLogin: true, isOtpSuccess: null })
           })
@@ -236,8 +236,8 @@ export default {
         { status: 'register' },
         {
           height: 'auto',
-          maxWidth: 400,
-          width: window.innerWidth <= 350 ? window.innerWidth - 10 : 350,
+          maxWidth: 700,
+          width: window.innerWidth <= 650 ? window.innerWidth - 10 : 650,
           scrollable: true,
         }
       )

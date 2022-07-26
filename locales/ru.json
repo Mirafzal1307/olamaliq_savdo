@@ -9,6 +9,8 @@
     "all-categories": "Все категории",
     "all-products": "Все продукты",
     "average": "Средний",
+    "as-an-interprise": "As an interprise",
+    "as-an-individual": "As an individual",
   
     "b": "B",
     "back": "Назад",
@@ -24,12 +26,15 @@
     "compare": "Сравнить",
     "comparision": "Сравнение",
     "confirm-password": "Подтвердите пароль",
+    "consultant": "Consultant",
+    "content-provider": "Content Provider",
     "consultants": "Консультанты",
     "confirmation": "Подтверждение",
     "created-date": "Дата создания",
     "create-a-new-branch": "Создать новую филлиал",
     "create-a-new-district": "Создать новую район",
     "create-a-new-region": "Создать новую область",
+    "choose-your-type-of-activity": "Choose your type of activity",
   
     "d": "D",
     "data-list": "Список данных",
@@ -64,6 +69,7 @@
     "h": "H",
     "hippocrates": "Гиппократ",
     "home": "Главный",
+    "how-will-you-use-the-platform": "How will you use the platform?",
   
     "i": "I",
     "image-cropper": "Обрезка изображения",
@@ -144,6 +150,7 @@
     "update-region": "Обновить область",
     "upload-image": "Загрузить изобрежению",
     "users": "Пользователи",
+    "user": "User",
   
     "v": "V",
     "view-all": "Просмотреть все",

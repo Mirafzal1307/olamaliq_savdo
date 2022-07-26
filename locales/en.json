@@ -9,6 +9,8 @@
     "all-categories": "All categories",
     "all-products": "All products",
     "average": "Average",
+    "as-an-interprise": "As an interprise",
+    "as-an-individual": "As an individual",
   
     "b": "B",
     "back": "Back",
@@ -26,10 +28,13 @@
     "confirm-password": "Confirm Password",
     "confirmation": "Confirmation",
     "consultation": "Consultation",
+    "consultant": "Consultant",
+    "content-provider": "Content Provider",
     "created-date": "Created Date",
     "create-a-new-branch": "Create a new branch",
     "create-a-new-district": "Create a new district",
     "create-a-new-region": "Create a new region",
+    "choose-your-type-of-activity": "Choose your type of activity",
     
     "d": "D",
     "data-list": "Data List",
@@ -66,6 +71,7 @@
     "h": "H",
     "hippocrates": "Hippocrates",
     "home": "Home",
+    "how-will-you-use-the-platform": "How will you use the platform?",
   
     "i": "I",
     "image-cropper": "Image cropper",
@@ -151,6 +157,7 @@
     "upload-image": "Upload image",
     "useful-informations": "Useful informations",
     "users": "Users",
+    "user": "User",
     
     "v": "V",
     "view-all": "View all",

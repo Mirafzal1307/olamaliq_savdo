@@ -34,6 +34,7 @@
             </div>
             <div class="my-5">
               <button
+              @click="openRegister()"
                 class="text-white text-sm bg-green-700 focus:outline-none rounded-md py-3 px-5"
               >
                 Register
@@ -155,6 +156,7 @@
 
 <script>
 import { mapGetters, mapState } from 'vuex'
+import registeModal from '../../components/modals/register.vue'
 import expertsSwiper from '~/components/swipers/experts-swiper.vue'
 import NewsSwiper from '~/components/swipers/news-swiper.vue'
 import PriceSwiper from '~/components/swipers/price-swiper.vue'
@@ -225,6 +227,19 @@ export default {
     this.fetchDirectories()
   },
   methods: {
+    openRegister() {
+      this.$emit('close')
+      this.$modal.show(
+        registeModal,
+        { status: 'register' },
+        {
+          height: 'auto',
+          maxWidth: 700,
+          width: window.innerWidth <= 650 ? window.innerWidth - 10 : 650,
+          scrollable: true,
+        }
+      )
+    },
     async fetchDirectories() {
       await this.$store.dispatch('getCourses', {
         'sort[0][createdAt]': 'DESC',
