@@ -11,8 +11,11 @@
   "all-categories": "Barcha kategoriyalar",
   "all-products": "Barcha mahsulotlar",
   "average": "O'rtacha",
-  "as-an-interprise": "As an interprise",
+  "as-an-enterprise": "As an interprise",
   "as-an-individual": "As an individual",
+  "activity-type": "Activity type",
+  "area-of-agriculture-and-environment": "Area of agriculture and environment",
+  "area-of-consultancy": "Area of consultancy",
 
   "b": "B",
   "back": "Orqaga",
@@ -38,9 +41,12 @@
   "create-a-new-district": "Yangi tuman yaratish",
   "create-a-new-region": "Yangi viloyat yaratish",
   "choose-your-type-of-activity": "Choose your type of activity",
+  "company-name": "Company name",
+  "contact-name": "Contact name",
 
   "d": "D",
   "data-list": "Ma'lumotlar ro'yhati",
+  "date-of-birth": "Date of birth",
   "delete": "O'chirish",
   "description": "Tavsif",
   "display-options": "Displey parametrlari",
@@ -55,6 +61,8 @@
   "email": "Email",
   "email-or-phone": "Email yoki telefon",
   "evaluate-the-advice": "Konsultatsiyangizni baholang",
+  "experience-in-agriculture-and-environment": "Experience in agriculture and environment",
+  "experience": "Experience (in year)",
 
   "f": "F",
   "filter": "Filtr",
@@ -64,8 +72,9 @@
   "finished": "Tugallangan",
   "firstname": "Ism",
   "forgot-password-question": "Parolni esdan chiqardingizmi?",
+  "field-of-agriculture": "Field of agriculture",
 
-  "g": "G",
+  "gender": "Gender",
   "get-consultation": "Konsultatsiya olish",
   "give-a-description-in-the-following-languages": "Quyidagi tillarda tavsif bering",
 
@@ -74,7 +83,7 @@
   "home": "Asosiy sahifa",
   "how-will-you-use-the-platform": "How will you use the platform?",
 
-  "i": "I",
+  "i-agree-with": " I agree with",
   "image-cropper": "Rasmni kesish",
 
   "j": "J",
@@ -87,6 +96,7 @@
   "locations": "Joylar",
   "login": "Kirish",
   "logo": "Logo",
+  "last-received-degree": "Last received degree",
 
   "m": "M",
   "max": "Max",
@@ -98,7 +108,7 @@
   "n": "N",
   "name": "Nomlanishi",
 
-  "o": "O",
+  "organization-name": "Organization name",
   "order-by": "Saralash turi",
 
   "p": "P",
@@ -118,6 +128,8 @@
   "price-parameters": "Narx parametrlari",
   "product": "Mahsulot",
   "products": "Mahsulotlar",
+  "phone": "Phone",
+  "position-at-organization": "Position at organization",
 
   "q": "Q",
 
@@ -128,6 +140,11 @@
   "register": "Ro'yxatdan o'tish",
   "registration": "Registratsiya",
   "required": "Majburiy",
+  "registration-for-user-enterprise": "Registration for user enterprise",
+  "registration-for-user-individual": "Registration for user individual",
+  "registration-for-consultant-individual": "Registration for consultant individual",
+  "registration-for-consultant-enterprise": "Registration for consultant enterprise",
+  "registration-for-content-provider": "Registration for content provider",
 
   "s": "S",
   "save": "Saqlash",
@@ -144,10 +161,13 @@
   "single-lessons": "Yakka darslar",
   "staff": "Xodimlar",
   "status": "Status",
+  "short-summary": "Short summary",
+  "short-description": "Short description",
 
-  "t": "T",
+  "tin": "TIN",
   "table-view": "Jadval ko'rinishi",
   "time-interval": "Vaqt intervallari",
+  "terms-of-use": "terms of use",
 
   "u": "U",
   "update": "Yangilash",
@@ -157,11 +177,13 @@
   "upload-image": "Rasmni yuklash",
   "users": "Foydalanuvchilar",
   "user": "User",
+  "upload-resume": "Upload resume(s)",
+  "upload-diploma": "Upload diploma",
 
   "v": "V",
   "view-all": "Barchasini ko'rish",
 
-  "w": "W",
+  "workplace": "Workplace",
   "write-a-message": "Xabar yozish...",
 
   "x": "X",

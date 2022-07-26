@@ -10,8 +10,11 @@
     "all-categories": "Все категории",
     "all-products": "Все продукты",
     "average": "Средний",
-    "as-an-interprise": "As an interprise",
+    "as-an-enterprise": "As an interprise",
     "as-an-individual": "As an individual",
+    "activity-type": "Activity type",
+    "area-of-agriculture-and-environment": "Area of agriculture and environment",
+    "area-of-consultancy": "Area of consultancy",
   
     "b": "B",
     "back": "Назад",
@@ -36,9 +39,12 @@
     "create-a-new-district": "Создать новую район",
     "create-a-new-region": "Создать новую область",
     "choose-your-type-of-activity": "Choose your type of activity",
+    "company-name": "Company name",
+    "contact-name": "Contact name",
   
     "d": "D",
     "data-list": "Список данных",
+    "date-of-birth": "Date of birth",
     "delete": "Удалить",
     "description": "Описание",
     "display-options": "Дисплей параметри",
@@ -53,6 +59,8 @@
     "email": "Эл. почта",
     "email-or-phone": "Эл. почта или телефон",
     "evaluate-the-advice": "Оцените совет",
+    "experience-in-agriculture-and-environment": "Experience in agriculture and environment",
+    "experience": "Experience (in year)",
   
     "f": "F",
     "filter": "Фильтр",
@@ -62,8 +70,9 @@
     "finished": "Завершено",
     "firstname": "Имя",
     "forgot-password-question": "Забыли пароль?",
+    "field-of-agriculture": "Field of agriculture",
   
-    "g": "G",
+    "gender": "Gender",
     "get-consultation": "Получить консультацию",
     "give-a-description-in-the-following-languages": "Дайте описание на следующих языках",
   
@@ -72,7 +81,7 @@
     "home": "Главный",
     "how-will-you-use-the-platform": "How will you use the platform?",
   
-    "i": "I",
+    "i-agree-with": " I agree with",
     "image-cropper": "Обрезка изображения",
   
     "j": "J",
@@ -85,6 +94,7 @@
     "locations": "Локации",
     "login": "Логин",
     "logo": "Лого",
+    "last-received-degree": "Last received degree",
   
     "m": "M",
     "max": "Максимум",
@@ -95,7 +105,7 @@
     "n": "N",
     "name": "Наименования",
   
-    "o": "O",
+    "organization-name": "Organization name",
     "order-by": "Сортировать по",
   
     "p": "P",
@@ -115,6 +125,8 @@
     "price-parameters": "Параметры цены",
     "product": "Продукт",
     "products": "Продукты",
+    "phone": "Phone",
+    "position-at-organization": "Position at organization",
   
     "q": "Q",
   
@@ -125,6 +137,11 @@
     "register": "Регистрация",
     "registration": "Регистрация",
     "required": "Обязательно",
+    "registration-for-user-enterprise": "Registration for user enterprise",
+    "registration-for-user-individual": "Registration for user individual",
+    "registration-for-consultant-individual": "Registration for consultant individual",
+    "registration-for-consultant-enterprise": "Registration for consultant enterprise",
+    "registration-for-content-provider": "Registration for content provider",
   
     "s": "S",
     "save": "Сохранить",
@@ -140,10 +157,13 @@
     "sign-out": "Выход",
     "staff": "Сотрудники",
     "status": "Статус",
+    "short-summary": "Short summary",
+    "short-description": "Short description",
   
-    "t": "T",
+    "tin": "TIN",
     "table-view": "Предс. таблицы",
     "time-interval": "Временной интервал",
+    "terms-of-use": "terms of use",
   
     "u": "U",
     "update": "Обновить",
@@ -153,11 +173,13 @@
     "upload-image": "Загрузить изобрежению",
     "users": "Пользователи",
     "user": "User",
+    "upload-resume": "Upload resume(s)",
+    "upload-diploma": "Upload diploma",
   
     "v": "V",
     "view-all": "Просмотреть все",
   
-    "w": "W",
+    "workplace": "Workplace",
     "write-a-message": "Напишите сообщение...",
   
     "x": "X",

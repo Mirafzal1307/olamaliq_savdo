@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 xl:px-0 px-4">
+    <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 xl:px-0 px-4 lg:my-12 my-4">
       {{ about.title }}
     </div>
     <div class="bg-green-900 my-10 py-10">

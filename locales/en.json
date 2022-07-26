@@ -10,8 +10,12 @@
     "all-categories": "All categories",
     "all-products": "All products",
     "average": "Average",
-    "as-an-interprise": "As an interprise",
+    "as-an-enterprise": "As an interprise",
     "as-an-individual": "As an individual",
+    "activity-type": "Activity type",
+    "area-of-agriculture-and-environment": "Area of agriculture and environment",
+    "area-of-consultancy": "Area of consultancy",
+    
   
     "b": "B",
     "back": "Back",
@@ -36,9 +40,12 @@
     "create-a-new-district": "Create a new district",
     "create-a-new-region": "Create a new region",
     "choose-your-type-of-activity": "Choose your type of activity",
+    "company-name": "Company name",
+    "contact-name": "Contact name",
     
     "d": "D",
     "data-list": "Data List",
+    "date-of-birth": "Date of birth",
     "delete": "Delete",
     "description": "Description",
     "directions": "Directions",
@@ -55,6 +62,8 @@
     "email-or-phone": "E-mail or Phone",
     "evaluate-the-advice": "Evaluate the advice",
     "exit": "Exit",
+    "experience-in-agriculture-and-environment": "Experience in agriculture and environment",
+    "experience": "Experience (in year)",
     
     "f": "F",
     "filter": "Filter",
@@ -64,8 +73,9 @@
     "finished": "Finished",
     "firstname": "Firstname",
     "forgot-password-question":"Forget password?",
+    "field-of-agriculture": "Field of agriculture",
     
-    "g": "G",
+    "gender": "Gender",
     "get-consultation": "Get Consultation",
     "give-a-description-in-the-following-languages": "Give a description in the following languages",
     
@@ -74,7 +84,7 @@
     "home": "Home",
     "how-will-you-use-the-platform": "How will you use the platform?",
   
-    "i": "I",
+    "i-agree-with": " I agree with",
     "image-cropper": "Image cropper",
     
     "j": "J",
@@ -87,6 +97,7 @@
     "locations": "Locations",
     "login": "Login",
     "logo": "Logo",
+    "last-received-degree": "Last received degree",
     
     "m": "M",
     "max": "Max",
@@ -98,7 +109,7 @@
     "name": "Name",
     "news": "News",
     
-    "o": "O",
+    "organization-name": "Organization name",
     "order-by": "Order By",
     
     "p": "P",
@@ -119,6 +130,8 @@
     "price-parameters": "Price Parameters",
     "product": "Product",
     "products": "Products",
+    "phone": "Phone",
+    "position-at-organization": "Position at organization",
     
     "q": "Q",
     
@@ -129,6 +142,11 @@
     "register": "Register",
     "registration": "Registration",
     "required": "Required",
+    "registration-for-user-enterprise": "Registration for user enterprise",
+    "registration-for-user-individual": "Registration for user individual",
+    "registration-for-consultant-individual": "Registration for consultant individual",
+    "registration-for-consultant-enterprise": "Registration for consultant enterprise",
+    "registration-for-content-provider": "Registration for content provider",
     
     "s": "S",
     "save": "Save",
@@ -145,11 +163,14 @@
     "settings": "Settings",
     "staff": "Staff",
     "status": "Status",
+    "short-summary": "Short summary",
+    "short-description": "Short description",
     
-    "t": "T",
+    "tin": "TIN",
     "table-view": "Table view",
     "time-interval": "Time interval",
     "trading": "Trading",
+    "terms-of-use": "terms of use",
     
     "u": "U",
     "update": "Update",
@@ -160,11 +181,13 @@
     "useful-informations": "Useful informations",
     "users": "Users",
     "user": "User",
+    "upload-resume": "Upload resume(s)",
+    "upload-diploma": "Upload diploma",
     
     "v": "V",
     "view-all": "View all",
     
-    "w": "W",
+    "workplace": "Workplace",
     "write-a-message": "Write a message...",
     
     "x": "X",

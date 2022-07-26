@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-6xl mx-auto lg:mt-12 mt-4 sm:px-6 lg:px-8 xl:px-0 px-4">
+  <div class="max-w-6xl mx-auto lg:my-12 my-4 sm:px-6 lg:px-8 xl:px-0 px-4">
     <div class="flex items-center justify-between">
       <div class="font-semibold text-green-800 text-2xl">{{ $t('advisory')}}</div>
       <div>{{ $t('all-categories') }}</div>

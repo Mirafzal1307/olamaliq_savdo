@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-green-900 mt-20 relative">
+  <div class="bg-green-900 relative">
     <div
       class="
         max-w-6xl

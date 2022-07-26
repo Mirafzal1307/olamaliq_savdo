@@ -38,16 +38,20 @@
         </div>
       </div>
       <div class="flex justify-center my-4 text-gray-600 font-semibold">
-         {{ $t('how-will-you-use-the-platform') }}
+        {{ $t('how-will-you-use-the-platform') }}
       </div>
       <div class="grid grid-cols-2 gap-4">
-        <div class="border rounded-md border-gray-200 p-4">
+        <div @click="toEnterprise()" class="border rounded-md cursor-pointer border-gray-200 p-4">
           <img :src="require('/assets/images/enterprise.png')" alt="" />
-          <div class="flex justify-center text-gray-600 text-sm font-semibold">{{ $t('as-an-interprise') }}</div>
+          <div class="flex justify-center text-gray-600 text-sm font-semibold">
+            {{ $t('as-an-enterprise') }}
+          </div>
         </div>
-        <div class="border rounded-md border-gray-200 p-4">
+        <div @click="toIndividual()" class="border rounded-md cursor-pointer border-gray-200 p-4">
           <img :src="require('/assets/images/individual.png')" alt="" />
-          <div class="flex justify-center text-gray-600 text-sm font-semibold">{{ $t('as-an-individual') }}</div>
+          <div class="flex justify-center text-gray-600 text-sm font-semibold">
+            {{ $t('as-an-individual') }}
+          </div>
         </div>
       </div>
     </div>
@@ -66,6 +70,18 @@ export default {
     return {}
   },
   methods: {
+    toEnterprise() {
+      this.$router.push({
+        path: this.localePath('/user-enterprise'),
+      })
+      this.onClose()
+    },
+    toIndividual() {
+      this.$router.push({
+        path: this.localePath('/user-individual'),
+      })
+      this.onClose()
+    },
     openSignIn() {
       this.$emit('close')
       this.$modal.show(
