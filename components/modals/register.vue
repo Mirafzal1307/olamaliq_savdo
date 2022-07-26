@@ -49,7 +49,7 @@
           <img :src="require('/assets/images/consultant.png')" alt="">
           <div class="flex justify-center text-gray-600 text-sm font-semibold">{{ $t('consultant') }}</div>
         </div>
-        <div class="border rounded-md border-gray-200 p-4">
+        <div @click="toContentProvider()" class="border cursor-pointer rounded-md border-gray-200 p-4">
           <img :src="require('/assets/images/content.png')" alt="">
           <div class="flex justify-center text-gray-600 text-sm font-semibold">{{ $t('content-provider') }}</div>
         </div>
@@ -285,6 +285,12 @@ export default {
     }
   },
   methods: {
+    toContentProvider() {
+      this.$router.push({
+        path: this.localePath('/content-provider'),
+      })
+      this.onClose()
+    },
     toRegisterType() {
       this.$emit('close')
       this.$modal.show(
@@ -364,7 +370,7 @@ export default {
     },
     onClose(e) {
       this.$emit('close')
-      this.$root.$emit('sign-in', e)
+      this.$root.$emit('register', e)
     },
   },
 }

@@ -107,7 +107,7 @@
   "n": "N",
   "name": "Nomlanishi",
 
-  "o": "O",
+  "organization-name": "Organization name",
   "order-by": "Saralash turi",
 
   "p": "P",
@@ -128,6 +128,7 @@
   "product": "Mahsulot",
   "products": "Mahsulotlar",
   "phone": "Phone",
+  "position-at-organization": "Position at organization",
 
   "q": "Q",
 
@@ -142,6 +143,7 @@
   "registration-for-user-individual": "Registration for user individual",
   "registration-for-consultant-individual": "Registration for consultant individual",
   "registration-for-consultant-enterprise": "Registration for consultant enterprise",
+  "registration-for-content-provider": "Registration for content provider",
 
   "s": "S",
   "save": "Saqlash",
@@ -158,6 +160,8 @@
   "single-lessons": "Yakka darslar",
   "staff": "Xodimlar",
   "status": "Status",
+  "short-summary": "Short summary",
+  "short-description": "Short description",
 
   "tin": "TIN",
   "table-view": "Jadval ko'rinishi",
