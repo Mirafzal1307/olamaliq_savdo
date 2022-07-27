@@ -223,7 +223,7 @@
               </div>
             </div>
             <div class="flex col-start-2 justify-end w-auto">
-              <button class="text-white focus:outline-none bg-green-700 rounded-md py-2 px-5">
+              <button id="submit" class="text-white focus:outline-none bg-green-700 rounded-md py-2 px-5">
                 Submit now
               </button>
             </div>

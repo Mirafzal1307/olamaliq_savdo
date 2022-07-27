@@ -70,6 +70,7 @@
                   :placeholder="$t('firstname')"
                   v-model="account.name"
                   required
+                  id="firstname"
                   class="
                     focus:outline-none
                     appearance-none
@@ -125,6 +126,7 @@
                 mode="eager"
               >
                 <input
+                id="phoneOrEmail"
                   name="phoneOrEmail"
                   type="text"
                   autocomplete="text"
@@ -156,6 +158,7 @@
                 mode="eager"
               >
                 <input
+                id="password"
                   name="password"
                   :type="hidden.password ? 'password' : 'text'"
                   autocomplete="text"
@@ -205,6 +208,7 @@
                     placeholder-gray-400
                     sm:text-sm
                   "
+                    id="confirm_password"
                   :class="errors.length > 0 ? 'border-red-600' : 'border-green-300'"
                 />
               </ValidationProvider>

@@ -1,29 +1,30 @@
+
 import i18n from './utils/i18n'
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'BDP',
+    title: "BDP",
     htmlAttrs: {
-      lang: 'en',
+      lang: "en"
     },
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: "" }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
-        rel: 'preload',
-        as: 'style',
+        rel: "preload",
+        as: "style",
         onload: "this.onload=null;this.rel='stylesheet'",
-        href: 'https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css',
-      },
-    ],
+        href: "https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      }
+    ]
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/css/main.css'],
+  css: ["~/assets/css/main.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -44,53 +45,52 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    '@nuxtjs/dotenv',
+    "@nuxtjs/dotenv",
     [
-      'nuxt-i18n',
+      "nuxt-i18n",
       {
         vueI18nLoader: true,
-        defaultLocale: 'en',
+        defaultLocale: "en",
         detectBrowserLanguage: false,
         seo: true,
         strategy: 'prefix',
         rootRedirect: 'en',
         locales: [
           {
-            code: 'en',
-            name: 'English',
-            iso: 'en',
+            code: "en",
+            name: "English",
+            iso: "en"
           },
           {
-            code: 'ru',
-            name: 'Русский',
-            iso: 'ru',
+            code: "ru",
+            name: "Русский",
+            iso: "ru"
           },
           {
-            code: 'uz',
-            name: 'Ўзбекча',
-            iso: 'uz',
+            code: "uz",
+            name: "Ўзбекча",
+            iso: "uz"
           },
           {
-            code: 'kl',
-            name: 'Qoraqalpoq',
-            iso: 'kl',
-          },
+            code: "kl",
+            name: "Qoraqalpoq",
+            iso: "kl"
+          }
         ],
-        vueI18n: i18n,
-      },
+        vueI18n: i18n
+      }
     ],
     // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/tailwindcss',
-    '@nuxtjs/google-fonts',
+    "@nuxtjs/eslint-module",
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/google-fonts"
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/auth',
-    // 'vue-currency-filter/nuxt',
+    '@nuxtjs/auth'
   ],
   auth: {
     localStorage: false,
@@ -131,9 +131,9 @@ export default {
 
   googleFonts: {
     families: {
-      Inter: [300, 400, 600, 700],
+      Inter: [300, 400, 600, 700]
     },
-    display: 'swap',
+    display: "swap"
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -141,8 +141,8 @@ export default {
     transpile: ['vee-validate/dist/rules'],
     extend(config, ctx) {
       if (ctx.isDev) {
-        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+        config.devtool = ctx.isClient ? "source-map" : "inline-source-map";
       }
-    },
-  },
-}
+    }
+  }
+};

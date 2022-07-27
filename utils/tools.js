@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-expressions */
+  /* eslint-disable no-unused-expressions */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 const { isNavigationFailure, NavigationFailureType } = VueRouter

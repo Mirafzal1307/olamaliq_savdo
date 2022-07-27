@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="{'scroll-active': isScroll}">
     <nav class="static w-full lg:block hidden">
       <div class="sm:px-6 lg:px-8 bg-green-900 p-3">
         <div class="max-w-6xl mx-auto px-4 sm:px-0">
@@ -148,7 +148,7 @@
         </div>
       </div>
     </nav>
-    <nav class="lg:hidden flex items-center h-14 justify-between max-w-6xl mx-auto px-4">
+    <nav class="lg:hidden flex items-center h-14 justify-between max-w-6xl mx-auto px-4" :class="{'moblieClass': isScroll}">
       <div>
         <button
           type="button"
@@ -160,7 +160,7 @@
         </button>
         <slideout-panel />
       </div>
-      <div class="flex-shrink-0 flex items-center">
+      <div class="flex-shrink-0 flex items-center" :class="{'classMobie': isScroll}">
         <router-link :to="{ path: localePath('/') }">
           <svg
             width="110"
@@ -199,6 +199,7 @@ export default {
   data() {
     return {
       isProfileOpened: false,
+      isScroll: false,
       navbar: [
         { name: 'About', route: '/about' },
         { name: 'E-learning', route: '/e-learning' },
@@ -215,7 +216,18 @@ export default {
       currentUser: (state) => state.auth.user,
     }),
   },
+  mounted() {
+    // window.addEventListener('scroll', this.checkScrollTop)
+  },
   methods: {
+    checkScrollTop () {
+      if (!this.isScroll&& window.pageYOffset > 95 ){
+        this.isScroll = true
+      } else if(this.isScroll && window.pageYOffset<95) {
+this.isScroll = false
+      }
+
+    },
     async logOut() {
       await socket.emit('leave', {
         username: this.currentUser.username,
@@ -238,6 +250,7 @@ export default {
       })
     },
     signIn() {
+      console.log(this.$modal)
       this.$modal.show(
         signInModal,
         { status: 'sign-in' },
@@ -255,3 +268,14 @@ export default {
   },
 }
 </script>
+<style scoped>
+.scroll-active {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 100000;
+}
+.moblieClass{
+  background-color: white;
+}
+</style>
