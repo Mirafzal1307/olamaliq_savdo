@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 xl:px-0 px-4 lg:my-12 my-4">
-      {{ about.title }}
+      <div class="text-2xl font-semibold text-gray-700">{{ about.attributes.title }}</div>
+      <div v-html="about.attributes.content"></div>
     </div>
     <div class="bg-green-900 my-10 py-10">
       <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 xl:px-0 px-4">
@@ -279,7 +280,10 @@ export default {
   data() {
     return {
       about: {
-        title: ''
+        attributes: {
+          title: '',
+          description: '',
+        },
       }
     }
   },
@@ -291,19 +295,23 @@ export default {
     ...mapGetters(['dataPartners']),
   },
   mounted() {
-    this.fetchData().then(() => {
-      this.fetchDirectories()
+    this.fetchDirectories().then(() => {
+      this.fetchData()
     })
   },
   methods: {
     async fetchData() {
       await this.$store
         .dispatch(get, {
-          populate: '*',
-          locale: this.$i18n.locale,
+          link: '/about',
+          query: {
+            populate: '*',
+            locale: this.$i18n.locale,
+          }
         })
         .then((res) => {
-          this.about.title = res.data.attributes.title
+          console.log('about', res)
+          this.about = res.data.data
         })
     },
     async fetchDirectories() {

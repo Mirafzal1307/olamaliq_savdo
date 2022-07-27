@@ -20,7 +20,7 @@ const createStore = () => {
       districts: crud('districts'),
       servicecategories: crud('servicecategories'),
       courses: crud('courses'),
-      about: crud('about'),
+      about: dynamic('about'),
       serviceposts: crud('serviceposts'),
       coursecategories: crud('coursecategories'),
       chatrooms: crud('chatrooms'),
