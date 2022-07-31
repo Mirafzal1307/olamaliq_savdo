@@ -37,17 +37,7 @@ const constants = {
       short: 'en',
     },
   ],
-<<<<<<< HEAD
-  pagination: {
-    page: 1,
-    total: 0,
-    limit: 20,
-    lastPage: 1,
-  },
-  yandexKey: '1abe9aa1-66ec-4c7f-8b93-a4e0bc25319e',
-=======
   
->>>>>>> ffe366a (shop-front)
 }
 export default constants
 Vue.prototype.$const = constants

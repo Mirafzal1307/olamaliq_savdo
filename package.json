@@ -3,11 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-<<<<<<< HEAD
-    "dev": "nuxt",
-=======
     "dev": "nuxt --port 2000",
->>>>>>> ffe366a (shop-front)
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -21,24 +17,14 @@
     "@nuxtjs/dotenv": "^1.4.1",
     "@tailwindcss/line-clamp": "^0.4.0",
     "axios": "^0.27.2",
-    "chart.js": "^2.9.4",
     "core-js": "^3.9.1",
     "lodash.range": "^3.2.0",
     "nuxt": "^2.15.3",
     "nuxt-i18n": "^6.28.1",
-    "socket.io-client": "^4.5.1",
-    "swiper": "^6.5.0",
     "vee-validate": "^3.4.5",
-    "vue-advanced-cropper": "^1.11.1",
-    "vue-awesome-swiper": "^4.1.1",
-    "vue-chartjs": "^3.5.1",
     "vue-js-modal": "^2.0.1",
-    "vue-loaders": "^4.1.4",
     "vue-simple-context-menu": "^3.4.2",
     "vue-snotify": "^3.2.1",
-    "vue-yandex-maps": "^0.11.9",
-    "vue2-datepicker": "^3.11.0",
-    "vue2-slideout-panel": "^2.14.0",
     "vuex": "^3.6.2"
   },
   "devDependencies": {

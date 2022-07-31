@@ -80,24 +80,12 @@ export default function (param) {
           this.$axios
             .get(`${param}`, { params })
             .then((res) => {
-<<<<<<< HEAD
-              commit(_mutations.pagination, {
-                page: (params && parseInt(params._start)) || state.pagination.page,
-                total: res.data.meta.pagination.total,
-                limit: (params && parseInt(params._limit)) || state.pagination.limit,
-                lastPage:
-                  res.data.meta.pagination.total % state.pagination.limit > 0
-                    ? Math.floor(res.data.meta.pagination.total / state.pagination.limit) + 1
-                    : res.data.meta.pagination.total / state.pagination.limit,
-              })
-=======
               // commit(_mutations.pagination, {
               //   page: res.data.meta.pagination.page || state.pagination.page,
               //   total: res.data.meta.pagination.total,
               //   pageSize: res.data.meta.pagination.pageSize || state.pagination.pageSize,
               //   pageCount: res.data.meta.pagination.pageCount,
               // })
->>>>>>> ffe366a (shop-front)
               const _res = res.data.data || res
               commit(_mutations.data, _res)
               resolve(_res)
