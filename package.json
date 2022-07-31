@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+<<<<<<< HEAD
     "dev": "nuxt",
+=======
+    "dev": "nuxt --port 2000",
+>>>>>>> ffe366a (shop-front)
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",

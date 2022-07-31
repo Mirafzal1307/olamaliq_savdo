@@ -4,7 +4,7 @@ import i18n from './utils/i18n'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "BDP",
+    title: "Test",
     htmlAttrs: {
       lang: "en"
     },
@@ -28,16 +28,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/clickOutside.client.js',
-    '~/plugins/vueAwesomeSwiper.js',
-    '~/plugins/other-libraries.js',
-    '~/plugins/vue-js-modal.js',
     '~/plugins/axios.js',
-    '~/plugins/vee-validate.js',
-    { src: '~/plugins/client-libraries', mode: 'client' },
-    '~/utils/bridge.js',
-    '~/utils/tools.js',
-    // '~/plugins/v-viewer.client.js',
+    '~/plugins/vee-validate.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -71,11 +63,6 @@ export default {
             name: "Ўзбекча",
             iso: "uz"
           },
-          {
-            code: "kl",
-            name: "Qoraqalpoq",
-            iso: "kl"
-          }
         ],
         vueI18n: i18n
       }
@@ -90,51 +77,54 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
     '@nuxtjs/auth'
   ],
-  auth: {
-    localStorage: false,
-    cookie: {
-      expires: 7
-    },
-    strategies: {
-      local: {
-        token: {
-          property: 'token',
-          maxAge: 30 * 24 * 60 * 60,
-          global: true,
-          type: 'Bearer'
-        },
-        endpoints: {
-          login: { url: '/auth/local', method: 'post' },
-          // refresh: { url: '/auth/token/refresh', method: 'post' },
-          user: false,
-          logout: false
-        },
-        redirect: {
-          login: '/',
-          logout: '/',
-          user: '/profile',
-          callback: '/'
-        }
-      }
-    }
-  },
+  // auth: {
+  //   // localStorage: false,
+  //   // cookie: {
+  //   //   expires: 7
+  //   // },
+  //   // strategies: {
+  //   //   local: {
+  //   //     token: {
+  //   //       property: 'jwt',
+  //   //       // maxAge: 30 * 24 * 60 * 60,
+  //   //       // global: true,
+  //   //       // type: 'Bearer'
+  //   //     },
+  //       // user: {
+  //       //   property: false,
+  //       // },
+  //       // endpoints: {
+  //       //   login: { url: 'auth/local', method: 'post' },
+  //       //   user: { url: 'users/me', method: 'get' },
+  //       //   logout: false
+  //       // },
+  //       // redirect: {
+  //       //   login: '/',
+  //       //   logout: '/',
+  //       //   user: '/profile',
+  //       //   callback: '/'
+  //       // }
+  //     }
+  //   }
+  // },
 
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  // // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  // axios: {},
 
-  router: {
-    middleware: ['auth'],
-    prefetchLinks: false
-  },
+  // router: {
+  //   middleware: ['auth'],
+  //   prefetchLinks: false
+  // },
 
-  googleFonts: {
-    families: {
-      Inter: [300, 400, 600, 700]
-    },
-    display: "swap"
-  },
+  // googleFonts: {
+  //   families: {
+  //     Inter: [300, 400, 600, 700]
+  //   },
+  //   display: "swap"
+  // },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

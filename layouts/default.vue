@@ -1,9 +1,9 @@
 <template>
   <div>
     <nuxt />
-    <vue-snotify />
   </div>
 </template>
+<<<<<<< HEAD
 
 <script>
 import { mapState } from 'vuex'
@@ -43,3 +43,5 @@ export default {
   }
 }
 </script>
+=======
+>>>>>>> ffe366a (shop-front)

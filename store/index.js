@@ -2,16 +2,14 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import crud from './crud'
 import dynamic from './crud/dynamic'
-import socket from './modules/socket'
 import upload from './modules/upload'
-import company from './modules/company' 
 Vue.use(Vuex)
 
 const createStore = () => {
   return new Vuex.Store({
     modules: {
-      socket,
       upload,
+<<<<<<< HEAD
       company,
       products: crud('products'),
       productcategories: crud('productcategories'),
@@ -33,6 +31,9 @@ const createStore = () => {
       pricedates: crud('pricedates'),
       priceanalitics: dynamic('priceanalitics'),
       lessons: crud('lessons')
+=======
+     products: crud('products'),
+>>>>>>> ffe366a (shop-front)
     },
   })
 }
