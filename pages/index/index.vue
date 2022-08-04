@@ -1,8 +1,6 @@
 <template>
     <div>
 <Header/>
-<main></main>
-<section></section>
     </div>
 </template>
 
