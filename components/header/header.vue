@@ -1,13 +1,12 @@
 <template>
-    <div></div>
+  <div class="text-dark-blue text-xl">hello worlds</div>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {
+    
+}
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
 </style>

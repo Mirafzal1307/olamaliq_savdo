@@ -1,17 +1,16 @@
 <template>
-    <div>
-<Header/>
-<main></main>
-<section></section>
-    </div>
+  <div>
+    <Header />
+    <main></main>
+    <section></section>
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+import '@/assets/css/tailwind.css'
+
+export default {}
 </script>
 
 <style lang="scss" scoped>
-
 </style>
