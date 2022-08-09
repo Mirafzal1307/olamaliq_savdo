@@ -1,4 +1,5 @@
 <template>
+<Container>
   <div>
     <div>
       <div class="flex justify-between mt-3" >
@@ -6,16 +7,20 @@
       </div>
     </div>
   </div>
+</Container>
+  
 </template>
 
 <script>
 import CategoryComponent from './CategoryComponent.vue'
+import Container from '../container/Container.vue'
 
 export default {
   name: 'CategoriesComponent',
   components: {
     CategoryComponent,
-  },
+    Container
+},
 
   data() {
     return {

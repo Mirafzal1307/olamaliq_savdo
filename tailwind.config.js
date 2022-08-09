@@ -44,6 +44,7 @@ module.exports = {
     spacing: {
       px: '1px',
       0: '0px',
+      0.5:'10px',
       1: '11px',
       2: '14px',
       3: '17px',
@@ -53,6 +54,7 @@ module.exports = {
       7: '43px',
       8: '53px',
       9: '67px',
+      10:"130px"
     },
     gridAutoColumns: {
       auto: 'auto',

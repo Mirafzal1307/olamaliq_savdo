@@ -1,14 +1,19 @@
 <template>
-  <Container>
+<div>
+  <LangBar/>
+    <Navbar/>
     <CategoriesComponent/>
-  </Container>
+</div>
+    
 </template>
 
 <script>
 import Container from '../container/Container.vue'
 import CategoriesComponent from '../category-components/CategoriesComponent.vue'
+import Navbar from '../navbar/Navbar.vue'
+import LangBar from '../navbar/LangBar.vue'
 export default {
-  components: { Container, CategoriesComponent },
+  components: { Container, CategoriesComponent, Navbar, LangBar },
 
 
 
