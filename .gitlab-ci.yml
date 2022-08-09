@@ -54,8 +54,8 @@ release-image:   # This job also runs in the test stage.
 
 deploy:      # This job runs in the deploy stage.
   stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
-  tags: 
-    - shop_front
+#  tags: 
+#    - shop_front
   script:
     - docker pull $CONTAINER_RELEASE_IMAGE
     - docker run -d -p 2000:2000 $CONTAINER_RELEASE_IMAGE
