@@ -16,9 +16,9 @@
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
-image: first_ci_cd_gitlab
-services:
-  - first_ci_cd_gitlab_darkweb
+image: alpine:latest
+#services:
+#  - first_ci_cd_gitlab_darkweb
 
 stages:          # List of stages for jobs, and their order of execution
   - build
