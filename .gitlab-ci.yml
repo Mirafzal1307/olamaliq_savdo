@@ -77,13 +77,13 @@ deploy:      # This job runs in the deploy stage.
 #  tags:
 #    - shop_front
 
-stages:
-  - build
+#stages:
+#  - build
 
-Build NodeJS APP:
-  stage: build
-  script: 
-    - npm install
-  artifacts:
-    paths:
-      - /home/kali/projects/e-Shop/front/shop_front
+#Build NodeJS APP:
+#  stage: build
+#  script: 
+#    - npm install
+#  artifacts:
+#    paths:
+#      - /home/kali/projects/e-Shop/front/shop_front
