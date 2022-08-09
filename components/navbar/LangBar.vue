@@ -1,23 +1,24 @@
 <template>
-    <div class="bg-green w-full relative p-1  text-white" >
-        <Container>
-            <select name="" id="" class=" absolute bg-transparent top-0 right-10 outline-none">
-            <option value="uzb" class="text-black">O`zbekcha</option>
-            <option value="rus" class="text-black">Ruscha</option>
-            <option value="eng" class="text-black">Inglizcha</option>
+  <div class="bg-green p-0.35 w-full text-white">
+    <Container>
+      <div class="flex justify-end" >
+        <select name="" id="" class="bg-transparent self-end outline-none">
+          <option value="uzb" class="text-black">O`zbekcha</option>
+          <option value="rus" class="text-black">Ruscha</option>
+          <option value="eng" class="text-black">Inglizcha</option>
         </select>
-        </Container>
-    </div>
+      </div>
+    </Container>
+  </div>
 </template>
 
 <script>
-import Container from '../container/Container.vue';
-    export default {
-    name: "LangBar",
-    components: { Container }
+import Container from '../container/Container.vue'
+export default {
+  name: 'LangBar',
+  components: { Container },
 }
 </script>
 
 <style  scoped>
-
 </style>

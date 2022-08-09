@@ -1,8 +1,8 @@
 <template>
-<div @scroll="handleFoo" class="foo w-full top-0" ref="fooHeader" >
+<div @scroll="handleFoo" class="foo w-full top-0"  ref="fooHeader" >
     <div class = "w-full shadow shadow-black-500/50" >
         <Container>
-            <div class="flex justify-center items-center py-3 gap-4 bg-white w-full">
+            <div class="flex justify-between items-center py-3 gap-0.75 bg-white w-full">
                 <h1 class="font-semibold text-xl cursor-pointer "> <span class="border-b-2 border-green">Olmaliq</span>
                     Savdo</h1>
                 <div
@@ -11,7 +11,7 @@
                     <h4>Katalog</h4>
                     <img src="../../assets/icons_svg/ArrowRight.svg" alt="arrow" />
                 </div>
-                <div class="search relative  w-2/5">
+                <div class="search relative  w-7/12">
                     <input type="text"
                         class=" border-2 text-black-900 outline-none border-green pl-1 py-1 rounded-md w-full text-sm"
                         placeholder="Mahsulot izlash...">
