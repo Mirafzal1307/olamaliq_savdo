@@ -12,6 +12,7 @@ const createStore = () => {
       products: crud('products'),
       user: crud('user'),
       category: dynamic('category'),
+      brand: dynamic('brand'),
     },
   })
 }
