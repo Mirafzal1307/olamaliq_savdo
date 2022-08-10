@@ -3,14 +3,18 @@
     <Header/>
     <Container>
       <categories-component-vue :categoryItems="categoryItems"/>
+      <BrandSlider/>
+      <Services/>
     </Container>
   </div>
 </template>
 
 <script>
 import CategoriesComponentVue from '~/components/category-components/CategoriesComponent.vue'
+import Services from '~/components/services/Services.vue'
+import BrandSlider from '~/components/services/BrandSlider.vue'
 export default {
-  components: {CategoriesComponentVue},
+  components: { CategoriesComponentVue, Services, BrandSlider },
   data () {
     return {
        categoryItems: [
