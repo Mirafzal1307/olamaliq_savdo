@@ -2,8 +2,9 @@
   <div>
     <Header />
     <Container>
-      <categories-component-vue :categoryItems="categoryItems" />
-      <Category-Swiper />
+      <categories-component-vue :categoryItems="categoryItems"/>
+      <span>{{$t('err')}}</span>
+      <CategorySwiper/>
     </Container>
   </div>
 </template>

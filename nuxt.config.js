@@ -65,7 +65,7 @@ export default {
             iso: "uz"
           },
         ],
-        vueI18n: i18n
+        vueI18n: i18n 
       }
     ],
     // https://go.nuxtjs.dev/eslint
