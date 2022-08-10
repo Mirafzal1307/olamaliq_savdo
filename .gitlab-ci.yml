@@ -45,8 +45,8 @@ test:   # This job runs in the test stage.
 release-image:   # This job also runs in the test stage.
   stage: release    # It can run at the same time as unit-test-job (in parallel).
   script:
-    - docker pull $CI_REGISTRY_IMAGE
-    - docker tag $CI_REGISTRY_IMAGE $CONTAINER_RELEASE_IMAGE
+    - docker pull $CI_REGISTRY_IMAGE:latest
+    - docker tag $CI_REGISTRY_IMAGE:latest $CONTAINER_RELEASE_IMAGE
     - docker push $CONTAINER_RELEASE_IMAGE
 
 deploy:      # This job runs in the deploy stage.
