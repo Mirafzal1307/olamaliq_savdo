@@ -38,15 +38,8 @@ test:   # This job runs in the test stage.
     - docker:19.03.12-dind
 
   script:
-    - docker pull ${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG} 
-    - docker run ${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG} npm test
-
-release-image:   # This job also runs in the test stage.
-  stage: release    # It can run at the same time as unit-test-job (in parallel).
-  script:
-    - docker pull $CI_REGISTRY_IMAGE:latest 
-    - docker tag $CI_REGISTRY_IMAGE:latest 
-    - docker push $CI_REGISTRY_IMAGE:latest
+    - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG 
+    # - docker run ${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG} npm test
 
 deploy:      # This job runs in the deploy stage.
   stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
@@ -56,32 +49,3 @@ deploy:      # This job runs in the deploy stage.
     - docker pull $CI_REGISTRY_IMAGE:latest 
     - docker run -d -p 2000:2000 $CI_REGISTRY_IMAGE:latest 
     - echo "Ishladi"
-
-
-#image: alpine:latest
-
-#before_script:
-#  - echo "before script section"
-#  - echo "abdulvoris"
-#  - echo "darkweb"
-
-#stages:
-#  - build
-
-#build:
-#  stage: build
-#  script:
-#    - echo "ishladi hursandman"
-#  tags:
-#    - shop_front
-
-#stages:
-#  - build
-
-#Build NodeJS APP:
-#  stage: build
-#  script: 
-#    - npm install
-#  artifacts:
-#    paths:
-#      - /home/kali/projects/e-Shop/front/shop_front
