@@ -2,10 +2,11 @@
   <div class="consultants">
     <swiper ref="swiper" class="swiper" :options="Option">
       <swiper-slide
-       
+       v-for="i in 5" :key="i"
         class="flex items-center bg-white rounded-md  shadow-sm hover:shadow-md space-x-3 transition duration-500"
       >
         <div class="group w-full p-2 shadow-sm">
+          <img :src="`~/assets/images/${i}-100x200.jpg`" alt="">
         </div>
       </swiper-slide>
     </swiper>

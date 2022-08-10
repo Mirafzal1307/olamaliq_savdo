@@ -1,19 +1,21 @@
 <template>
   <div>
-    <Header/>
+    <Header />
     <Container>
-      <categories-component-vue :categoryItems="categoryItems"/>
+      <categories-component-vue :categoryItems="categoryItems" />
+      <Category-Swiper />
     </Container>
   </div>
 </template>
 
 <script>
 import CategoriesComponentVue from '~/components/category-components/CategoriesComponent.vue'
+import CategorySwiper from '~/components/categories-swiper/categories-swiper.vue'
 export default {
-  components: {CategoriesComponentVue},
-  data () {
+  components: { CategoriesComponentVue, CategorySwiper },
+  data() {
     return {
-       categoryItems: [
+      categoryItems: [
         { img: 'category1.svg', name: 'Telefon  va Smartfonlar' },
         { img: 'category2.svg', name: 'Orgtexnika va Kompyuterlar' },
         { img: 'category3.svg', name: 'Televizor va Videotexnikalar' },
@@ -22,9 +24,9 @@ export default {
         { img: 'category6.svg', name: 'Avto jihozlar' },
       ],
     }
-  }
+  },
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 </style>
