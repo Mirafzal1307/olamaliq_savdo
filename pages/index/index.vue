@@ -3,6 +3,7 @@
     <Header/>
     <Container>
       <categories-component-vue :categoryItems="categoryItems"/>
+      <span>{{$t('err')}}</span>
     </Container>
   </div>
 </template>
