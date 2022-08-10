@@ -1,13 +1,27 @@
 <template>
-    <div></div>
+<div>
+  <LangBar/>
+    <Navbar/>
+</div>
+    
 </template>
 
 <script>
-    export default {
-        
-    }
+import Navbar from '../navbar/Navbar.vue'
+import LangBar from '../navbar/LangBar.vue'
+export default {
+  components: {Navbar, LangBar,},
+
+
+
+}
 </script>
 
-<style lang="scss" scoped>
+
+
+
+<style scoped>
+
 
 </style>
+

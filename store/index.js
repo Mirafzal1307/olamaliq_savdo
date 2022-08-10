@@ -9,7 +9,9 @@ const createStore = () => {
   return new Vuex.Store({
     modules: {
       upload,
-     products: crud('products'),
+      products: crud('products'),
+      user: crud('user'),
+      category: dynamic('category'),
     },
   })
 }

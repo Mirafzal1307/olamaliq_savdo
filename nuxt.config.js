@@ -60,7 +60,7 @@ export default {
           },
           {
             code: "uz",
-            name: "Ўзбекча",
+            name: "O`zbekcha",
             iso: "uz"
           },
         ],
