@@ -5,12 +5,12 @@
         <img class="w-5 h-3" :src="images[locale]" alt="asdasdad" />
         <select @change="langChanges" v-model="locale" name="" id="" class="bg-transparent self-end outline-none">
           <option
-            v-for="(item, index) in langList"
+            v-for="(item, index) in $i18n.locales"
             :key="index"
-            :value="item.value"
+            :value="item.code"
             class="text-black"
           >
-            {{ item.label }}
+            {{ item.name }}
           </option>
         </select>
       </div>
@@ -31,12 +31,7 @@ export default {
         uz: imgUz,
         ru: imgRu,
         en: imgEn,
-      },
-      langList: [
-        { label: 'O`zbekcha', value: 'uz' },
-        { label: ' Russian', value: 'ru' },
-        { label: 'English', value: 'en' },
-      ],
+      }
     }
   },
   methods: {
