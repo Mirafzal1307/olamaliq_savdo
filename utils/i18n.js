@@ -4,7 +4,7 @@ import ru from '../locales/ru'
 import uz from '../locales/uz'
 
 export default {
-  locale: 'uz',
-  fallbackLocale: 'uz',
+  locale: 'en',
+  fallbackLocale: 'en',
   messages: { en, ru, uz }
 }

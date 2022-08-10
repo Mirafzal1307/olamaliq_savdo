@@ -3,7 +3,7 @@
     <Container>
       <div class="flex justify-end">
         <img class="w-5 h-3" :src="images[locale]" alt="imgaes have" />
-        <select @change="langChanges" v-model="locale" name="" id="" class="bg-transparent self-end outline-none">
+        <select v-model="locale"  @change="langChanges(locale)" name="" id="" class="bg-transparent self-end outline-none">
           <option
             v-for="(item, index) in $i18n.locales"
             :key="index"
@@ -36,7 +36,8 @@ export default {
   },
   methods: {
     langChanges(event) {
-      this.$router.push(this.switchLocalePath(event.target.value))
+      this.$router.push(this.switchLocalePath(event));
+      console.log(this.$i18n);
     },
   },
 }
