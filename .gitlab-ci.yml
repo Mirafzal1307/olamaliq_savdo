@@ -39,8 +39,8 @@ build-with-kaniko:
 test:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
   script:
-    - docker pull $CI_REGISTRY_IMAGE:latest 
-    - docker run $CI_REGISTRY_IMAGE:latest  true npm test
+    - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG 
+    - docker run $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG npm test
 
 release-image:   # This job also runs in the test stage.
   stage: release    # It can run at the same time as unit-test-job (in parallel).
