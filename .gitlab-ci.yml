@@ -22,11 +22,7 @@ build-with-kaniko:
   before_script:
     - test -d "$KANIKO_DIR" && echo "$KANIKO_DIR Exists" || mkdir -p "$KANIKO_DIR"
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-    - |
-      echo "-----BEGIN CERTIFICATE-----
-      ...
-      -----END CERTIFICATE-----" >> /kaniko/ssl/certs/additional-ca-cert-bundle.crt
-      - echo 'end of before script'
+    - echo 'end of before script'
   script:
     - test -d "$KANIKO_DIR" && echo "$KANIKO_DIR Exists" || mkdir -p "$KANIKO_DIR"
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
