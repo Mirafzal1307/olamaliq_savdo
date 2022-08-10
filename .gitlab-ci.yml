@@ -12,7 +12,7 @@ variables:
   CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
   ROCM_REGISTRY_IMAGE: 'MYIMAGENAME_WITH_URL'
   ROCM_PROJECT_DIR: .
-  KANIKO_DIR: "/kaniko/.docker"
+#  KANIKO_DIR: "/kaniko/.docker"
 
 build-with-kaniko:
   stage: build-kaniko       # This job runs in the build stage, which runs first.
