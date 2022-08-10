@@ -45,10 +45,8 @@
 </template>
 
 <script>
-import Container from '../container/Container.vue';
 export default {
     name: "Navbar",
-    components: { Container },
     data(){
         return{
         }
