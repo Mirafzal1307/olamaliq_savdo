@@ -19,10 +19,6 @@ build-with-kaniko:
   image:
     name: gcr.io/kaniko-project/executor:debug
     entrypoint: [""]
-  before_script:
-    # - test -d "$KANIKO_DIR" && echo "$KANIKO_DIR Exists" || mkdir -p "$KANIKO_DIR"
-    # - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-    - echo 'end of before script'
   script:
    # - mkdir -p /kaniko/.docker
     - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(printf "%s:%s" "${CI_REGISTRY_USER}" "${CI_REGISTRY_PASSWORD}" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
@@ -31,13 +27,11 @@ build-with-kaniko:
       --context "${CI_PROJECT_DIR}"
       --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
       --destination "${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG}"
-#   stage: build
-#   script:
-#     - docker build -t $CONTAINER_TEST_IMAGE .
-#     - docker push $CONTAINER_TEST_IMAGE
-
 test:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
+  services:
+    - docker:19.03.12-dind
+
   script:
     - docker pull ${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG} 
     - docker run ${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG} npm test
