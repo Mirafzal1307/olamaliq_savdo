@@ -2,7 +2,7 @@ image: alpine:latest
 #services:
 #  - alpine:latest-dind
 stages:          # List of stages for jobs, and their order of execution
-  - build
+  - build-kaniko
   - test
   - release
   - deploy
@@ -10,15 +10,33 @@ stages:          # List of stages for jobs, and their order of execution
 variables:
   CONTAINER_SHOP_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
   CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
+  ROCM_REGISTRY_IMAGE: 'MYIMAGENAME_WITH_URL'
+  ROCM_PROJECT_DIR: .
+  KANIKO_DIR: "/kaniko/.docker"
 
-before_script:
-  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-
-build:       # This job runs in the build stage, which runs first.
-  stage: build
+build-with-kaniko:
+  stage: build-kaniko       # This job runs in the build stage, which runs first.
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  before_script:
+    - test -d "$KANIKO_DIR" && echo "$KANIKO_DIR Exists" || mkdir -p "$KANIKO_DIR"
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - |
+      echo "-----BEGIN CERTIFICATE-----
+      ...
+      -----END CERTIFICATE-----" >> /kaniko/ssl/certs/additional-ca-cert-bundle.crt
+      - echo 'end of before script'
   script:
-    - docker build -t $CONTAINER_TEST_IMAGE .
-    - docker push $CONTAINER_TEST_IMAGE
+    - test -d "$KANIKO_DIR" && echo "$KANIKO_DIR Exists" || mkdir -p "$KANIKO_DIR"
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context $MYMY_PROJECT_DIR --dockerfile $MYMY_PROJECT_DIR/Dockerfile --destination $CI_REGISTRY_IMAGE
+    # - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+
+#   stage: build
+#   script:
+#     - docker build -t $CONTAINER_TEST_IMAGE .
+#     - docker push $CONTAINER_TEST_IMAGE
 
 test:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
