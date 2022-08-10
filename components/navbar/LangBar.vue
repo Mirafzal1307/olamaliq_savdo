@@ -2,7 +2,7 @@
   <div class="bg-green p-0.35 w-full text-white">
     <Container>
       <div class="flex justify-end">
-        <img class="w-5 h-3" :src="images[locale]" alt="asdasdad" />
+        <img class="w-5 h-3" :src="images[locale]" alt="imgaes have" />
         <select @change="langChanges" v-model="locale" name="" id="" class="bg-transparent self-end outline-none">
           <option
             v-for="(item, index) in $i18n.locales"
