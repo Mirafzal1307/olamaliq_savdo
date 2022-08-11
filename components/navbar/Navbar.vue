@@ -8,7 +8,7 @@
                 <div
                     class="katalog flex justify-center items-center py-1 px-5 cursor-pointer  gap-2 bg-green  text-white font-semibold rounded-md">
                     <img src="../../assets/icons_svg/Menu.svg" alt="menu">
-                    <h4>{{$t('cat')}}</h4>
+                    <h4>{{$t('navbar.cat')}}</h4>
                     <img src="../../assets/icons_svg/ArrowRight.svg" alt="arrow" />
                 </div>
                 <div class="search relative  w-7/12">
@@ -21,20 +21,26 @@
                     </div>
                 </div>
                 <div class="action-wraper ml-5 flex justify-center items-center gap-4">
-                    <div class="actions flex-col cursor-pointer hover:text-green transition-all relative">
-                        <img src="~/assets/icons_svg/Heart.svg" class="m-auto " alt="liked">
-                        <div class="text-sm">{{$t('sevimli')}}</div>
-                        <div class="indicator absolute flex items-center justify-center w-3 h-3 font-semibold text-xs rounded-full bg-red text-white -top-0.4 -right-0.35">3</div>
+                    <div class="actions flex-col flex  cursor-pointer items-center hover:text-green transition-all w-9 relative">
+                        <div class="relative m-auto w-1/2">
+                            <img src="~/assets/icons_svg/Heart.svg" class="m-auto " alt="liked">
+                            <div class="indicator absolute flex items-center justify-center w-3 h-3 font-semibold text-xs rounded-full bg-red text-white -top-0.4 -right-0.4">3</div>
+                        </div>
+                        <div class="text-sm">{{$t('navbar.sevimli')}}</div>
                     </div>
-                    <div class="actions flex-col   cursor-pointer hover:text-green transition-all relative">
-                        <img src="~/assets/icons_svg/Compare.svg" class="m-auto " alt="compare">
-                        <div class="text-sm">{{$t('taqqos')}}</div>
-                        <div class="indicator absolute flex items-center justify-center w-3 h-3 font-semibold text-xs rounded-full bg-red text-white -top-0.4 -right-0.35">8</div>
+                    <div class="actions flex-col flex  items-center  cursor-pointer hover:text-green transition-all w-9 relative">
+                        <div class="relative m-auto w-1/2">
+                            <img src="~/assets/icons_svg/Compare.svg" class="m-auto " alt="compare">
+                            <div class="indicator absolute flex items-center justify-center w-3 h-3 font-semibold text-xs rounded-full bg-red text-white -top-0.4 -right-0.4">8</div>
+                        </div>
+                        <div class="text-sm">{{$t('navbar.taqqos')}}</div>
                     </div>
-                    <div class="actions flex-col  cursor-pointer hover:text-green transition-all relative">
-                        <img src="~/assets/icons_svg/Cart.svg" class="m-auto " alt="cart">
-                        <div class="text-sm">{{$t('savat')}}</div>
-                        <div class="indicator absolute flex items-center justify-center w-3 h-3 font-semibold text-xs rounded-full bg-red text-white -top-0.4 -right-0.35">2</div>
+                    <div class="actions flex-col flex items-center  cursor-pointer hover:text-green transition-all w-9 relative">
+                        <div class="relative m-auto w-1/2">
+                            <img src="~/assets/icons_svg/Cart.svg" class="m-auto " alt="cart">
+                            <div class="indicator absolute flex items-center justify-center w-3 h-3 font-semibold text-xs rounded-full bg-red text-white -top-0.4 -right-0.4">2</div>
+                        </div>
+                        <div class="text-sm">{{$t('navbar.savat')}}</div>
                     </div>
                     <div class="actions flex-col w-7 h-7  flex items-center justify-center rounded-md cursor-pointer items-cent bg-green text-white">
                         <img src="~/assets/icons_svg/Person.svg" class="m-auto " alt="person">

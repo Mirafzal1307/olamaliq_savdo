@@ -1,8 +1,18 @@
 {
   "err": "Error",
-  "cat": "Category",
-  "sevimli":"Favorite",
-  "taqqos":"Compare",
-  "savat":"Cart",
-  "arzon":"If you find cheaper product than ours, we will refund your money!!!"
+  "navbar":{
+    "cat": "Category",
+    "sevimli":"Favorite",
+    "taqqos":"Compare",
+    "savat":"Cart"
+  },
+  "services":{
+    "arzon":"If you find cheaper product than ours, we will refund your money!!!",
+    "delivery":"Free delivery",
+    "payment":"Installment payment",
+    "warrenty":"1 year warranty",
+    "support":"Support service"
+  }
+  
+
 }
