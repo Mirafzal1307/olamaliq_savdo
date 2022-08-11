@@ -6,6 +6,7 @@
         class="flex items-center bg-white rounded-md  shadow-sm hover:shadow-md space-x-3 transition duration-500"
       >
         <div class="group w-full p-2 shadow-sm">
+
         </div>
       </swiper-slide>
     </swiper>
