@@ -45,7 +45,7 @@ test:   # This job runs in the test stage.
     - docker:19.03.12-dind
 
   script:
-    - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG 
+    - docker pull ${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG} 
     - docker run ${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG} npm test
 
 deploy:      # This job runs in the deploy stage.
