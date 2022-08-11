@@ -1,8 +1,18 @@
 {
   "err": "Xato",
-  "cat": "Katalog",
-  "sevimli":"Sevimli",
-  "taqqos":"Taqqos",
-  "savat":"Savat",
-  "arzon":"Bizdan arzonini topsangiz pulingizni qaytaramiz !!!"
+  "navbar":{
+      "cat": "Katalog",
+      "sevimli":"Sevimli",
+      "taqqos":"Taqqos",
+      "savat":"Savat"
+  },
+  
+  "services":{
+      "arzon":"Bizdan arzonini topsangiz pulingizni qaytaramiz !!!",
+      "delivery":"Bepul yetkazib berish",
+      "payment":"Bo`lib to`lash",
+      "warrenty":"1 yil garantiya",
+      "support":"Qo’llab quvatlash xizmati"
+  }
+  
 }
