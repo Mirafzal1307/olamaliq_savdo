@@ -9,7 +9,6 @@
     </Container>
   </div>
 </template>
-
 <script>
 import CategoriesComponentVue from '~/components/category-components/CategoriesComponent.vue'
 import Services from '~/components/services/Services.vue'
