@@ -3,13 +3,13 @@
     <Header/>
     <Container>
       <categories-component-vue :categoryItems="categoryItems"/>
-      <span>{{$t('err')}}</span>
     </Container>
   </div>
 </template>
 
 <script>
 import CategoriesComponentVue from '~/components/category-components/CategoriesComponent.vue'
+import CategoriesSwiper from '../../components/categories-swiper/categories-swiper.vue'
 export default {
   components: {CategoriesComponentVue},
   data () {
