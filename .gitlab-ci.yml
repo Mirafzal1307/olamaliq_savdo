@@ -1,6 +1,8 @@
-image: 
-  name: gcr.io/kaniko-project/executor:debug
-  entrypoint: [""]
+# image: 
+#   name: gcr.io/kaniko-project/executor:debug
+image: docker:19.03.13
+
+  # entrypoint: [""]
 
 stages:
   - build_kaniko_prod
@@ -36,8 +38,11 @@ deploy_prod:
   stage: deploy_prod
   # image: kroniak/ssh-client
   image: docker
-  services: 
-    - docker:dind
+  # services: 
+  #   - docker:dind
+  services:
+    - docker:19.03.13-dind
+
   before_script:
     - echo "deploying app"
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
