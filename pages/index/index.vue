@@ -8,6 +8,7 @@
     <Container>
       <CategoriesSwiper />
       <categories-component-vue :categoryItems="categoryItems" />
+      <brands-vue :brandItems="brandItems" />
       <BrandSlider />
       <Services />
     </Container>
@@ -18,8 +19,17 @@ import CategoriesComponentVue from '~/components/category-components/CategoriesC
 import Services from '~/components/services/Services.vue'
 import BrandSlider from '~/components/services/BrandSlider.vue'
 import MyComponent from '~/components/categoriesSwiper/CategoriesSwiper.vue'
+import BrandsVue from '~/components/brands/Brands.vue'
 export default {
-  components: { CategoriesComponentVue, Services, BrandSlider, BrandSlider, Services, MyComponent },
+  components: {
+    CategoriesComponentVue,
+    Services,
+    BrandSlider,
+    BrandSlider,
+    Services,
+    MyComponent,
+    BrandsVue,
+  },
   data() {
     return {
       categoryItems: [
@@ -29,6 +39,26 @@ export default {
         { img: 'category4.svg', name: "Chiroy va go'zallik" },
         { img: 'category5.svg', name: 'Maishiy texnikalar' },
         { img: 'category6.svg', name: 'Avto jihozlar' },
+      ],
+      brandItems: [
+        {
+          img: 'brand1.jpg',
+        },
+        {
+          img: 'brand2.jpg',
+        },
+        {
+          img: 'brand3.jpg',
+        },
+        {
+          img: 'brand4.png',
+        },
+        {
+          img: 'brand5.jpg',
+        },
+        {
+          img: 'brand6.jpg',
+        },
       ],
     }
   },
