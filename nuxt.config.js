@@ -60,11 +60,11 @@ export default {
           },
           {
             code: "uz",
-            name: "Ўзбекча",
+            name: "O`zbekcha",
             iso: "uz"
           },
         ],
-        vueI18n: i18n
+        vueI18n: i18n 
       }
     ],
     // https://go.nuxtjs.dev/eslint
