@@ -17,7 +17,9 @@ build_kaniko_prod:
     - shop_front
   image:
       # We recommend using the CERN version of the Kaniko image: gitlab-registry.cern.ch/ci-tools/docker-image-builder
-      name: gitlab-registry.cern.ch/ci-tools/docker-image-builder
+      # name: gitlab-registry.cern.ch/ci-tools/docker-image-builder
+      name: gcr.io/kaniko-project/executor:debug
+      
       entrypoint: [""]
   script:
       # Prepare Kaniko configuration file
