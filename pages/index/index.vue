@@ -4,17 +4,21 @@
     <Container>
       <categories-component-vue :categoryItems="categoryItems"/>
       <span>{{$t('err')}}</span>
-      <CategorySwiper/>
+      <CategoriesSwiper/>
+      <BrandSlider/>
+      <Services/>
     </Container>
   </div>
 </template>
 
 <script>
 import CategoriesComponentVue from '~/components/category-components/CategoriesComponent.vue'
-import CategorySwiper from '~/components/categories-swiper/categories-swiper.vue'
+import Services from '~/components/services/Services.vue'
+import BrandSlider from '~/components/services/BrandSlider.vue'
+import CategoriesSwiper from '~/components/categoriesSwiper/CategoriesSwiper.vue'
 export default {
-  components: { CategoriesComponentVue, CategorySwiper },
-  data() {
+  components: { CategoriesComponentVue, Services, BrandSlider, CategoriesSwiper },
+  data () {
     return {
       categoryItems: [
         { img: 'category1.svg', name: 'Telefon  va Smartfonlar' },
