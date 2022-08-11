@@ -13,6 +13,8 @@ build_kaniko_prod:
     IMAGE_DESTINATION: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}
   only:
     - main
+  tags: 
+    - shop_front
   image:
       # We recommend using the CERN version of the Kaniko image: gitlab-registry.cern.ch/ci-tools/docker-image-builder
       name: gitlab-registry.cern.ch/ci-tools/docker-image-builder
@@ -40,6 +42,8 @@ deploy_prod:
     # - echo "${SSH_PRIVATE_KEY}" | ssh-add -
   only:
     - main
+  tags: 
+    - shop_front    
   script:
     - apk add --update --no-cache openssh
     - chmod 400 $SSH_PRIVATE_KEY
