@@ -21,14 +21,14 @@
     "lodash.range": "^3.2.0",
     "npm": "^8.16.0",
     "nuxt": "^2.15.3",
-    "swiper": "^6.5.0",
     "nuxt-i18n": "^6.28.1",
+    "swiper": "^6.5.0",
     "vee-validate": "^3.4.5",
+    "vue-awesome-countdown": "^1.1.4",
+    "vue-awesome-swiper": "^4.1.1",
     "vue-js-modal": "^2.0.1",
     "vue-simple-context-menu": "^3.4.2",
     "vue-snotify": "^3.2.1",
-    "vue-awesome-countdown": "^1.1.4",
-    "vue-awesome-swiper": "^4.1.1",
     "vuex": "^3.6.2"
   },
   "devDependencies": {

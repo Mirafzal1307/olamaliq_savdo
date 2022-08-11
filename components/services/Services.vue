@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2 class="text-lg font-semibold text-center mb-9 mt-4">Bizdan arzonini topsangiz pulingizni qaytaramiz !!!</h2>
+        <h2 class="text-lg font-semibold text-center mb-9 mt-4">{{$t('arzon')}}</h2>
         <div class="flex justify-between items-center gap-9 ">
             <div v-for="service in services" :key="service.id"
                 class="service flex flex-col items-center gap-3 justify-around 1/4">
@@ -27,13 +27,14 @@ export default {
                     id: 1,
                     image: 'Dostavka.svg',
                     title: 'Bepul yetkazib berish',
-                    desc: 'Up to 3 years on-site warranty available for your peace of mind.'
+                    desc: 'With big discounts, free delivery and a dedicated support specialist.'
                 },
                 {
                     id: 2,
                     image: 'Click.svg',
                     title: 'Bo’lib to’lash ',
-                    desc: 'With big discounts, free delivery and a dedicated support specialist.'
+                    desc: 'Up to 3 years on-site warranty available for your peace of mind.',
+
                 },
                 {
                     id: 3,

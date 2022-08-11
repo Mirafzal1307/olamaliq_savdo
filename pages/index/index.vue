@@ -1,10 +1,16 @@
 <template>
-  <div>
+  <div class ="main">
     <Header/>
+    <div class="sticky top-0">
+      <Navbar/>
+    </div>
+    <div class="content">
+      
+    </div>
     <Container>
       <categories-component-vue :categoryItems="categoryItems"/>
-      <BrandSlider/>
       <CategoriesSwiper/>
+      <BrandSlider/>
       <Services/>
     </Container>
   </div>
@@ -15,8 +21,9 @@ import CategoriesComponentVue from '~/components/category-components/CategoriesC
 import Services from '~/components/services/Services.vue'
 import BrandSlider from '~/components/services/BrandSlider.vue'
 import CategoriesSwiper from '~/components/categories-swiper/categories-swiper.vue'
+import LangBar from '~/components/navbar/LangBar.vue'
 export default {
-  components: { CategoriesComponentVue, Services, BrandSlider, BrandSlider, Services, CategoriesSwiper },
+  components: { CategoriesComponentVue, Services, BrandSlider, BrandSlider, Services, CategoriesSwiper, LangBar },
   data () {
     return {
        categoryItems: [
@@ -33,4 +40,5 @@ export default {
 </script>
 
 <style  scoped>
+
 </style>

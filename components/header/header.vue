@@ -1,7 +1,6 @@
 <template>
-<div>
+<div class="header">
   <LangBar/>
-    <Navbar/>
 </div>
     
 </template>
@@ -10,7 +9,7 @@
 import Navbar from '../navbar/Navbar.vue'
 import LangBar from '../navbar/LangBar.vue'
 export default {
-  components: {Navbar, LangBar,},
+  components: {LangBar,},
 
 
 
@@ -21,7 +20,9 @@ export default {
 
 
 <style scoped>
-
+.header{
+  
+}
 
 </style>
 
