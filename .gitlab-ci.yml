@@ -41,8 +41,8 @@ test:   # This job runs in the test stage.
   image: docker:19.03.12
   tags: 
     - shop_front
-  services:
-    - docker:19.03.12-dind
+  # services:
+  #   - docker:19.03.12-dind
 
   script:
     - docker pull ${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG} 
