@@ -1,11 +1,14 @@
 <template>
-  <div>
+  <div class="main">
     <Header />
-    <MyComponent />
+    <div class="sticky top-0">
+      <Navbar />
+    </div>
+    <div class="content"></div>
     <Container>
-      <CategoriesComponentVue :categoryItems="categoryItems" />
+      <CategoriesSwiper />
+      <categories-component-vue :categoryItems="categoryItems" />
       <BrandSlider />
-
       <Services />
     </Container>
   </div>
@@ -34,3 +37,6 @@ export default {
 
 <style  scoped>
 </style>
+
+
+

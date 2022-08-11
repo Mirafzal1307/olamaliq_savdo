@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-0.5 mb-0.5 " >
+  <div class="mt-0.5 mb-0.5" >
     <Container>
       <VueSlickCarousel :arrows="true" :dots="true" v-bind="settings">
         <div class="bg-black text-center text-white z-0" v-for="i in 5" :key="i">

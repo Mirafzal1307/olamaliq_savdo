@@ -1,15 +1,15 @@
 <template>
-  <div class="z-50">
-    <LangBar />
-    <Navbar />
-  </div>
+<div class="header">
+  <LangBar/>
+</div>
 </template>
 
 <script>
 import Navbar from '../navbar/Navbar.vue'
 import LangBar from '../navbar/LangBar.vue'
 export default {
-  components: { Navbar, LangBar },
+  components: {LangBar,},
+
 }
 </script>
 
@@ -17,5 +17,6 @@ export default {
 
 
 <style scoped>
+
 </style>
 
