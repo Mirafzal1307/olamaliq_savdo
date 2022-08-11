@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2 class="text-lg font-semibold text-center mb-9 mt-4">Bizdan arzonini topsangiz pulingizni qaytaramiz !!!</h2>
+        <h2 class="text-lg font-semibold text-center mb-9 mt-4">{{$t('services.arzon')}}</h2>
         <div class="flex justify-between items-center gap-9 ">
             <div v-for="service in services" :key="service.id"
                 class="service flex flex-col items-center gap-3 justify-around 1/4">
@@ -8,7 +8,7 @@
                     <img :src="require(`~/assets/icons_svg/${service.image}`)" alt="ddd" class="" />
                 </div>
                 <div class="text text-center">
-                    <h3 class="text-dark-blue font-semibold text-md">{{ service.title }}</h3>
+                    <h3 class="text-dark-blue font-semibold text-md">{{ $t(service.title) }}</h3>
                     <p class="text-sm">{{ service.desc }}</p>
                 </div>
             </div>
@@ -26,25 +26,26 @@ export default {
                 {
                     id: 1,
                     image: 'Dostavka.svg',
-                    title: 'Bepul yetkazib berish',
-                    desc: 'Up to 3 years on-site warranty available for your peace of mind.'
+                    title: 'services.delivery',
+                    desc: 'With big discounts, free delivery and a dedicated support specialist.'
                 },
                 {
                     id: 2,
                     image: 'Click.svg',
-                    title: 'Bo’lib to’lash ',
-                    desc: 'With big discounts, free delivery and a dedicated support specialist.'
+                    title: 'services.payment',
+                    desc: 'Up to 3 years on-site warranty available for your peace of mind.',
+
                 },
                 {
                     id: 3,
                     image: 'Badge.svg',
-                    title: '1 yil garantiya',
+                    title: 'services.warrenty',
                     desc: 'Up to 70% off new Products, you can be sure of the best price.'
                 },
                 {
                     id: 4,
                     image: 'Connection.svg',
-                    title: 'Qo’llab quvatlash xizmati',
+                    title: 'services.support',
                     desc: 'Up to 70% off new Products, you can be sure of the best price.'
                 },
             ]
