@@ -2,7 +2,7 @@
   <VueSlickCarousel :arrows="true" :dots="false" v-bind="settings" >
     <div v-for="i in 2" :key="i" >
       <div >
-        <div class="flex justify-between mt-3 mr-2">
+        <div class="flex justify-between mt-3 mr-2 gap-2 mb-4">
           <CategoryComponent
             class="bg-light-gray rounded"
             v-for="(item, idx) in categoryItems"
