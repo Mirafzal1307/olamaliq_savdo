@@ -1,58 +1,48 @@
-# image: alpine:latest
-image: docker:19.03.12
-services:
-  - docker:19.03.12-dind
+image: 
+  name: gcr.io/kaniko-project/executor:debug
+  entrypoint: [""]
 
-#services:
-#  - alpine:latest-dind
-stages:          # List of stages for jobs, and their order of execution
-  - build-kaniko
-  - test
-  - release
-  - deploy
+stages:
+  - build_kaniko_prod
+  - deploy_prod  
 
-variables:
-  CONTAINER_SHOP_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
-  CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
-  ROCM_REGISTRY_IMAGE: 'MYIMAGENAME_WITH_URL'
-  ROCM_PROJECT_DIR: .
-#  KANIKO_DIR: "/kaniko/.docker"
 
-build-with-kaniko:
-  stage: build-kaniko       # This job runs in the build stage, which runs first.
+build_kaniko_prod:
+  stage: build_kaniko_prod
+  variables:
+    IMAGE_DESTINATION: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}
+  only:
+    - main
   image:
-    name: gcr.io/kaniko-project/executor:debug
-    entrypoint: [""]
-  tags: 
-    - shop_front    
+      # We recommend using the CERN version of the Kaniko image: gitlab-registry.cern.ch/ci-tools/docker-image-builder
+      name: gitlab-registry.cern.ch/ci-tools/docker-image-builder
+      entrypoint: [""]
   script:
-   # - mkdir -p /kaniko/.docker
-    - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(printf "%s:%s" "${CI_REGISTRY_USER}" "${CI_REGISTRY_PASSWORD}" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
-    - >-
-      /kaniko/executor
-      --context "${CI_PROJECT_DIR}"
-      --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
-      --destination "${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG}"
-    - echo "Image pushed successfully to ${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG}"
-    - echo "${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG}"
+      # Prepare Kaniko configuration file
+      - echo $CI_REGISTRY_IMAGE
+      - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+      # Build and push the image from the Dockerfile at the root of the project.
+      - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $IMAGE_DESTINATION --cache-dir=/workspace/cache 
+      # Print the full registry path of the pushed image
+      - echo "Image pushed successfully to ${IMAGE_DESTINATION}"
+      - echo "${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}"      
 
-test:   # This job runs in the test stage.
-  stage: test    # It only starts when the job in the build stage completes successfully.
-  image: docker:19.03.12
-  tags: 
-    - shop_front
-  # services:
-  #   - docker:19.03.12-dind
 
+deploy_prod:
+  stage: deploy_prod
+  # image: kroniak/ssh-client
+  image: docker
+  services: 
+    - docker:dind
+  before_script:
+    - echo "deploying app"
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    # - echo "${SSH_PRIVATE_KEY}" | ssh-add -
+  only:
+    - main
   script:
-    - docker pull ${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG} 
-    - docker run ${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG} npm test
-
-deploy:      # This job runs in the deploy stage.
-  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
-  tags: 
-    - shop_front
-  script:
-    - docker pull $CI_REGISTRY_IMAGE:latest 
-    - docker run -d -p 2000:2000 $CI_REGISTRY_IMAGE:latest 
-    - echo "Ishladi"
+    - apk add --update --no-cache openssh
+    - chmod 400 $SSH_PRIVATE_KEY
+    - ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$PROD_SERVER_IP "docker login -u '$CI_REGISTRY_USER' -p '$CI_REGISTRY_PASSWORD' $CI_REGISTRY"
+    - ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$PROD_SERVER_IP "docker pull registry.gitlab.com/1itech_company_uz/yengil_kredit_frontend:main"
+    - ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$PROD_SERVER_IP "docker stop yengil_front && docker rm yengil_front && docker run -e "REACT_APP_BASE_URL=https://api.yengilcredit.uz" -e "PORT=1919" -e "REACT_APP_MINIO_ENPOINT=https://minio.yengilcredit.uz" -e "REACT_APP_MERCHANT_ID=62a7601817d208a46387c0bf" -e "REACT_APP_PAYME_URL=https://checkout.paycom.uz/" -p 1919:1919 --name yengil_front -d registry.gitlab.com/1itech_company_uz/yengil_kredit_frontend:main"
