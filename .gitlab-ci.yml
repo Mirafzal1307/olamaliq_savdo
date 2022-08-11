@@ -45,7 +45,6 @@ deploy_prod:
 
   before_script:
     - echo "deploying app"
-    - echo $DOCKER_AUTH_CONFIG > $HOME/.docker/config.json
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     # - echo "${SSH_PRIVATE_KEY}" | ssh-add -
   only:

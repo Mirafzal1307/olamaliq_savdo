@@ -7,7 +7,7 @@ RUN apk update && apk upgrade
 # RUN apk add git
 
 COPY . /usr/src/nuxt-app/
-RUN yarn install
+# RUN yarn install
 
 # RUN yarn run build
 
