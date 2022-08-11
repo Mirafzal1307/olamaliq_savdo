@@ -1,32 +1,36 @@
 <template>
   <div>
-    <Header />
-    <main></main>
-    <section></section>
+    <Header/>
+    <Container>
+      <categories-component-vue :categoryItems="categoryItems"/>
+      <BrandSlider/>
+      <CategoriesSwiper/>
+      <Services/>
+    </Container>
   </div>
 </template>
 
 <script>
-// import { mapGetters, mapActions } from 'vuex'
-// import { actions , getters } from '~/utils/store_schema'
-// const _param = 'user'
-// const { get, getById, post, put, delate } = actions(_param)
-
+import CategoriesComponentVue from '~/components/category-components/CategoriesComponent.vue'
+import Services from '~/components/services/Services.vue'
+import BrandSlider from '~/components/services/BrandSlider.vue'
+import CategoriesSwiper from '~/components/categories-swiper/categories-swiper.vue'
 export default {
-  // methods: {
-   
-  // },
-  // computed: {
-  //   ...mapGetters({
-  //     ...getters(_param)
-  //   })
-  // },
-  // mounted (){
-  //   console.log('mounted', this.$store);
-  //   this.$store.dispatch(get())
-  // }
+  components: { CategoriesComponentVue, Services, BrandSlider, BrandSlider, Services, CategoriesSwiper },
+  data () {
+    return {
+       categoryItems: [
+        { img: 'category1.svg', name: 'Telefon  va Smartfonlar' },
+        { img: 'category2.svg', name: 'Orgtexnika va Kompyuterlar' },
+        { img: 'category3.svg', name: 'Televizor va Videotexnikalar' },
+        { img: 'category4.svg', name: "Chiroy va go'zallik" },
+        { img: 'category5.svg', name: 'Maishiy texnikalar' },
+        { img: 'category6.svg', name: 'Avto jihozlar' },
+      ],
+    }
+  }
 }
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
 </style>

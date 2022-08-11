@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
+const GoogleFontsPlugin = require("google-fonts-webpack-plugin");
 
 module.exports = {
   purge: {
@@ -15,7 +16,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
+        sans: ['Montserrat', 'sans-serif'],
         serif: ['Poppins', ...defaultTheme.fontFamily.serif],
 
       },
@@ -31,6 +32,7 @@ module.exports = {
       'black': '#444444',
       'blue': '#2FA8DB',
       'dark-blue': '#065374',
+      'light-gray': '#F8F8F8'
     },
     screens: {
       sm: '640px',
@@ -42,6 +44,10 @@ module.exports = {
     spacing: {
       px: '1px',
       0: '0px',
+      0.35: '3px',
+      0.4:'7px',
+      0.5:'10px',
+      0.75:'15px',
       1: '11px',
       2: '14px',
       3: '17px',
@@ -51,6 +57,7 @@ module.exports = {
       7: '43px',
       8: '53px',
       9: '67px',
+      10:"130px"
     },
     gridAutoColumns: {
       auto: 'auto',
@@ -184,7 +191,7 @@ module.exports = {
     borderRadius: {
       none: '0px',
       sm: '0.125rem',
-      DEFAULT: '0.25rem',
+      DEFAULT: '0.312rem',
       md: '0.375rem',
       lg: '0.5rem',
       xl: '0.75rem',
@@ -221,7 +228,13 @@ module.exports = {
       'not-allowed': 'not-allowed'
     },
     fontSize: {
+      'xs': '0.75rem',
+      'sm': '0.875rem',
+      'DEFAULT': '1rem',
       'xl': '1.5rem',
+      '2xl': '2.25rem',
+      '3xl': '3rem',
+      '4xl': '4rem',
     },
     fontWeight: {
       thin: '100',
