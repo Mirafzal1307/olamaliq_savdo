@@ -14,7 +14,7 @@ build_kaniko_prod:
   variables:
     IMAGE_DESTINATION: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}
   only:
-    - deploy
+    - main
   tags: 
     - shop_front
   image:
@@ -48,7 +48,7 @@ deploy_prod:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     # - echo "${SSH_PRIVATE_KEY}" | ssh-add -
   only:
-    - deploy
+    - main
   tags: 
     - shop_front    
   script:
