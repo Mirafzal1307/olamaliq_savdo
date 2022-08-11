@@ -3,15 +3,19 @@
     <Header/>
     <Container>
       <categories-component-vue :categoryItems="categoryItems"/>
+      <BrandSlider/>
+      <CategoriesSwiper/>
+      <Services/>
     </Container>
   </div>
 </template>
-
 <script>
 import CategoriesComponentVue from '~/components/category-components/CategoriesComponent.vue'
-import CategoriesSwiper from '../../components/categories-swiper/categories-swiper.vue'
+import Services from '~/components/services/Services.vue'
+import BrandSlider from '~/components/services/BrandSlider.vue'
+import CategoriesSwiper from '~/components/categories-swiper/categories-swiper.vue'
 export default {
-  components: {CategoriesComponentVue},
+  components: { CategoriesComponentVue, Services, BrandSlider, BrandSlider, Services, CategoriesSwiper },
   data () {
     return {
        categoryItems: [
@@ -27,5 +31,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
 </style>
