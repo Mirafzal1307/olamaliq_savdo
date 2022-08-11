@@ -1,11 +1,10 @@
 <template>
   <div class="consultants">
     <swiper ref="swiper" class="swiper" :options="Option">
-      <swiper-slide
-       
-        class="flex items-center bg-white rounded-md  shadow-sm hover:shadow-md space-x-3 transition duration-500"
-      >
+      <swiper-slide v-for="i in 5" :key="i"
+        class="flex items-center bg-white rounded-md  shadow-sm hover:shadow-md space-x-3 transition duration-500">
         <div class="group w-full p-2 shadow-sm">
+          <img :src="`~/assets/images/sliderPhoto.jpg`" alt="rasm">
         </div>
       </swiper-slide>
     </swiper>
@@ -15,28 +14,20 @@
       </button>
     </router-link> -->
     <div class="absolute group top-1/2 lg:flex hidden justify-between inset-x-0">
-      <div
-        slot="button-prev"
-        class="swiper-button-prev btn shadow-md opacity-0 -left-9"
-        @click="prev()"
-      />
-      <div
-        slot="button-next"
-        class="swiper-button-next btn shadow-md opacity-0 -right-9"
-        @click="next()"
-      />
+      <div slot="button-prev" class="swiper-button-prev btn shadow-md opacity-0 -left-9" @click="prev()" />
+      <div slot="button-next" class="swiper-button-next btn shadow-md opacity-0 -right-9" @click="next()" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Category-Swiper',
+  name: 'CategorySwiper',
   props: {
     // eslint-disable-next-line vue/require-default-prop
     prices: Array
   },
-  data () {
+  data() {
     return {
       Option: {
         direction: 'horizontal',
@@ -74,14 +65,15 @@ export default {
       }
     }
   },
-  mounted () {},
+  mounted() { },
 
   methods: {
-    prev () {
+    prev() {
       this.$refs.swiper.$swiper.slidePrev()
     },
-    next () {
-      this.$refs.swiper.$swiper.slideNext()
+    next() {
+      console.log(this.$refs.swiper);
+      // this.$refs.swiper.$swiper.slideNext()
     }
   }
 }
@@ -98,10 +90,12 @@ export default {
   stroke: #059669 !important;
   border-radius: 100%;
 }
+
 .swiper-button-next:after,
 .swiper-button-prev:after {
   font-size: 13px;
 }
+
 .consultants:hover .btn {
   opacity: 1;
 }
