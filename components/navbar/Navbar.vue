@@ -8,7 +8,7 @@
                 <div
                     class="katalog flex justify-center items-center py-1 px-5 cursor-pointer  gap-2 bg-green  text-white font-semibold rounded-md">
                     <img src="../../assets/icons_svg/Menu.svg" alt="menu">
-                    <h4>Katalog</h4>
+                    <h4>{{$t('cat')}}</h4>
                     <img src="../../assets/icons_svg/ArrowRight.svg" alt="arrow" />
                 </div>
                 <div class="search relative  w-7/12">

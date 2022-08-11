@@ -4,8 +4,8 @@
     <Container>
       <categories-component-vue :categoryItems="categoryItems"/>
       <span>{{$t('err')}}</span>
-      <CategoriesSwiper/>
       <BrandSlider/>
+      <CategoriesSwiper/>
       <Services/>
     </Container>
   </div>
@@ -33,5 +33,7 @@ export default {
 }
 </script>
 
+
 <style scoped>
+
 </style>
