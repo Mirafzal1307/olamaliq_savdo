@@ -1,6 +1,6 @@
 <template>
   <div class="flex p-1 gap-x-1">
-    <img :src="require(`~/assets/images/${item.img}`)" alt="ddd" class="" />
+    <img :src="require(`~/assets/images/${item.img}`)" alt="PhotoOfCategory" />
     <div class="self-center pl-2">
       <p class="font-sans font-semibold text-sm text-left" >
         {{ item.name }}

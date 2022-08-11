@@ -1,14 +1,16 @@
 <template>
-<Container>
   <div>
     <div>
-      <div class="flex justify-between mt-3" >
-        <CategoryComponent class="bg-light-gray rounded"  v-for="(item, idx) in categoryItems" :key="idx" :item="item" />
+      <div class="flex justify-between mt-3">
+        <CategoryComponent
+          class="bg-light-gray rounded"
+          v-for="(item, idx) in categoryItems"
+          :key="idx"
+          :item="item"
+        />
       </div>
     </div>
   </div>
-</Container>
-  
 </template>
 
 <script>
@@ -18,13 +20,12 @@ export default {
   name: 'CategoriesComponent',
   components: {
     CategoryComponent,
-},
-props: {
-  categoryItems:Array
-},
+  },
+  props: {
+    categoryItems: Array,
+  },
   data() {
-    return {
-    }
+    return {}
   },
 }
 </script>
