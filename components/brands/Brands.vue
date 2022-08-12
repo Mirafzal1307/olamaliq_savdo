@@ -1,18 +1,22 @@
 <template>
-  <VueSlickCarousel v-bind="settings">
-    <div v-for="i in 2" :key="i">
-      <div class="flex justify-between" >
-        
+  <div>
+    <div class="flex justify-between mb-4">
+      <h3 class="text-black font-bold font-sans">Brandlar</h3>
+      <router-link to="#" class="text-green border-b text-sm font-semibold"> Brandlar </router-link>
+    </div>
+    <VueSlickCarousel v-bind="settings" class="slider">
+      <div v-for="i in 2" :key="i">
+        <div class="flex justify-between">
           <BrandComponent
             class="w-full"
             v-for="(item, idx) in brandItems"
             :key="idx"
             :item="item"
           />
-      
+        </div>
       </div>
-    </div>
-  </VueSlickCarousel>
+    </VueSlickCarousel>
+  </div>
 </template>
 
 <script>
