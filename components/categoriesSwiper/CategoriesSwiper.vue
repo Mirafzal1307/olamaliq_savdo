@@ -1,7 +1,7 @@
 <template>
   <div class="mt-0.5 mb-0.5" >
     <Container>
-      <VueSlickCarousel :arrows="true" :dots="false" class="z-0" v-bind="settings">
+      <VueSlickCarousel :arrows="true" :dots="false" class="slider" v-bind="settings">
         <div class="text-center text-white z-0" v-for="i in 5" :key="i">
           <img src="~/assets/images/1-200x100.jpg" alt="rasm" class="w-full" />
         </div>
@@ -36,3 +36,8 @@ export default {
   },
 }
 </script>
+<style >
+.slider{
+  z-index: -999 !important;
+}
+</style>

@@ -227,13 +227,15 @@ module.exports = {
       'not-allowed': 'not-allowed'
     },
     fontSize: {
-      'xs': '0.75rem',
-      'sm': '0.875rem',
-      'DEFAULT': '1rem',
-      'xl': '1.5rem',
-      '2xl': '2.25rem',
-      '3xl': '3rem',
-      '4xl': '4rem',
+      'xs': '0.687rem', // 11px
+      'sm': '0.875rem', // 14px
+      'DEFAULT': '1.062rem', // 17px 
+      'xl': '1.375rem',  // 22px
+      '2xl': '1.688rem', // 27px
+      '3xl': '2.125rem', // 34px
+      '4xl': '2.688rem', // 43px
+      '5xl': '3.375rem', // 54px
+      '6xl': '4.188rem', // 67px
     },
     fontWeight: {
       thin: '100',
