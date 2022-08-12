@@ -37,8 +37,8 @@ export default {
         "slidesToShow": 1,
         "slidesToScroll": 1,
         "autoplay": true,
-        "speed": 3000,
-        "autoplaySpeed": 8000,
+        "speed": 5000,
+        "autoplaySpeed": 10000,
         "cssEase": "linear"
       },
     }
