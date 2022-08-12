@@ -53,10 +53,14 @@ module.exports = {
       4: '22px',
       5: '27px',
       6: '34px',
+      6.5: '38px',
       7: '43px',
       8: '53px',
+      8.5: '60px',
       9: '67px',
-      10:"130px"
+      9.5: '100px',
+      10:"130px",
+      
     },
     gridAutoColumns: {
       auto: 'auto',
@@ -189,8 +193,8 @@ module.exports = {
     },
     borderRadius: {
       none: '0px',
-      sm: '0.125rem',
-      DEFAULT: '0.312rem',
+      sm: '0.125rem', // 4px
+      DEFAULT: '0.312rem', // 6px
       md: '0.375rem',
       lg: '0.5rem',
       xl: '0.75rem',
@@ -206,10 +210,8 @@ module.exports = {
       8: '8px'
     },
     boxShadow: {
-      sm: 'no-change',
-      DEFAULT:
-        '0px 0px 4px rgba(0, 0, 0, 0.25)',
-      md: 'no-change',
+      sm: '0px 0px 4px rgba(0, 0, 0, 0.25)',
+      md: '0px 0px 8px green',
       lg: 'no-change',
       xl: 'no-change',
       '2xl': 'no-change',

@@ -9,6 +9,7 @@
       <CategoriesSwiper />
       <categories-component-vue :categoryItems="categoryItems" />
       <brands-vue :brandItems="brandItems" />
+      <popular-products-vue :productItems="productItems" />
       <BrandSlider />
       <Services />
     </Container>
@@ -20,6 +21,7 @@ import Services from '~/components/services/Services.vue'
 import BrandSlider from '~/components/services/BrandSlider.vue'
 import MyComponent from '~/components/categoriesSwiper/CategoriesSwiper.vue'
 import BrandsVue from '~/components/brands/Brands.vue'
+import PopularProductsVue from '~/components/popular-products/PopularProductsComponent.vue'
 export default {
   components: {
     CategoriesComponentVue,
@@ -29,6 +31,7 @@ export default {
     Services,
     MyComponent,
     BrandsVue,
+    PopularProductsVue,
   },
   data() {
     return {
@@ -58,6 +61,92 @@ export default {
         },
         {
           img: 'brand6.jpg',
+        },
+      ],
+      productItems: [
+        {
+          img: 'product1.jpg',
+          name: 'Samsung Galaxy S10',
+          price: 1000000,
+          oldPrice: 1500000,
+          discount: '-30%',
+          description: 'Samsung Galaxy S10',
+          category: 'Telefon va Smartfonlar',
+          brand: 'Samsung',
+          rating: '4.5',
+          reviews: '100',
+          inStock: false,
+          available: true,
+        },
+        {
+          img: 'product2.jpg',
+          name: 'Samsung Galaxy S10',
+          price: 1000000,
+          oldPrice: 1500000,
+          discount: '-30%',
+          description: 'Samsung Galaxy S10',
+          category: 'Telefon va Smartfonlar',
+          brand: 'Samsung',
+          rating: '4.5',
+          reviews: '100',
+          inStock: true,
+          available: true,
+        },
+        {
+          img: 'product3.jpg',
+          name: 'Samsung Galaxy S10',
+          price: 1000000,
+          oldPrice: 1500000,
+          discount: '-30%',
+          description: 'Samsung Galaxy S10',
+          category: 'Telefon va Smartfonlar',
+          brand: 'Samsung',
+          rating: '4.5',
+          reviews: '100',
+          inStock: true,
+          available: true,
+        },
+        {
+          img: 'product4.jpg',
+          name: 'Samsung Galaxy S10',
+          price: 1000000,
+          oldPrice: 1500000,
+          discount: '-30%',
+          description: 'Samsung Galaxy S10',
+          category: 'Telefon va Smartfonlar',
+          brand: 'Samsung',
+          rating: '4.5',
+          reviews: '100',
+          inStock: true,
+          available: true,
+        },
+        {
+          img: 'product5.jpg',
+          name: 'Samsung Galaxy S10',
+          price: 1000000,
+          oldPrice: 1500000,
+          discount: '-30%',
+          description: 'Samsung Galaxy S10',
+          category: 'Telefon va Smartfonlar',
+          brand: 'Samsung',
+          rating: '4.5',
+          reviews: '100',
+          inStock: true,
+          available: false,
+        },
+        {
+          img: 'product6.jpg',
+          name: 'Samsung Galaxy S10',
+          price: 1000000,
+          oldPrice: 1500000,
+          discount: '-30%',
+          description: 'Samsung Galaxy S10',
+          category: 'Telefon va Smartfonlar',
+          brand: 'Samsung',
+          rating: '4.5',
+          reviews: '100',
+          inStock: true,
+          available: true,
         },
       ],
     }
