@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="flex justify-between mb-4">
-      <h3 class="text-black font-bold font-sans">Brandlar</h3>
-      <router-link to="#" class="text-green border-b text-sm font-semibold"> Brandlar </router-link>
+      <h3 class="text-black font-bold font-sans">{{ $t('brands.brandKey') }}</h3>
+      <router-link to="#" class="text-green border-b text-sm font-semibold"> {{ $t('brands.brandKeyLink') }} </router-link>
     </div>
     <VueSlickCarousel v-bind="settings" class="slider">
       <div v-for="i in 2" :key="i">

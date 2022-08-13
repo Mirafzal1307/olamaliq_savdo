@@ -1,18 +1,24 @@
 {
   "err": "Xato",
-  "navbar":{
-      "cat": "Katalog",
-      "sevimli":"Sevimli",
-      "taqqos":"Taqqos",
-      "savat":"Savat"
+  "navbar": {
+    "cat": "Katalog",
+    "sevimli": "Sevimli",
+    "taqqos": "Taqqos",
+    "savat": "Savat"
   },
-  
-  "services":{
-      "arzon":"Bizdan arzonini topsangiz pulingizni qaytaramiz !!!",
-      "delivery":"Bepul yetkazib berish",
-      "payment":"Bo`lib to`lash",
-      "warrenty":"1 yil garantiya",
-      "support":"Qo’llab quvatlash xizmati"
+  "services": {
+    "arzon": "Bizdan arzonini topsangiz pulingizni qaytaramiz !!!",
+    "delivery": "Bepul yetkazib berish",
+    "payment": "Bo`lib to`lash",
+    "warrenty": "1 yil garantiya",
+    "support": "Qo'llab quvatlash xizmati"
+  },
+  "brands": {
+    "brandKey": "Brandlar",
+    "brandKeyLink": "Brandlar"
+  },
+  "products": {
+    "productKey": "Ommabob Mahsulotlar",
+    "productKeyLink": "Barcha Mahsulotlar"
   }
-  
 }
