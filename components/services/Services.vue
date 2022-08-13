@@ -8,7 +8,7 @@
                     <img :src="require(`~/assets/icons_svg/${service.image}`)" alt="ddd" class="" />
                 </div>
                 <div class="text text-center">
-                    <h3 class="text-dark-blue font-semibold text-md">{{ $t(service.title) }}</h3>
+                    <h3 class="text-dark-blue font-semibold text-md">{{ $t('service.title') }}</h3>
                     <p class="text-sm">{{ service.desc }}</p>
                 </div>
             </div>

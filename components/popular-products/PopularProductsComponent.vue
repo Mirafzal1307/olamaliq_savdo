@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="flex justify-between mb-4 mt-4">
-      <h3 class="text-black font-bold font-sans">Ommabop Mahsulotlar</h3>
+      <h3 class="text-black font-bold font-sans">{{ $t('products.productKey') }}</h3>
       <router-link to="#" class="text-green border-b text-sm font-semibold">
-        Barcha Mahsulotlar
+        {{ $t('products.productKeyLink') }}
       </router-link>
     </div>
     <VueSlickCarousel
