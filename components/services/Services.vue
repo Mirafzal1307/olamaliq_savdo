@@ -18,41 +18,13 @@
 </template>
 
 <script>
+import constants from '~/utils/constants'
 export default {
     name: "Services",
     data() {
         return {
-            services: [
-                {
-                    id: 1,
-                    image: 'Dostavka.svg',
-                    title: 'services.delivery',
-                    desc: 'With big discounts, free delivery and a dedicated support specialist.'
-                },
-                {
-                    id: 2,
-                    image: 'Click.svg',
-                    title: 'services.payment',
-                    desc: 'Up to 3 years on-site warranty available for your peace of mind.',
-
-                },
-                {
-                    id: 3,
-                    image: 'Badge.svg',
-                    title: 'services.warrenty',
-                    desc: 'Up to 70% off new Products, you can be sure of the best price.'
-                },
-                {
-                    id: 4,
-                    image: 'Connection.svg',
-                    title: 'services.support',
-                    desc: 'Up to 70% off new Products, you can be sure of the best price.'
-                },
-            ]
+            services: constants.services,
         }
     }
 }
 </script>
-
-<style scoped>
-</style>

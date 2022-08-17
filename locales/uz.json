@@ -18,7 +18,11 @@
     "brandKeyLink": "Brandlar"
   },
   "products": {
-    "productKey": "Ommabob Mahsulotlar",
-    "productKeyLink": "Barcha Mahsulotlar"
+    "PopularProduct": "Ommabob Mahsulotlar",
+    "PopularProductLink": "Barcha Mahsulotlar",
+    "DiscountProduct": "Chegirmadagi Mahsulotlar",
+    "DiscountProductLink": "Barcha Mahsulotlar",
+    "FavoriteProduct": "Sevimli Mahsulotlar",
+    "FavoriteProductLink": "Barcha Mahsulotlar"
   }
 }

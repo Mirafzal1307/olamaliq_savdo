@@ -1,35 +1,31 @@
 <template>
   <div>
-    <div class="flex justify-between mb-4 mt-4">
-      <h3 class="text-black font-bold font-sans">{{ $t('products.PopularProduct') }}</h3>
-      <router-link to="#" class="text-green border-b text-sm font-semibold">
-        {{ $t('products.PopularProductLink') }}
-      </router-link>
-    </div>
-
         <div class="flex justify-between gap-2">
-          <PopularProductComponent
+          <AdvertisementProductVue
             class="w-full"
-            v-for="(item, idx) in productItems"
+            v-for="(item, idx) in advertisementItems"
             :key="idx"
             :item="item"
           />
         </div>
-
   </div>
 </template>
 
 <script>
-
-import PopularProductComponent from './PopularProductComponent.vue'
+import VueSlickCarousel from 'vue-slick-carousel'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+// optional style for arrows & dots
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import AdvertisementProductVue from './AdvertisementProduct.vue'
 
 export default {
-  name: 'PopularProductsComponent',
+  name: 'AdvertisementProductsComponent',
   components: {
-    PopularProductComponent,
+    VueSlickCarousel,
+    AdvertisementProductVue
   },
   props: {
-    productItems: {
+    advertisementItems: {
       type: Array | Object,
       required: true,
       default: () => [],

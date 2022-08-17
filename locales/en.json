@@ -18,7 +18,11 @@
     "brandKeyLink": "All brands"
   },
   "products": {
-    "productKey": "Popular Products",
-    "productKeyLink": "All products"
+    "PopularProduct": "Popular Products",
+    "PopularProductLink": "All products",
+    "DiscountProduct": "Discount Products",
+    "DiscountProductLink": "All products",
+    "FavoriteProduct": "Favorite Products",
+    "FavoriteProductLink": "All products"
   }
 }

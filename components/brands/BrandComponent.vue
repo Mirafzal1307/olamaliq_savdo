@@ -11,13 +11,11 @@ export default {
   name: 'BrandComponent',
   props: {
     item: {
-      type: Object,
+      type: Object | Array,
       required: true,
+      default: [],
     },
   },
 }
 </script>
 
-
-<style  scoped>
-</style>
