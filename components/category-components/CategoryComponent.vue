@@ -16,11 +16,8 @@ export default {
     item: {
       type: Object,
       required: true,
+      default: [],
     },
   },
 }
 </script>
-
-
-<style  scoped>
-</style>

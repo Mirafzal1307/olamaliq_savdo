@@ -8,6 +8,3 @@ export default {
     name: "BrandSlider",
 }
 </script>
-
-<style scoped>
-</style>

@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="flex justify-between mb-4 mt-4">
-      <h3 class="text-black font-bold font-sans">{{ $t('products.PopularProduct') }}</h3>
+      <h3 class="text-black font-bold font-sans">{{ $t('products.DiscountProduct') }}</h3>
       <router-link to="#" class="text-green border-b text-sm font-semibold">
-        {{ $t('products.PopularProductLink') }}
+        {{ $t('products.DiscountProductLink') }}
       </router-link>
     </div>
 
         <div class="flex justify-between gap-2">
-          <PopularProductComponent
+          <ProductsInDiscountComponentVue
             class="w-full"
             v-for="(item, idx) in productItems"
             :key="idx"
@@ -20,13 +20,12 @@
 </template>
 
 <script>
-
-import PopularProductComponent from './PopularProductComponent.vue'
+import ProductsInDiscountComponentVue from './ProductsInDiscountComponent.vue'
 
 export default {
-  name: 'PopularProductsComponent',
+  name: 'ProductsInDiscount',
   components: {
-    PopularProductComponent,
+    ProductsInDiscountComponentVue,
   },
   props: {
     productItems: {

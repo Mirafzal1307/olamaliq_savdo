@@ -10,9 +10,14 @@
       <categories-component-vue :categoryItems="categoryItems" />
       <brands-vue :brandItems="brandItems" />
       <popular-products-vue :productItems="productItems" />
+      <product-in-discount-vue :productItems="productItems" />
+      <advertisement-products-component-vue :advertisementItems="advertisementItems" />
+      <favorite-products-vue :productItems="productItems" />
       <BrandSlider />
       <Services />
     </Container>
+    <ScrollTopButton />
+    <FooterVue />
   </div>
 </template>
 <script>
@@ -22,6 +27,12 @@ import BrandSlider from '~/components/services/BrandSlider.vue'
 import MyComponent from '~/components/categoriesSwiper/CategoriesSwiper.vue'
 import BrandsVue from '~/components/brands/Brands.vue'
 import PopularProductsVue from '~/components/popular-products/PopularProductsComponent.vue'
+import ProductInDiscountVue from '~/components/products-in-discount/ProductInDiscount.vue'
+import FooterVue from '~/components/footer/Footer.vue'
+import ScrollTopButton from '~/components/footer/ScrollTopButton.vue'
+import AdvertisementProductsComponentVue from '~/components/advertisement-products/AdvertisementProductsComponent.vue'
+import FavoriteProductsVue from '~/components/favorite-products/FavoriteProducts.vue'
+
 export default {
   components: {
     CategoriesComponentVue,
@@ -32,6 +43,11 @@ export default {
     MyComponent,
     BrandsVue,
     PopularProductsVue,
+    ProductInDiscountVue,
+    FooterVue,
+    ScrollTopButton,
+    AdvertisementProductsComponentVue,
+    FavoriteProductsVue,
   },
   data() {
     return {
@@ -147,6 +163,17 @@ export default {
           reviews: '100',
           inStock: true,
           available: true,
+        },
+      ],
+      advertisementItems: [
+        {
+          img: 'advertisement3.jpg',
+        },
+        {
+          img: 'advertisement2.jpg',
+        },
+        {
+          img: 'advertisement1.jpg',
         },
       ],
     }

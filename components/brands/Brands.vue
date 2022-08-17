@@ -32,7 +32,12 @@ export default {
     BrandComponent,
   },
   props: {
-    brandItems: Array,
+    brandItems: {
+      type: Array | Object,
+      required: true,
+      default: () => [],
+
+    }
   },
   data() {
     return {
@@ -50,6 +55,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-</style>

@@ -18,7 +18,11 @@
         "brandKeyLink": "Все бренды"
     },
     "products": {
-        "productKey": "Популярные продукты",
-        "productKeyLink": "Все товары"
+        "PopularProduct": "Популярные продукты",
+        "PopularProductLink": "Все товары",
+        "DiscountProduct": "Дисконтные продукты",
+        "DiscountProductLink": "Все товары",
+        "FavoriteProduct": "Избранные продукты",
+        "FavoriteProductLink": "Все товары"
     }
 }

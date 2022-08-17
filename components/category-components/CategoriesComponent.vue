@@ -27,7 +27,11 @@ export default {
     CategoryComponent, VueSlickCarousel
   },
   props: {
-    categoryItems: Array,
+    categoryItems: {
+      type: Array | Object,
+      required: true,
+      default: () => [],
+    },
   },
   data() {
     return {
@@ -45,6 +49,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-</style>
