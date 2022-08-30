@@ -24,5 +24,16 @@
     "DiscountProductLink": "All products",
     "FavoriteProduct": "Favorite Products",
     "FavoriteProductLink": "All products"
+  },
+  "contact":{
+    "telegram":"Via telegram",
+    "phone":"Via phone"
+  },
+  "footer":{
+    "service":"Support Service",
+    "time":"Every day"
+  },
+  "lastVisit":{
+    "lastvisit":"Last visited"
   }
 }

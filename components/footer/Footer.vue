@@ -1,16 +1,39 @@
 <template>
-    <div class="bg-green p-8 text-white text-center mt-2" >
-Footer
+    <div class="bg-green p-7 text-white text-center mt-2 ">
+        <Container>
+            <div class="flex w-full content-between">
+                <div class="flex flex-col">
+                    <h3 class="font-semibold text-lg mr-auto">{{$t("footer.service")}}</h3>
+                    <div class="flex gap-1  my-1">
+                        <img src="~/assets/icons_svg/Phone.svg" alt="phone">
+                        <span class="text-sm">+998 (94) 412 70 70</span>
+                    </div>
+                    <div class="flex gap-1">
+                        <img src="~/assets/icons_svg/Calendar.svg" alt="phone">
+                        <span class="text-sm">09:00 - 20:00 ({{$t("footer.time")}})</span>
+                    </div>
+                </div>
+                <div class="flex flex-col ml-auto w-1/4">
+                    <h3 class="font-semibold text-lg mr-auto">  <span class="underline">Olmaliq</span>
+                         Savdo </h3>
+                    <div class="flex gap-1 text-left w-3/4 my-1">
+                        <img src="~/assets/icons_svg/Location.svg" alt="phone">
+                        <span class="text-sm">Olmaliq shahar, Kamalak tumani, Amir Timur ko`chasi 29-a uy</span>
+                    </div>
+                </div>
+            </div>
 
+        </Container>
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'Footer',
-    }
+import Container from '../Container.vue';
+export default {
+    name: "Footer",
+    components: { Container }
+}
 </script>
 
 <style lang="scss" scoped>
-
 </style>

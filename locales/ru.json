@@ -24,5 +24,16 @@
         "DiscountProductLink": "Все товары",
         "FavoriteProduct": "Избранные продукты",
         "FavoriteProductLink": "Все товары"
-    }
+    },
+    "contact":{
+        "telegram":"через телеграмму",
+        "phone":"по телефону"
+      },
+      "footer":{
+        "service":"Сервис поддержки",
+        "time":"Каждый день"
+      },
+      "lastVisit":{
+        "lastvisit":"Последнее посещение"
+      }
 }

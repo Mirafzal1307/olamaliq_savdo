@@ -1,7 +1,7 @@
 <template>
-  <div class="main">
+  <div class="main relative">
     <Header />
-    <div class="sticky top-0">
+    <div class="sticky top-0 shadow-sm">
       <Navbar />
     </div>
     <div class="content"></div>
@@ -15,7 +15,9 @@
       <favorite-products-vue :productItems="productItems" />
       <BrandSlider />
       <Services />
+      <LastSeenProducts :productItems="productItems.slice(0,6)"/>
     </Container>
+    <Contact/>
     <ScrollTopButton />
     <FooterVue />
   </div>
@@ -32,6 +34,8 @@ import FooterVue from '~/components/footer/Footer.vue'
 import ScrollTopButton from '~/components/footer/ScrollTopButton.vue'
 import AdvertisementProductsComponentVue from '~/components/advertisement-products/AdvertisementProductsComponent.vue'
 import FavoriteProductsVue from '~/components/favorite-products/FavoriteProducts.vue'
+import Contact from '~/components/contact/Contact.vue'
+import LastSeenProducts from '~/components/lastSeenProducts/LastSeenProducts.vue'
 
 export default {
   components: {
@@ -48,7 +52,9 @@ export default {
     ScrollTopButton,
     AdvertisementProductsComponentVue,
     FavoriteProductsVue,
-  },
+    Contact,
+    LastSeenProducts
+},
   data() {
     return {
       categoryItems: [
