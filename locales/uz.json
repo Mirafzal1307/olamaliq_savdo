@@ -36,5 +36,20 @@
   },
   "lastVisit":{
     "lastvisit":"So'ngi ko'rilgan"
+  },
+  "registration":{
+    "welcome":"Xush kelibsiz !",
+    "inputPhone":"Telefon raqamingiz",
+    "inputPassword":"Parolni kiriting",
+    "checkBox":"Eslab qolinsinmi?",
+    "logIn":"Kirish",
+    "validatePhone":"Telifon raqam noto`g`ri!",
+    "validateParol":"Noto`g`ri parol kiritildi!",
+    "inputName":"Ismingiz",
+    "inputParol2":"Parol",
+    "inputParol3":"Parolni qayta tering!",
+    "validateInputName":"Ismingizmi kiritishingiz shart!",
+    "validateParol2":"Parolni kiritishingiz shart!",
+    "agreement":"Foydalanish shartlariga roziman"
   }
 }

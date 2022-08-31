@@ -27,6 +27,7 @@
     "vue-awesome-countdown": "^1.1.4",
     "vue-awesome-swiper": "^4.1.1",
     "vue-js-modal": "^2.0.1",
+    "vue-recaptcha": "^2.0.2",
     "vue-simple-context-menu": "^3.4.2",
     "vue-slick-carousel": "^1.0.6",
     "vue-snotify": "^3.2.1",
