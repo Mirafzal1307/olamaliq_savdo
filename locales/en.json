@@ -49,6 +49,7 @@
     "inputParol3":"Confirm the password!",
     "validateInputName":"Name is required!",
     "validateParol2":"Password is required!",
-    "agreement":"I agree to the terms of use"
+    "agreement":"I agree to the terms of use",
+    "register":"Log up"
   }
 }

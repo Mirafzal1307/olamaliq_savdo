@@ -52,13 +52,12 @@
                             </div>
                             <div class="text-sm">{{ $t('navbar.savat') }}</div>
                         </div>
-                        <router-link to="uz/login">
+                        <nuxt-link :to="localePath('/login')">
                             <div
                                 class="actions flex-col w-7 h-7  flex items-center justify-center rounded-md cursor-pointer items-cent bg-green text-white">
                                 <img src="~/assets/icons_svg/Person.svg" class="m-auto " alt="person">
                             </div>
-                        </router-link>
-
+                        </nuxt-link>
                     </div>
                 </div>
             </Container>

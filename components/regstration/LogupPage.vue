@@ -1,7 +1,7 @@
 <template>
     <form @submit = "onSubmit" class="w-2/5">
         <div class="relative">
-            <input v-model="firstName" class=" border-2 py-0.5 px-1  outline-none border-black rounded-md w-full" type="phone"
+            <input v-model="inputData.firstName" class=" border-2 py-0.5 px-1  outline-none border-black rounded-md w-full" type="phone"
                 >
             <span v-show = '!inputValidate.phoneValidate' class="absolute font-sans bg-white px-0.4 text-sm text-black -top-0.5 left-6">{{$t("registration.inputName")}}
                 </span>
@@ -9,20 +9,20 @@
             </span>
         </div>
         <div class="relative mt-4">
-            <input v-model="phone" class=" border-2 py-0.5 px-1  outline-none border-black rounded-md w-full" type="phone"
+            <input v-model="inputData.phone" class=" border-2 py-0.5 px-1  outline-none border-black rounded-md w-full" type="phone"
                 maxlength="13">
             <span v-show = '!inputValidate.phoneValidate' class="absolute font-sans bg-white px-0.4 text-sm text-black -top-0.5 left-6">{{$t("registration.inputPhone")}}</span>
                 <span v-show = 'inputValidate.phoneValidate' class="absolute font-sans bg-white px-0.4 text-sm text-red -top-0.5 left-6">*{{$t("registration.validatePhone")}}
             </span>
         </div>
         <div class="relative my-4">
-            <input v-model="password"  class=" border-2 py-0.5 px-1  outline-none border-black rounded-md w-full" type="phone"
+            <input v-model="inputData.password"  class=" border-2 py-0.5 px-1  outline-none border-black rounded-md w-full" type="phone"
                 maxlength="13">
             <span v-show = '!inputValidate.passwordValidate' class="absolute font-sans bg-white px-0.4 text-sm text-black -top-0.5 left-6">{{$t("registration.inputParol2")}}</span>
             <span v-show = 'inputValidate.passwordValidate' class="absolute font-sans bg-white px-0.4 text-sm text-red -top-0.5 left-6">*{{$t("registration.validateParol2")}}</span>
         </div>
         <div class="relative mb-4">
-            <input v-model="passwordConfirmation"  class=" border-2 py-0.5 px-1  outline-none border-black rounded-md w-full" type="phone"
+            <input v-model="inputData.passwordConfirmation"  class=" border-2 py-0.5 px-1  outline-none border-black rounded-md w-full" type="phone"
                 maxlength="13">
             <span v-show = '!inputValidate.passwordConfirmationValidate' class="absolute font-sans bg-white px-0.4 text-sm text-black -top-0.5 left-6">{{$t("registration.inputParol3")}}</span>
             <span v-show = 'inputValidate.passwordConfirmationValidate' class="absolute font-sans bg-white px-0.4 text-sm text-red -top-0.5 left-6">*{{$t("registration.validateParol2")}}</span>
