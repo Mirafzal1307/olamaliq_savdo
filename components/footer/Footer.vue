@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-green p-7 text-white text-center mt-2 ">
+    <div class="bg-green p-7 text-white text-center mt-7 ">
         <Container>
             <div class="flex w-full content-between">
                 <div class="flex flex-col">

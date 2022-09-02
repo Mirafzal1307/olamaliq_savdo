@@ -3,9 +3,11 @@
         <div class="w-full shadow shadow-black-500/50 bg-white">
             <Container>
                 <div class="flex justify-between items-center py-4 gap-0.75 bg-white w-full">
-                    <h1 class="font-semibold text-lg cursor-pointer "> <span
-                            class="border-b-2 border-green">Olmaliq</span>
-                        Savdo</h1>
+                    <nuxt-link :to="localePath('/')">
+                        <h1 class="font-semibold text-lg cursor-pointer "> <span
+                                class="border-b-2 border-green">Olmaliq</span>
+                            Savdo</h1>
+                    </nuxt-link>
                     <div
                         class="katalog flex justify-center items-center py-1 px-5 cursor-pointer  gap-2 bg-green  text-white font-semibold rounded-md">
                         <img src="../../assets/icons_svg/Menu.svg" alt="menu">
@@ -28,7 +30,7 @@
                                 <img src="~/assets/icons_svg/Heart.svg" class="m-auto " alt="liked">
                                 <div
                                     class="indicator absolute flex items-center justify-center w-3 h-3 font-semibold text-xs rounded-full bg-red text-white -top-0.4 -right-0.4">
-                                    3</div>
+                                    0</div>
                             </div>
                             <div class="text-sm">{{ $t('navbar.sevimli') }}</div>
                         </div>
@@ -38,20 +40,22 @@
                                 <img src="~/assets/icons_svg/Compare.svg" class="m-auto " alt="compare">
                                 <div
                                     class="indicator absolute flex items-center justify-center w-3 h-3 font-semibold text-xs rounded-full bg-red text-white -top-0.4 -right-0.4">
-                                    8</div>
+                                    0</div>
                             </div>
                             <div class="text-sm">{{ $t('navbar.taqqos') }}</div>
                         </div>
-                        <div
-                            class="actions flex-col flex items-center  cursor-pointer hover:text-green transition-all w-9 relative">
-                            <div class="relative m-auto w-1/2">
-                                <img src="~/assets/icons_svg/Cart.svg" class="m-auto " alt="cart">
-                                <div
-                                    class="indicator absolute flex items-center justify-center w-3 h-3 font-semibold text-xs rounded-full bg-red text-white -top-0.4 -right-0.4">
-                                    2</div>
+                        <nuxt-link :to="localePath('/cart')">
+                            <div
+                                class="actions flex-col flex items-center  cursor-pointer hover:text-green transition-all w-9 relative">
+                                <div class="relative m-auto w-1/2">
+                                    <img src="~/assets/icons_svg/Cart.svg" class="m-auto " alt="cart">
+                                    <div
+                                        class="indicator absolute flex items-center justify-center w-3 h-3 font-semibold text-xs rounded-full bg-red text-white -top-0.4 -right-0.4">
+                                        {{cart.length}}</div>
+                                </div>
+                                <div class="text-sm">{{ $t('navbar.savat') }}</div>
                             </div>
-                            <div class="text-sm">{{ $t('navbar.savat') }}</div>
-                        </div>
+                        </nuxt-link>
                         <nuxt-link :to="localePath('/login')">
                             <div
                                 class="actions flex-col w-7 h-7  flex items-center justify-center rounded-md cursor-pointer items-cent bg-green text-white">
@@ -73,8 +77,14 @@ export default {
         return {
         }
     },
+    computed: {
+        cart() {
+            return this.$store.state.cart?.cart
+        }
+    }
 }
 </script>
 
-<style scoped>
+<style >
+
 </style>

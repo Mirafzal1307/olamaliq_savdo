@@ -1,5 +1,5 @@
 <template>
-  <div class="flex  slider">
+  <div class="flex">
     <div class="self-center ">
       <div class="shadow-sm rounded p-3 m-0.35 relative ">
         <div class="h-10 justify-self-center self-center flex">
@@ -108,6 +108,7 @@
             {{ fixedPrice }} so'mdan / 24 oy
           </p>
           <button
+          @click="addtoCart()"
             class="
               text-sm
               bg-green
@@ -121,12 +122,12 @@
               mt-1
             "
           >
-            <router-link to="#" class="flex justify-around">
+            <div class="flex justify-around">
               <span>
                 <img src="~/assets/images/basket.svg" alt="photoOfBasket" />
               </span>
               <span> Savatchaga </span>
-            </router-link>
+            </div >
           </button>
         </div>
       </div>
@@ -147,6 +148,14 @@ export default {
   data() {
     return {
       fixedPrice: (this.item.price / 24).toFixed(0),
+    }
+  },
+  methods: {
+    addtoCart(){
+      this.$store.dispatch("cart/addProductToCart",{
+        product:this.item,
+        quantity:1
+      })
     }
   },
 }

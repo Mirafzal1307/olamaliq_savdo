@@ -1,7 +1,7 @@
 <template>
   <div class="main relative">
     <Header />
-    <div class="sticky top-0 shadow-sm">
+    <div class="sticky z-50 top-0 shadow-sm">
       <Navbar />
     </div>
     <div class="content"></div>
@@ -87,6 +87,7 @@ export default {
       ],
       productItems: [
         {
+          id:1,
           img: 'product1.jpg',
           name: 'Samsung Galaxy S10',
           price: 1000000,
@@ -101,6 +102,7 @@ export default {
           available: true,
         },
         {
+          id:2,
           img: 'product2.jpg',
           name: 'Samsung Galaxy S10',
           price: 1000000,
@@ -115,6 +117,7 @@ export default {
           available: true,
         },
         {
+          id:6,
           img: 'product3.jpg',
           name: 'Samsung Galaxy S10',
           price: 1000000,
@@ -129,6 +132,7 @@ export default {
           available: true,
         },
         {
+          id:3,
           img: 'product4.jpg',
           name: 'Samsung Galaxy S10',
           price: 1000000,
@@ -143,6 +147,7 @@ export default {
           available: true,
         },
         {
+          id:4,
           img: 'product5.jpg',
           name: 'Samsung Galaxy S10',
           price: 1000000,
@@ -157,6 +162,7 @@ export default {
           available: false,
         },
         {
+          id:5,
           img: 'product6.jpg',
           name: 'Samsung Galaxy S10',
           price: 1000000,

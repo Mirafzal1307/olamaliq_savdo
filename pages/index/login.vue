@@ -1,7 +1,7 @@
 <template>
     <div>
         <Header />
-        <div class="sticky top-0 shadow-sm">
+        <div class="sticky z-50 top-0 shadow-sm">
             <Navbar/>
         </div>
         <Container>

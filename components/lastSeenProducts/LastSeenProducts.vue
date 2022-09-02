@@ -1,6 +1,6 @@
 <template>
     <div>
-      <div class="flex justify-between mb-4 mt-9">
+      <div class="flex justify-between mt-9">
         <h3 class="text-black font-bold font-sans">{{$t("lastVisit.lastvisit")}}</h3>
         <router-link to="#" class="text-green border-b text-sm font-semibold">
           {{ $t('products.FavoriteProductLink') }}
