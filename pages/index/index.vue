@@ -6,6 +6,7 @@
     </div>
     <div class="content"></div>
     <Container>
+      <catalog-catagories :categories="categories" />
       <CategoriesSwiper />
       <categories-component-vue :categoryItems="categoryItems" />
       <brands-vue :brandItems="brandItems" />
@@ -32,7 +33,7 @@ import FooterVue from '~/components/footer/Footer.vue'
 import ScrollTopButton from '~/components/footer/ScrollTopButton.vue'
 import AdvertisementProductsComponentVue from '~/components/advertisement-products/AdvertisementProductsComponent.vue'
 import FavoriteProductsVue from '~/components/favorite-products/FavoriteProducts.vue'
-
+import CatalogCatagories from '~/components/catalog/CatalogCatagories.vue'
 export default {
   components: {
     CategoriesComponentVue,
@@ -48,6 +49,7 @@ export default {
     ScrollTopButton,
     AdvertisementProductsComponentVue,
     FavoriteProductsVue,
+    CatalogCatagories,
   },
   data() {
     return {
@@ -176,6 +178,105 @@ export default {
           img: 'advertisement1.jpg',
         },
       ],
+      categories: [
+        {
+          id: '054654654',
+          name: 'Oshxona jihozlari',
+          icon_name: '',
+          sub_category: {
+            id: '4555567676571',
+            title_name: 'Oshxona uchun katta ',
+            images: '',
+            products: [
+              {
+                product_name: 'Muzlatgichlar',
+                id: '2',
+              },
+              {
+                product_name: 'Gaz plitalar',
+                id: '2',
+              },
+              {
+                product_name: 'Mikrotoʻlqinli pechlar',
+                id: '2',
+              },
+              {
+                product_name: 'Dudboʻronlar',
+                id: '2',
+              },
+              {
+                product_name: 'Pechlar',
+                id: '2',
+              },
+            ],
+          },
+        },
+        {
+          id: '054654654',
+          name: 'Oshxona jihozlari',
+          icon_name: '',
+          sub_category: {
+            id: '4555567676571',
+            title_name: 'Oshxona uchun  texnikalar',
+            images: '',
+            products: [
+              {
+                product_name: 'Muzlatgichlar',
+                id: '2',
+              },
+              {
+                product_name: 'Gaz plitalar',
+                id: '2',
+              },
+              {
+                product_name: 'Mikrotoʻlqinli pechlar',
+                id: '2',
+              },
+              {
+                product_name: 'Dudboʻronlar',
+                id: '2',
+              },
+              {
+                product_name: 'Pechlar',
+                id: '2',
+              },
+            ],
+          },
+        },
+        {
+          id: '054654654',
+          name: 'Oshxona jihozlfdfdfari',
+          icon_name: '',
+          sub_category: {
+            id: '4555567676571',
+            title_name: 'uchun katta texnikalar',
+            images: '',
+            products: [
+              {
+                product_name: 'Muzlatgichlar',
+                id: '2',
+              },
+              {
+                product_name: 'Gaz plitalar',
+                id: '2',
+              },
+              {
+                product_name: 'Mikrotoʻlqinli pechlar',
+                id: '2',
+              },
+              {
+                product_name: 'Dudboʻronlar',
+                id: '2',
+              },
+              {
+                product_name: 'Pechlar',
+                id: '2',
+              },
+            ],
+          },
+        },
+      ],
+      
     }
   },
 }
