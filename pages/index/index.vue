@@ -1,11 +1,12 @@
 <template>
-  <div class="main">
+  <div class="main relative">
     <Header />
-    <div class="sticky top-0">
-      <Navbar />
+    <div class="sticky z-50 top-0 shadow-sm">
+      <Navbar :categories="categories" />
     </div>
     <div class="content"></div>
     <Container>
+      
       <CategoriesSwiper />
       <categories-component-vue :categoryItems="categoryItems" />
       <brands-vue :brandItems="brandItems" />
@@ -15,7 +16,9 @@
       <favorite-products-vue :productItems="productItems" />
       <BrandSlider />
       <Services />
+      <LastSeenProducts :productItems="productItems.slice(0,6)"/>
     </Container>
+    <Contact/>
     <ScrollTopButton />
     <FooterVue />
   </div>
@@ -32,7 +35,8 @@ import FooterVue from '~/components/footer/Footer.vue'
 import ScrollTopButton from '~/components/footer/ScrollTopButton.vue'
 import AdvertisementProductsComponentVue from '~/components/advertisement-products/AdvertisementProductsComponent.vue'
 import FavoriteProductsVue from '~/components/favorite-products/FavoriteProducts.vue'
-
+import Contact from '~/components/contact/Contact.vue'
+import LastSeenProducts from '~/components/lastSeenProducts/LastSeenProducts.vue'
 export default {
   components: {
     CategoriesComponentVue,
@@ -48,7 +52,9 @@ export default {
     ScrollTopButton,
     AdvertisementProductsComponentVue,
     FavoriteProductsVue,
-  },
+    Contact,
+    LastSeenProducts
+},
   data() {
     return {
       categoryItems: [
@@ -81,6 +87,7 @@ export default {
       ],
       productItems: [
         {
+          id:1,
           img: 'product1.jpg',
           name: 'Samsung Galaxy S10',
           price: 1000000,
@@ -95,6 +102,7 @@ export default {
           available: true,
         },
         {
+          id:2,
           img: 'product2.jpg',
           name: 'Samsung Galaxy S10',
           price: 1000000,
@@ -109,6 +117,7 @@ export default {
           available: true,
         },
         {
+          id:6,
           img: 'product3.jpg',
           name: 'Samsung Galaxy S10',
           price: 1000000,
@@ -123,6 +132,7 @@ export default {
           available: true,
         },
         {
+          id:3,
           img: 'product4.jpg',
           name: 'Samsung Galaxy S10',
           price: 1000000,
@@ -137,6 +147,7 @@ export default {
           available: true,
         },
         {
+          id:4,
           img: 'product5.jpg',
           name: 'Samsung Galaxy S10',
           price: 1000000,
@@ -151,6 +162,7 @@ export default {
           available: false,
         },
         {
+          id:5,
           img: 'product6.jpg',
           name: 'Samsung Galaxy S10',
           price: 1000000,
@@ -176,6 +188,108 @@ export default {
           img: 'advertisement1.jpg',
         },
       ],
+      categories: [
+        {
+          id: '054654654',
+          name: 'Oshxona jihozlari',
+          icon_name: 'phone.png',
+          icon_name_w: 'phoneW.png',
+          sub_category: {
+            id: '4555567676571',
+            title_name: 'Oshxona uchun katta ',
+            images: '',
+            products: [
+              {
+                product_name: 'Muzlatgichlar',
+                id: '2',
+              },
+              {
+                product_name: 'Gaz plitalar',
+                id: '2',
+              },
+              {
+                product_name: 'Mikrotoʻlqinli pechlar',
+                id: '2',
+              },
+              {
+                product_name: 'Dudboʻronlar',
+                id: '2',
+              },
+              {
+                product_name: 'Pechlar',
+                id: '2',
+              },
+            ],
+          },
+        },
+        {
+          id: '054654654',
+          name: 'Oshxona jihozlari',
+          icon_name: 'phone.png',
+          icon_name_w: 'phoneW.png',
+          sub_category: {
+            id: '4555567676571',
+            title_name: 'Oshxona uchun  texnikalar',
+            images: '',
+            products: [
+              {
+                product_name: 'Muzlatgichlar',
+                id: '2',
+              },
+              {
+                product_name: 'Gaz plitalar',
+                id: '2',
+              },
+              {
+                product_name: 'Mikrotoʻlqinli pechlar',
+                id: '2',
+              },
+              {
+                product_name: 'Dudboʻronlar',
+                id: '2',
+              },
+              {
+                product_name: 'Pechlar',
+                id: '2',
+              },
+            ],
+          },
+        },
+        {
+          id: '054654654',
+          name: 'Oshxona jihozlfdfdfari',
+          icon_name: 'phone.png',
+          icon_name_w: 'phoneW.png',
+          sub_category: {
+            id: '4555567676571',
+            title_name: 'uchun katta texnikalar',
+            images: '',
+            products: [
+              {
+                product_name: 'Muzlatgichlar',
+                id: '2',
+              },
+              {
+                product_name: 'Gaz plitalar',
+                id: '2',
+              },
+              {
+                product_name: 'Mikrotoʻlqinli pechlar',
+                id: '2',
+              },
+              {
+                product_name: 'Dudboʻronlar',
+                id: '2',
+              },
+              {
+                product_name: 'Pechlar',
+                id: '2',
+              },
+            ],
+          },
+        },
+      ],
+      
     }
   },
 }

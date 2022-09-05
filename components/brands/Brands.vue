@@ -4,7 +4,7 @@
       <h3 class="text-black font-bold font-sans">{{ $t('brands.brandKey') }}</h3>
       <router-link to="#" class="text-green border-b text-sm font-semibold"> {{ $t('brands.brandKeyLink') }} </router-link>
     </div>
-    <VueSlickCarousel v-bind="settings" class="slider">
+    <VueSlickCarousel v-bind="settings">
       <div v-for="i in 2" :key="i">
         <div class="flex justify-between">
           <BrandComponent

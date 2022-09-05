@@ -5,10 +5,9 @@
 </template>
 
 <script>
-import Navbar from '../navbar/Navbar.vue'
 import LangBar from '../navbar/LangBar.vue'
 export default {
-  components: {LangBar,},
+  components: {LangBar},
 
 }
 </script>

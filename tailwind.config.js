@@ -20,7 +20,7 @@ module.exports = {
         serif: ['Poppins', ...defaultTheme.fontFamily.serif],
 
       },
-    }, 
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
@@ -44,9 +44,10 @@ module.exports = {
       px: '1px',
       0: '0px',
       0.35: '3px',
-      0.4:'7px',
-      0.5:'10px',
-      0.75:'15px',
+      0.37: '5px',
+      0.4: '7px',
+      0.5: '10px',
+      0.75: '15px',
       1: '11px',
       2: '14px',
       3: '17px',
@@ -57,10 +58,11 @@ module.exports = {
       7: '43px',
       8: '53px',
       8.5: '60px',
+      8.7: '83px',
       9: '67px',
       9.5: '100px',
-      10:"130px",
-      
+      10: "130px",
+
     },
     gridAutoColumns: {
       auto: 'auto',
@@ -561,6 +563,8 @@ module.exports = {
       '1/3': '33.333333%',
       '2/3': '66.666667%',
       '1/4': '25%',
+      '1/5':"20%",
+      '1/6':"16%",
       '2/4': '50%',
       '3/4': '75%',
       full: '100%',
@@ -604,7 +608,7 @@ module.exports = {
       full: '100%',
       screen: '100vw',
       min: 'min-content',
-      max: 'max-content'
+      max: 'max-content',
     }),
     stroke: {
       current: 'currentColor'

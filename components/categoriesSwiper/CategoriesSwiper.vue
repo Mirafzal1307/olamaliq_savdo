@@ -37,7 +37,5 @@ export default {
 }
 </script>
 <style >
-.slider{
-  z-index: -999 !important;
-}
+
 </style>

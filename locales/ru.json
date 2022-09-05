@@ -24,5 +24,32 @@
         "DiscountProductLink": "Все товары",
         "FavoriteProduct": "Избранные продукты",
         "FavoriteProductLink": "Все товары"
-    }
+    },
+    "contact":{
+        "telegram":"через телеграмму",
+        "phone":"по телефону"
+      },
+      "footer":{
+        "service":"Сервис поддержки",
+        "time":"Каждый день"
+      },
+      "lastVisit":{
+        "lastvisit":"Последнее посещение"
+      },
+      "registration":{
+        "welcome":"Добро пожаловать!",
+        "inputPhone":"Номер телефона",
+        "inputPassword":"Пароль",
+        "checkBox":"Запомнить пароль",
+        "logIn":"Войти",
+        "validatePhone":"Неверный номер телефона!",
+        "validateParol":"Неправильный пароль!",
+        "inputName":"ФИО",
+        "inputParol2":"Пароль",
+        "inputParol3":"Подтвердите пароль!",
+        "validateInputName":"Укажите имя!",
+        "validateParol2":"требуется пароль!",
+        "agreement":"Я согласен с условиями использования.",
+        "register":"войти"
+      }
 }
