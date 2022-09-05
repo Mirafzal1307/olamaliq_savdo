@@ -24,5 +24,32 @@
     "DiscountProductLink": "All products",
     "FavoriteProduct": "Favorite Products",
     "FavoriteProductLink": "All products"
+  },
+  "contact":{
+    "telegram":"Via telegram",
+    "phone":"Via phone"
+  },
+  "footer":{
+    "service":"Support Service",
+    "time":"Every day"
+  },
+  "lastVisit":{
+    "lastvisit":"Last visited"
+  },
+  "registration":{
+    "welcome":"Welcome!",
+    "inputPhone":"Phone number",
+    "inputPassword":"Password",
+    "checkBox":"Remember the password",
+    "logIn":"Log in",
+    "validatePhone":"Wrong phone number!",
+    "validateParol":"Wrong password!",
+    "inputName":"Fullname",
+    "inputParol2":"Password",
+    "inputParol3":"Confirm the password!",
+    "validateInputName":"Name is required!",
+    "validateParol2":"Password is required!",
+    "agreement":"I agree to the terms of use",
+    "register":"Log up"
   }
 }

@@ -4,7 +4,7 @@
     "cat": "Katalog",
     "sevimli": "Sevimli",
     "taqqos": "Taqqos",
-    "savat": "Savat"
+    "savat": "Savatcha"
   },
   "services": {
     "arzon": "Bizdan arzonini topsangiz pulingizni qaytaramiz !!!",
@@ -24,5 +24,33 @@
     "DiscountProductLink": "Barcha Mahsulotlar",
     "FavoriteProduct": "Sevimli Mahsulotlar",
     "FavoriteProductLink": "Barcha Mahsulotlar"
+  },
+  "contact":{
+    "telegram":"Telegramdan yozing",
+    "phone":"Telifon qiling"
+  },
+  "footer":{
+    "service":"Qo`llab-quvvatlash xizmati ",
+    "time":"Har kuni",
+    "location":"Olmaliq shahar, Kamalak tumani, Amir Timur ko`chasi 29-a uy"
+  },
+  "lastVisit":{
+    "lastvisit":"So'ngi ko'rilgan"
+  },
+  "registration":{
+    "welcome":"Xush kelibsiz !",
+    "inputPhone":"Telefon raqamingiz",
+    "inputPassword":"Parolni kiriting",
+    "checkBox":"Eslab qolinsinmi?",
+    "logIn":"Kirish",
+    "validatePhone":"Telifon raqam noto`g`ri!",
+    "validateParol":"Noto`g`ri parol kiritildi!",
+    "inputName":"Ismingiz",
+    "inputParol2":"Parol",
+    "inputParol3":"Parolni qayta tering!",
+    "validateInputName":"Ismingizmi kiritishingiz shart!",
+    "validateParol2":"Parolni kiritishingiz shart!",
+    "agreement":"Foydalanish shartlariga roziman",
+    "register":"Ro`yxatdan o`tish"
   }
 }

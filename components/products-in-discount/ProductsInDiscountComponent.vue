@@ -108,6 +108,7 @@
             {{ fixedPrice }} so'mdan / 24 oy
           </p>
           <button
+          @click = "addtoCart()"
             class="
               text-sm
               bg-green
@@ -147,6 +148,14 @@ export default {
   data() {
     return {
       fixedPrice: (this.item.price / 24).toFixed(0),
+    }
+  },
+  methods: {
+    addtoCart(){
+      this.$store.dispatch("cart/addProductToCart",{
+        product:this.item,
+        quantity:1
+      })
     }
   },
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="self-center slider">
+  <div class="self-center">
     <div class="shadow-sm rounded  mt-4 relative">
       <div class="h-full rounded justify-self-center self-center flex">
         <img
