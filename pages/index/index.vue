@@ -4,8 +4,12 @@
     <div class="sticky z-50 top-0 shadow-sm">
       <Navbar :categories="categories" />
     </div>
-    <div class="content"></div>
+     <div class="content"></div>
     <Container>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5dca8ada217187f9619cd5ecea46cd9050f82ed3
       <CategoriesSwiper />
       <categories-component-vue :categoryItems="categoryItems" />
       <brands-vue :brandItems="brandItems" />
@@ -41,8 +45,6 @@ export default {
     CategoriesComponentVue,
     Services,
     BrandSlider,
-    BrandSlider,
-    Services,
     MyComponent,
     BrandsVue,
     PopularProductsVue,
@@ -288,7 +290,7 @@ export default {
           },
         },
       ],
-      
+
     }
   },
 }
