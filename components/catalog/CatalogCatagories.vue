@@ -41,7 +41,7 @@
               pt-0.5
             "
           >
-            <div v-for="item in categories" :key="item.id">
+            <div v-for="(item, index) in categories" :key="index">
               <div class="flex">
                 <div class="parentCat">
                   <div class="h-auto">
@@ -59,7 +59,7 @@
                         />
                         <ul>
                           <li class="font-sans text font-medium">
-                            <router-link to="#" >
+                            <router-link to="#">
                               {{ item.name }}
                             </router-link>
                           </li>
@@ -81,7 +81,7 @@
                           {{ item.sub_category.title_name }}
                         </router-link>
                       </p>
-                      <ul v-for="cat in item.sub_category.products" :key="cat.id">
+                      <ul v-for="(cat, index) in item.sub_category.products" :key="index">
                         <li class="text-black text font-normal font-sans cursor-pointer">
                           <router-link to="#">
                             {{ cat.product_name }}

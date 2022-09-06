@@ -2,9 +2,13 @@
   <div>
     <div class="flex justify-between mb-4 mt-4">
       <h3 class="text-black font-bold font-sans">{{ $t('products.PopularProduct') }}</h3>
-      <router-link to="#" class="text-green border-b text-sm font-semibold">
+      <!-- <nuxt-link :to="localePath('/all-products')" class="text-green border-b text-sm font-semibold">
         {{ $t('products.PopularProductLink') }}
-      </router-link>
+      </nuxt-link> -->
+        
+      <nuxt-link :to="localePath(`/allproducts`)" class="text-green border-b text-sm font-semibold">
+        {{ $t('products.PopularProductLink') }}
+      </nuxt-link>
     </div>
 
         <div class="flex justify-between gap-2">
