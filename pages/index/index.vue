@@ -6,10 +6,6 @@
     </div>
      <div class="content"></div>
     <Container>
-<<<<<<< HEAD
-=======
-
->>>>>>> 5dca8ada217187f9619cd5ecea46cd9050f82ed3
       <CategoriesSwiper />
       <categories-component-vue :categoryItems="categoryItems" />
       <brands-vue :brandItems="brandItems" />
