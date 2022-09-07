@@ -35,6 +35,7 @@ module.exports = {
       'light-gray': '#F8F8F8'
     },
     screens: {
+      xsm:"320px",
       sm: '640px',
       md: '768px',
       lg: '1024px',

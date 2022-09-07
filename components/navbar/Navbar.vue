@@ -8,7 +8,7 @@
               <span class="border-b-2 border-green">Olmaliq</span> Savdo
             </h1>
           </nuxt-link>
-          <div class="">
+          <div>
             <CatalogCatagories :categories="categories" />
           </div>
           <div class="search relative w-7/12">
