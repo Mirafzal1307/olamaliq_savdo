@@ -19,11 +19,11 @@
   },
   "products": {
     "PopularProduct": "Ommabob Mahsulotlar",
-    "PopularProductLink": "Barcha Mahsulotlar",
+    "PopularProductLink": "Barchasi",
     "DiscountProduct": "Chegirmadagi Mahsulotlar",
-    "DiscountProductLink": "Barcha Mahsulotlar",
+    "DiscountProductLink": "Barchasi",
     "FavoriteProduct": "Sevimli Mahsulotlar",
-    "FavoriteProductLink": "Barcha Mahsulotlar"
+    "FavoriteProductLink": "Barchasi"
   },
   "contact":{
     "telegram":"Telegramdan yozing",

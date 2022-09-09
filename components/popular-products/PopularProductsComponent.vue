@@ -11,7 +11,7 @@
       </nuxt-link>
     </div>
 
-        <div class="flex justify-between gap-2">
+        <div class=" justify-between gap-2 grid xsm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 flex-col">
           <PopularProductComponent
             class="w-full"
             v-for="(item, idx) in productItems"

@@ -232,6 +232,7 @@ module.exports = {
       'not-allowed': 'not-allowed'
     },
     fontSize: {
+      'xsm': '0.502rem', // 9px
       'xs': '0.687rem', // 11px
       'sm': '0.875rem', // 14px
       'DEFAULT': '1.062rem', // 17px 
@@ -455,7 +456,8 @@ module.exports = {
       20: '20',
       30: '30',
       40: '40',
-      50: '50'
+      50: '50',
+      75: '75'
     },
     fontFamily: {
       sans: [

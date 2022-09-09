@@ -1,37 +1,16 @@
 <template>
   <div>
-    <Header />
-    <div class="sticky z-50 top-0 shadow-sm">
-      <Navbar :categories="categories" />
-    </div>
-    <Container>
-      <div class="flex flex-col items-center justify-center mt-7 font-sans">
-        <img src="~/assets/images/LoginImage.svg" alt="login" />
-        <p class="xsm:text-center">
-          Xaridni davom ettirish uchun akkauntingizga kiring yoki
-          <span class="text-green font-semibold cursor-pointer">Olmaliq savdo</span> saytidan
-          <span class="text-green font-semibold cursor-pointer">roʻyxatdan</span> oʻting !!!
-        </p>
-        <h1 class="font-semibold text-4xl my-4 text-green xsm:text-center">{{ $t('registration.welcome') }}</h1>
-        <LogupPage />
-      </div>
-    </Container>
-    <Footer />
+    <AllCategories :categories="categories" />
   </div>
 </template>
 
 <script>
-import Navbar from '~/components/navbar/Navbar.vue'
-import Container from '~/components/Container.vue'
-import Footer from '~/components/footer/Footer.vue'
-import Header from '~/components/header/header.vue'
-import LogupPage from '~/components/regstration/LogupPage.vue'
+import AllCategories from '~/components/allCategories/AllCategories.vue'
 export default {
-  name: 'Registration',
-  components: { Header, Navbar, Container, Footer, LogupPage },
+  components: { AllCategories },
   data() {
     return {
-        categories: [
+      categories: [
         {
           id: '054654654',
           name: 'Oshxona jihozlari',

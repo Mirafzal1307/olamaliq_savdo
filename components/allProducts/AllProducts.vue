@@ -4,8 +4,8 @@
     <div class="flex justify-between gap-2">
       <Navbar :categories="categories" />
     </div>
-    <nuxt-link :to="localePath(`/`)" >
-    <p>Bosh sahifa</p>
+    <nuxt-link :to="localePath(`/`)">
+      <p>Bosh sahifa</p>
     </nuxt-link>
     <Footer />
   </div>

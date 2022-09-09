@@ -1,18 +1,20 @@
 <template>
-  <div>
+  <div class="xsm:px-2">
     <div class="flex justify-between mb-4">
       <h3 class="text-black font-bold font-sans">{{ $t('brands.brandKey') }}</h3>
       <router-link to="#" class="text-green border-b text-sm font-semibold"> {{ $t('brands.brandKeyLink') }} </router-link>
     </div>
-    <VueSlickCarousel v-bind="settings">
-      <div v-for="i in 2" :key="i">
-        <div class="flex justify-between">
-          <BrandComponent
-            class="w-full"
-            v-for="(item, idx) in brandItems"
-            :key="idx"
-            :item="item"
-          />
+    <VueSlickCarousel v-bind="settings" :arrows="false" :dots="false">
+      <div v-for="i in 1" :key="i">
+        <div>
+          <div class="flex justify-between gap-2">
+            <BrandComponent
+              class="w-full grid-cols-12 grid"
+              v-for="(item, idx) in brandItems"
+              :key="idx"
+              :item="item"
+            />
+          </div>
         </div>
       </div>
     </VueSlickCarousel>
@@ -36,8 +38,7 @@ export default {
       type: Array | Object,
       required: true,
       default: () => [],
-
-    }
+    },
   },
   data() {
     return {
@@ -47,9 +48,41 @@ export default {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        speed: 3000,
-        autoplaySpeed: 8000,
+        speed: 5000,
+        autoplaySpeed: 10000,
         cssEase: 'linear',
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 320,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+        ],
       },
     }
   },
