@@ -1,5 +1,5 @@
 <template>
-  <div class="xsm:px-2">
+  <div>
     <div class="flex justify-between mb-4">
       <h3 class="text-black font-bold font-sans">{{ $t('brands.brandKey') }}</h3>
       <router-link to="#" class="text-green border-b text-sm font-semibold"> {{ $t('brands.brandKeyLink') }} </router-link>
