@@ -37,7 +37,7 @@ build_kaniko_prod:
 deploy_prod:
   stage: deploy_prod
   # image: kroniak/ssh-client
-  image: docker
+  # image: docker
   # services: 
   #   - docker:dind
   services:
