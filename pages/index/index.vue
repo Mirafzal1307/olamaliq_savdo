@@ -1,10 +1,8 @@
 <template>
   <div class="main relative">
     <Header />
-    <div class="sticky z-50 top-0 shadow-sm">
-      <Navbar :categories="categories" />
-    </div>
-     <div class="content"></div>
+    <Navbar :categories="categories" />
+    <div class="content"></div>
     <Container>
       <CategoriesSwiper />
       <categories-component-vue :categoryItems="categoryItems" />
@@ -15,11 +13,12 @@
       <favorite-products-vue :productItems="productItems" />
       <BrandSlider />
       <Services />
-      <LastSeenProducts :productItems="productItems.slice(0,6)"/>
+      <LastSeenProducts :productItems="productItems.slice(0, 6)" />
     </Container>
-    <Contact/>
-    <ScrollTopButton />
+    <Contact />
     <FooterVue />
+    <ScrollTopButton />
+    <FooterNavbar class="sticky" />
   </div>
 </template>
 <script>
@@ -36,6 +35,7 @@ import AdvertisementProductsComponentVue from '~/components/advertisement-produc
 import FavoriteProductsVue from '~/components/favorite-products/FavoriteProducts.vue'
 import Contact from '~/components/contact/Contact.vue'
 import LastSeenProducts from '~/components/lastSeenProducts/LastSeenProducts.vue'
+import FooterNavbar from '~/components/footer/FooterNavbar.vue'
 export default {
   components: {
     CategoriesComponentVue,
@@ -50,8 +50,9 @@ export default {
     AdvertisementProductsComponentVue,
     FavoriteProductsVue,
     Contact,
-    LastSeenProducts
-},
+    LastSeenProducts,
+    FooterNavbar,
+  },
   data() {
     return {
       categoryItems: [
@@ -84,7 +85,7 @@ export default {
       ],
       productItems: [
         {
-          id:1,
+          id: 1,
           img: 'product1.jpg',
           name: 'Samsung Galaxy S10',
           price: 1000000,
@@ -99,7 +100,7 @@ export default {
           available: true,
         },
         {
-          id:2,
+          id: 2,
           img: 'product2.jpg',
           name: 'Samsung Galaxy S10',
           price: 1000000,
@@ -114,7 +115,7 @@ export default {
           available: true,
         },
         {
-          id:6,
+          id: 6,
           img: 'product3.jpg',
           name: 'Samsung Galaxy S10',
           price: 1000000,
@@ -129,7 +130,7 @@ export default {
           available: true,
         },
         {
-          id:3,
+          id: 3,
           img: 'product4.jpg',
           name: 'Samsung Galaxy S10',
           price: 1000000,
@@ -144,7 +145,7 @@ export default {
           available: true,
         },
         {
-          id:4,
+          id: 4,
           img: 'product5.jpg',
           name: 'Samsung Galaxy S10',
           price: 1000000,
@@ -159,7 +160,7 @@ export default {
           available: false,
         },
         {
-          id:5,
+          id: 5,
           img: 'product6.jpg',
           name: 'Samsung Galaxy S10',
           price: 1000000,
@@ -199,22 +200,27 @@ export default {
               {
                 product_name: 'Muzlatgichlar',
                 id: '2',
+                slug: 'muzlatgichlar',
               },
               {
                 product_name: 'Gaz plitalar',
                 id: '2',
+                slug: 'gaz-plitalar',
               },
               {
-                product_name: 'Mikrotoʻlqinli pechlar',
+                product_name: "Mikroto'lqinli pechlar",
                 id: '2',
+                slug: 'mikrotolqinli-pechlar',
               },
               {
-                product_name: 'Dudboʻronlar',
+                product_name: "Dudbo'ronlar",
                 id: '2',
+                slug: 'dudbronlar',
               },
               {
                 product_name: 'Pechlar',
                 id: '2',
+                slug: 'pechlar',
               },
             ],
           },
@@ -232,22 +238,27 @@ export default {
               {
                 product_name: 'Muzlatgichlar',
                 id: '2',
+                slug: 'muzlatgichlar',
               },
               {
                 product_name: 'Gaz plitalar',
                 id: '2',
+                slug: 'gaz-plitalar',
               },
               {
-                product_name: 'Mikrotoʻlqinli pechlar',
+                product_name: "Mikroto'lqinli pechlar",
                 id: '2',
+                slug: 'mikrotolqinli-pechlar',
               },
               {
-                product_name: 'Dudboʻronlar',
+                product_name: "Dudbo'ronlar",
                 id: '2',
+                slug: 'dudbronlar',
               },
               {
                 product_name: 'Pechlar',
                 id: '2',
+                slug: 'pechlar',
               },
             ],
           },
@@ -265,28 +276,32 @@ export default {
               {
                 product_name: 'Muzlatgichlar',
                 id: '2',
+                slug: 'muzlatgichlar',
               },
               {
                 product_name: 'Gaz plitalar',
                 id: '2',
+                slug: 'gaz-plitalar',
               },
               {
-                product_name: 'Mikrotoʻlqinli pechlar',
+                product_name: "Mikroto'lqinli pechlar",
                 id: '2',
+                slug: 'mikrotolqinli-pechlar',
               },
               {
-                product_name: 'Dudboʻronlar',
+                product_name: "Dudbo'ronlar",
                 id: '2',
+                slug: 'dudbronlar',
               },
               {
                 product_name: 'Pechlar',
                 id: '2',
+                slug: 'pechlar',
               },
             ],
           },
         },
       ],
-
     }
   },
 }

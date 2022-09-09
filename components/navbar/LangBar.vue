@@ -1,14 +1,14 @@
 <template>
-  <div class="bg-green p-0.35 w-full text-white">
+  <div class="bg-green p-0.35  w-full text-white">
     <Container>
-      <div class="flex justify-end">
+      <div class="flex justify-end grid-cols-12 gap-4 xsm:gap-0 ">
         <img class="w-5 h-3" :src="images[locale]" alt="imgaes have" />
-        <select v-model="locale"  @change="langChanges(locale)" name="" id="" class="bg-transparent self-end outline-none">
+        <select v-model="locale"  @change="langChanges(locale)" name="" id="" class="bg-transparent self-end outline-none ">
           <option
             v-for="(item, index) in $i18n.locales"
             :key="index"
             :value="item.code"
-            class="text-black"
+            class="text-black "
           >
             {{ item.name }}
           </option>

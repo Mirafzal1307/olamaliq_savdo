@@ -1,8 +1,6 @@
 <template>
-  <div class="flex">
-    <img :src="require(`~/assets/images/${item.img}`)" alt="PhotoOfCategory" class="w-full" />
-    <div class="self-center pl-2">
-    </div>
+  <div class="flex gap-x-1">
+    <img :src="require(`~/assets/images/${item.img}`)" alt="PhotoOfCategory" class="w-full col-span-12" />
   </div>
 </template>
 

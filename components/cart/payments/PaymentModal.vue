@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute  top-10 z-50 w-3/4  bg-white rounded-md  pb-5">
+    <div class="absolute  top-10 z-50 xsm:left-1 xsm:right-1 lg:left-15 lg:right-15  bg-white rounded-md  pb-5">
         <div class="flex px-5 py-3 relative">
             <h2 class=" font-semibold">Muddatli to'lov uchun hamkor tanlang</h2>
             <div @click="hideModalFunc"

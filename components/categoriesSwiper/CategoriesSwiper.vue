@@ -1,6 +1,6 @@
 <template>
   <div class="mt-0.5 mb-0.5" >
-    <Container>
+    <Container  >
       <VueSlickCarousel :arrows="true" :dots="false" class="slider" v-bind="settings">
         <div class="text-center text-white z-0" v-for="i in 5" :key="i">
           <img src="~/assets/images/1-200x100.jpg" alt="rasm" class="w-full" />

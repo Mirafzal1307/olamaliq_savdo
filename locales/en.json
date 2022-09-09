@@ -19,11 +19,11 @@
   },
   "products": {
     "PopularProduct": "Popular Products",
-    "PopularProductLink": "All products",
+    "PopularProductLink": "All",
     "DiscountProduct": "Discount Products",
-    "DiscountProductLink": "All products",
+    "DiscountProductLink": "All",
     "FavoriteProduct": "Favorite Products",
-    "FavoriteProductLink": "All products"
+    "FavoriteProductLink": "All"
   },
   "contact":{
     "telegram":"Via telegram",

@@ -1,37 +1,26 @@
 <template>
   <div>
     <Header />
-    <div class="sticky z-50 top-0 shadow-sm">
+    <div>
       <Navbar :categories="categories" />
     </div>
     <Container>
-      <div class="flex flex-col items-center justify-center mt-7 font-sans">
-        <img src="~/assets/images/LoginImage.svg" alt="login" />
-        <p class="xsm:text-center">
-          Xaridni davom ettirish uchun akkauntingizga kiring yoki
-          <span class="text-green font-semibold cursor-pointer">Olmaliq savdo</span> saytidan
-          <span class="text-green font-semibold cursor-pointer">roʻyxatdan</span> oʻting !!!
-        </p>
-        <h1 class="font-semibold text-4xl my-4 text-green xsm:text-center">{{ $t('registration.welcome') }}</h1>
-        <LogupPage />
-      </div>
+      <nuxt-link :to="localePath(`/`)">
+        <p>Bosh sahifa  </p>
+         <img src="" />
+      </nuxt-link>
     </Container>
     <Footer />
   </div>
 </template>
 
 <script>
-import Navbar from '~/components/navbar/Navbar.vue'
-import Container from '~/components/Container.vue'
-import Footer from '~/components/footer/Footer.vue'
-import Header from '~/components/header/header.vue'
-import LogupPage from '~/components/regstration/LogupPage.vue'
+import Container from '../Container.vue'
 export default {
-  name: 'Registration',
-  components: { Header, Navbar, Container, Footer, LogupPage },
+  name: 'AllCategories',
   data() {
     return {
-        categories: [
+      categories: [
         {
           id: '054654654',
           name: 'Oshxona jihozlari',
@@ -51,11 +40,11 @@ export default {
                 id: '2',
               },
               {
-                product_name: 'Mikroto\'lqinli pechlar',
+                product_name: "Mikroto'lqinli pechlar",
                 id: '2',
               },
               {
-                product_name: 'Dudbo\'ronlar',
+                product_name: "Dudbo'ronlar",
                 id: '2',
               },
               {
@@ -72,7 +61,7 @@ export default {
           icon_name_w: 'phoneW.png',
           sub_category: {
             id: '4555567676571',
-            title_name: 'Oshxona uchun  texnikalar',
+            title_name: 'Oshxona uchun katta ',
             images: '',
             products: [
               {
@@ -84,11 +73,11 @@ export default {
                 id: '2',
               },
               {
-                product_name: 'Mikroto\'lqinli pechlar',
+                product_name: "Mikroto'lqinli pechlar",
                 id: '2',
               },
               {
-                product_name: 'Dudbo\'ronlar',
+                product_name: "Dudbo'ronlar",
                 id: '2',
               },
               {
@@ -100,12 +89,12 @@ export default {
         },
         {
           id: '054654654',
-          name: 'Oshxona jihozlfdfdfari',
+          name: 'Oshxona jihozlari',
           icon_name: 'phone.png',
           icon_name_w: 'phoneW.png',
           sub_category: {
             id: '4555567676571',
-            title_name: 'uchun katta texnikalar',
+            title_name: 'Oshxona uchun katta ',
             images: '',
             products: [
               {
@@ -117,11 +106,11 @@ export default {
                 id: '2',
               },
               {
-                product_name: 'Mikroto\'lqinli pechlar',
+                product_name: "Mikroto'lqinli pechlar",
                 id: '2',
               },
               {
-                product_name: 'Dudbo\'ronlar',
+                product_name: "Dudbo'ronlar",
                 id: '2',
               },
               {
@@ -134,8 +123,11 @@ export default {
       ],
     }
   },
+  components: { Container },
 }
 </script>
 
 <style scoped>
 </style>
+
+  

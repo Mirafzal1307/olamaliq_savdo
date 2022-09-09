@@ -1,10 +1,10 @@
 <template>
   <VueSlickCarousel :arrows="true" :dots="false" v-bind="settings"   >
-    <div v-for="i in 2" :key="i" >
+    <div v-for="i in 1" :key="i"  >
       <div >
         <div class="flex justify-between mt-3 mr-2 gap-2 mb-4">
           <CategoryComponent
-            class="bg-light-gray rounded"
+            class="bg-light-gray rounded grid-cols-12 grid "
             v-for="(item, idx) in categoryItems"
             :key="idx"
             :item="item"
@@ -43,7 +43,39 @@ export default {
         "autoplay": true,
         "speed": 5000,
         "autoplaySpeed": 10000,
-        "cssEase": "linear"
+        "cssEase": "linear",
+        "responsive": [
+          {
+            "breakpoint": 1024,
+            "settings": {
+              "slidesToShow": 1,
+              "slidesToScroll": 1,
+              "infinite": true,
+              "dots": true
+            }
+          },
+          {
+            "breakpoint": 600,
+            "settings": {
+              "slidesToShow": 1,
+              "slidesToScroll": 1
+            }
+          },
+          {
+            "breakpoint": 480,
+            "settings": {
+              "slidesToShow": 1,
+              "slidesToScroll": 1
+            }
+          },
+          {
+            "breakpoint": 320,
+            "settings": {
+              "slidesToShow": 1,
+              "slidesToScroll": 1
+            }
+          }
+        ]
       },
     }
   },

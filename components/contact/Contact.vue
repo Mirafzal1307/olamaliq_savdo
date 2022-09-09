@@ -1,6 +1,6 @@
 <template>
-    <div class="flex contact flex-col gap-3 w-1/6 ml-auto z-50 absolute right-0">
-        <div class="telegram flex gap-1 bg-blue text-white font-semibold px-1 items-center max-w-max ml-auto py-0.5 cursor-pointer rounded-l-full">
+    <div class="flex contact flex-col gap-3 w-1/6 ml-auto z-30 absolute right-0 xsm:hidden lg:block ">
+        <div class="telegram flex gap-1 bg-blue text-white font-semibold px-1 items-center max-w-max ml-auto py-0.5 cursor-pointer rounded-l-full mb-1">
             <div class="border-2 flex items-center justify-center rounded-full w-6 h-6 ">
                 <img src="~/assets/icons_svg/Telegram.svg" alt="telegram">
             </div>
@@ -30,9 +30,20 @@
 <style scoped>
     .contact{
         bottom:350px;
+
     }
    .telegram:hover :nth-child(2){
         display: block;
         
    }
+   @media  (min-width:768px) and (max-width:1024px) {
+    .contact{
+        bottom:197px;
+    }
+   }
+   @media   (max-width:1024px) {
+    .contact{
+        bottom:350px;
+    }
+    }
 </style>

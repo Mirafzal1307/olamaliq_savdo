@@ -31,11 +31,11 @@ export default {
                 id: '2',
               },
               {
-                product_name: 'Mikrotoʻlqinli pechlar',
+                product_name: 'Mikroto\'lqinli pechlar',
                 id: '2',
               },
               {
-                product_name: 'Dudboʻronlar',
+                product_name: 'Dudbo\'ronlar',
                 id: '2',
               },
               {
@@ -64,11 +64,11 @@ export default {
                 id: '2',
               },
               {
-                product_name: 'Mikrotoʻlqinli pechlar',
+                product_name: 'Mikroto\'lqinli pechlar',
                 id: '2',
               },
               {
-                product_name: 'Dudboʻronlar',
+                product_name: 'Dudbo\'ronlar',
                 id: '2',
               },
               {
@@ -97,11 +97,11 @@ export default {
                 id: '2',
               },
               {
-                product_name: 'Mikrotoʻlqinli pechlar',
+                product_name: 'Mikroto\'lqinli pechlar',
                 id: '2',
               },
               {
-                product_name: 'Dudboʻronlar',
+                product_name: 'Dudbo\'ronlar',
                 id: '2',
               },
               {
