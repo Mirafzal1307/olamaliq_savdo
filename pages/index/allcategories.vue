@@ -1,14 +1,13 @@
 <template>
   <div>
-    <AllProducts :categories="categories" />
+    <AllCategories :categories="categories" />
   </div>
 </template>
 
 <script>
-import AllProducts from '~/components/allProducts/AllProducts.vue'
+import AllCategories from '~/components/allCategories/AllCategories.vue'
 export default {
-  name: 'AllProductsRoute',
-  components: { AllProducts },
+  components: { AllCategories },
   data() {
     return {
       categories: [

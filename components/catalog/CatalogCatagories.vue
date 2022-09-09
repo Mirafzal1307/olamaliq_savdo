@@ -7,8 +7,11 @@
         flex
         justify-center
         items-center
-        py-1
-        px-5
+        lg:py-1
+        lg:px-5
+        xsm:px-1
+        xsm:py-2
+
         gap-2
         cursor-pointer
         bg-green
@@ -18,8 +21,8 @@
       "
     >
       <img src="../../assets/icons_svg/Menu.svg" alt="menu" />
-      {{ $t('navbar.cat') }}
-      <img src="../../assets/icons_svg/ArrowRight.svg" alt="arrow" />
+      <span class="xsm:hidden lg:block" > {{ $t('navbar.cat') }}</span>
+      <img src="../../assets/icons_svg/ArrowRight.svg" alt="arrow" class="xsm:hidden lg:block " />
     </button>
 
     <div v-if="catalog"></div>
@@ -59,9 +62,9 @@
                         />
                         <ul>
                           <li class="font-sans text font-medium">
-                            <router-link to="#">
+                            <nuxt-link :to="localePath(`/allcategories`)">
                               {{ item.name }}
-                            </router-link>
+                            </nuxt-link>
                           </li>
                         </ul>
                       </div>
@@ -77,15 +80,20 @@
                   <div class="flex-col rounded-b">
                     <div class="SubCaregory rounded-b">
                       <p class="text-green font-sans text font-bold pb-2">
-                        <router-link to="#">
+                        <nuxt-link :to="localePath(`/allcategories`)">
                           {{ item.sub_category.title_name }}
-                        </router-link>
+                        </nuxt-link>
                       </p>
+                      <ul v-for="mountain in mountains" :key="mountain.id">
+                        <NuxtLink :to="`${mountain.continent.toLowerCase()}/${mountain.slug}`">
+                          <li>{{ mountain.title }}</li>
+                        </NuxtLink>
+                      </ul>
                       <ul v-for="(cat, index) in item.sub_category.products" :key="index">
                         <li class="text-black text font-normal font-sans cursor-pointer">
-                          <router-link to="#">
+                          <nuxt-link :to="localePath(`/allcategories`)">
                             {{ cat.product_name }}
-                          </router-link>
+                          </nuxt-link>
                         </li>
                       </ul>
                     </div>
@@ -110,6 +118,14 @@ export default {
       required: true,
       default: () => [],
     },
+  },
+  async asyncData() {
+    console.log('hello')
+    const mountains = await fetch('https://api.nuxtjs.dev/mountains').then((res) =>
+      console.log(res.json())
+    )
+    console.log(mountains)
+    return { mountains }
   },
 
   data() {

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex slider">
+  <div class="">
     <div class="self-center ">
       <div class="shadow-sm rounded p-3 m-0.35 relative ">
         <div class="h-10 justify-self-center self-center flex">
@@ -104,7 +104,7 @@
             {{ item.description }}
           </p>
           <p class="font-sans font-bold text text-green pt-3 pb-0.5">{{ item.price }} so'm</p>
-          <p class="bg-gray px-0.5 py-0.35 rounded font-sans font-medium text-xs">
+          <p class="bg-gray px-0.5 py-0.35 rounded font-sans font-medium sm:text-xs xsm:text-xsm ">
             {{ fixedPrice }} so'mdan / 24 oy
           </p>
           <button
@@ -120,6 +120,7 @@
               rounded
               cursor-pointer
               mt-1
+              xsm:text-sm
             "
           >
             <router-link to="#" class="flex justify-around">

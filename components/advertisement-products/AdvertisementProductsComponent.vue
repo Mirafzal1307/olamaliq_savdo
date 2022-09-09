@@ -1,13 +1,13 @@
 <template>
   <div>
-        <div class="flex justify-between gap-2">
-          <AdvertisementProductVue
-            class="w-full"
-            v-for="(item, idx) in advertisementItems"
-            :key="idx"
-            :item="item"
-          />
-        </div>
+      <div class="flex justify-between gap-2">
+        <AdvertisementProductVue
+          class="w-full "
+          v-for="(item, idx) in advertisementItems"
+          :key="idx"
+          :item="item"
+        />
+      </div>
   </div>
 </template>
 
@@ -17,12 +17,14 @@ import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 import AdvertisementProductVue from './AdvertisementProduct.vue'
+import Container from '../Container.vue'
 
 export default {
   name: 'AdvertisementProductsComponent',
   components: {
     VueSlickCarousel,
-    AdvertisementProductVue
+    AdvertisementProductVue,
+    Container,
   },
   props: {
     advertisementItems: {

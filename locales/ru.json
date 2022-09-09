@@ -19,11 +19,11 @@
     },
     "products": {
         "PopularProduct": "Популярные продукты",
-        "PopularProductLink": "Все товары",
+        "PopularProductLink": "Все",
         "DiscountProduct": "Дисконтные продукты",
-        "DiscountProductLink": "Все товары",
+        "DiscountProductLink": "Все",
         "FavoriteProduct": "Избранные продукты",
-        "FavoriteProductLink": "Все товары"
+        "FavoriteProductLink": "Все"
     },
     "contact":{
         "telegram":"через телеграмму",
