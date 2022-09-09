@@ -3,10 +3,10 @@
      xsm:pb-8.7  -->
   <div
     :class='[scrollWatch]'
-    class='sticky w-full flex justify-end bottom-0 transition lg:pr-16 z-75 -mt-8 pb-0.37 pr-8.5 xsm:pr-0.5  sm:pr-7 md:pr-6 md:pb-2'
+    class='sticky w-full flex justify-end bottom-0 transition lg:pr-16 z-75 -mt-8 pb-0.37 pr-8.5 xsm:pr-0.5  sm:pr-7 md:pr-6 md:pb-2 bg-transparent'
   >
     <div class='text-gray-400 hover:text-blue-400 transition'>
-      <button @click='scrollTop' class='rounded-full border-2 border-green bg-white py-3 px-1 xsm:py-0.5 xsm:px-0.35 '><img
+      <button @click='scrollTop' class='rounded-full border-2 border-green bg-white lg:py-3 lg:px-1 xsm:py-0.5 xsm:px-0.35 '><img
         src='~/assets/images/backtoTop.jpg' alt='Back to top'></button>
     </div>
   </div>
