@@ -32,8 +32,8 @@
                     text-black-900
                     outline-none
                     border-green
-                    pl-1
-                    py-1
+                    lg:pl-1
+                    lg:py-1
                     xsm:px-0.4 xsm:py-0.4
                     rounded-md
                     w-full
@@ -50,7 +50,7 @@
                     flex
                     justify-center
                     items-center
-                    p-2
+                    lg:p-2
                     xsm:px-0.5 xsm:py-0.5
                     bg-green
                     rounded-r-md
