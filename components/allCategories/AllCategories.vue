@@ -7,7 +7,7 @@
     <Container>
       <nuxt-link :to="localePath(`/`)">
         <p>Bosh sahifa  </p>
-         <img src="" />
+         <img src="~/assets/images/ArrowLeft.jpg" />
       </nuxt-link>
     </Container>
     <Footer />
