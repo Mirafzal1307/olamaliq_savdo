@@ -1,9 +1,9 @@
 <template>
 <!--  pb-3 
-     xsm:pb-8.7  -->
+     xsm:pb-8.7 -154 75  -->
   <div
     :class='[scrollWatch]'
-    class='sticky w-full flex justify-end bottom-0 transition lg:pr-16 z-75 -mt-8 pb-0.37 pr-8.5 xsm:pr-0.5  sm:pr-7 md:pr-6 md:pb-2 bg-transparent'
+    class='sticky w-full flex justify-end bottom-0 transition lg:pr-16 z-75 -mt-14 xsm:-mt-10 pb-8.7 pr-8.5 xsm:pr-0.5  sm:pr-7 md:pr-6 md:pb-2 bg-transparent'
   >
     <div class='text-gray-400 hover:text-blue-400 transition'>
       <button @click='scrollTop' class='rounded-full border-2 border-green bg-white lg:py-3 lg:px-1 xsm:py-0.5 xsm:px-0.35 '><img

@@ -1,5 +1,5 @@
 <template>
-  <VueSlickCarousel :arrows="true" :dots="false" v-bind="settings" class="xsm:px-2"   >
+  <VueSlickCarousel :arrows="true" :dots="false" v-bind="settings"   >
     <div v-for="i in 1" :key="i"  >
       <div >
         <div class="flex justify-between mt-3 mr-2 gap-2 mb-4">
