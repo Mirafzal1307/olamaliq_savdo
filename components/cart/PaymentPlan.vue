@@ -1,5 +1,5 @@
 <template>
-    <div class="shadow-sm rounded-md p-3 mt-1 self-start">
+    <div class="shadow-sm rounded-md p-3 mt-2 self-start">
         <h3 class="text-green font-sans font-semibold">To'lov rejasi:</h3>
         <h5 class="text-sm mt-1">Mahsulotlar:  2</h5>
         <h5 class="text-sm mt-0.35">Tarif:  12oy</h5>

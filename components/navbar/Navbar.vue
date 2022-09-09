@@ -8,7 +8,7 @@
               <span class="border-b-2 border-green">Olmaliq</span> Savdo
             </h1>
           </nuxt-link>
-          <div class="">
+          <div>
             <CatalogCatagories :categories="categories" />
           </div>
           <div class="search relative w-7/12">
@@ -81,13 +81,14 @@
                   0
                 </div>
               </div>
-              <div class="text-sm">{{ $t('navbar.sevimli') }}</div>
+              <div class=" text-sm text-center">{{ $t('navbar.sevimli') }}</div>
             </div>
             <div
               class="
                 actions
                 flex-col flex
                 items-center
+                justify-center
                 cursor-pointer
                 hover:text-green
                 transition-all
@@ -118,7 +119,7 @@
                   0
                 </div>
               </div>
-              <div class="text-sm">{{ $t('navbar.taqqos') }}</div>
+              <div class="text-sm text-center">{{ $t('navbar.taqqos') }}</div>
             </div>
             <nuxt-link :to="localePath('/cart')">
               <div
@@ -129,6 +130,7 @@
                   cursor-pointer
                   hover:text-green
                   transition-all
+                  justify-center
                   w-9
                   relative
                 "
@@ -141,9 +143,9 @@
                       absolute
                       flex
                       items-center
-                      justify-center
                       w-3
                       h-3
+                      justify-center
                       font-semibold
                       text-xs
                       rounded-full
@@ -156,22 +158,20 @@
                     {{ cart.length }}
                   </div>
                 </div>
-                <div class="text-sm">{{ $t('navbar.savat') }}</div>
+                <div class="text-sm text-center">{{ $t('navbar.savat') }}</div>
               </div>
             </nuxt-link>
             <nuxt-link :to="localePath('/login')">
               <div
                 class="
                   actions
-                  flex-col
                   w-7
                   h-7
                   flex
-                  items-center
                   justify-center
+                  items-center
                   rounded-md
                   cursor-pointer
-                  items-cent
                   bg-green
                   text-white
                 "

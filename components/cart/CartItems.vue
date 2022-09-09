@@ -1,9 +1,9 @@
 <template>
-    <div class=" w-full mt-5 ">
+    <div class="w-full mt-5 ">
         <h1 class=" text-2xl text-green font-semibold font-sans">Harid savatchasi</h1>
-        <div class="flex flex-initial justify-between ">
-            <div class="shadow-sm w-3/4 mt-1 py-3 px-2 self-start rounded-md">
-                <div class="header flex justify-between">
+        <div class=" md:flex xsm:w-full flex-initial justify-between">
+            <div class="shadow-sm xsm:w-full md:w-3/5 lg:w-2/3 xl:w-3/4 mt-1 py-3 px-2 self-start rounded-md">
+                <div class="header xsm:w-full flex justify-between xsm:hidden sm:flex">
                     <h4 class=" font-semibold text-black">Mahsulot</h4>
                     <div class="subHeader flex justify-evenly w-3/5">
                         <h4 class=" font-semibold text-black">Narx</h4>

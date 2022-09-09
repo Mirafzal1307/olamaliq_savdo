@@ -1,5 +1,5 @@
 <template>
-    <form @submit = "onSubmit" class="w-2/5">
+    <form @submit = "onSubmit" class=" xsm:w-full sm:w-4/5 md:w-2/5">
         <div class="relative">
             <input v-model="inputData.phone" class=" border-2 py-0.5 px-1  outline-none border-black rounded-md w-full" type="phone"
                 maxlength="13">
