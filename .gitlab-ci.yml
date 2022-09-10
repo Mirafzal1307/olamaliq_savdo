@@ -37,11 +37,11 @@ stages:
 deploy_prod:
   stage: deploy_prod
   # image: kroniak/ssh-client
-  image: docker:latest
+  # image: docker:latest
   # services: 
   #   - docker:dind
-  services:
-    - docker:19.03.13-dind
+  # services:
+  #   - docker:19.03.13-dind
 
   before_script:
     - echo "deploying app"
@@ -55,8 +55,8 @@ deploy_prod:
     - dev
   tags: 
     - shop_front
-  services:
-    - docker:dind
+  # services:
+  #   - docker:dind
   script:
     - apk search openssh
     - apk add --update --no-cache openssh
