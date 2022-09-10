@@ -1,6 +1,6 @@
 # image: 
 #   name: gcr.io/kaniko-project/executor:debug
-image: docker:19.03.13
+image: alpine:latest
 
   # entrypoint: [""]
 
