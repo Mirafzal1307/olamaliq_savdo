@@ -40,8 +40,9 @@ deploy_prod:
   # image: docker:latest
   # services: 
   #   - docker:dind
-  services:
-    - docker:19.03.13-dind
+
+  # services:
+  #   - docker:19.03.13-dind
 
   before_script:
     - echo "deploying app"
