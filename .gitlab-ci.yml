@@ -1,6 +1,6 @@
 # image: 
 #   name: gcr.io/kaniko-project/executor:debug
-image: alpine:latest
+image: alpine
 
   # entrypoint: [""]
 
@@ -46,7 +46,7 @@ deploy_prod:
 
   before_script:
     - echo "deploying app"
-    - chmod og= $SSH_PRIVATE_KEY
+    # - chmod og= $SSH_PRIVATE_KEY
     - apk update && apk add openssh-client
     - apk search openssh
     - apk add --update --no-cache openssh
