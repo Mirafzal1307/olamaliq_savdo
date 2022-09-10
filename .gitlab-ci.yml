@@ -54,7 +54,9 @@ deploy_prod:
   only:
     - dev
   tags: 
-    - shop_front    
+    - shop_front
+  services:
+    - docker:dind
   script:
     - apk search openssh
     - apk add --update --no-cache openssh
