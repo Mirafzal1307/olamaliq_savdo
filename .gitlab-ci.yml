@@ -5,33 +5,33 @@ image: docker:19.03.13
   # entrypoint: [""]
 
 stages:
-  - build_kaniko_prod
+  # - build_kaniko_prod
   - deploy_prod  
 
 
-build_kaniko_prod:
-  stage: build_kaniko_prod
-  variables:
-    IMAGE_DESTINATION: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}
-  only:
-    - dev
-  tags: 
-    - shop_front
-  image:
-      # We recommend using the CERN version of the Kaniko image: gitlab-registry.cern.ch/ci-tools/docker-image-builder
-      # name: gitlab-registry.cern.ch/ci-tools/docker-image-builder
-      name: gcr.io/kaniko-project/executor:debug
+# build_kaniko_prod:
+#   stage: build_kaniko_prod
+#   variables:
+#     IMAGE_DESTINATION: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}
+#   only:
+#     - dev
+#   tags: 
+#     - shop_front
+#   image:
+#       # We recommend using the CERN version of the Kaniko image: gitlab-registry.cern.ch/ci-tools/docker-image-builder
+#       # name: gitlab-registry.cern.ch/ci-tools/docker-image-builder
+#       name: gcr.io/kaniko-project/executor:debug
       
-      entrypoint: [""]
-  script:
-      # Prepare Kaniko configuration file
-      - echo $CI_REGISTRY_IMAGE
-      - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-      # Build and push the image from the Dockerfile at the root of the project.
-      - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $IMAGE_DESTINATION --cache-dir=/workspace/cache 
-      # Print the full registry path of the pushed image
-      - echo "Image pushed successfully to ${IMAGE_DESTINATION}"
-      - echo "${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}"      
+#       entrypoint: [""]
+#   script:
+#       # Prepare Kaniko configuration file
+#       - echo $CI_REGISTRY_IMAGE
+#       - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+#       # Build and push the image from the Dockerfile at the root of the project.
+#       - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $IMAGE_DESTINATION --cache-dir=/workspace/cache 
+#       # Print the full registry path of the pushed image
+#       - echo "Image pushed successfully to ${IMAGE_DESTINATION}"
+#       - echo "${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}"      
 
 
 deploy_prod:
@@ -47,12 +47,16 @@ deploy_prod:
     - echo "deploying app"
     - chmod og= $SSH_PRIVATE_KEY
     - apk update && apk add openssh-client
+    - apk search openssh
+    - apk add --update --no-cache openssh
+
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   only:
     - dev
   tags: 
     - shop_front    
   script:
+    - apk search openssh
     - apk add --update --no-cache openssh
     - chmod 400 $SSH_PRIVATE_KEY
     - ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$PROD_SERVER_IP "docker login -u '$CI_REGISTRY_USER' -p '$CI_REGISTRY_PASSWORD' $CI_REGISTRY"
