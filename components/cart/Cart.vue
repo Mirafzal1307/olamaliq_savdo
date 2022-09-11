@@ -1,10 +1,12 @@
 <template>
-  <div>
+  <div class="relative">
     <Header />
     <div class="sticky z-50 top-0 shadow-sm">
       <Navbar :categories="categories" />
     </div>
+    <BgBlur v-show="modal" />
     <Container>
+      <PaymentModal v-show="modal" :cart="cart" />
       <CartItems />
       <Services />
     </Container>
@@ -19,9 +21,22 @@ import Services from '~/components/services/Services.vue'
 import LangBar from '~/components/navbar/LangBar.vue'
 import Container from '~/components/Container.vue'
 import CartItems from './CartItems.vue'
+import PaymentModal from './payments/PaymentModal.vue'
+import BgBlur from './payments/BgBlur.vue'
 export default {
   name: 'Cart',
-  components: { Navbar, Footer, Services, LangBar, Container, CartItems },
+  components: { Navbar, Footer, Services, LangBar, Container, CartItems, PaymentModal, BgBlur },
+  computed: {
+    modal() {
+     console.log(this.$store.state.showModal);
+      return this.$store.state.modal.showModal
+    },
+        cart() {
+      return this.$store.state.cart?.cart
+    },
+
+  },
+  
   data() {
     return {
       categories: [
@@ -131,4 +146,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>
