@@ -2,7 +2,7 @@
   <div>
     <div class="bg-green p-7 text-white text-center mt-7">
       <Container>
-        <div class="flex w-full content-between xsm:hidden">
+        <div class="flex w-full content-between xsm:hidden lg:block">
           <div class="flex flex-col">
             <h3 class="font-semibold text-lg mr-auto">{{ $t('footer.service') }}</h3>
             <div class="flex gap-1 my-1">

@@ -2,9 +2,9 @@
   <div>
     <div class="flex justify-between mb-4 mt-4">
       <h3 class="text-black font-bold font-sans">{{ $t('products.DiscountProduct') }}</h3>
-      <router-link to="#" class="text-green border-b text-sm font-semibold">
+      <nuxt-link :to="localePath(`/allproducts`)" class="text-green border-b text-sm font-semibold">
         {{ $t('products.DiscountProductLink') }}
-      </router-link>
+      </nuxt-link>
     </div>
 
         <div class="justify-between gap-2 grid xsm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 flex-col">
