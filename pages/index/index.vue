@@ -1,7 +1,10 @@
 <template>
   <div class="main relative">
     <Header />
-    <Navbar :categories="categories" />
+    <div class="sticky z-75 top-0 shadow-sm">
+      <Navbar :categories="categories" />
+    </div>
+
     <div class="content"></div>
     <Container>
       <CategoriesSwiper />
