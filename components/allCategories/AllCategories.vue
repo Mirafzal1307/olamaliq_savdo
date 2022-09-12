@@ -5,10 +5,27 @@
       <Navbar :categories="categories" />
     </div>
     <Container>
-      <nuxt-link :to="localePath(`/`)">
-        <p>Bosh sahifa  </p>
-         <img src="~/assets/images/ArrowLeft.jpg" />
-      </nuxt-link>
+      <div class="flex justify-start items-baseline gap-0.37">
+        <nuxt-link :to="localePath(`/`)">
+          <p
+            class="
+              hover:text-green hover:border-b hover:border-green hover:leading-none
+              cursor-pointer">
+            Bosh sahifa
+          </p>
+        </nuxt-link>
+        <img src="~/assets/images/ArrowLeft.jpg" :alt="`${category}`" class="h-1" />
+        <p
+          class="
+            hover:text-green hover:border-b hover:border-green hover:leading-none
+            cursor-pointer
+          "
+        >
+          {{ category }}
+        </p>
+      </div>  
+      <BrandSlider />
+      
     </Container>
     <Footer />
   </div>
@@ -16,6 +33,8 @@
 
 <script>
 import Container from '../Container.vue'
+import BrandSlider from '../services/BrandSlider.vue';
+
 export default {
   name: 'AllCategories',
   data() {
@@ -121,9 +140,12 @@ export default {
           },
         },
       ],
+      // zone: this.$nuxt.$route.params,
+      category: this.$nuxt.$route.params.allcategories,
     }
   },
-  components: { Container },
+
+  components: { Container, BrandSlider },
 }
 </script>
 

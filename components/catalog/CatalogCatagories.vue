@@ -58,7 +58,7 @@
                         />
                         <ul>
                           <li class="font-sans text font-medium">
-                            <nuxt-link :to="localePath(`/${item.name}${item.id}`)">
+                            <nuxt-link :to="localePath(`/${item.name}`)">
                               {{ item.name }}
                             </nuxt-link>
                           </li>
@@ -75,18 +75,18 @@
                   </div>
                   <div class="flex-col rounded-b">
                     <div class="SubCaregory rounded-b">
-                      <p class="text-green font-sans text font-bold pb-2" :key="item.index">
+                      <p class="text-green font-sans text font-bold mb-2 hover:text-green hover:border-b hover:border-green leading-none cursor-pointer" :key="item.index">
                         <nuxt-link
                           :to="
-                            localePath(`/${item.sub_category.title_name}${item.sub_category.id}`)
+                            localePath(`/${item.sub_category.title_name}`)
                           "
                         >
                           {{ item.sub_category.title_name }}
                         </nuxt-link>
                       </p>
                       <ul v-for="(cat, index) in item.sub_category.products" :key="index">
-                        <li class="text-black text font-normal font-sans cursor-pointer">
-                          <nuxt-link :to="localePath(`/${cat.product_name}${cat.id}`)">
+                        <li class="text-black text font-normal font-sans hover:text-green hover:border-b hover:border-green leading-none cursor-pointer py-0.37">
+                          <nuxt-link :to="localePath(`/${cat.product_name}`)">
                             {{ cat.product_name }}
                           </nuxt-link>
                         </li>

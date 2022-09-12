@@ -2,9 +2,9 @@
     <div>
       <div class="flex justify-between mt-9">
         <h3 class="text-black font-bold font-sans">{{$t("lastVisit.lastvisit")}}</h3>
-        <router-link to="#" class="text-green border-b text-sm font-semibold">
+        <nuxt-link :to="localePath(`/allproducts`)" class="text-green border-b text-sm font-semibold">
           {{ $t('products.FavoriteProductLink') }}
-        </router-link>
+        </nuxt-link>
       </div>
       <div class="slider">
         <div class=" justify-between gap-2 grid xsm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 flex-col">
