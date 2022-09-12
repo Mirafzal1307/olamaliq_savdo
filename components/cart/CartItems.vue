@@ -16,7 +16,7 @@
                     :quantity="product.quantity" />
                 <div class="mt-7 text-2xl text-center" v-show="!cart.length">Savatcha Bo'mbo'sh 🥲🥲🥲</div>
             </div>
-            <PaymentPlan />
+            <PaymentPlan/>
         </div>
 
     </div>
@@ -32,7 +32,8 @@ export default {
         cart() {
             return this.$store.state.cart?.cart
         }
-    }
+    },
+  
 }
 </script>
 
