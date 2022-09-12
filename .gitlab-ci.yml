@@ -9,8 +9,8 @@ stages:
 
 build_kaniko_prod:
   stage: build_kaniko_prod
-  variables:
-    IMAGE_DESTINATION: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}
+#  variables:
+#    IMAGE_DESTINATION: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}
   only:
     - dev
   tags:
