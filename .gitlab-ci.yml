@@ -38,9 +38,9 @@ deploy-stage:
     - echo $ENV_FILE
     - cp $ENV_FILE .env.prod
     # stop existing docker container & remove images
-    - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no $USER@$PROD_SERVER_IP "docker stop $CI_PROJECT_NAME  true"
-    - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no $USER@$PROD_SERVER_IP "docker rm $CI_PROJECT_NAME  true"
-    - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no $USER@$PROD_SERVER_IP "docker image rm $CI_REGISTRY_IMAGE:latest  true"
+    - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no $USER@$PROD_SERVER_IP "docker stop $CI_PROJECT_NAME  "
+    - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no $USER@$PROD_SERVER_IP "docker rm $CI_PROJECT_NAME  "
+    - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no $USER@$PROD_SERVER_IP "docker image rm $CI_REGISTRY_IMAGE:latest "
     # pull new container
     - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no $USER@$PROD_SERVER_IP "docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY"
     - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no $USER@$PROD_SERVER_IP "docker pull $CI_REGISTRY_IMAGE:latest"
