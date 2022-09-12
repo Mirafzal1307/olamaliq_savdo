@@ -4,7 +4,7 @@ import i18n from './utils/i18n'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "Test",
+    title: "Olmaliq Savdo",
     htmlAttrs: {
       lang: "en"
     },

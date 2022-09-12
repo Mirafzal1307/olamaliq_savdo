@@ -1,7 +1,10 @@
 <template>
   <div class="main relative">
-    <Header />
-    <div class="sticky z-75 top-0 shadow-sm">
+    <div>
+      <Header />
+    </div>
+
+    <div class="sticky z-50 top-0 shadow-sm">
       <Navbar :categories="categories" />
     </div>
 
@@ -227,6 +230,38 @@ export default {
               },
             ],
           },
+          sub_category: {
+            id: '4555567676571',
+            title_name: 'Oshxona uchun kattasa ',
+            images: '',
+            products: [
+              {
+                product_name: 'Muzlatgichlar',
+                id: '2',
+                slug: 'muzlatgichlar',
+              },
+              {
+                product_name: 'Gaz plitalar',
+                id: '2',
+                slug: 'gaz-plitalar',
+              },
+              {
+                product_name: "Mikroto'lqinli pechlar",
+                id: '2',
+                slug: 'mikrotolqinli-pechlar',
+              },
+              {
+                product_name: "Dudbo'ronlar",
+                id: '2',
+                slug: 'dudbronlar',
+              },
+              {
+                product_name: 'Pechlar',
+                id: '2',
+                slug: 'pechlar',
+              },
+            ],
+          },
         },
         {
           id: '054654654',
@@ -310,8 +345,6 @@ export default {
 }
 </script>
 
-<style  scoped>
-</style>
 
 
 

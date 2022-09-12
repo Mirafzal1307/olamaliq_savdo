@@ -1,20 +1,28 @@
 <template>
-  <div class="bg-green p-0.35  w-full text-white">
-    <Container>
-      <div class="flex justify-end grid-cols-12 gap-4 xsm:gap-0 ">
-        <img class="w-5 h-3" :src="images[locale]" alt="imgaes have" />
-        <select v-model="locale"  @change="langChanges(locale)" name="" id="" class="bg-transparent self-end outline-none ">
-          <option
-            v-for="(item, index) in $i18n.locales"
-            :key="index"
-            :value="item.code"
-            class="text-black "
+  <div class="z-75 relative " >
+    <div class="bg-green p-0.35 w-full text-white ">
+      <Container>
+        <div class="flex justify-end grid-cols-12 gap-4 xsm:gap-0">
+          <img class="w-5 h-3" :src="images[locale]" alt="imgaes have" />
+          <select
+            v-model="locale"
+            @change="langChanges(locale)"
+            name=""
+            id=""
+            class="bg-transparent self-end outline-none"
           >
-            {{ item.name }}
-          </option>
-        </select>
-      </div>
-    </Container>
+            <option
+              v-for="(item, index) in $i18n.locales"
+              :key="index"
+              :value="item.code"
+              class="text-black"
+            >
+              {{ item.name }}
+            </option>
+          </select>
+        </div>
+      </Container>
+    </div>
   </div>
 </template>
 
@@ -31,13 +39,13 @@ export default {
         uz: imgUz,
         ru: imgRu,
         en: imgEn,
-      }
+      },
     }
   },
   methods: {
     langChanges(event) {
-      this.$router.push(this.switchLocalePath(event));
-      console.log(this.$i18n);
+      this.$router.push(this.switchLocalePath(event))
+      console.log(this.$i18n)
     },
   },
 }
