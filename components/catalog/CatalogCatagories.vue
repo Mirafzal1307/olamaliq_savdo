@@ -1,16 +1,14 @@
 <template>
-  <div>
+  <div id="app">
     <button
-      @click="catalog = !catalog"
+      @click="show = !show"
       class="
         katalog
         flex
         justify-center
         items-center
-        lg:py-1
-        lg:px-5
-        xsm:px-1
-        xsm:py-2
+        lg:py-1 lg:px-5
+        xsm:px-1 xsm:py-2
         gap-2
         cursor-pointer
         bg-green
@@ -20,13 +18,12 @@
       "
     >
       <img src="../../assets/icons_svg/Menu.svg" alt="menu" />
-      <span class="xsm:hidden lg:block" > {{ $t('navbar.cat') }}</span>
-      <img src="../../assets/icons_svg/ArrowRight.svg" alt="arrow" class="xsm:hidden lg:block " />
+      <span class="xsm:hidden lg:block"> {{ $t('navbar.cat') }}</span>
+      <img src="../../assets/icons_svg/ArrowRight.svg" alt="arrow" class="xsm:hidden lg:block" />
     </button>
 
-    <div v-if="catalog"></div>
-
-    <div v-else class="absolute w-full top-1 left-0">
+    <div v-show="show" class="absolute w-full top-1 left-0">
+      <div @click="show = !show" class="fixed top-0 right-0 h-screen w-screen bg-black opacity-60 zIndex">s</div>
       <div class="container">
         <div>
           <div
@@ -38,7 +35,7 @@
               h-500px
               shadow-sm
               rounded-b
-              top-8.7
+              lg:top-8.5
               left-0
               pt-0.5
             "
@@ -61,7 +58,7 @@
                         />
                         <ul>
                           <li class="font-sans text font-medium">
-                            <nuxt-link :to="localePath(`/allcategories`)">
+                            <nuxt-link :to="localePath(`/${item.name}${item.id}`)">
                               {{ item.name }}
                             </nuxt-link>
                           </li>
@@ -78,19 +75,18 @@
                   </div>
                   <div class="flex-col rounded-b">
                     <div class="SubCaregory rounded-b">
-                      <p class="text-green font-sans text font-bold pb-2">
-                        <nuxt-link :to="localePath(`/allcategories`)">
+                      <p class="text-green font-sans text font-bold pb-2" :key="item.index">
+                        <nuxt-link
+                          :to="
+                            localePath(`/${item.sub_category.title_name}${item.sub_category.id}`)
+                          "
+                        >
                           {{ item.sub_category.title_name }}
                         </nuxt-link>
                       </p>
-                      <ul v-for="mountain in mountains" :key="mountain.id">
-                        <NuxtLink :to="`${mountain.continent.toLowerCase()}/${mountain.slug}`">
-                          <li>{{ mountain.title }}</li>
-                        </NuxtLink>
-                      </ul>
                       <ul v-for="(cat, index) in item.sub_category.products" :key="index">
                         <li class="text-black text font-normal font-sans cursor-pointer">
-                          <nuxt-link :to="localePath(`/allcategories`)">
+                          <nuxt-link :to="localePath(`/${cat.product_name}${cat.id}`)">
                             {{ cat.product_name }}
                           </nuxt-link>
                         </li>
@@ -118,20 +114,12 @@ export default {
       default: () => [],
     },
   },
-  async asyncData() {
-    console.log('hello')
-    const mountains = await fetch('https://api.nuxtjs.dev/mountains').then((res) =>
-      console.log(res.json())
-    )
-    console.log(mountains)
-    return { mountains }
-  },
 
   data() {
     return {
-      catalog: true,
+      show: false,
       log: console.log,
-      isActive: true,
+
       //   cat: item.sub_category.products,
     }
   },
@@ -200,5 +188,8 @@ export default {
 }
 .parentCat:hover .icon_name_w {
   display: block !important;
+}
+.zIndex{
+  z-index: -1 !important;
 }
 </style>
