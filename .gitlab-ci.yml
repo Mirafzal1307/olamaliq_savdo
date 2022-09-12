@@ -1,48 +1,68 @@
-image: docker:19.03.13
+# image: 
+#   name: gcr.io/kaniko-project/executor:debug
+image: alpine
 
   # entrypoint: [""]
 
 stages:
-  - build_kaniko_prod
+  # - build_kaniko_prod
   - deploy_prod  
 
 
-build_kaniko_prod:
-  stage: build_kaniko_prod
-#  variables:
-#    IMAGE_DESTINATION: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}
-  only:
-    - dev
-  tags:
-    - "shop_front"
-  script:
-      # Prepare Kaniko configuration file
-      - echo $CI_REGISTRY_IMAGE
-      - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-      # Build and push the image from the Dockerfile at the root of the project.
-      - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $IMAGE_DESTINATION --cache-dir=/workspace/cache 
-      # Print the full registry path of the pushed image
-      - echo "Image pushed successfully to ${IMAGE_DESTINATION}"
-      - echo "${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}"      
+# build_kaniko_prod:
+#   stage: build_kaniko_prod
+#   variables:
+#     IMAGE_DESTINATION: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}
+#   only:
+#     - dev
+#   tags: 
+#     - shop_front
+#   image:
+#       # We recommend using the CERN version of the Kaniko image: gitlab-registry.cern.ch/ci-tools/docker-image-builder
+#       # name: gitlab-registry.cern.ch/ci-tools/docker-image-builder
+#       name: gcr.io/kaniko-project/executor:debug
+      
+#       entrypoint: [""]
+#   script:
+#       # Prepare Kaniko configuration file
+#       - echo $CI_REGISTRY_IMAGE
+#       - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+#       # Build and push the image from the Dockerfile at the root of the project.
+#       - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $IMAGE_DESTINATION --cache-dir=/workspace/cache 
+#       # Print the full registry path of the pushed image
+#       - echo "Image pushed successfully to ${IMAGE_DESTINATION}"
+#       - echo "${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}"      
 
-deploy-stage:
-  stage: deploy-stage
+
+deploy_prod:
+  stage: deploy_prod
+  image: kroniak/ssh-client
+  # image: docker:latest
+  # services: 
+  #   - docker:dind
+
+  # services:
+  #   - docker:19.03.13-dind
+
+  before_script:
+    - echo "deploying app"
+    # - chmod og= $SSH_PRIVATE_KEY
+    - apk update && apk add openssh-client
+    # - apk add --update --no-cache openssh
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    # - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   only:
     - dev
-  tags:
-    - "shop_front"  
-  image: alpine:latest
+  tags: 
+    - shop_front
+  # services:
+  #   - docker:dind
   script:
-    - chmod og= $SSH_PRIVATE_KEY
-    - apk update && apk add openssh-client
-    - echo $ENV_FILE
-    - cp $ENV_FILE .env.prod
-    # stop existing docker container & remove images
-    - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no $USER@$PROD_SERVER_IP "docker stop $CI_PROJECT_NAME  "
-    - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no $USER@$PROD_SERVER_IP "docker rm $CI_PROJECT_NAME  "
-    - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no $USER@$PROD_SERVER_IP "docker image rm $CI_REGISTRY_IMAGE:latest "
-    # pull new container
-    - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no $USER@$PROD_SERVER_IP "docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY"
-    - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no $USER@$PROD_SERVER_IP "docker pull $CI_REGISTRY_IMAGE:latest"
-    # run new container
-    - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no $USER@$PROD_SERVER_IP "docker run -d --restart unless-stopped --name $CI_PROJECT_NAME -p 2002:2002 --env-file=.env.prod -e "variableData=Docker-Run-Command" $CI_REGISTRY_IMAGE:latest"
+    # - apk search openssh
+    # - apk add --update --no-cache openssh
+    # - chmod 400 $SSH_PRIVATE_KEY
+    - ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$PROD_SERVER_IP "docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY"
+    - ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$PROD_SERVER_IP "docker login -u '$CI_REGISTRY_USER' -p '$CI_REGISTRY_PASSWORD' $CI_REGISTRY"
+    - ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$PROD_SERVER_IP "docker pull registry.gitlab.com/1itech_company_uz/shop_front:dev"
+    - ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$PROD_SERVER_IP "docker stop shop_front && docker rm shop_front && docker run -e "REACT_APP_BASE_URL=https://api.yengilcredit.uz" -e "PORT=2002" -e "REACT_APP_MINIO_ENPOINT=https://minio.yengilcredit.uz" -p 2002:2002 --name shop_front -d registry.gitlab.com/1itech_company_uz/shop_front:dev"
