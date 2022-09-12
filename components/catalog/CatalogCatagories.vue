@@ -11,7 +11,6 @@
         lg:px-5
         xsm:px-1
         xsm:py-2
-
         gap-2
         cursor-pointer
         bg-green

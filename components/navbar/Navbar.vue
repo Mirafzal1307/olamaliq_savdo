@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="sticky z-50 top-0 shadow-sm">
+    <div class="">
       <div class="foo w-full">
         <div class="w-full shadow shadow-black-500/50 bg-white">
           <Container class="relative">
