@@ -57,7 +57,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
     .form-checkbox{
         accent-color:green;
     }
