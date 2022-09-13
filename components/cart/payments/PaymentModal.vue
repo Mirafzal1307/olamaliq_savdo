@@ -3,7 +3,7 @@
         <div class="flex px-5 py-3 relative">
             <h2 class=" font-semibold">Muddatli to'lov uchun hamkor tanlang</h2>
             <div @click="hideModalFunc"
-                class="delete absolute right-1 top-2  ml-auto w-4  h-4 rounded-full cursor-pointer flex items-center justify-center border-2 border-black text-black font-semibold text-xsm">
+                class="delete absolute right-1 top-2  ml-auto w-4  h-4 rounded-full cursor-pointer flex items-center justify-center border-2 border-black text-black font-semibold text-sm">
                 X</div>
         </div>
         <hr class="text-green">
